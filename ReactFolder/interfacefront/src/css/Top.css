@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+#topbar_main{
+    background-color: #1a1d1f;
+    color: #fff;
+    border-bottom: 1px solid #8d8d8d;
+ 
+    
+}
+#topbar_main .row #col-left{
+    width: 50%;
+}
+
+#topbar_main .row #col-left i{
+    text-align: left;
+    background-color: #ff318e;
+    padding: 10px;
+    margin-left: -12px;
+    font-size: 24px;
+  
+}
+#topbar_main .row #col-right{
+    text-align: right;
+    width: 50%;
+    padding: 10px;
+    font-size: 14px
+
+}
+#topbar_main .row #col-right i{
+    margin-right: 10px;
+}

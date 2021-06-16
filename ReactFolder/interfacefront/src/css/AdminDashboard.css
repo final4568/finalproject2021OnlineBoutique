@@ -1,0 +1,28 @@
+.ntab ul{
+    text-decoration: none;
+    list-style: none;
+    width: 100%;
+    z-index: 1;
+
+}.ntab ul li a{
+    text-decoration: none;
+    color: honeydew;
+    border: none;
+    font-style: normal;
+    font-size: 14px;
+    z-index: 1;
+    
+  
+}.ntab ul li{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+.AP_address{
+    margin-top: 20px;
+    padding: 5px 10px 5px 10px;
+    border:1px solid rgba(56, 56, 56, 0.301);
+    margin-bottom: 20px;
+}

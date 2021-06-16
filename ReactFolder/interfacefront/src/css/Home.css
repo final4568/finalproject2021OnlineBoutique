@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Limelight&family=Montserrat&family=Pattaya&family=Roboto&display=swap');
+
+#slider{
+    background-color: #6d6d6d;
+    height: 400px;
+    text-align: center;
+    padding-top: 150px;
+    font-size: 60px;
+}
+#slider h1{
+    font-size: 80px;
+    color: azure;
+    font-weight: bold;
+  
+}
+
+
+
+#section2{
+    background-color: #1a1d1f;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+.content_section2  h1{
+    color: #ff318e;
+    font-size: 45px;
+    text-align: center;
+    font-weight: bold;
+}.content_section2 p{
+    font-size: 16px;
+    color:#fff;
+    text-align: center;
+    margin-top: -8px;
+    letter-spacing: 1px;
+}
+@media (width:900px) {
+    #Inersection2 .col-sm{
+        text-align: center;
+    }
+}
+
+#howWord{
+    padding-top: 70px;
+    margin-top: 30px;
+    text-align: center;
+}#howWord h1{
+    text-align: center;
+    font-weight: 800;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.068), 
+    0px -4px 10px rgba(255, 255, 255, 0.356);
+    font-family: 'Abril Fatface', cursive;
+    color: #ff318e;
+}#howWord p{
+    text-align: center;
+    font-size: 16px;
+
+}#howWord img{
+    margin-top: -30px;
+}
+
+#ser_img_row .col-sm{
+    margin-top: 20px;
+   
+}
+#serv_img{
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    
+}
+#ser_img_row a:hover img{
+    background-color: #1a1d1f;
+}
+
+
+
+#container {
+    position: relative;
+    
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+    width: 100%;
+  
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #ff318e;
+ 
+  }
+  
+  
+  #container:hover .overlay {
+    opacity: .8;
+    box-shadow: 0 0 10px #9d9d9d;
+
+  }
+  #bacgimg{
+    background: #6d6d6d;
+    margin-top: -30px;
+    margin-bottom: -82px;
+    padding-bottom: 100px;
+    background-image: url("https://jobsgum.com/wp-content/uploads/2021/05/aaa.jpg");
+    background-attachment: scroll;
+    overflow: auto;
+  }
+  
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: 1px solid #fff;
+    padding: 10px 40px 10px 40px;
+  }
+  #margin{
+      height: 300px;
+  }
+
+  #changegame{
+    margin-top: 80px;
+    background-image: url("https://jobsgum.com/wp-content/uploads/2021/05/Untitled-6.jpg");
+    background-attachment: fixed;
+    overflow: auto; 
+    padding-top:50px;
+    text-align: left;
+    padding-bottom: 60px;
+  }
+
+  
+#howWord1{
+    padding-top: 70px;
+    text-align: left;
+}#howWord1 h1{
+    text-align: left;
+    font-weight: 750;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+    0px -4px 10px rgba(255,255,255,0.3);
+    color: #fff;
+}#howWord1 p{
+    text-align: left;
+    font-size: 16px;
+    color: #fff;
+
+}#howWord1 img{
+    margin-top: -30px;
+}
+.btn_contact{
+    padding: 10px 60px 10px 60px;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+.btn_contact:hover{
+    background: #ff318e;
+    transform: 0.5;
+
+}
+
+
+#stepsforOrder{
+    margin-top: 20px;
+    
+}#stepsforOrder .col-sm{
+    padding: 10px;
+    text-align: center;
+}
+.innerContent{
+ border: 1px solid #1a1d1f15;
+ padding-top: 30px;
+ padding-left: 5px;
+ padding-right: 5px;
+
+}
+.innerContent i{
+    border: 1px solid #c2c2c2;
+    padding: 30px;
+    font-size: 20px;
+    border-radius: 50%;
+    margin: 10px;
+    color: #ff318e;
+}
+.innerContent h1{
+    font-size: 18px;
+    color: #414141;
+    text-transform: uppercase;
+    margin-top: 20px;
+
+}.innerContent p{
+    font-size: 15px;
+    padding: 5px;
+    color: #b8b8b8;
+    margin-bottom: 20px;
+}
+
+#stepsforOrder .col-sm:hover .innerContent{
+    box-shadow: 0 0 10px #9d9d9d38;
+}
+#stepsforOrder .col-sm:hover .innerContent i{
+    background: #ff318e;
+    border:1px solid #ff318e;
+    color: #fff;
+}
+#stepsforOrder .col-sm:hover .innerContent p{
+ color: #414141;
+}#stepsforOrder .col-sm:hover .innerContent  h1{
+    color: #ff318e;
+}
+#steps{
+    margin-bottom: 80px;
+}

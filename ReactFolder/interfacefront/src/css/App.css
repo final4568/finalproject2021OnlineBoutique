@@ -1,0 +1,13 @@
+.app_main{
+    margin-top: 0%;
+    padding: 0%;
+
+   
+}
+@media (width:900px) {
+   .app_main {
+    margin:0%;
+    padding: 0%;
+ 
+    }
+}
