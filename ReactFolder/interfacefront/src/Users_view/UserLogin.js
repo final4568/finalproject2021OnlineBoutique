@@ -32,11 +32,11 @@ const UserLogin = ({history}) => {
         };
     
         try {
-          const { data }  = await axios.post("/api/admin/login",{ email, password }, config);
+          const { data }  = await axios.post("/api/users/login",{ email, password }, config);
           console.log(data.admin);
 
           localStorage.setItem("authToken", data.token);                   
-          history.push('/admin/dashboard'); 
+          history.push('/user/dashboard'); 
 
         } catch (error) {
           setError(error.response.data.error);

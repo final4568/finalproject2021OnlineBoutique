@@ -7,18 +7,68 @@ import '../index.css';
 
 import Menu from '../layouts/Menu';
 
-
-
-
-
-const UserRegister = () => {
+const UserRegister = ({history}) => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [phone, setPhone] = useState("");
+    const [gender, setGender] = useState("");
+    const [address, setAddress] = useState("");
+    const [birthday, setBirthDay] = useState("");
     const [confirmpassword, setConfirmPassword] = useState("");
-    const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
+    const[password, setPassword] = useState("");
+    const[error, setError] = useState("");
+    const[success, setSuccess] = useState("");
 
+
+
+    const user_register = async (e)=>{
+        e.preventDefault();
+        const config = {
+            headers:{
+                "Content-Type": "application/json",
+            },
+        };
+        if(password !== confirmpassword){
+        setPassword("");
+        setConfirmPassword("");
+        
+        setTimeout(() => {
+          setError("");
+        }, 5000);
+        return setError("Passwords do not match");
+        }
+        try{
+            const { data } = await axios.post(
+                "/api/users/register",
+                  {
+                    username,
+                    email,
+                    phone,
+                    gender,
+                    password,
+                    address,
+                    birthday
+                  },
+                  config
+                );
+              
+                localStorage.setItem("authToken", data.token); 
+                setSuccess(data.data); 
+                history.push("/user/dashboard");
+
+        }catch(error){
+            setError(error.response.data.error);
+        setTimeout(() => {
+          setPassword("");
+          setConfirmPassword("");
+          setError("");
+          
+        }, 3000);
+        return setError("This Email Already Registered...! Try Another");
+        }
+
+
+    };
     
     return ( 
         <>
@@ -36,7 +86,7 @@ const UserRegister = () => {
         </div>
         <div className="form-container">            
             <div className="form-inner">
-            <form className="login">
+            <form onSubmit={user_register} className="login">
                 <div className="field">
                 <input type="text" placeholder="Name" name ="username" id="username" required
                     value = {username}
@@ -47,6 +97,28 @@ const UserRegister = () => {
                 <input type="email" placeholder="Email Address" name ="email" id="email" required
                     value = {email}
                     onChange = {(e)=>{setEmail(e.target.value)}}
+                />
+                </div>
+                <div className="field">
+                <input type="number" placeholder="Phone" name ="email" id="phone" required
+                    value = {phone}
+                    onChange = {(e)=>{setPhone(e.target.value)}}
+                />
+                </div><div className="field">
+                <input type="text" placeholder="Enter Gender" name ="email" id="phone" required
+                    value = {gender}
+                    onChange = {(e)=>{setGender(e.target.value)}}
+                />
+                </div><div className="field">
+                <textarea type="text" placeholder="Address" name ="email" id="phone" required
+                    value = {address}
+                    onChange = {(e)=>{setAddress(e.target.value)}}
+                />
+                </div> 
+                <div className="field">
+                <input  type="Date" placeholder="Birthday" name ="email" id="phone" required
+                    value = {birthday}
+                    onChange = {(e)=>{setBirthDay(e.target.value)}}
                 />
                 </div>
                 
@@ -62,14 +134,16 @@ const UserRegister = () => {
                     onChange = {(e)=>{setConfirmPassword(e.target.value)}}
                 />
                 </div>
+
+             
+                
+
+
                 <div className="field btn">
                 <div className="btn-layer"></div>
-                <input type="submit" value="Sign Up"/>
+                <input type="submit" value="Add New Tailor"/>
                 </div>
-                {/* <button type="submit"> sign up</button> */}
-                <div className="pass-link">
-                Already Have Account ? <Link to="/user/login">Login Now</Link>
-                </div>
+               
             </form>
             </div>
         </div>

@@ -3,7 +3,10 @@ const express = require('express');
 const router = express.Router();
 
 const {
-    register, login,forgotpassword,resetpassword
+    register, 
+    login,
+    forgotpassword,
+    resetpassword
 
 } = require("../controller/users");
 

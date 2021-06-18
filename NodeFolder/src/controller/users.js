@@ -7,23 +7,24 @@ const sendEmail = require("../utils/sendemail");
 
 
 exports.register = async (req, res, next) => {
-  const { username, email, phone, gender, password, address, birthday } =
-    req.body;
+  const { username, email, phone, gender, password, address, birthday } = req.body;
   try {
-    const users = await User.create({
+    const users = await Users.create({
       username,
       email,
       phone,
       gender,
       password,
       address,
-      birthday,
+      birthday
     });
     sendToken(users, 201, res);
+  
+
   } catch {
     res.status(500).json({
       success: false,
-      error: error().message,
+      error: error.message
     });
   }
 };
@@ -142,6 +143,6 @@ exports.resetpassword = async (req, res, next) => {
 
 
 const sendToken = (users, statusCode, res) => {
-  const token = user.getSignedJwtToken();
+  const token = users.getSignedJwtToken();
   res.status(statusCode).json({ success: true, token, users });
 };

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../index.css";
-
+import Header from "../layouts/Menu"
 
 const UserDashboards = ({history}) => {
     const [error, setError] = useState("");
@@ -33,13 +33,18 @@ const UserDashboards = ({history}) => {
         }
     },[history])
 
+    const logoutuser= ()=>{
+    localStorage.removeItem("authToken");
+    history.push("/")
+    }
+
     return error ? (
         <div style={{ textAlign: "center" }}>
           <span className="error-message">{error}</span>
         </div>
       ) : (
         <>
-        
+        <Header/>
           <div className="containter">
             <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
         
@@ -55,6 +60,8 @@ const UserDashboards = ({history}) => {
                 the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.
               </p>
+            <button onClick={logoutuser}>Logout</button>
+
             </div>
           </div>
         </>
