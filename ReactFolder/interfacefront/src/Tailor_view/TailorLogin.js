@@ -34,7 +34,7 @@ const TailorLogin = ({history}) => {
           );
           
           localStorage.setItem("authToken", data.token);    
-          history.push("/tailor");
+          history.push("/tailor/dashboard");
           
         } catch (error) {
           setError(error.response.data.error);

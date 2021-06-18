@@ -8,10 +8,10 @@ const TailorSideBar = () => {
 
       <div class="sidebar">
         <NavLink  to ="/">Home</NavLink>
-        <NavLink  to ="/tailor">Dashboard</NavLink>
+        <NavLink  to ="/tailor/dashboard">Dashboard</NavLink>
         <NavLink  to ="#">User</NavLink>
         <NavLink  to ="#">Orders</NavLink>
-        <NavLink  to ="/LoggedTailorProfile">Profile</NavLink>
+        <NavLink  to ="/LoggedTailor/Profile">Profile</NavLink>
       </div>
     </>
   );

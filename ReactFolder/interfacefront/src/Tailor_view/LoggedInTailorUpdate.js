@@ -49,7 +49,7 @@ const LoggedInTailorUpdate = ({ match , history}) => {
           body: JSON.stringify(body),
         });
         alert("Update Succeffully");
-        history.push("/LoggedTailorProfile")
+        history.push("/LoggedTailor/Profile")
       };
 
     return ( 

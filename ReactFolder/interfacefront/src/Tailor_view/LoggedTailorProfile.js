@@ -96,7 +96,7 @@ const LoggedTailorProfile = ({ history }) => {
               <strong>Admin Bio:</strong> {tailorprofile.bio}
             </p>
           </div>
-          <Link to={`/LoggedInTailorUpdate/${tailorprofile._id}`}>
+          <Link to={`/LoggedInTailor/Update/${tailorprofile._id}`}>
             <Button
               id="btn_table"
               color="warning"

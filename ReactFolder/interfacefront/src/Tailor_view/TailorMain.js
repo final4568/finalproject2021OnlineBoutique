@@ -67,12 +67,12 @@ const TailorMainpage = ({ history }) => {
                   <td>{tailor.email}</td>
                   <td>{tailor.phone}</td>
                   <td>
-                    <Link to={`/TailorProfile/${tailor._id}`}>
+                    <Link to={`/Tailor/Profile/${tailor._id}`}>
                       <Button id="btn_table" color="primary">
                         View
                       </Button>
                     </Link>
-                    <Link to={`/TailorUpdate/${tailor._id}`}>
+                    <Link to={`/Tailor/Update/${tailor._id}`}>
                       <Button id="btn_table" color="warning">
                         Edit
                       </Button>

@@ -48,7 +48,7 @@ const AdminUpdate = ({ match , history}) => {
       body: JSON.stringify(body),
     });
     alert("Update Succeffully");
-    history.push("/adminprofile")
+    history.push("/admin/profile")
   };
 
   return (

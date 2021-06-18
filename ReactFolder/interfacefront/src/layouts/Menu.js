@@ -31,8 +31,8 @@ const Menu = () => {
                     <div className="dropdown">
                     <button className="dropbtn">Login</button>
                     <div className="dropdown-content">
-                    <NavLink to="/admin">Admin</NavLink>
-                    <NavLink to="/tailor">Tailor</NavLink>
+                    <NavLink to="/admin/dashboard">Admin</NavLink>
+                    <NavLink to="/tailor/dashboard">Tailor</NavLink>
                     <NavLink to="/customer">Customer</NavLink>
                     </div>
                     </div>

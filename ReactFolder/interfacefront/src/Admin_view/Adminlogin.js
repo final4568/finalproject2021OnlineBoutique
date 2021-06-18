@@ -36,7 +36,7 @@ const Adminlogin = ({history}) => {
           console.log(data.admin);
 
           localStorage.setItem("authToken", data.token);                   
-          history.push(`/admin`); 
+          history.push('/admin/dashboard'); 
 
         } catch (error) {
           setError(error.response.data.error);
