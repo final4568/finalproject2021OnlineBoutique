@@ -17,6 +17,7 @@ app.use('/api/users', require('./routes/users'));
 
 app.use('/api/private', require('./routes/private'));
 app.use('/api/tailorprivate', require('./routes/TailorPrivate'));
+app.use('/api/userprivate', require('./routes/userprivate'));
 
 //error handler
 app.use(errorHandler);

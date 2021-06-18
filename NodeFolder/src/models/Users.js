@@ -60,5 +60,23 @@ const UserSchema = new mongoose.Schema({
     return await bcrypt.compare(password, this.password);
   };
 
+  UserSchema.methods.getResetPasswordToken = function () {
+    const resetToken = crypto.randomBytes(20).toString("hex");
+    this.resetPasswordToken = crypto
+      .createHash("sha256")
+      .update(resetToken)
+      .digest("hex");
+    this.resetPasswordExpire = Date.now() + 10 * (60 * 1000);
+    return resetToken;
+  };
+  
+  
+  // function for getting token
+  UserSchema.methods.getSignedJwtToken = function () {
+      return jwt.sign({ id: this._id }, process.env.JWT_SECRETKEYUSER, {
+        expiresIn: process.env.JWT_EXPIREUSER,
+      });
+  };
+  
   const User = mongoose.model("User", UserSchema);
   module.exports = User;
