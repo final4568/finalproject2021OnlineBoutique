@@ -33,7 +33,9 @@ import TailorProfile from './Tailor_view/TailorProfile';
 import TailorUpdate from './Tailor_view/TailorUpdate';
 
 import UserRegister from "./Users_view/UserRegister";
-
+import UserLogin from "./Users_view/UserLogin";
+import UserDashboards from "./Users_view/UserDashboard";
+import UserForgotPassword from "./Users_view/UserForgotPassword"
 
 function App() {
   return (
@@ -99,7 +101,9 @@ function App() {
           {/* User Routes */}
           <Switch>
             <Route exact path ="/user/register" component={UserRegister}/>
-            <Route exact path ="/user/login" component={UserRegister}/>
+            <Route exact path ="/user/login" component={UserLogin}/>
+            <Route exact path ="/user/UserForgotPassword" component={UserForgotPassword}/>
+            <Route exact path="/user/dashboard" component={ UserDashboards }/>
           </Switch>
 
           <Switch>

@@ -33,7 +33,7 @@ const Menu = () => {
                     <div className="dropdown-content">
                     <NavLink to="/admin/dashboard">Admin</NavLink>
                     <NavLink to="/tailor/dashboard">Tailor</NavLink>
-                    <NavLink to="/customer">Customer</NavLink>
+                    <NavLink to="/user/dashboard">Users</NavLink>
                     </div>
                     </div>
                 </div>

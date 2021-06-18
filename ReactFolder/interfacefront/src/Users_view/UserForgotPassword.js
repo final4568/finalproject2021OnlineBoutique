@@ -1,14 +1,17 @@
 
+
+
+
+
 import { useState } from "react";
 import axios from "axios";
 import '../index.css';
 import Menu from '../layouts/Menu';
 import Top from '../layouts/Top';
 import Footer from '../layouts/Footer';
-import { Link } from "react-router-dom"
+import {Link} from 'react-router-dom'
 
-
-const ForgotPasswordScreen = () => { 
+const UserForgotPassword = () => { 
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
@@ -54,7 +57,7 @@ const ForgotPasswordScreen = () => {
         </div>
         <div className="title-text">
             <div className="title login">
-              Forget Password
+              Forget Password User
         </div>        
        
         </div>
@@ -77,7 +80,9 @@ const ForgotPasswordScreen = () => {
                 <input type="submit" value="Send Email"/>
                 </div>
                 <div className="pass-link">
-                Don't Have A Account ? <Link to="/admin/login">SignUp Now</Link>
+             
+                 Go Back ? <Link to="/user/register">SignUp Now</Link>
+              
                 </div>
             </form>
             </div>
@@ -90,4 +95,6 @@ const ForgotPasswordScreen = () => {
 }
  
  
-export default ForgotPasswordScreen;
+export default UserForgotPassword;
+
+// export default UserForgotPassword;

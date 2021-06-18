@@ -86,9 +86,9 @@ const Adminlogin = ({history}) => {
                 <input type="submit" value="Login Now"/>
                 </div>
                 {/* <button type="submit">Login</button> */}
-                <div className="pass-link">
+                {/* <div className="pass-link">
                 Don't Have A Account ? <Link to="/admin/register">SignUp Now</Link>
-                </div>
+                </div> */}
             </form>
             </div>
         </div>
