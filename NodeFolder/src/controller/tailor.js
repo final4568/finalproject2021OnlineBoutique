@@ -2,8 +2,9 @@
 const Tailor = require("../models/Tailor");
 const crypto = require("crypto");
 const sendEmail = require("../utils/sendemail");
-const ErrorResponse = require("../utils/ErrorRespinse")
+// const ErrorResponse = require("../utils/ErrorRespinse")
 
+const jwt = require("jsonwebtoken");
 
 
 exports.register = async (req, res, next) => {
@@ -30,8 +31,6 @@ exports.register = async (req, res, next) => {
      next(error);
    }
 };
-
-
 
 exports.login = async (req, res, next) => {
     const { email, password } = req.body;
@@ -209,6 +208,43 @@ exports.update = async(req, res)=>{
   .catch((err) => res.status(500).send(err.message)); 
 
 };
+
+exports.tailorLoggedprofile = async (req, res)=>{
+  try {
+    let token;
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.startsWith("Bearer")
+    ) {
+      token = req.headers.authorization.split(" ")[1];
+    }
+
+    if (!token) {
+      res
+        .status(401)
+        .json({ success: false, error: "Not authorized to access this route" });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRETKEY);
+    const tailor = await Tailor.findById(decoded.id);
+
+    if (!tailor) {
+      res.status(404).json({
+        success: false,
+        error: "No user Found with this id",
+      });
+    }
+
+    res.status(200).json(tailor);
+    
+  } catch {
+    res.status(400).json({
+      success: false,
+      message: "Tailor's Profile Not Available",
+    });
+  }
+}
+
 
 
 const sendToken = (tailor, statusCode, res) => {

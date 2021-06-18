@@ -95,9 +95,9 @@ const Adminprofile = ({ history }) => {
             </p>
           </div>
 
-                    <Link to={`/adminupdate/${profile._id}`}>
-                      <Button id="btn_table" color="warning">  Edit Profile </Button>
-                    </Link>
+          <Link to={`/adminupdate/${profile._id}`}>
+            <Button id="btn_table" color="warning" style={{marginTop:"30px", marginBottom:"60px", float:"right"}}>  Click To Edit Profile </Button>
+          </Link>
         </div>
       </div>
     </>

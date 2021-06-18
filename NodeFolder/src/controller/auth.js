@@ -1,6 +1,8 @@
+
+
+
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
-
 const Admin = require("../models/Admin");
 const sendEmail = require("../utils/sendemail");
 
@@ -40,10 +42,11 @@ exports.login = async (req, res, next) => {
   }
   try {
     const admin = await Admin.findOne({ email }).select("+password");
+    
     if (!admin) {
       res.status(404).json({
         success: false,
-        error: "Invalid Codrentails",
+        error: "Invalid Email",
       });
       //return next(new ErrorResponse("Invalid Codrentails", 401));
     }

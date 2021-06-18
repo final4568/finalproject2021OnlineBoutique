@@ -9,7 +9,9 @@ const {
   getalltailors,
   deletetailor,
   tailorprofile,
-  update
+  update,
+  tailorLoggedprofile
+
 } = require("../controller/tailor");
 
 router.route("/register").post(register);
@@ -20,5 +22,7 @@ router.route("/getalltailors").get(getalltailors);
 router.route("/delete/:id").delete(deletetailor);
 router.route("/tailorprofile/:id").get(tailorprofile);
 router.route("/update/:id").put(update);
+router.route("/LoggedTailorProfile").get(tailorLoggedprofile);
+
 
 module.exports = router;

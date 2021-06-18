@@ -2,8 +2,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../index.css";
+import TailorHeader from "../layouts/TailorHeader";
+import TailorSideBar from "../layouts/TailorSidebar";
 
-const TailorPrivateScreen = ({history}) => {
+const TailorDashboard = ({history}) => {
     const [error, setError] = useState("");
     const [privateDate, setPrivateData] = useState("");
   
@@ -43,26 +45,23 @@ const TailorPrivateScreen = ({history}) => {
       </div>
     ) : (
       <>
-        <div className="container-fluid">
-          <div className="row" id="main-row">
-            <div className="col-3">1</div>
-            <div className="col-9">
-              <div style={{ background: "green", color: "wite" }}>
-                {privateDate}
-              </div>
-              <button
-                style={{
-                  margin: "300 auto",
-                }}
-                onClick={logoutHandler}
-              >
-                Logout
-              </button>
-            </div>
-          </div>
+        <TailorHeader />
+      <div className="containter">
+        <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
+          <TailorSideBar />
         </div>
+        <div className="col-10" id="right_dasBoard_col" style={{ float: "right" }}>
+          <h1>Tailor Dashboard</h1>
+          <p>
+            Lorem Ipsum has been the industry's standard dummy text ever since
+            the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book.
+          </p>
+
+        </div>
+      </div>
       </>
     );
 };
  
-export default TailorPrivateScreen;
+export default TailorDashboard;

@@ -19,7 +19,10 @@ import TailorLogin from "./Tailor_view/TailorLogin";
 import TailorRegister from "./Tailor_view/TailorRegister";
 import TailorForgotPassword from "./Tailor_view/TPassForgot";
 import TailorPasswordReset from "./Tailor_view/TPReset";
-import TailorPrivateScreen from "./Tailor_view/TprivateScreen";
+import TailorDashboard from "./Tailor_view/TailorDashboard";
+import LoggedTailorProfile from "./Tailor_view/LoggedTailorProfile";
+import LoggedInTailorUpdate from "./Tailor_view/LoggedInTailorUpdate";
+
 
 import Overview from './Tailor_view/Overview';
 import  Reports from './Tailor_view/Reports';
@@ -82,9 +85,14 @@ function App() {
           <Route exact path="/tailor/login" component={TailorLogin} />
             <Route exact path="/tailor/forgetpassword" component={TailorForgotPassword}/>
             <Route exact path="/tailorpasswordreset/:resetToken" component={TailorPasswordReset}/>
-              <Route exact path="/tailor" component={TailorPrivateScreen}/>
+              <Route exact path="/tailor" component={TailorDashboard}/>
           </Switch>
-      
+
+      {/* Tailor SideBar Routes */}
+          <Switch>
+              <Route exact path ="/LoggedTailorProfile" component={LoggedTailorProfile}/>
+              <Route exact path ="/LoggedInTailorUpdate/:id" component={LoggedInTailorUpdate}/>
+          </Switch>
           <Switch>
             <Route exact path="/Customer">
               <Customer />

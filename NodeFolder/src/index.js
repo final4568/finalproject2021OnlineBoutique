@@ -13,11 +13,10 @@ connectionDB();
 app.use(express.json());
 app.use('/api/admin', require('./routes/auth'));
 app.use('/api/tailor', require('./routes/tailor'));
-// app.use('/api/user', require('./routes/tailor'));
+app.use('/api/users', require('./routes/users'));
+
 app.use('/api/private', require('./routes/private'));
 app.use('/api/tailorprivate', require('./routes/TailorPrivate'));
-// app.use('/api/tailorprivate', require('./routes/TailorPrivate'));
-
 
 //error handler
 app.use(errorHandler);

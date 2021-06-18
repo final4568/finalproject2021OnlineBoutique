@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-
 const { protect } = require("../middleware/tailor");
 
 router.route("/").get(protect, (req, res)=>{
