@@ -34,5 +34,4 @@ console.log("Hi Application, how are you");
 
 process.on("unhandledRejection", (err, Promise)=>{
     console.log(`Logged Error: ${err}`);
-    server.close(()=>process.exit(1));
 })

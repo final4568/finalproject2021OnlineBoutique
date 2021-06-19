@@ -1,3 +1,5 @@
+
+
 import AdminHeader from "../layouts/AdminHeader";
 import AdminSideBar from "../layouts/AdminSlidebar";
 import { Link } from "react-router-dom";
@@ -7,8 +9,8 @@ import "../index.css";
 import "../index.css";
 import { useState, useEffect } from "react";
 
-const TailorMainpage = ({ history }) => {
-  const [tailors, setTailor] = useState([]);
+const UserMain = ({ history }) => {
+  const [users, setUsers] = useState([]);
   const [refresh, setRefresh] = useState(false);
   
 
@@ -16,16 +18,16 @@ const TailorMainpage = ({ history }) => {
 
     if (refresh) return setRefresh(false);
     
-    const loadTailor = async () => {
-      const result = await axios.get("/api/tailor/getalltailors");
-      setTailor(result.data);
+    const loadUser = async () => {
+      const result = await axios.get("/api/users/getallusers");
+      setUsers(result.data);
     };
 
-    loadTailor();
+    loadUser();
   }, [history, refresh]);
 
-  const deletetailor = (id) => {
-    axios.delete(`/api/tailor/delete/${id}`);
+  const deleteUser = (id) => {
+    axios.delete(`/api/users/deleteUser/${id}`);
     setRefresh(true);
     // window.location.href = "/tailorMain"
   };
@@ -60,18 +62,18 @@ const TailorMainpage = ({ history }) => {
               </tr>
             </thead>
             <tbody>
-              {tailors.map((tailor) => (
-                <tr key={tailor._id}>
-                  <td>{tailor.username}</td>
-                  <td>{tailor.email}</td>
-                  <td>{tailor.phone}</td>
+              {users.map((user) => (
+                <tr key={user._id}>
+                  <td>{user.username}</td>
+                  <td>{user.email}</td>
+                  <td>{user.phone}</td>
                   <td>
-                    <Link to={`/Tailor/Profile/${tailor._id}`}>
+                    <Link to={`/user/Profile/${user._id}`}>
                       <Button id="btn_table" color="primary">
                         View
                       </Button>
                     </Link>
-                    <Link to={`/Tailor/Update/${tailor._id}`}>
+                    <Link to={`/user/Update/${user._id}`}>
                       <Button id="btn_table" color="warning">
                         Edit
                       </Button>
@@ -82,10 +84,10 @@ const TailorMainpage = ({ history }) => {
                       onClick={() => {
                         if (
                           window.confirm(
-                            `Are you sure you wish to delete this Tailor?`
+                            `Are you sure you wish to delete this User?`
                           )
                         )
-                          deletetailor(tailor._id);
+                        deleteUser(user._id);
                       }}
                       color="danger"
                     >
@@ -102,4 +104,6 @@ const TailorMainpage = ({ history }) => {
   );
 };
 
-export default TailorMainpage;
+export default UserMain;
+
+ 

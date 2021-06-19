@@ -36,6 +36,10 @@ import UserRegister from "./Users_view/UserRegister";
 import UserLogin from "./Users_view/UserLogin";
 import UserDashboards from "./Users_view/UserDashboard";
 import UserForgotPassword from "./Users_view/UserForgotPassword"
+import Userpasswordreset from "./Users_view/Userpasswordreset";
+import UserRegisterByAdmin from "./Users_view/UserRegisterByAdmin";
+import UserMain from "./Users_view/UsersMain";
+import UserProfile from "./Users_view/UserProfile";
 
 function App() {
   return (
@@ -98,12 +102,17 @@ function App() {
               <Route exact path ="/LoggedInTailor/Update/:id" component={LoggedInTailorUpdate}/>
           </Switch>
           
-          {/* User Routes */}
+          {/* User Routes*/}
           <Switch>
             <Route exact path ="/user/register" component={UserRegister}/>
             <Route exact path ="/user/login" component={UserLogin}/>
             <Route exact path ="/user/UserForgotPassword" component={UserForgotPassword}/>
             <Route exact path="/user/dashboard" component={ UserDashboards }/>
+            <Route exact path="/Userpasswordreset/:resetToken" component={Userpasswordreset}/>
+            <Route exact path="/User/RegisterByAdmin" component={UserRegisterByAdmin}/>
+            <Route exact path="/User/UserMain" component={UserMain}/>
+            <Route exact path="/user/Profile/:id" component={UserProfile}/>
+
           </Switch>
 
           <Switch>

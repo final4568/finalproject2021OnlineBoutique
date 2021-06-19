@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import AdminHeader from "../layouts/AdminHeader";
 import AdminSideBar from "../layouts/AdminSlidebar";
@@ -5,17 +7,17 @@ import "../index.css";
 import { useState, useEffect } from "react";
 import { useRouteMatch } from "react-router-dom";
 
-const TailorProfile = ({ history }) => {
+const UserProfile = ({ history }) => {
   const match = useRouteMatch();
-  const [tailors, setTailor] = useState([]);
+  const [users, setUsers] = useState([]);
 
   const getTodo = (id) =>
-    fetch(`/api/tailor/tailorprofile/${id}`).then((res) => res.json());
+    fetch(`/api/users/Userprofile/${id}`).then((res) => res.json());
 
   useEffect(() => {
     const fetchTodo = async () => {
-      const tailors = await getTodo(match.params.id);
-      setTailor(tailors);
+      const users = await getTodo(match.params.id);
+      setUsers(users);
     };
     fetchTodo();
   }, [history]);
@@ -32,7 +34,7 @@ const TailorProfile = ({ history }) => {
           id="right_dasBoard_col"
           style={{ float: "right" }}
         >
-          <h1>Tailor Profile</h1>
+          <h1>User Profile</h1>
           <p className="tailorprofile">
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
@@ -44,33 +46,29 @@ const TailorProfile = ({ history }) => {
             <thead>
               <tr>
                 <th scope="col">
-                  Name: <h1>{tailors.username} </h1>
+                  Name: <h1>{users.username} </h1>
                 </th>
                 {/* <th scope="col"> Email:{tailors.email}</th> */}
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Email: </strong> {tailors.email}</td>
-                <td><strong>Phone: </strong> {tailors.phone} </td>
+                <td><strong>Email: </strong> {users.email}</td>
+                <td><strong>Phone: </strong> {users.phone} </td>
               </tr>
               <tr>
-                <td> <strong>Gender: </strong>{tailors.gender} </td>
-                <td><strong>User-Type: </strong>{tailors.usertype}</td>
+                <td> <strong>Gender: </strong>{users.gender} </td>
+                <td><strong>birthday: </strong>{users.birthday}</td>
               </tr>
             </tbody>
           </table>
 
           <div className="AP_address">
             <p>
-              <strong>Address:  </strong>{tailors.address}
+              <strong>Address:  </strong>{users.address}
             </p>
           </div>
-          <div className="AP_address">
-            <p>
-              <strong>Admin Bio:</strong> {tailors.bio}
-            </p>
-          </div>
+         
 
                   
         </div>
@@ -81,4 +79,6 @@ const TailorProfile = ({ history }) => {
   );
 };
 
-export default TailorProfile;
+export default UserProfile;
+
+ 

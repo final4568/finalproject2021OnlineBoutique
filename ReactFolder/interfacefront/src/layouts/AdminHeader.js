@@ -21,7 +21,7 @@ const AdminHeader = () => {
                     Admin Dashboard
                   </label>
                   <ul>
-                    <li><NavLink exact to="/">Add New Uswer</NavLink></li>
+                    <li><NavLink exact to="/User/RegisterByAdmin">Add New User</NavLink></li>
                     <li><NavLink exact to="/tailor/registerbyadmin">Add New Tailor</NavLink></li>
                     <li><NavLink exact to="/About">Add Products</NavLink></li>                    
                     </ul>

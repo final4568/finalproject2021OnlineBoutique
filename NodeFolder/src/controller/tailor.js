@@ -185,8 +185,6 @@ exports.deletetailor = async (req, res)=>{
 
 
 exports.tailorprofile = async(req, res) =>{
-  // res.send("this is tailor profile")
-
   try{
     const id = req.params.id
     Tailor.findById(id, (err, tailor)=>{

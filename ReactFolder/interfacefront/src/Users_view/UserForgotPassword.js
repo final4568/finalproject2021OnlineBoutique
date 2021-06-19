@@ -27,7 +27,7 @@ const UserForgotPassword = () => {
         
             try {
               const { data } = await axios.post(
-                "/api/admin/forgotpassword",
+                "/api/users/forgotpassword",
                 { email },
                 config
               );
@@ -79,8 +79,7 @@ const UserForgotPassword = () => {
                 <div className="btn-layer"></div>
                 <input type="submit" value="Send Email"/>
                 </div>
-                <div className="pass-link">
-             
+                <div className="pass-link">             
                  Go Back ? <Link to="/user/register">SignUp Now</Link>
               
                 </div>

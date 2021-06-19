@@ -57,8 +57,11 @@ exports.login = async (req, res, next) => {
     sendToken(users, 201, res);
 
    
-  } catch (error){
-      next(error);
+  } catch{
+    res.status(404).json({
+      success: false,
+      error: "Not Logged In",
+    });
   }
 };
 
@@ -77,7 +80,7 @@ exports.forgotpassword = async (req, res, next) => {
     const resetToken = users.getResetPasswordToken();
     await users.save();
 
-    const resetUrl = `http://localhost:3000/passwordreset/${resetToken}`;
+    const resetUrl = `http://localhost:3000/Userpasswordreset/${resetToken}`;
     const message = `
             <h1>Hi, You have requested a password Reset</h1>
             <p> Please go to this link to reset your passowrd</p>
@@ -139,6 +142,48 @@ exports.resetpassword = async (req, res, next) => {
     });
   }
   next(error);
+};
+
+exports.getallusers = (req, res, next)=>{
+  Users.find((err, docs)=>{
+   if (err) {
+     console.log(err);
+   } else {
+     res.json(docs);
+   }
+  })
+ };
+
+ exports.deleteUser = async (req, res)=>{
+  try{
+    await Users.findByIdAndDelete(req.params.id);
+  res.status(200).json({
+    success: true,
+    message: "deteleted...!"
+  });
+  }catch{
+    res.status(400).json({
+    success: false,
+    message: "Not deteleted...!"
+    });
+  }
+  
+};
+
+
+exports.Userprofile = async(req, res) =>{
+  try{
+    const id = req.params.id
+    Users.findById(id, (err, user)=>{
+      res.json(user)
+    });   
+
+  }catch{
+    res.status(400).json({
+    success: false,
+    message: "Person's Profile Not Available"
+    });
+  }
 };
 
 
