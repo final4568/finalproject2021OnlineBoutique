@@ -9,7 +9,8 @@ const {
     resetpassword,
     getallusers,
     deleteUser,
-    Userprofile
+    Userprofile,
+    Userupdate
 
 } = require("../controller/users");
 
@@ -20,6 +21,7 @@ router.route("/resetpassword/:resetToken").put(resetpassword);
 router.route("/getallusers").get(getallusers);
 router.route("/deleteUser/:id").delete(deleteUser);
 router.route("/userprofile/:id").get(Userprofile);
+router.route("/userupdate/:id").put(Userupdate);
 
 
 

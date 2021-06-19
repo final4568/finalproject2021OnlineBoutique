@@ -1,7 +1,7 @@
 
 
-import AdminHeader from "../layouts/AdminHeader";
-import AdminSideBar from "../layouts/AdminSlidebar";
+import TailorHeader from "../layouts/TailorHeader";
+import TailorSideBar from "../layouts/TailorSidebar";
 import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
 import axios from "axios";
@@ -9,7 +9,7 @@ import "../index.css";
 import "../index.css";
 import { useState, useEffect } from "react";
 
-const UserMain = ({ history }) => {
+const UserMain_Tailor = ({ history }) => {
   const [users, setUsers] = useState([]);
   const [refresh, setRefresh] = useState(false);
   
@@ -34,10 +34,10 @@ const UserMain = ({ history }) => {
 
   return (
     <>
-      <AdminHeader />
+      <TailorHeader />
       <div className="containter">
         <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
-          <AdminSideBar />
+          <TailorSideBar />
         </div>
         <div
           className="col-10"
@@ -68,12 +68,13 @@ const UserMain = ({ history }) => {
                   <td>{user.email}</td>
                   <td>{user.phone}</td>
                   <td>
-                    <Link to={`/user/Profile/${user._id}`}>
+                    <Link to={`/tailor/User/profile/${user._id}`}>
                       <Button id="btn_table" color="primary">
                         View
                       </Button>
                     </Link>
-                    <Link to={`/user/update/${user._id}`}>
+
+                    <Link to={`/user/updateprofile/${user._id}`}>
                       <Button id="btn_table" color="warning">
                         Edit
                       </Button>
@@ -104,6 +105,4 @@ const UserMain = ({ history }) => {
   );
 };
 
-export default UserMain;
-
- 
+export default UserMain_Tailor;

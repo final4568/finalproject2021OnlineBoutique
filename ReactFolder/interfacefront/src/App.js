@@ -40,6 +40,12 @@ import Userpasswordreset from "./Users_view/Userpasswordreset";
 import UserRegisterByAdmin from "./Users_view/UserRegisterByAdmin";
 import UserMain from "./Users_view/UsersMain";
 import UserProfile from "./Users_view/UserProfile";
+import UserUpdate from "./Users_view/UserUpdate";
+
+import UserMain_Tailor from "./Users_view/UserMain_Tailor";
+import Userprofile_Tailor from "./Users_view/Userprofile_Tailor";
+import UserProdileEdit_Tailor from "./Users_view/UserProdileEdit_Tailor";
+
 
 function App() {
   return (
@@ -93,7 +99,7 @@ function App() {
           <Route exact path="/tailor/login" component={TailorLogin} />
             <Route exact path="/tailor/forgetpassword" component={TailorForgotPassword}/>
             <Route exact path="/tailorpasswordreset/:resetToken" component={TailorPasswordReset}/>
-              <Route exact path="/tailor/dashboard" component={TailorDashboard}/>
+            <Route exact path="/tailor/dashboard" component={TailorDashboard}/>
           </Switch>
 
       {/* Tailor SideBar Routes */}
@@ -101,6 +107,7 @@ function App() {
               <Route exact path ="/LoggedTailor/Profile" component={LoggedTailorProfile}/>
               <Route exact path ="/LoggedInTailor/Update/:id" component={LoggedInTailorUpdate}/>
           </Switch>
+
           
           {/* User Routes*/}
           <Switch>
@@ -112,8 +119,18 @@ function App() {
             <Route exact path="/User/RegisterByAdmin" component={UserRegisterByAdmin}/>
             <Route exact path="/User/UserMain" component={UserMain}/>
             <Route exact path="/user/Profile/:id" component={UserProfile}/>
+            <Route exact path="/user/update/:id" component={UserUpdate}/>
 
+            <Route exact path="/tailor/User/UserMain" component={UserMain_Tailor}/>
+            <Route exact path="/tailor/User/profile/:id" component={Userprofile_Tailor}/>
+            <Route exact path="/user/updateprofile/:id" component={ UserProdileEdit_Tailor}/>
+           
+           
           </Switch>
+
+
+          {/* User CRUD By Tailor */}
+         
 
           <Switch>
             <Route exact path="/Customer">

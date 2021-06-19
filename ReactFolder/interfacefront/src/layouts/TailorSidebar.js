@@ -9,7 +9,7 @@ const TailorSideBar = () => {
       <div class="sidebar">
         <NavLink  to ="/">Home</NavLink>
         <NavLink  to ="/tailor/dashboard">Dashboard</NavLink>
-        <NavLink  to ="#">User</NavLink>
+        <NavLink  to ="/tailor/User/UserMain">User</NavLink>
         <NavLink  to ="#">Orders</NavLink>
         <NavLink  to ="/LoggedTailor/Profile">Profile</NavLink>
       </div>

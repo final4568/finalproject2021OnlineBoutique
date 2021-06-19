@@ -186,6 +186,15 @@ exports.Userprofile = async(req, res) =>{
   }
 };
 
+exports.Userupdate = async(req, res)=>{
+  const id = req.params.id;
+  Users.findOneAndUpdate({ _id: id }, req.body, { new: true })
+  .then((user) => res.status(200).send(user))
+  .catch((err) => res.status(500).send(err.message)); 
+
+};
+
+
 
 const sendToken = (users, statusCode, res) => {
   const token = users.getSignedJwtToken();
