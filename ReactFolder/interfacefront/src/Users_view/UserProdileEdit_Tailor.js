@@ -10,7 +10,6 @@ const UserProdileEdit_Tailor = ({ history, match }) => {
   const [phone, setPhone] = useState("");
   const [gender, setGender] = useState("");
   const [address, setAddress] = useState("");
-  const [birthday, setBirthday] = useState("");
 
   useEffect(() => {
     const fetchTailor = async () => {
@@ -23,7 +22,7 @@ const UserProdileEdit_Tailor = ({ history, match }) => {
       setPhone(user.phone);
       setGender(user.gender);
       setAddress(user.address);
-      setBirthday(user.birthday);
+     
       
 
     };
@@ -38,7 +37,7 @@ const UserProdileEdit_Tailor = ({ history, match }) => {
           phone,
           gender,
           address,
-          birthday
+         
     };
     await fetch(`/api/users/userupdate/${match.params.id}`, {
       method: "PUT",
@@ -99,13 +98,7 @@ const UserProdileEdit_Tailor = ({ history, match }) => {
                     value = {address}
                     onChange = {(e)=>{setAddress(e.target.value)}}
                 />
-                </div><div className="field">
-                <input type="date" placeholder="Date" name ="Date" id="Date" required
-                    value = {birthday}
-                    onChange = {(e)=>{setBirthday(e.target.value)}}
-                />
-                </div> 
-               
+                </div>
                <div className="field btn">
                 <div className="btn-layer"></div>
                 <input type="submit" value="Update User"/>

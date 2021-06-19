@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import "../index.css";
-import AdminHeader from "../layouts/AdminHeader";
-import AdminSideBar from "../layouts/AdminSlidebar";
+import UserHeader from "../layouts/UserHeader";
 
 
-const UserUpdate = ({ history, match }) => {
+const LoggedUserProfileEdit = ({ match , history}) => {
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [gender, setGender] = useState("");
   const [address, setAddress] = useState("");
-
+ 
+    
 
   useEffect(() => {
     const fetchTailor = async () => {
@@ -23,12 +24,13 @@ const UserUpdate = ({ history, match }) => {
       setPhone(user.phone);
       setGender(user.gender);
       setAddress(user.address);
-
+      
       
 
     };
     fetchTailor();
   }, []);
+
 
   const updateData = async (evt) => {
     evt.preventDefault();
@@ -38,7 +40,7 @@ const UserUpdate = ({ history, match }) => {
           phone,
           gender,
           address,
-      
+         
     };
     await fetch(`/api/users/userupdate/${match.params.id}`, {
       method: "PUT",
@@ -46,15 +48,16 @@ const UserUpdate = ({ history, match }) => {
       body: JSON.stringify(body),
     });
     alert("Update successFully");
-    history.push("/User/UserMain")
+    history.push("/Loogeduser/Profile")
   };
 
-  return (
+
+    return ( 
     <>
-      <AdminHeader />
+    <UserHeader />
       <div className="containter">
         <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
-          <AdminSideBar />
+        
         </div>
       
       <div
@@ -111,15 +114,10 @@ const UserUpdate = ({ history, match }) => {
         </div>
         </div>
         </div>
-
-                
-
         </div>
       </div>
-  
-    
     </>
-  );
-};
-
-export default UserUpdate;
+     );
+}
+ 
+export default LoggedUserProfileEdit;

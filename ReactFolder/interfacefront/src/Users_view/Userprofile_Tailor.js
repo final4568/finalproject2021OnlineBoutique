@@ -13,7 +13,7 @@ const Userprofile_Tailor = ({ history }) => {
     const [users, setUsers] = useState([]);
   
     const getTodo = (id) =>
-      fetch(`/api/users/Userprofile/${id}`).then((res) => res.json());
+      fetch(`/api/users/loggeduserprofile/${id}`).then((res) => res.json());
   
     useEffect(() => {
       const fetchTodo = async () => {

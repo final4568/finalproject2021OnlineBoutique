@@ -18,11 +18,12 @@ const TailorHeader = () => {
                   <i className="fas fa-bars"></i>
                 </label>
                   <label for="" className="logo">
-                    Tailor Dashboard
+                    User Dashboard
                   </label>
                   <ul>
-                    <li><NavLink exact to="/tailor/adduser">Add New Uswer</NavLink></li>
-                    <li><NavLink exact to="">Add Products</NavLink></li>                    
+                    <li><NavLink exact to="/user/dashboard">Dashboard</NavLink></li>               
+                    <li><NavLink exact to="/Loogeduser/Profile">My Profile</NavLink></li>               
+                    <li><NavLink exact to="">My Order</NavLink></li>                    
                     </ul>
               </nav>
             </div>

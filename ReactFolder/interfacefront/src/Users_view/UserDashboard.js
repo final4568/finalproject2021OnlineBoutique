@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../index.css";
-import Header from "../layouts/Menu"
+import UserHeader from "../layouts/UserHeader"
 
 const UserDashboards = ({history}) => {
     const [error, setError] = useState("");
@@ -44,7 +44,7 @@ const UserDashboards = ({history}) => {
         </div>
       ) : (
         <>
-        <Header/>
+        <UserHeader/>
           <div className="containter">
             <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
         
@@ -60,7 +60,6 @@ const UserDashboards = ({history}) => {
                 the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.
               </p>
-            <button onClick={logoutuser}>Logout</button>
 
             </div>
           </div>

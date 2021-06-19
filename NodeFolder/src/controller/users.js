@@ -194,6 +194,37 @@ exports.Userupdate = async(req, res)=>{
 
 };
 
+exports.loggeduserprofile = async (req, res)=>{
+  try {
+    let token;
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.startsWith("Bearer")
+    ) {
+      token = req.headers.authorization.split(" ")[1];
+    }
+    if (!token) {
+      res
+        .status(401)
+        .json({ success: false, error: "Not authorized to access this route" });
+    }
+    const decoded = jwt.verify(token, process.env.JWT_SECRETKEYUSER);
+    const users = await Users.findById(decoded.id);
+    if (!users) {
+      res.status(404).json({
+        success: false,
+        error: "No user Found with this id",
+      });
+    }
+    res.status(200).json(users);
+  } catch {
+    res.status(400).json({
+      success: false,
+      message: "User's Profile Not Available",
+    });
+  }
+};
+
 
 
 const sendToken = (users, statusCode, res) => {

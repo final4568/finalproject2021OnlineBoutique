@@ -10,7 +10,8 @@ const {
     getallusers,
     deleteUser,
     Userprofile,
-    Userupdate
+    Userupdate,
+    loggeduserprofile
 
 } = require("../controller/users");
 
@@ -22,7 +23,7 @@ router.route("/getallusers").get(getallusers);
 router.route("/deleteUser/:id").delete(deleteUser);
 router.route("/userprofile/:id").get(Userprofile);
 router.route("/userupdate/:id").put(Userupdate);
-
+router.route("/LoggedTailorProfile").get(loggeduserprofile);
 
 
 
