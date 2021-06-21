@@ -51,6 +51,7 @@ import LoggedUserProfileEdit from "./Users_view/LoggedUserProfileEdit";
 
 import UploadProducts from './product/UploadProducts';
 import AllProducttable from './product/ProductTable';
+import ProductDetail from './product/ProductDetail';
 
 function App() {
   return (
@@ -137,6 +138,7 @@ function App() {
           <Switch>
             <Route exact path="/uploadproduct" component={UploadProducts}/>
             <Route exact path="/product/allProducttable" component={AllProducttable}/>
+            <Route exact path="/product/detail/:id" component={ProductDetail}/>
           </Switch>
 
           {/* User CRUD By Tailor */}

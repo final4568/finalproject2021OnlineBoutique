@@ -188,8 +188,7 @@ exports.tailorprofile = async(req, res) =>{
     const id = req.params.id
     Tailor.findById(id, (err, tailor)=>{
       res.json(tailor)
-    });   
-
+    });
   }catch{
     res.status(400).json({
     success: false,

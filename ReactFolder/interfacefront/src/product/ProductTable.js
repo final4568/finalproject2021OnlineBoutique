@@ -69,7 +69,7 @@ const AllProducttable = ({history}) => {
                   <td>{product.product_name}</td>
                   <td>{product.product_category}</td>
                   <td>
-                    <Link to={`/Tailor/Profile/${product._id}`}>
+                    <Link to={`/product/detail/${product._id}`}>
                       <Button id="btn_table" color="primary" size="sm">
                         View
                       </Button>

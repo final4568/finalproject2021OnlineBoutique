@@ -1,5 +1,6 @@
 
 const multer = require("multer");
+const { findById } = require("../models/Product");
 const Product = require("../models/Product");
 
 const multerConfig = multer.diskStorage({
@@ -71,6 +72,19 @@ exports.deleteproduct = async(req, res)=>{
         res.status(400).json({
             success: false,
             message: "Not deteleted...!"
+        });
+    }
+};
+
+exports.productdetail = async (req, res)=>{
+    try{
+        await Product.findById(req.params.id, (err, product)=>{
+            res.status(200).json(product)
+        });
+    }catch{
+        res.status(400).json({
+            success: false,
+            message: "Product Not Available"
         });
     }
 };

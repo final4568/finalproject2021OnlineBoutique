@@ -81,7 +81,7 @@ const UploadProducts = ({history}) => {
                 />
                 </div>
                 <div className="field">
-                <input type="text" placeholder="Product Description" required name ="productDes" id="productDes" 
+                <textarea type="text" placeholder="Product Description" required name ="productDes" id="productDes" 
                     value = {product_des}
                     onChange = {(e)=>{setDesc(e.target.value)}}
                 />
