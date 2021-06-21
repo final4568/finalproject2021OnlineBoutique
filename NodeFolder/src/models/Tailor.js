@@ -41,7 +41,7 @@ const TailorSchema = new mongoose.Schema({
     },
     bio:{
       type:String,
-      minlength:10,    
+      minlength:10,   
     },
     resetPasswordToken: String,
     resetPasswordExpire: Date,

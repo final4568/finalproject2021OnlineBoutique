@@ -49,6 +49,8 @@ import UserProdileEdit_Tailor from "./Users_view/UserProdileEdit_Tailor";
 import UserRegister_Tailor from "./Users_view/UserRegister_Tailor";
 import LoggedUserProfileEdit from "./Users_view/LoggedUserProfileEdit";
 
+import MainPage from './product/MainPage';
+
 function App() {
   return (
     <>
@@ -125,17 +127,15 @@ function App() {
             <Route exact path="/Loogeduser/Profile" component={LoggedUserProfile}/>
             <Route exact path="/LoogeduserProfile/Edit/:id" component={LoggedUserProfileEdit}/>
            
-
-
             <Route exact path="/tailor/User/UserMain" component={UserMain_Tailor}/>
             <Route exact path="/tailor/User/profile/:id" component={Userprofile_Tailor}/>
             <Route exact path="/user/updateprofile/:id" component={ UserProdileEdit_Tailor}/>
             <Route exact path="/tailor/adduser" component={UserRegister_Tailor}/>
-           
-          
-           
           </Switch>
 
+          <Switch>
+            <Route exact path="/uploadproduct" component={MainPage}/>
+          </Switch>
 
           {/* User CRUD By Tailor */}
          
