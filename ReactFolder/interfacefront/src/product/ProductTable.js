@@ -1,38 +1,37 @@
 
-
 import AdminHeader from "../layouts/AdminHeader";
 import AdminSideBar from "../layouts/AdminSlidebar";
 import { Link } from "react-router-dom";
+
 import { Button } from "reactstrap";
 import axios from "axios";
 import "../index.css";
 import "../index.css";
 import { useState, useEffect } from "react";
 
-const UserMain = ({ history }) => {
-  const [users, setUsers] = useState([]);
+const AllProducttable = ({history}) => {
+  const [products, setProducts] = useState([]);
   const [refresh, setRefresh] = useState(false);
-  
 
   useEffect(() => {
-
     if (refresh) return setRefresh(false);
-    
-    const loadUser = async () => {
-      const result = await axios.get("/api/users/getallusers");
-      setUsers(result.data);
+
+    const loadproducts = async () => {
+      const result = await axios.get("/api/product/getallproducts");
+      setProducts(result.data);
     };
-      loadUser();    
+
+    loadproducts();
   }, [history, refresh]);
 
-  const deleteUser = (id) => {
-    axios.delete(`/api/users/deleteUser/${id}`);
+  const deleteproduct = (id) => {
+    axios.delete(`/api/product/delete/${id}`);
     setRefresh(true);
     // window.location.href = "/tailorMain"
   };
 
-  return (
-    <>
+    return ( 
+        <>
       <AdminHeader />
       <div className="containter">
         <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
@@ -43,7 +42,7 @@ const UserMain = ({ history }) => {
           id="right_dasBoard_col"
           style={{ float: "right" }}
         >
-          <h1>Users Records</h1>
+          <h1>Products Records</h1>
           <p>
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
@@ -51,48 +50,54 @@ const UserMain = ({ history }) => {
             five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.
           </p>
-        
           <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Action</th>
+                <th scope="col"> Image</th>
+                <th scope="col">Products Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Action </th>
               </tr>
             </thead>
             <tbody>
-              {users.map((user) => (
-                <tr key={user._id}>
-                  <td>{user.username}</td>
-                  <td>{user.email}</td>
-                  <td>{user.phone}</td>
+              {products.map((product) => (
+                <tr key={product._id}>
                   <td>
-                    <Link to={`/user/Profile/${user._id}`}>
-                      <Button id="btn_table" color="primary" size="sm" > 
+                      <img src={`..../NodeFolder/public/${product.product_photo}`} alt="..."
+                      with="20px"/>
+                  </td>
+                  <td>{product.product_name}</td>
+                  <td>{product.product_category}</td>
+                  <td>
+                    <Link to={`/Tailor/Profile/${product._id}`}>
+                      <Button id="btn_table" color="primary" size="sm">
                         View
                       </Button>
                     </Link>
-                    <Link to={`/user/update/${user._id}`}>
+                    <Link to={`/Tailor/Update/${product._id}`}>
                       <Button id="btn_table" color="warning" size="sm" >
                         Edit
                       </Button>
                     </Link>
 
+                    
                     <Button
                       id="btn_table"
                       onClick={() => {
                         if (
                           window.confirm(
-                            `Are you sure you wish to delete this User?`
+                            `Are you sure you wish to delete this Product?`
                           )
                         )
-                        deleteUser(user._id);
+                        deleteproduct(product._id);
                       }}
                       color="danger" size="sm"
                     >
                       Delete
                     </Button>
+                    
+
+               
                   </td>
                 </tr>
               ))}
@@ -101,9 +106,7 @@ const UserMain = ({ history }) => {
         </div>
       </div>
     </>
-  );
-};
-
-export default UserMain;
-
+     );
+}
  
+export default AllProducttable;

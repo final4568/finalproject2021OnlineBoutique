@@ -49,7 +49,8 @@ import UserProdileEdit_Tailor from "./Users_view/UserProdileEdit_Tailor";
 import UserRegister_Tailor from "./Users_view/UserRegister_Tailor";
 import LoggedUserProfileEdit from "./Users_view/LoggedUserProfileEdit";
 
-import MainPage from './product/MainPage';
+import UploadProducts from './product/UploadProducts';
+import AllProducttable from './product/ProductTable';
 
 function App() {
   return (
@@ -134,7 +135,8 @@ function App() {
           </Switch>
 
           <Switch>
-            <Route exact path="/uploadproduct" component={MainPage}/>
+            <Route exact path="/uploadproduct" component={UploadProducts}/>
+            <Route exact path="/product/allProducttable" component={AllProducttable}/>
           </Switch>
 
           {/* User CRUD By Tailor */}

@@ -67,12 +67,12 @@ const TailorMainpage = ({ history }) => {
                   <td>{tailor.phone}</td>
                   <td>
                     <Link to={`/Tailor/Profile/${tailor._id}`}>
-                      <Button id="btn_table" color="primary">
+                      <Button id="btn_table" color="primary" size="sm">
                         View
                       </Button>
                     </Link>
                     <Link to={`/Tailor/Update/${tailor._id}`}>
-                      <Button id="btn_table" color="warning">
+                      <Button id="btn_table" color="warning" size="sm">
                         Edit
                       </Button>
                     </Link>
@@ -87,7 +87,7 @@ const TailorMainpage = ({ history }) => {
                         )
                           deletetailor(tailor._id);
                       }}
-                      color="danger"
+                      color="danger" size="sm"
                     >
                       Delete
                     </Button>
