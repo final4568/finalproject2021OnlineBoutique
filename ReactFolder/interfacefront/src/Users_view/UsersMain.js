@@ -22,8 +22,7 @@ const UserMain = ({ history }) => {
       const result = await axios.get("/api/users/getallusers");
       setUsers(result.data);
     };
-
-    loadUser();
+      loadUser();    
   }, [history, refresh]);
 
   const deleteUser = (id) => {
@@ -44,7 +43,7 @@ const UserMain = ({ history }) => {
           id="right_dasBoard_col"
           style={{ float: "right" }}
         >
-          <h1>Tailors Records</h1>
+          <h1>Users Records</h1>
           <p>
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
@@ -52,6 +51,7 @@ const UserMain = ({ history }) => {
             five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.
           </p>
+        
           <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">

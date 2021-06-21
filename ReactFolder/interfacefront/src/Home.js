@@ -59,7 +59,7 @@ const Home = () => {
         <div className="container" id="serv_img">
           <div className="row" id="ser_img_row">
             <div className="col-lg-6 col-md col-sm">
-              <Link href="/About">
+              <Link to="/shop">
                 <div id="container">
                   <img
                     src="https://jobsgum.com/wp-content/uploads/2021/05/Untitled-2.jpg"
@@ -67,13 +67,13 @@ const Home = () => {
                     className="image"
                   />
                   <div className="overlay">
-                    <div className="text">Shop Now</div>
+                    <div className="text" to="/shop">Shop Now</div>
                   </div>
                 </div>
               </Link>
             </div>
             <div className="col-lg-6 col-md col-sm">
-              <Link href="/About">
+              <Link to="/shop">
                 <div id="container">
                   <img
                     src="https://jobsgum.com/wp-content/uploads/2021/05/Untitled-4.jpg"
