@@ -74,7 +74,7 @@ const AllProducttable = ({history}) => {
                         View
                       </Button>
                     </Link>
-                    <Link to={`/Tailor/Update/${product._id}`}>
+                    <Link to={`/product/Update/${product._id}`}>
                       <Button id="btn_table" color="warning" size="sm" >
                         Edit
                       </Button>

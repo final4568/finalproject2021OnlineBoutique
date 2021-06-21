@@ -49,6 +49,13 @@ exports.upload = (req, res)=>{
     });
    
 };
+exports.update = (req, res)=>{
+  const id = req.params.id;
+  Product.findOneAndUpdate({ _id: id }, req.body, { new: true })
+  .then((product) => res.status(200).send(product))
+  .catch((err) => res.status(500).send(err.message)); 
+
+};
 
 exports.getallproducts=(req, res)=>{
     Product.find((err, docs)=>{

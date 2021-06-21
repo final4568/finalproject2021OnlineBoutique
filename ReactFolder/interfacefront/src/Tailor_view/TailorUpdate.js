@@ -16,8 +16,6 @@ const TailorUpdate = ({ history, match }) => {
 
 
   useEffect(() => {
-   
-
     const fetchTailor = async () => {
       const tailors = await fetch(
         `/api/tailor/tailorprofile/${match.params.id}`
@@ -46,6 +44,7 @@ const TailorUpdate = ({ history, match }) => {
           usertype,
           bio
     };
+    
     await fetch(`/api/tailor/update/${match.params.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
