@@ -1,11 +1,9 @@
+import React, { useState } from "react";
+import axios from "axios";
+import TailorHeader from '../layouts/TailorHeader';
+import TailorSidebar from '../layouts/TailorSidebar';
 
-import { useState, useEffect } from "react";
-import "../index.css";
-import AdminHeader from "../layouts/AdminHeader";
-import AdminSideBar from "../layouts/AdminSlidebar";
-import axios from 'axios'
-
-const Updateproduct = ({history, match}) => {
+const UploadProduct_tailor = ({history}) => {
     const[product_name, setPName] =useState("");
     const[product_des, setDesc] =useState("");
     const[product_category, setCate] =useState("");
@@ -15,23 +13,8 @@ const Updateproduct = ({history, match}) => {
     const onInputchaged = (e)=>{
         setFile(e.target.files[0])
     };
-    useEffect(() => {
-        const fetchproduct = async () => {
-          const product = await fetch(
-            `/api/product/productdetail/${match.params.id}`
-          ).then((res) => res.json());
-    
-          setPName(product.product_name);
-          setDesc(product.product_description);
-          setCate(product.product_category);
-          setULby(product.product_uploadby);
-          setFile(product.product_photo);
-    
-        };
-        fetchproduct();
-      }, [history, match]);
 
-      const onsubmitInput = (e)=>{
+    const onsubmitInput = (e)=>{
         e.preventDefault();
 
         const fromData = new FormData();
@@ -47,50 +30,48 @@ const Updateproduct = ({history, match}) => {
             },
         };
 
-        axios.put(`/api/product/update/${match.params.id}`, fromData, config).then((response) =>{
-            alert('updated successfully...!');
+        axios.post('/api/product/upload', fromData, config).then((response) =>{
+            alert('upload successfully...!');
+           
             setPName("");
             setDesc("");
             setCate("");
             setULby("");
             setFile("");
-            history.push("/product/allProducttable");
+            history.push("/ProductTable_tailor");
 
         }).catch((err)=>{
             console.log(err);
         })
 
     };
-
-  
-
-
-    return ( 
+    
+    return (
         <>
-        
-        <AdminHeader />
+     
+      <TailorHeader />
       <div className="containter">
         <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
-          <AdminSideBar />
+          <TailorSidebar />
         </div>
         <div
           className="col-10"
           id="right_dasBoard_col"
           style={{ float: "right" }}
         >
-        
+         
         <div className="form_main_class">
         <div className="wrapper">
         <div className="title-text">
             <div className="title login">
-              Product Edit
+              Product Upload
                 <div>
                 </div>
             </div>        
         </div>
         <div className="form-container">            
             <div className="form-inner">
-            <form  className="login" onSubmit={onsubmitInput}>                
+            <form onSubmit={onsubmitInput} className="login">                
                 <div className="xyz" style={{marginTop:"40px"}}>
                 
                 <div className="field">
@@ -129,7 +110,7 @@ const Updateproduct = ({history, match}) => {
             
                 <div className="field btn">
                 <div className="btn-layer"></div>
-                <input type="submit" value="Updated Products Now"/>
+                <input type="submit" value="Upload Products Now"/>
                 </div>               
             </form>
             </div>
@@ -140,9 +121,12 @@ const Updateproduct = ({history, match}) => {
           
         </div>
       </div>
+      </> 
         
-        </>
+      
+
      );
 }
  
-export default Updateproduct;
+export default UploadProduct_tailor;
+ 

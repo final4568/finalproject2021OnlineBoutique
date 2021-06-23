@@ -54,6 +54,10 @@ import AllProducttable from './product/ProductTable';
 import ProductDetail from './product/ProductDetail';
 import Updateproduct from './product/UpdateProduct';
 
+import UploadProduct_tailor from './product/UploadProduct_tailor';
+import ProductTable_tailor from './product/ProductTable_tailor';
+import ProductDetail_tailor from './product/ProductDetail_tailor';
+import UpdateProduct_tailor from './product/UpdateProduct_tailor';
 
 function App() {
   return (
@@ -144,6 +148,13 @@ function App() {
             <Route exact path="/product/Update/:id" component={Updateproduct}/>
           </Switch>
 
+          <Switch>
+            <Route exact path="/UploadProduct_tailor" component={UploadProduct_tailor}/>
+            <Route exact path="/ProductTable_tailor" component={ProductTable_tailor}/>
+            <Route exact path="/ProductDetail_tailor/:id" component={ProductDetail_tailor}/>
+            <Route exact path="/UpdateProduct_tailor/:id" component={UpdateProduct_tailor}/>
+            
+          </Switch>
           {/* User CRUD By Tailor */}
          
 

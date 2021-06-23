@@ -21,8 +21,8 @@ const TailorHeader = () => {
                     Tailor Dashboard
                   </label>
                   <ul>
-                    <li><NavLink exact to="/tailor/adduser">Add New Uswer</NavLink></li>
-                    <li><NavLink exact to="">Add Products</NavLink></li>                    
+                    <li><NavLink exact to="/tailor/adduser">Add New User</NavLink></li>
+                    <li><NavLink exact to="/UploadProduct_tailor">Add Products</NavLink></li>                    
                     </ul>
               </nav>
             </div>

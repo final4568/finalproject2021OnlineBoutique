@@ -1,11 +1,11 @@
 
 import { useState, useEffect } from "react";
 import "../index.css";
-import AdminHeader from "../layouts/AdminHeader";
-import AdminSideBar from "../layouts/AdminSlidebar";
+import TailorHeader from "../layouts/TailorHeader";
+import TailorSidebar from "../layouts/TailorSidebar";
 import axios from 'axios'
 
-const Updateproduct = ({history, match}) => {
+const UpdateProduct_tailor = ({history, match}) => {
     const[product_name, setPName] =useState("");
     const[product_des, setDesc] =useState("");
     const[product_category, setCate] =useState("");
@@ -54,7 +54,7 @@ const Updateproduct = ({history, match}) => {
             setCate("");
             setULby("");
             setFile("");
-            history.push("/product/allProducttable");
+            history.push("/ProductTable_tailor");
 
         }).catch((err)=>{
             console.log(err);
@@ -68,10 +68,10 @@ const Updateproduct = ({history, match}) => {
     return ( 
         <>
         
-        <AdminHeader />
+        <TailorHeader />
       <div className="containter">
         <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
-          <AdminSideBar />
+          <TailorSidebar />
         </div>
         <div
           className="col-10"
@@ -145,4 +145,4 @@ const Updateproduct = ({history, match}) => {
      );
 }
  
-export default Updateproduct;
+export default UpdateProduct_tailor;
