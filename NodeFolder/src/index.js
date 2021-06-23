@@ -22,8 +22,9 @@ app.use('/api/userprivate', require('./routes/userprivate'));
 
 app.use('/api/product', require("./routes/product"));
 
+app.use(express.static('./public'));
 
-//error handler
+
 app.use(errorHandler);
 
 app.get('/', (req, res)=>{

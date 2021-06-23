@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
 import axios from "axios";
 import "../index.css";
-import "../index.css";
 import { useState, useEffect } from "react";
 
 const AllProducttable = ({history}) => {
@@ -19,6 +18,8 @@ const AllProducttable = ({history}) => {
     const loadproducts = async () => {
       const result = await axios.get("/api/product/getallproducts");
       setProducts(result.data);
+      console.log(result.data);
+
     };
 
     loadproducts();
@@ -63,11 +64,12 @@ const AllProducttable = ({history}) => {
               {products.map((product) => (
                 <tr key={product._id}>
                   <td>
-                      <img src={`..../NodeFolder/public/${product.product_photo}`} alt="..."
-                      with="20px"/>
+                      <img src={`/images/${product.product_photo}`} alt="..."
+                      width="50px" height="50px"/>
                   </td>
                   <td>{product.product_name}</td>
                   <td>{product.product_category}</td>
+
                   <td>
                     <Link to={`/product/detail/${product._id}`}>
                       <Button id="btn_table" color="primary" size="sm">
