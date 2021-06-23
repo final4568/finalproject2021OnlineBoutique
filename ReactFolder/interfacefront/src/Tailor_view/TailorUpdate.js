@@ -53,7 +53,6 @@ const TailorUpdate = ({ history, match }) => {
     alert("Update successFully");
     history.push("/tailorMain")
   };
-
   return (
     <>
       <AdminHeader />

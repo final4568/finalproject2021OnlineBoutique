@@ -14,7 +14,7 @@ const {
 } = require("../controller/products");
 
 router.post('/upload', uploadImage, upload);
-router.post('/update/:id', uploadImage, update);
+router.put('/update/:id', uploadImage, update);
 router.route('/getallproducts').get(getallproducts);
 router.route('/delete/:id').delete(deleteproduct);
 router.route('/productdetail/:id').get(productdetail);

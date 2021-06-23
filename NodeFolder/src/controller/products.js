@@ -49,13 +49,29 @@ exports.upload = (req, res)=>{
     });
    
 };
-exports.update = (req, res)=>{
-  const id = req.params.id;
-  Product.findOneAndUpdate({ _id: id }, req.body, { new: true })
-  .then((product) => res.status(200).send(product))
-  .catch((err) => res.status(500).send(err.message)); 
 
+exports.update = (req, res)=>{
+    Product.findById(req.params.id).then((product)=>{
+        product.product_name = req.body.product_name,
+        product.product_description = req.body.product_description,
+        product. product_category = req.body.product_category,
+        product. product_uploadby =req.body.product_uploadby,
+        product. product_photo =  req.file.originalname,
+        
+        product.save().then(()=>{
+        res.status(200).json({
+        success: true,
+        message:"Product Updated successfully...!"
+        })
+    })
+    }).catch((error)=>{
+        res.status(400).json({
+        success: false,
+        error: error.message,
+        })
+    });
 };
+    
 
 exports.getallproducts=(req, res)=>{
     Product.find((err, docs)=>{

@@ -177,7 +177,6 @@ exports.Userprofile = async(req, res) =>{
     Users.findById(id, (err, user)=>{
       res.json(user)
     });   
-
   }catch{
     res.status(400).json({
     success: false,
