@@ -79,8 +79,15 @@ const Shop = ({history}) => {
               ))}
             </tbody>
           </table>
-           
-       
+                {products.map((product)=>{
+                  <div className="xyz" key={product._id}>
+                    <h1>name:{product.product_name}</h1>
+                    <div>{product.product_name}</div>
+                    <div>{product.product_name}</div>
+                    <div>{product.product_name}</div>
+
+                  </div>
+                })}
                 
 
                  

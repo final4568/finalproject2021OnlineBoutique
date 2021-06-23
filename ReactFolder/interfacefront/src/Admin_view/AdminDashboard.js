@@ -63,6 +63,8 @@ const AdminDashboard = ({ history }) => {
             scrambled it to make a type specimen book.
           </p>
         <Dashboard_component/>
+        <h1>Orders</h1>
+          <hr/>
         <Order/>
         </div>
       </div>
