@@ -3,6 +3,8 @@ import axios from "axios";
 import "../index.css";
 import TailorHeader from "../layouts/TailorHeader";
 import TailorSideBar from "../layouts/TailorSidebar";
+import Dashboard_component from "../layouts/Dashboard_component";
+import Order from '../product/Order';
 
 const TailorDashboard = ({ history }) => {
   const [error, setError] = useState("");
@@ -54,6 +56,10 @@ const TailorDashboard = ({ history }) => {
             the 1500s, when an unknown printer took a galley of type and
             scrambled it to make a type specimen book.
           </p>
+          <Dashboard_component/>          
+          <h1>Orders</h1>
+          <hr/>
+          <Order/>
         </div>
       </div>
     </>

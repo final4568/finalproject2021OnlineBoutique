@@ -1,0 +1,60 @@
+#dashborad{
+    margin-bottom: 40px;
+}
+
+#dashborad .col-sm{
+    margin: 10px;
+    border-radius:5px;
+    padding: 0%;
+    padding-top: 10px;
+    padding-bottom:0% ;
+    
+}
+#dashborad .col-sm strong{
+    font-size: 30px;
+    color: #fff;
+    padding-left: 20px;
+}
+#dashborad .col-sm p{
+    color: #fff;
+    padding-left: 20px;
+}
+.botton1{
+    background-color: #04a5cc;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    padding-left: 0%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+   
+}
+.botton2{
+    background-color: #df2a7c;
+    width: 100%;
+    padding: 5px;
+    padding-left: 0%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+   
+}.botton3{
+    background-color: #09894e;
+    width: 100%;
+    padding-left: 0%;
+    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+   
+}.botton4{
+    background-color: #df8f0f;
+    width: 100%;
+    padding-left: 0%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+   
+}
+
+
