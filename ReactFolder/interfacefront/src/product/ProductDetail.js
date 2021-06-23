@@ -31,12 +31,12 @@ const ProductDetail = ({history}) => {
       <AdminHeader/>
 
      <div class="container" style ={{marginTop:"-20px"}}>
-		<div class="card">
+		<div class="carddetailProducts">
 			<div class="container-fliud">
 				<div class="wrappera row">
 					<div class="preview col-md-6">						
 						<div class="preview-pic tab-content">
-						  <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>					
+						  <div class="tab-pane active" id="pic-1"><img src={`/images/${product.product_photo}`} /></div>					
                     	</div>				
 					</div>
 					<div class="details col-md-6">
@@ -51,7 +51,8 @@ const ProductDetail = ({history}) => {
 							</div>
 							<span class="review-no">41 reviews</span>
 						</div>
-						<p class="product-description">{product.product_description}</p>
+						<p class="product-description"><strong>Category: </strong>{product.product_category}</p>
+						<p class="product-description">You would like the best quality products and character are what's important. Even if the script is not that strong , if I challege myself with a great. Character, I 'll go for it</p>
 						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 						<h5 class="sizes">sizes:
 							<span class="size" data-toggle="tooltip" title="small">s</span>
@@ -74,6 +75,23 @@ const ProductDetail = ({history}) => {
 				</div>
 			</div>
 		</div>
+	</div>
+	<div className="container" style={{marginBottom:"50px"}}>
+		<h2>Description:</h2>
+		<hr/>
+		<div class="rating">
+		<div class="stars">
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star"></span>
+			<span class="fa fa-star"></span>
+		</div>
+		<span class="review-no">41 reviews</span>
+		</div>
+		<p>
+		{product.product_description}
+		</p>
 	</div>
  
       </>

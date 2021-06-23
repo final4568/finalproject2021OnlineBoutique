@@ -112,7 +112,7 @@ const AdminUpdate = ({ match , history}) => {
                 <textarea type="text" placeholder="Address" name ="email" id="phone" required
                     value = {address}
                     onChange = {(e)=>{setAddress(e.target.value)}}
-                />
+                />  
                 </div><div className="field">
                 <input type="text" placeholder="User Type" name ="email" id="phone" required
                     value = {usertype}

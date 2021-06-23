@@ -65,7 +65,7 @@ const AllProducttable = ({history}) => {
                 <tr key={product._id}>
                   <td>
                       <img src={`/images/${product.product_photo}`} alt="..."
-                      width="50px" height="50px"/>
+                      width="100px" height="60px"/>
                   </td>
                   <td>{product.product_name}</td>
                   <td>{product.product_category}</td>
