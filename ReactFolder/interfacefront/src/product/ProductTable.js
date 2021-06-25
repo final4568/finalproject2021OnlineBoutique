@@ -18,8 +18,6 @@ const AllProducttable = ({history}) => {
     const loadproducts = async () => {
       const result = await axios.get("/api/product/getallproducts");
       setProducts(result.data);
-      console.log(result.data);
-
     };
 
     loadproducts();
@@ -28,7 +26,6 @@ const AllProducttable = ({history}) => {
   const deleteproduct = (id) => {
     axios.delete(`/api/product/delete/${id}`);
     setRefresh(true);
-    // window.location.href = "/tailorMain"
   };
 
     return ( 
@@ -51,6 +48,7 @@ const AllProducttable = ({history}) => {
             five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.
           </p>
+
           <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">
@@ -60,6 +58,7 @@ const AllProducttable = ({history}) => {
                 <th scope="col">Action </th>
               </tr>
             </thead>
+
             <tbody>
               {products.map((product) => (
                 <tr key={product._id}>

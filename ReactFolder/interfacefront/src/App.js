@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./index.css";
 import Home from "./Home";
 import Contact from "./Contact";
-import Shop from "./Shop";
 import About from "./About";
 import Custom from "./Custom";
 import Customer from "./Customer";
@@ -59,6 +58,8 @@ import ProductTable_tailor from './product/ProductTable_tailor';
 import ProductDetail_tailor from './product/ProductDetail_tailor';
 import UpdateProduct_tailor from './product/UpdateProduct_tailor';
 
+import ProductsPage  from "./ShopPage/ProductPage";
+import ProductView from "./ShopPage/ProductView";
 function App() {
   return (
     <>
@@ -70,10 +71,6 @@ function App() {
           </Switch>
           <Switch>
             <Route exact  path="/Contact"><Contact /></Route>
-          </Switch>
-
-          <Switch>
-            <Route exact path="/shop"><Shop /></Route>
           </Switch>
 
           <Switch>
@@ -156,7 +153,10 @@ function App() {
             
           </Switch>
           {/* User CRUD By Tailor */}
-         
+         <Switch>
+              <Route exact path="/product" component={ProductsPage}/>
+              <Route exact path="/product/Details/:id" component={ProductView}/>
+         </Switch>
 
           <Switch>
             <Route exact path="/Customer">

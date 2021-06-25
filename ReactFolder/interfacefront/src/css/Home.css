@@ -33,7 +33,7 @@
     margin-top: -8px;
     letter-spacing: 1px;
 }
-@media (width:900px) {
+@media screen and (width:900px) {
     #Inersection2 .col-sm{
         text-align: center;
     }

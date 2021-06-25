@@ -73,8 +73,8 @@ exports.update = (req, res)=>{
 };
     
 
-exports.getallproducts=(req, res)=>{
-    Product.find((err, docs)=>{
+exports.getallproducts =  (req, res)=>{
+     Product.find((err, docs)=>{
         if (err) {
           console.log(err);
         } else {

@@ -4,7 +4,7 @@ import Menu from './layouts/Menu';
 import Top from './layouts/Top';
 import Footer from './layouts/Footer'
 import { Link } from "react-router-dom";
-
+import ProductsComponet from "./ShopPage/ProductsComponet";
 const Home = () => {
   return (
     <>
@@ -89,6 +89,25 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div className="container_fluider" id="bacgimg">
+        <div className="container" id="howWord">
+          <h1 style={{color:"#1a1d1f"}}>Our Products</h1>
+          <p>
+            Stitching Master is the online tailoring service in Pakistan. We are
+            offering online tailor service for <br />
+            ladies and gents
+          </p>
+          <img
+            src="https://jobsgum.com/wp-content/uploads/2021/05/xyz.png"
+            alt="Loading..."
+          />
+        </div>
+      </div>
+
+      <ProductsComponet/>
+
+
+      
       <div className="container_fluide" id="changegame">
         <div className="container" id="howWord1">
           <h1>Changing the game. Embracing individuals.</h1>
@@ -121,9 +140,7 @@ const Home = () => {
           <div className=" col-sm">
             <div className="innerContent">
               <i className="fa fa-mouse" aria-hidden="true" />
-              <h1>
-                PLACE <br />
-                ORDER ONLINE
+              <h1>PLACE <br/> ORDER ONLINE
               </h1>
               <p>
                 Choose your product and personalise it with custom necklines,

@@ -1,11 +1,7 @@
 img {
     max-width: 100%; }
-  
-
-  
-  
- 
-    .tab-content img {
+    
+     .tab-content img {
       width: 100%;
       -webkit-animation-name: opacity;
               animation-name: opacity;

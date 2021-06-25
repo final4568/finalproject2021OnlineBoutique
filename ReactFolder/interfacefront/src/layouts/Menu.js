@@ -12,13 +12,13 @@ const Menu = () => {
                     <label for="check" class="checkbtn">
                     <i className="fas fa-bars"></i>
                     </label>
-                    <Link to="/">
+               
                     <label for="" className="logo">Online Boutique</label>
-                    </Link>  
+                  
                                       
                     <ul>
                     <li><NavLink exact to="/">Home</NavLink></li>
-                    <li><NavLink exact to="/shop">Shop</NavLink></li>
+                    <li><NavLink exact to="/product">Product</NavLink></li>
                     <li><NavLink exact to="/About">About</NavLink></li>
                     <li><NavLink exact to="/Contact">Contact</NavLink></li>
                     <li><NavLink exact to="/CustomDress">Custom Dress</NavLink></li>                    
