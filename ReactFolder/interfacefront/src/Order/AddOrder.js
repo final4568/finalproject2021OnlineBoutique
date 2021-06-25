@@ -3,21 +3,27 @@ import { useEffect, useState } from "react";
 import { useRouteMatch , Link} from "react-router-dom";
 
 const AddOrder = ({history, match}) => {
-    const[product_name, setPName] =useState("");
-    const[pid, setPe] =useState("");
-    const[pimg, setImg] =useState("");
+    const[productname, setPName] =useState("");
+    const[productid, setProductID] =useState("");
+    const[productimage, setImg] = useState("");
+    const[username, setUsername] = useState("");
+    const[userid, setUserID] =useState("");
+
+
     const [userprofile, setProfile] = useState({});
+    const [error, setError] = useState("")
+    const [success, setSuccess] = useState("");
 
 
-    useEffect(() => {
-      
+    useEffect(() => {      
       // get proiduct data 
       const fetchproduct = async () => {
           const product = await fetch(
             `/api/product/productdetail/${match.params.id}`
-          ).then((res) => res.json());    
+          ).then((res) => res.json());   
+          
+          setProductID(product._id);
           setPName(product.product_name);
-          setPe(product._id);
           setImg(product.product_photo);
     
         };
@@ -38,24 +44,65 @@ const AddOrder = ({history, match}) => {
                 config
               );
               setProfile(data);
+              setUsername(data.username);
+              setUserID(data._id);
+
             } catch (error) {
               console.log("You are not authorized, please login first");
             }
           };
+
         fetchPrivateDate();
         fetchproduct();
       }, [history, match]);
+
+      const registerHandler = async (e) => {
+        e.preventDefault();
+        const config = {
+          header: {
+            "Content-Type": "application/json",
+          },
+        };
+        try {
+          const { data } = await axios.post(
+          "/api/oders/orderadd",
+            {
+              productname,
+              productid,
+              userid,
+              username,
+              productimage,
+             
+            },
+            config
+          );
+          console.log(data.data)
+          setSuccess(data.data); 
+
+        alert("oder successfully");
+  
+        } catch (error) {
+          setError(error.response.data.error);
+          setTimeout(() => {
+          }, 3000);
+          return setError("This Email Already Registered...! Try Another");
+          
+        }
+      };
+
 
 
 
     return (
         <>
-        <h1>{product_name}</h1>
-        <h1>{pid}</h1>
-        <h1>{pid}</h1>
-        <h1>{userprofile.username}</h1>
-        <h1>{pimg}</h1>
-        <img src={`/images/${pimg}`}/>
+        <h1>{productname}</h1>
+        <h1>{productid}</h1>
+        <h1>{productimage}</h1>
+        <h1>{username}</h1>
+        <h1>{userid}</h1>
+        <div>{error}</div>
+        <button className="btn-primary" style={{margin:"30px", padding:"20px"}} onClick={registerHandler}>asdasdsa</button>
+        <div>{error}</div>
         </>
         
       );

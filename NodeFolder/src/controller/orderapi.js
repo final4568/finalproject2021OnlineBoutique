@@ -2,10 +2,16 @@
 const Order = require("../models/Order");
 
 exports.orderadd = async (req, res)=>{
-    const { productid, userid, userName, productimage } = req.body;
+    const { productname, productid, userid, username, productimage,
+    usergmail, useraddress, phone, quantity, chest, shirtlength, sleevlength,
+    sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
+    hip, thigh, knee, legopening,suitsize,tailodate } = req.body;
     try {
       const order = await Order.create({
-        productid, userid, userName, productimage
+        productname, productid, userid, username, productimage,
+        usergmail, useraddress, phone, quantity, chest, shirtlength, sleevlength,
+        sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
+        hip, thigh, knee, legopening, suitsize, clientdate,tailodate
       });
   
       order.save().then(()=>{

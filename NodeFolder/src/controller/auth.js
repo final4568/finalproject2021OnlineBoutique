@@ -161,7 +161,7 @@ exports.adminprofile = async (req, res) => {
     if (!token) {
       res
         .status(401)
-        .json({ success: false, error: "Not authorized to access this route" });
+        .json({ success: false, error: "Not authorized to access this" });
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
