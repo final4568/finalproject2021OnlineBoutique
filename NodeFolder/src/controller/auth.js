@@ -138,9 +138,10 @@ exports.resetpassword = async (req, res, next) => {
     // res.status(500).json({
     //   success: false,
     //   error: error.message,
-    // });
+    // }); 
+    next(error);
   }
-  next(error);
+ 
 };
 
 
@@ -185,8 +186,6 @@ exports.adminprofile = async (req, res) => {
 
 
 exports.getadmin = (req, res) =>{
-  // res.send("this is tailor profile")
-
   try{
     const id = req.params.id
     Admin.findById(id, (err, admin)=>{

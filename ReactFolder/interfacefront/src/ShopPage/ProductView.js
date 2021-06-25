@@ -19,7 +19,7 @@ const ProductView = ({history}) => {
     fetch(`/api/product/productdetail/${id}`).then((res) => res.json());
 
   useEffect(() => {
-    const fetchproduct = async () => {
+    const fetchproduct = async (id) => {
       const product = await getproduct(match.params.id);
       setProduct(product);
     };

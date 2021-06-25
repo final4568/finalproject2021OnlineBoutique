@@ -1,20 +1,20 @@
+
 import axios from "axios";
 import "../index.css";
 import { useState, useEffect } from "react";
 
-const Order = ({history}) => {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {    
-      const loadproducts = async () => {
-        const result = await axios.get("/api/oders/seeorder");
-        setProducts(result.data);
-      };
-  
-      loadproducts();
-    }, [history]);  
-  return ( 
-        <>
-        <div className="container" style={{marginTop:"30px", marginBottom:"50px"}}>
+const Allorders = ({history}) => {
+    const [products, setProducts] = useState([]);
+    useEffect(() => {    
+        const loadproducts = async () => {
+          const result = await axios.get("/api/oders/seeorder");
+          setProducts(result.data);
+        };
+    
+        loadproducts();
+      }, [history]);
+
+    return ( 
         <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">
@@ -38,16 +38,7 @@ const Order = ({history}) => {
               ))}
             </tbody>
           </table>
-          </div>
-<div className="container">
-    <p style={{
-        fontStyle:"italic",
-        color:"#ff318e",
-        textAlign:"right"
-    }}>Developed By Group 10</p>
-</div>
-        </>
      );
 }
  
-export default Order;
+export default Allorders;

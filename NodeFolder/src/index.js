@@ -9,6 +9,7 @@ const errorHandler = require('./middleware/Erro');
 
 //Database collection....
 connectionDB();
+app.use(express.static('./public'));
 
 app.use(express.json());
 
@@ -21,8 +22,8 @@ app.use('/api/tailorprivate', require('./routes/TailorPrivate'));
 app.use('/api/userprivate', require('./routes/userprivate'));
 
 app.use('/api/product', require("./routes/product"));
+app.use('/api/oders', require("./routes/order"));
 
-app.use(express.static('./public'));
 
 
 app.use(errorHandler);

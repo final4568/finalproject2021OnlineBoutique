@@ -14,6 +14,7 @@ const AdminSideBar = () => {
         <NavLink  to ="/product/allProducttable"> All Products</NavLink>
         <NavLink  to ="/Overview"> Overview</NavLink>
         <NavLink  to ="/admin/profile"> AdminProfile</NavLink>
+        <NavLink  to ="/allorders"> Orders</NavLink>
       </div>
     </>
   );

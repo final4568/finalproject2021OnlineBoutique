@@ -35,7 +35,7 @@ const ProductsPage = ({history}) => {
                                 <div class="text">Check {product.product_name}</div>
                                 </Link>
 
-                                 <Link to="">
+                                 <Link to={`/orderNow/${product._id}`}>
                                  <button className="btn-primary" id="btn_shopNow">Order Now</button>     
                                  </Link>   
                             </div>

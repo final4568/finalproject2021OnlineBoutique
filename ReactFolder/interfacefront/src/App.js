@@ -60,6 +60,9 @@ import UpdateProduct_tailor from './product/UpdateProduct_tailor';
 
 import ProductsPage  from "./ShopPage/ProductPage";
 import ProductView from "./ShopPage/ProductView";
+
+import AddOrder from "./Order/AddOrder";
+import Allorders from "./Order/Allorders"
 function App() {
   return (
     <>
@@ -157,6 +160,11 @@ function App() {
               <Route exact path="/product" component={ProductsPage}/>
               <Route exact path="/product/Details/:id" component={ProductView}/>
          </Switch>
+
+        <Switch>
+          <Route exact path="/orderNow/:id" component={AddOrder}/>
+          <Route exact path="/allorders" component={Allorders}/>
+        </Switch>
 
           <Switch>
             <Route exact path="/Customer">

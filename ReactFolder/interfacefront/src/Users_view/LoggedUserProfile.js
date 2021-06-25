@@ -23,7 +23,7 @@ const LoggedUserProfile = ({ history }) => {
 
       try {
         const { data } = await axios.get(
-          "/api/users/LoggedTailorProfile",
+          "/api/users/LoggedUserProfile",
           config
         );
         setProfile(data);
