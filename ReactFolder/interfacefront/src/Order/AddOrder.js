@@ -124,11 +124,11 @@ const AddOrder = ({history, match}) => {
     return (
         <>
         
-        <h1>{productname}</h1>
+        {/* <h1>{productname}</h1>
         <h1>{productid}</h1>
         <h1>{productimage}</h1>
         <h1>{username}</h1>
-        <h1>{userid}</h1>
+        <h1>{userid}</h1> */}
     
       <div className="container"  id="productForm">
         <div className="heading">
@@ -195,12 +195,15 @@ const AddOrder = ({history, match}) => {
                    </select>
 
                     <label for="phone">Address:</label>
+                    <div className="adddress">
                     <textarea type="text" required id="useraddress" placeholder="Enter Delivery Address" name="useraddress"
                      value={useraddress} 
                      onChange ={(e)=>{
                       setUseraddress(e.target.value)
                      }}
                     />
+                    </div>
+                    
                     
                     <label for="chest">Chest Size:</label>
                     <input type="number" required id="chest" placeholder="Enter Shirt Chest Size" name="chest"

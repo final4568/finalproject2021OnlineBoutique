@@ -34,12 +34,13 @@ const Orderdetail = ({ history }) => {
           style={{ float: "right" }}
         >
           <h1>Order Details</h1>
-          <p className="tailorprofile">
+          <p className="order_detail">
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
             scrambled it to make a type specimen book. It has survived not only
             five centuries,
           </p>
+           
 
           <table class="table border" style={{ marginTop: "60px" }}>
             <thead>
@@ -47,11 +48,17 @@ const Orderdetail = ({ history }) => {
                 <th scope="col">
                  Customer Name: <h1>{orderdetails.name} </h1>
                 </th>
+                <th scope="col">
+                </th>
+                <th scope="col">
+                <img src={`/images/${orderdetails.productimage}`} width="100%" alt="Loading..!"/>
+                </th>
                 {/* <th scope="col"> Email:{tailors.email}</th> */}
               </tr>
             </thead>
             <tbody>
               <tr>
+                 
                 <td><strong>Email: </strong> {orderdetails.usergmail}</td>
                 <td><strong>Phone: </strong> {orderdetails.phone} </td>
                 <td><strong>UserName: </strong> {orderdetails.username} </td>
@@ -99,6 +106,7 @@ const Orderdetail = ({ history }) => {
                 <td><strong>Legopening Size : </strong>{orderdetails.legopening}</td>
               </tr>
 
+                
               
 
             </tbody>
