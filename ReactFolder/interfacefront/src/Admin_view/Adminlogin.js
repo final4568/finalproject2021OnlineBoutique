@@ -85,10 +85,7 @@ const Adminlogin = ({history}) => {
                 <div className="btn-layer"></div>
                 <input type="submit" value="Login Now"/>
                 </div>
-                {/* <button type="submit">Login</button> */}
-                {/* <div className="pass-link">
-                Don't Have A Account ? <Link to="/admin/register">SignUp Now</Link>
-                </div> */}
+               
             </form>
             </div>
         </div>

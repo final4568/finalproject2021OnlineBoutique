@@ -9,7 +9,8 @@ const OrderSchema = new mongoose.Schema({
   username:{type: String },
   productimage:{type:String },
   usergmail:{type:String},
-  useraddress:{type: Number, minlength:10, require:true},
+  name:{type:String, require:true},
+  gmail:{type:String},
   phone:{ type: Number, minlength:10, require:true},
   quantity:{ type: Number, require:true},
   chest:{type: Number, require:true},
@@ -27,8 +28,11 @@ const OrderSchema = new mongoose.Schema({
   knee:{type: Number, require:true},
   legopening:{type: Number, require:true},
   suitsize:{type:String, require:true},
-  clientdate:{type:Date, require:true},
-  tailodate:{type:Date, require:true},
+  clientdate:{type:Date, require:true, trim: true},
+  tailodate:{type:Date},
+  useraddress:{type: String,require:true},
+  tailortype:{type:String, require :true}
+
 
 });
 const Order = mongoose.model("Order", OrderSchema);

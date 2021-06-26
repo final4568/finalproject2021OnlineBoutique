@@ -2,16 +2,16 @@
 const Order = require("../models/Order");
 
 exports.orderadd = async (req, res)=>{
-    const { productname, productid, userid, username, productimage,
-    usergmail, useraddress, phone, quantity, chest, shirtlength, sleevlength,
+    const { productname, productid, userid, username, productimage, name,
+    usergmail, gmail, phone, quantity, chest, shirtlength, sleevlength,
     sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
-    hip, thigh, knee, legopening,suitsize,tailodate } = req.body;
+    hip, thigh, knee, legopening, suitsize,tailodate, clientdate,useraddress, tailortype} = req.body;
     try {
       const order = await Order.create({
-        productname, productid, userid, username, productimage,
-        usergmail, useraddress, phone, quantity, chest, shirtlength, sleevlength,
+        productname, productid, userid, username, productimage,name,
+        usergmail, gmail, phone, quantity, chest, shirtlength, sleevlength,
         sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
-        hip, thigh, knee, legopening, suitsize, clientdate,tailodate
+        hip, thigh, knee, legopening, suitsize, clientdate,tailodate, useraddress, tailortype
       });
   
       order.save().then(()=>{
@@ -25,7 +25,7 @@ exports.orderadd = async (req, res)=>{
         success: false,
         error: error.message,
       });
-      //next(error);
+   
     }
 };
 
@@ -37,5 +37,4 @@ exports.seeorder = (req, res)=>{
             res.json(docs)
         }
     })
-
 };
