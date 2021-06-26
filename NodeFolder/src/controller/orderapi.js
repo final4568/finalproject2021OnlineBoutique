@@ -5,13 +5,15 @@ exports.orderadd = async (req, res)=>{
     const { productname, productid, userid, username, productimage, name,
     usergmail, gmail, phone, quantity, chest, shirtlength, sleevlength,
     sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
-    hip, thigh, knee, legopening, suitsize,tailodate, clientdate,useraddress, tailortype} = req.body;
+    hip, thigh, knee, legopening, suitsize,tailodate, clientdate,useraddress, 
+    tailortype,producttype, productcategory} = req.body;
     try {
       const order = await Order.create({
         productname, productid, userid, username, productimage,name,
         usergmail, gmail, phone, quantity, chest, shirtlength, sleevlength,
         sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
-        hip, thigh, knee, legopening, suitsize, clientdate,tailodate, useraddress, tailortype
+        hip, thigh, knee, legopening, suitsize, clientdate,tailodate, useraddress, 
+        tailortype, producttype, productcategory
       });
   
       order.save().then(()=>{

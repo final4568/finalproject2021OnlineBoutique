@@ -31,7 +31,9 @@ const OrderSchema = new mongoose.Schema({
   clientdate:{type:Date, require:true, trim: true},
   tailodate:{type:Date},
   useraddress:{type: String,require:true},
-  tailortype:{type:String, require :true}
+  tailortype:{type:String, require :true},
+  producttype:{type:String},
+  productcategory:{type:String}
 
 
 });

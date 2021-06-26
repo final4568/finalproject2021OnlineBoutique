@@ -33,7 +33,8 @@ const AddOrder = ({history, match}) => {
     const[legopening, setLegopening]=useState("");
     const[useraddress, setUseraddress]=useState("");
     const[tailortype, setTailortype]=useState("");
-
+    const[producttype, setType]= useState("ReadMade");
+    const[productcategory, setproductcat] =useState("");
 
 
     const [userprofile, setProfile] = useState({});
@@ -51,6 +52,7 @@ const AddOrder = ({history, match}) => {
           setProductName(product.product_name);
           setProductID(product._id);
           setImg(product.product_photo);
+          setproductcat(product.product_category);
     
         };
 
@@ -97,7 +99,8 @@ const AddOrder = ({history, match}) => {
               productname, productid, userid, username, productimage,name,
               usergmail, gmail, phone, quantity, chest, shirtlength, sleevlength,
               sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
-              hip, thigh, knee, legopening, suitsize, clientdate, useraddress, tailortype       
+              hip, thigh, knee, legopening, suitsize, clientdate, useraddress, tailortype,
+              producttype, productcategory
             },
             config
           );
@@ -116,11 +119,6 @@ const AddOrder = ({history, match}) => {
         }
       };
 
-
-
-
-
-
     return (
         <>
 {/*         
@@ -129,9 +127,7 @@ const AddOrder = ({history, match}) => {
         <h1>{productimage}</h1>
         <h1>{username}</h1>
         <h1>{userid}</h1> */}
-        
-      
-      
+    
       <div className="container"  id="productForm">
         <div className="heading">
         Product Order Form
@@ -150,10 +146,7 @@ const AddOrder = ({history, match}) => {
         <div className="row">
           <div className="col-lg-12 col-sm">
               <div className="form">
-                
-
                   <form class="form-inline" onSubmit={registerHandler}>                   
-
                     <label for="name">Name : </label><br/>
                     <input type="text" required id="name" placeholder="Enter User Name" name="name"
                     value={name}

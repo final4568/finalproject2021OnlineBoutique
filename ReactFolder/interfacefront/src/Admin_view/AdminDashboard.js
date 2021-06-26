@@ -4,7 +4,7 @@ import "../index.css";
 import AdminHeader from "../layouts/AdminHeader";
 import AdminSideBar from "../layouts/AdminSlidebar";
 import Dashboard_component from "../layouts/Dashboard_component";
-import Order from '../product/Order'
+import Order from '../product/Order';
 
 
 

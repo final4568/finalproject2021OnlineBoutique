@@ -3,14 +3,15 @@ import "../index.css";
 import { useState, useEffect } from "react";
 
 const Order = ({history}) => {
-  const [products, setProducts] = useState([]);
+  const [orders, setOrders] = useState([]);
+  
   useEffect(() => {    
-      const loadproducts = async () => {
+      const loadorders = async () => {
         const result = await axios.get("/api/oders/seeorder");
-        setProducts(result.data);
+        setOrders(result.data);
       };
   
-      loadproducts();
+      loadorders();
     }, [history]);  
   return ( 
         <>
@@ -21,19 +22,20 @@ const Order = ({history}) => {
                 <th scope="col"> Image</th>
                 <th scope="col">Products Name</th>
                 <th scope="col">Category</th>
-                <th scope="col">Action </th>
+                <th scope="col">Product Type </th>
               </tr>
             </thead>
 
             <tbody>
-              {products.map((product) => (
-                <tr key={product._id}>
+              {orders.map((order) => (
+                <tr key={order._id}>
                   <td>
-                      <img src={`/images/${product.productimage}`} alt="..."
+                      <img src={`/images/${order.productimage}`} alt="..."
                       width="100px" height="60px"/>
                   </td>
-                  <td>{product.userName}</td>
-                  <td>{product.productid}</td>                  
+                  <td>{order.productname}</td>
+                  <td>{order.productcategory}</td>                  
+                  <td>{order.producttype}</td>                  
                 </tr>
               ))}
             </tbody>

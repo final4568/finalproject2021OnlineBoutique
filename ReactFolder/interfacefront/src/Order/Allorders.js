@@ -2,20 +2,39 @@
 import axios from "axios";
 import "../index.css";
 import { useState, useEffect } from "react";
-
+import AdminHeader from '../layouts/AdminHeader';
+import AdminSideBar from '../layouts/AdminSlidebar';
+import { Button } from "reactstrap";
+import {Link } from "react-router-dom"
 const Allorders = ({history}) => {
-    const [products, setProducts] = useState([]);
+    const [orders, setOrders] = useState([]);
     useEffect(() => {    
-        const loadproducts = async () => {
+        const loadorders = async () => {
           const result = await axios.get("/api/oders/seeorder");
-          setProducts(result.data);
+          setOrders(result.data);
         };
     
-        loadproducts();
+        loadorders();
       }, [history]);
 
     return ( 
-        <table class="table border shadow" style={{ marginTop: "40px" }}>
+      <>
+      <AdminHeader />
+      <div className="containter">
+        <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
+          <AdminSideBar />
+        </div>
+        <div className="col-10" id="right_dasBoard_col" style={{ float: "right", paddingRight:"20px"}}>
+       
+          <h1 style={{marginTop:"-10px"}}>All Orders</h1>
+          <p>
+            Lorem Ipsum has been the industry's standard dummy text ever since
+            the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book.
+          </p>
+        
+
+          <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">
                 <th scope="col"> Image</th>
@@ -26,18 +45,52 @@ const Allorders = ({history}) => {
             </thead>
 
             <tbody>
-              {products.map((product) => (
-                <tr key={product._id}>
+              {orders.map((order) => (
+                <tr key={order._id}>
                   <td>
-                      <img src={`/images/${product.productimage}`} alt="..."
+                      <img src={`/images/${order.productimage}`} alt="..."
                       width="100px" height="60px"/>
                   </td>
-                  <td>{product.userName}</td>
-                  <td>{product.productid}</td>                  
+                  <td>{order.productname}</td>
+                  <td>{order.productcategory}</td>                  
+                  <td>
+                  
+                <Link to={`/product/detail/${order._id}`}>
+                      <Button id="btn_table" color="primary" size="sm">
+                        View
+                      </Button>
+                    </Link>
+                    <Link to={`/product/Update/${order._id}`}>
+                      <Button id="btn_table" color="warning" size="sm" >
+                        Edit
+                      </Button>
+                    </Link>
+
+                    
+                    <Button color="danger" size="sm" style={{marginLeft:"10px"}} >
+                      Delete
+                    </Button>
+
+
+
+                  </td>                  
                 </tr>
               ))}
             </tbody>
           </table>
+
+
+
+
+        </div>
+      </div>
+
+
+
+
+
+      </>
+     
      );
 }
  
