@@ -27,7 +27,6 @@ const TailorMainpage = ({ history }) => {
   const deletetailor = (id) => {
     axios.delete(`/api/tailor/delete/${id}`);
     setRefresh(true);
-    // window.location.href = "/tailorMain"
   };
 
   return (
@@ -80,11 +79,7 @@ const TailorMainpage = ({ history }) => {
                     <Button
                       id="btn_table"
                       onClick={() => {
-                        if (
-                          window.confirm(
-                            `Are you sure you wish to delete this Tailor?`
-                          )
-                        )
+                        if (window.confirm (`Are you sure you wish to delete this Tailor?`))
                           deletetailor(tailor._id);
                       }}
                       color="danger" size="sm"

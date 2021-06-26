@@ -62,7 +62,9 @@ import ProductsPage  from "./ShopPage/ProductPage";
 import ProductView from "./ShopPage/ProductView";
 
 import AddOrder from "./Order/AddOrder";
-import Allorders from "./Order/Allorders"
+import Allorders from "./Order/Allorders";
+import Orderdetail from "./Order/Orderdetail";
+
 function App() {
   return (
     <>
@@ -164,6 +166,7 @@ function App() {
         <Switch>
           <Route exact path="/orderNow/:id" component={AddOrder}/>
           <Route exact path="/allorders" component={Allorders}/>
+          <Route exact path="/orderdetail/:id" component={Orderdetail}/>
         </Switch>
 
           <Switch>

@@ -8,14 +8,24 @@ import { Button } from "reactstrap";
 import {Link } from "react-router-dom"
 const Allorders = ({history}) => {
     const [orders, setOrders] = useState([]);
-    useEffect(() => {    
+    const [refresh, serRefresh] =useState(false);
+
+
+    useEffect(() => {   
+      if (refresh) return serRefresh(false);
+
         const loadorders = async () => {
           const result = await axios.get("/api/oders/seeorder");
           setOrders(result.data);
         };
     
         loadorders();
-      }, [history]);
+      }, [history, refresh]);
+
+      const deleteorder =(id)=>{
+          axios.delete(`/api/oders/deleteorder/${id}`);
+          serRefresh(true)
+      };
 
     return ( 
       <>
@@ -55,7 +65,7 @@ const Allorders = ({history}) => {
                   <td>{order.productcategory}</td>                  
                   <td>
                   
-                <Link to={`/product/detail/${order._id}`}>
+                <Link to={`/orderdetail/${order._id}`}>
                       <Button id="btn_table" color="primary" size="sm">
                         View
                       </Button>
@@ -67,7 +77,13 @@ const Allorders = ({history}) => {
                     </Link>
 
                     
-                    <Button color="danger" size="sm" style={{marginLeft:"10px"}} >
+                    <Button color="danger" size="sm" style={{marginLeft:"10px"}}
+                    
+                    onClick={() => {
+                      if (window.confirm (`Are you sure you wish to delete this Order?`))
+                        deleteorder(order._id);
+                    }}
+                    >
                       Delete
                     </Button>
 

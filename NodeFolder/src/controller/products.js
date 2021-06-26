@@ -102,7 +102,13 @@ exports.deleteproduct = async(req, res)=>{
 exports.productdetail = async (req, res)=>{
     try{
         await Product.findById(req.params.id, (err, product)=>{
-            res.status(200).json(product)
+            if(err){
+                res.status(500).json({
+                    success:false,
+                  });
+            }else{
+                res.status(200).json(product)
+            }
         });
     }catch{
         res.status(400).json({

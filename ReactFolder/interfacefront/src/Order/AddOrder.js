@@ -8,7 +8,9 @@ const AddOrder = ({history, match}) => {
     const[productname, setProductName] =useState("");
     const[productid, setProductID] =useState("");
     const[userid, setUserID] =useState("");
+
     const[username, setUsername] = useState("");
+
     const[productimage, setImg] = useState("");
     const[name, setName] = useState("");
     const[usergmail, setUsermail] =useState("");
@@ -121,12 +123,12 @@ const AddOrder = ({history, match}) => {
 
     return (
         <>
-{/*         
+        
         <h1>{productname}</h1>
         <h1>{productid}</h1>
         <h1>{productimage}</h1>
         <h1>{username}</h1>
-        <h1>{userid}</h1> */}
+        <h1>{userid}</h1>
     
       <div className="container"  id="productForm">
         <div className="heading">
@@ -284,7 +286,7 @@ const AddOrder = ({history, match}) => {
                      }}
                     />
                    
-                    <label for="hip">hip Size:</label>
+                    <label for="hip">Size From Back:</label>
                     <input type="number" required id="hip" placeholder="Enter Pent hip Size" name="hip"
                     value={hip} 
                     onChange ={(e)=>{

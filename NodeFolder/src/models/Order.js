@@ -33,7 +33,8 @@ const OrderSchema = new mongoose.Schema({
   useraddress:{type: String,require:true},
   tailortype:{type:String, require :true},
   producttype:{type:String},
-  productcategory:{type:String}
+  productcategory:{type:String},
+  orderstatus:{type:String}
 
 
 });
