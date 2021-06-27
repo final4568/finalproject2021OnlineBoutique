@@ -93,33 +93,52 @@ const UpdateProduct_tailor = ({history, match}) => {
             <form  className="login" onSubmit={onsubmitInput}>                
                 <div className="xyz" style={{marginTop:"40px"}}>
                 
+                <label className="formlable" for="Product Name"><strong>Product Name:</strong> </label>      
                 <div className="field">
                 <input type="text" placeholder="Product Name" required name ="productName" id="productName" 
                     value = {product_name}
                     onChange = {(e)=>{setPName(e.target.value)}}
                 />
                 </div>
+                
+                <label className="formlable" for="Product Category"><strong>Product Category:</strong> </label>      
                 <div className="field">
+                <select
+                    value = {product_category}
+                    onChange = {(e)=>{setCate(e.target.value)}}
+                    style={{width:"100%",
+                  height:"40px"}}
+                  >
+                    <option value="male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Female">Baby</option>
+                  </select>
+                </div>
+
+                <label className="formlable" for="Product Category"><strong>Aurthor :</strong> </label>      
+                <div className="field">
+                <select
+                    value = {product_uploadby}
+                    onChange = {(e)=>{setULby(e.target.value)}}
+                    style={{width:"100%",
+                  height:"40px"}}
+                  >
+                    <option value="male">Admin</option>
+                    <option value="Female">Male Tailor</option>
+                    <option value="Female">Female Tailor</option>
+                  </select>
+                
+                </div>
+
+                <label className="formlable" for="Product Description"><strong>Product Description:</strong> </label>      
+                <div className="">
                 <textarea type="text" placeholder="Product Description" required name ="productDes" id="productDes" 
                     value = {product_des}
                     onChange = {(e)=>{setDesc(e.target.value)}}
+                    style={{height:"100px",
+                    marginTop:"10px", marginBottom:"30px"}}
                 />
                 </div>
-
-                <div className="field">
-                <input type="text" placeholder="ProductCategory" required name ="productcategory" id="Uploadby" 
-                    value = {product_category}
-                    onChange = {(e)=>{setCate(e.target.value)}}
-                />
-                </div>
-
-                <div className="field">
-                <input type="text" placeholder="Product Upload By" required name ="Uploadby" id="Uploadby" 
-                    value = {product_uploadby}
-                    onChange = {(e)=>{setULby(e.target.value)}}
-                />
-                </div>
-                
                 
                 <input type="file" placeholder="Upload photo" required name ="product_photo" id="photo"
                 onChange = {onInputchaged}                

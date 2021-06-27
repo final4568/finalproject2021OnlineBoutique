@@ -129,31 +129,19 @@ const UserRegisterByAdmin = ({ history }) => {
                       />
                     </div>
                     <div className="field">
-                      <input
-                        type="text"
-                        placeholder="Enter Gender"
-                        name="email"
-                        id="phone"
-                        required
-                        value={gender}
-                        onChange={(e) => {
-                          setGender(e.target.value);
-                        }}
-                      />
+                        <select
+                         value = {gender}
+                         onChange = {(e)=>{setGender(e.target.value)}}
+                         style={{width:"100%",
+                        height:"40px"}}
+                        >
+                          <option value="male">Male</option>
+                          <option value="Female">FeMale</option>
+                        </select>
+                      
+                      
                     </div>
-                    <div className="field">
-                      <textarea
-                        type="text"
-                        placeholder="Address"
-                        name="email"
-                        id="phone"
-                        required
-                        value={address}
-                        onChange={(e) => {
-                          setAddress(e.target.value);
-                        }}
-                      />
-                    </div>
+                    
                     <div className="field">
                       <input
                         type="Date"
@@ -165,6 +153,21 @@ const UserRegisterByAdmin = ({ history }) => {
                         onChange={(e) => {
                           setBirthDay(e.target.value);
                         }}
+                      />
+                    </div>
+                    <div className="">
+                      <textarea
+                        type="text"
+                        placeholder="Address"
+                        name="email"
+                        id="phone"
+                        required
+                        value={address}
+                        onChange={(e) => {
+                          setAddress(e.target.value);
+                        }}
+                        style={{height:"100px",
+                  marginTop:"10px"}}
                       />
                     </div>
 

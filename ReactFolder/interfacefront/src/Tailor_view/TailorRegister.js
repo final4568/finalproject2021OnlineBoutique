@@ -56,7 +56,8 @@ const TailorRegister = ({history}) => {
         },
         config
       );  
-      history.push("/tailorMain");
+      // history.push("/tailorMain");
+      alert("New Tailor Registered Successfully...")
         
 
     } catch (error) {
@@ -120,25 +121,47 @@ const TailorRegister = ({history}) => {
                     onChange = {(e)=>{setPhone(e.target.value)}}
                 />
                 </div><div className="field">
-                <input type="text" placeholder="Enter Gender" name ="email" id="phone" required
-                    value = {gender}
-                    onChange = {(e)=>{setGender(e.target.value)}}
-                />
-                </div><div className="field">
+                        <select
+                         value = {gender}
+                         onChange = {(e)=>{setGender(e.target.value)}}
+                         style={{width:"100%",
+                        height:"40px"}}
+                        >
+                          <option value="male">Male</option>
+                          <option value="Female">FeMale</option>
+                        </select>
+                
+               
+                </div>
+                
+                <div className="field">
+                <select
+                    value = {usertype}
+                    onChange = {(e)=>{setUserType(e.target.value)}}
+                    style={{width:"100%",
+                  height:"40px"}}
+                  >
+                    <option value="male">Administration</option>
+                    <option value="Female">Tailor</option>
+                    <option value="Female">User</option>
+                  </select>
+                </div> 
+
+                <div className="">
                 <textarea type="text" placeholder="Address" name ="email" id="phone" required
                     value = {address}
                     onChange = {(e)=>{setAddress(e.target.value)}}
+                  style={{height:"100px",
+                  marginTop:"10px"}}
                 />
-                </div><div className="field">
-                <input type="text" placeholder="User Type" name ="email" id="phone" required
-                    value = {usertype}
-                    onChange = {(e)=>{setUserType(e.target.value)}}
-                />
-                </div> 
-                <div className="field">
+                </div>
+
+                <div className="">
                 <textarea  type="text" placeholder="Bio" name ="email" id="phone" required
                     value = {bio}
                     onChange = {(e)=>{setBio(e.target.value)}}
+                    style={{height:"100px",
+                  marginTop:"10px"}}
                 />
                 </div>
                 

@@ -74,6 +74,9 @@ const AdminUpdate = ({ match , history}) => {
             <div className="form-container">
               <div className="form-inner">
                 <form className="login" onSubmit={updateData}>
+                
+                
+                <label className="formlable" for="name"> <strong>Name :</strong> </label>
                   <div className="field">
                     <input
                       type="text"
@@ -85,8 +88,10 @@ const AdminUpdate = ({ match , history}) => {
                       onChange={(e) => {
                         setUsername(e.target.value);
                       }}
-                    />
+                    /><br/><br/>
                   </div>
+
+                  <label className="formlable" for="name"><strong>Email :</strong>  </label>
                   <div className="field">
                     <input
                       type="email"
@@ -100,31 +105,64 @@ const AdminUpdate = ({ match , history}) => {
                       }}
                     />
                   </div>
+                  <label  className="formlable" for="name"> <strong>Phone :</strong> </label>
                   <div className="field">
                 <input type="number" placeholder="Phone" name ="email" id="phone" required
                     value = {phone}
                     onChange = {(e)=>{setPhone(e.target.value)}}
                 />
-                </div><div className="field">
-                <input type="text" placeholder="Enter Gender" name ="email" id="phone" required
-                    value = {gender}
-                    onChange = {(e)=>{setGender(e.target.value)}}
-                />
-                </div><div className="field">
-                <textarea type="text" placeholder="Address" name ="email" id="phone" required
-                    value = {address}
-                    onChange = {(e)=>{setAddress(e.target.value)}}
-                />  
-                </div><div className="field">
-                <input type="text" placeholder="User Type" name ="email" id="phone" required
+                </div>
+
+                <label className="formlable" for="name"><strong>Gender :</strong> </label>                        
+                <div className="field">
+                        <select
+                         value = {gender}
+                         onChange = {(e)=>{setGender(e.target.value)}}
+                         style={{width:"100%",
+                        height:"40px"}}
+                        >
+                          <option value="male">Male</option>
+                          <option value="Female">FeMale</option>
+                        </select>
+
+               
+                </div>
+                
+                <label className="formlable" for="name"><strong>User_Type :</strong> </label>    
+                <div className="field">
+                
+                <select
                     value = {usertype}
                     onChange = {(e)=>{setUserType(e.target.value)}}
-                />
+                    style={{width:"100%",
+                  height:"40px"}}
+                  >
+                    <option value="male">Administration</option>
+                    <option value="Female">Tailor</option>
+                  </select>
+                
                 </div> 
-                <div className="field">
+
+
+                <label className="formlable" for="name"> <strong>Address :</strong> </label>      
+                <div className="">
+                <textarea type="text" placeholder="Address" name ="email" id="phone" required
+                   value = {address}
+                   onChange = {(e)=>{setAddress(e.target.value)}}
+                   style={{height:"100px",
+                  marginTop:"10px"}}
+                />  
+                </div>
+
+
+
+                <label className="formlable" for="name"><strong>Admin Bio :</strong> </label>      
+                <div className="">
                 <textarea  type="text" placeholder="Bio" name ="email" id="phone" required
                     value = {bio}
                     onChange = {(e)=>{setBio(e.target.value)}}
+                    style={{height:"100px",
+                    marginTop:"10px"}}
                 />
                 </div>
                   
@@ -132,16 +170,13 @@ const AdminUpdate = ({ match , history}) => {
                     <div className="btn-layer"></div>
                     <input type="submit" value="Update Admin" />
                   </div>
-                  
                 </form>
-                
               </div>
             </div>
-            
           </div>
         </div>
           <Link to="/admin/profile">
-          <Button color="success">Go Back</Button>
+          <Button style= {{marginBottom:"60px"}} color="success">Go Back</Button>
           </Link>
       </div>
       </div>

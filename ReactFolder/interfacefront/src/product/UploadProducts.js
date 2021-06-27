@@ -82,27 +82,42 @@ const UploadProducts = ({history}) => {
                     onChange = {(e)=>{setPName(e.target.value)}}
                 />
                 </div>
+               
+
                 <div className="field">
+                <select
+                    value = {product_category}
+                    onChange = {(e)=>{setCate(e.target.value)}}
+                    style={{width:"100%",
+                  height:"40px"}}
+                  >
+                    <option value="male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Female">Baby</option>
+                  </select>
+                </div>
+
+                <div className="field">
+                <select
+                    value = {product_uploadby}
+                    onChange = {(e)=>{setULby(e.target.value)}}
+                    style={{width:"100%",
+                  height:"40px"}}
+                  >
+                    <option value="male">Admin</option>
+                    <option value="Female">Male Tailor</option>
+                    <option value="Female">Female Tailor</option>
+                  </select>
+                </div>
+
+                <div className="">
                 <textarea type="text" placeholder="Product Description" required name ="productDes" id="productDes" 
                     value = {product_des}
                     onChange = {(e)=>{setDesc(e.target.value)}}
+                       style={{height:"100px",
+                    marginTop:"10px", marginBottom:"30px"}}
                 />
                 </div>
-
-                <div className="field">
-                <input type="text" placeholder="ProductCategory" required name ="productcategory" id="Uploadby" 
-                    value = {product_category}
-                    onChange = {(e)=>{setCate(e.target.value)}}
-                />
-                </div>
-
-                <div className="field">
-                <input type="text" placeholder="Product Upload By" required name ="Uploadby" id="Uploadby" 
-                    value = {product_uploadby}
-                    onChange = {(e)=>{setULby(e.target.value)}}
-                />
-                </div>
-                
                 
                 <input type="file" placeholder="Upload photo" required name ="product_photo" id="photo"
                 onChange = {onInputchaged}                

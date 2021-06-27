@@ -82,12 +82,7 @@ const UploadProduct_tailor = ({history}) => {
                     onChange = {(e)=>{setPName(e.target.value)}}
                 />
                 </div>
-                <div className="field">
-                <textarea type="text" placeholder="Product Description" required name ="productDes" id="productDes" 
-                    value = {product_des}
-                    onChange = {(e)=>{setDesc(e.target.value)}}
-                />
-                </div>
+                
 
                 <div className="field">
                 <input type="text" placeholder="ProductCategory" required name ="productcategory" id="Uploadby" 
@@ -100,6 +95,14 @@ const UploadProduct_tailor = ({history}) => {
                 <input type="text" placeholder="Product Upload By" required name ="Uploadby" id="Uploadby" 
                     value = {product_uploadby}
                     onChange = {(e)=>{setULby(e.target.value)}}
+                />
+                </div>
+                <div className="">
+                <textarea type="text" placeholder="Product Description" required name ="productDes" id="productDes" 
+                    value = {product_des}
+                    onChange = {(e)=>{setDesc(e.target.value)}}
+                    style={{width:"100%",
+                    height:"140px", marginBottom:"40px", marginTop:"10px"}}
                 />
                 </div>
                 

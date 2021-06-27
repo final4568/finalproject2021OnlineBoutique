@@ -61,7 +61,6 @@ const LoggedInTailorUpdate = ({ match , history}) => {
         <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
           <TailorSidebar />
         </div>
-     
       <div
         className="col-10"
         id="right_dasBoard_col"
@@ -74,6 +73,8 @@ const LoggedInTailorUpdate = ({ match , history}) => {
             <div className="form-container">
               <div className="form-inner">
                 <form className="login" onSubmit={updateTailorData}>
+                  
+            <label className="formlable" for="username"> <strong>Username :</strong> </label>      
                   <div className="field">
                     <input
                       type="text"
@@ -87,6 +88,9 @@ const LoggedInTailorUpdate = ({ match , history}) => {
                       }}
                     />
                   </div>
+            
+            <label className="formlable" for="email"> <strong>Email Address :</strong> </label>      
+  
                   <div className="field">
                     <input
                       type="email"
@@ -100,31 +104,60 @@ const LoggedInTailorUpdate = ({ match , history}) => {
                       }}
                     />
                   </div>
+
+            <label className="formlable" for="phone"> <strong>Phone Number :</strong> </label>      
                   <div className="field">
                 <input type="number" placeholder="Phone" name ="email" id="phone" required
                     value = {phone}
                     onChange = {(e)=>{setPhone(e.target.value)}}
                 />
-                </div><div className="field">
-                <input type="text" placeholder="Enter Gender" name ="email" id="phone" required
-                    value = {gender}
-                    onChange = {(e)=>{setGender(e.target.value)}}
-                />
-                </div><div className="field">
+                </div>
+                
+                <label className="formlable" for="Gender"> <strong>Gender :</strong> </label>      
+                <div className="field">
+                <select
+                         value = {gender}
+                         onChange = {(e)=>{setGender(e.target.value)}}
+                         style={{width:"100%",
+                        height:"40px"}}
+                        >
+                          <option value="male">Male</option>
+                          <option value="Female">FeMale</option>
+                        </select>
+                
+                </div>
+
+                <label className="formlable" for="usertype"> <strong>User Type :</strong> </label>      
+                <div className="field">
+                <select
+                    value = {usertype}
+                    onChange = {(e)=>{setUserType(e.target.value)}}
+                    style={{width:"100%",
+                  height:"40px"}}
+                  >
+                    <option value="male">Administration</option>
+                    <option value="Female">Tailor</option>
+                    <option value="Female">User</option>
+                  </select>
+                </div> 
+
+                <label className="formlable" for="usertype"> <strong>Address  :</strong> </label>      
+                <div className="">
                 <textarea type="text" placeholder="Address" name ="email" id="phone" required
                     value = {address}
                     onChange = {(e)=>{setAddress(e.target.value)}}
+                    style={{width:"100%",
+                  height:"100px", marginTop:"15px"}}
                 />
-                </div><div className="field">
-                <input type="text" placeholder="User Type" name ="email" id="phone" required
-                    value = {usertype}
-                    onChange = {(e)=>{setUserType(e.target.value)}}
-                />
-                </div> 
-                <div className="field">
+                </div>
+
+                <label className="formlable" for="Address"> <strong>Bio  :</strong> </label>      
+                <div className="">
                 <textarea  type="text" placeholder="Bio" name ="email" id="phone" required
                     value = {bio}
                     onChange = {(e)=>{setBio(e.target.value)}}
+                    style={{height:"100px",
+                    marginTop:"10px"}}
                 />
                 </div>
                   

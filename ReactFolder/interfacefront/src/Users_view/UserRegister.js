@@ -100,21 +100,24 @@ const UserRegister = ({history}) => {
                 />
                 </div>
                 <div className="field">
-                <input type="number" placeholder="Phone" name ="email" id="phone" required
+                <input type="number" placeholder="Phone" name ="phone" id="phone" required
                     value = {phone}
                     onChange = {(e)=>{setPhone(e.target.value)}}
                 />
-                </div><div className="field">
-                <input type="text" placeholder="Enter Gender" name ="email" id="phone" required
-                    value = {gender}
-                    onChange = {(e)=>{setGender(e.target.value)}}
-                />
-                </div><div className="field">
-                <textarea type="text" placeholder="Address" name ="email" id="phone" required
-                    value = {address}
-                    onChange = {(e)=>{setAddress(e.target.value)}}
-                />
-                </div> 
+                </div>
+                <div className="field">
+                <select
+                         value = {gender}
+                         onChange = {(e)=>{setGender(e.target.value)}}
+                         style={{width:"100%",
+                        height:"40px"}}
+                        >
+                          <option value="male">Male</option>
+                          <option value="Female">FeMale</option>
+                        </select>
+                </div>
+                
+                
                 <div className="field">
                 <input  type="Date" placeholder="Birthday" name ="email" id="phone" required
                     value = {birthday}
@@ -122,6 +125,15 @@ const UserRegister = ({history}) => {
                 />
                 </div>
                 
+                <div className="">
+                <textarea type="text" placeholder="Address" name ="email" id="phone" required
+                    value = {address}
+                    onChange = {(e)=>{setAddress(e.target.value)}}
+                    style={{height:"100px",
+                        marginTop:"10px"}}
+                />
+                </div> 
+
                 <div className="field">
                 <input type="password" name="password" id="password" placeholder="Password" required
                     value = {password}
@@ -134,10 +146,6 @@ const UserRegister = ({history}) => {
                     onChange = {(e)=>{setConfirmPassword(e.target.value)}}
                 />
                 </div>
-
-             
-                
-
 
                 <div className="field btn">
                 <div className="btn-layer"></div>

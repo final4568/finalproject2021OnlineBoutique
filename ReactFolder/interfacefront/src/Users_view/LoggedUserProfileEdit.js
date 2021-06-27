@@ -76,32 +76,54 @@ const LoggedUserProfileEdit = ({ match , history}) => {
         <div className="form-container">            
             <div className="form-inner">
             <form onSubmit={updateData} className="login">
+
+            <label className="formlable" for="name"> <strong>Name :</strong> </label>
+
                 <div className="field">
                 <input type="text" placeholder="Name" name ="username" id="username" required
                     value = {username}
                     onChange={(e)=>{setUsername(e.target.value)}}
                 />
                 </div>
+
+                <label className="formlable" for="name"> <strong>Email :</strong> </label>
+
                 <div className="field">
                 <input type="email" placeholder="Email Address" name ="email" id="email" required
                     value = {email}
                     onChange = {(e)=>{setEmail(e.target.value)}}
                 />
                 </div>
+
+                <label className="formlable" for="email"> <strong>Phone :</strong> </label>
+
                 <div className="field">
                 <input type="number" placeholder="Phone" name ="phone" id="phone" required
                     value = {phone}
                     onChange = {(e)=>{setPhone(e.target.value)}}
                 />
-                </div><div className="field">
-                <input type="text" placeholder="Enter Gender" name ="gender" id="gender" required
-                    value = {gender}
-                    onChange = {(e)=>{setGender(e.target.value)}}
-                />
-                </div><div className="field">
+                </div>
+                <label className="formlable" for="gender"> <strong>Gender :</strong> </label>
+                <div className="field">
+                       <select
+                         value = {gender}
+                         onChange = {(e)=>{setGender(e.target.value)}}
+                         style={{width:"100%",
+                        height:"40px"}}
+                        >
+                          <option value="male">Male</option>
+                          <option value="Female">FeMale</option>
+                        </select>
+
+                </div>
+
+                <label className="formlable" for="gender"> <strong>Address :</strong> </label>
+              <div className="">
                 <textarea type="text" placeholder="Address" name ="address" id="address" required
                     value = {address}
                     onChange = {(e)=>{setAddress(e.target.value)}}
+                    style={{height:"100px",
+                    marginTop:"10px"}}
                 />
                 </div>
                

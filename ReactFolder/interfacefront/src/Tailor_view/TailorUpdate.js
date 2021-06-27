@@ -80,45 +80,83 @@ const TailorUpdate = ({ history, match }) => {
         <div className="form-container">            
             <div className="form-inner">
             <form onSubmit={updateData} className="login">
+
+            <label className="formlable" for="username"> <strong>Username :</strong> </label>      
                 <div className="field">
                 <input type="text" placeholder="Name" name ="username" id="username" required
                     value = {username}
                     onChange={(e)=>{setUsername(e.target.value)}}
                 />
                 </div>
+
+            <label className="formlable" for="email"> <strong>Email Address :</strong> </label>      
                 <div className="field">
                 <input type="email" placeholder="Email Address" name ="email" id="email" required
                     value = {email}
                     onChange = {(e)=>{setEmail(e.target.value)}}
                 />
                 </div>
+
+            <label className="formlable" for="phone"> <strong>Phone Number :</strong> </label>      
                 <div className="field">
-                <input type="number" placeholder="Phone" name ="email" id="phone" required
+                <input type="number" placeholder="Phone" name ="Phone" id="phone" required
                     value = {phone}
                     onChange = {(e)=>{setPhone(e.target.value)}}
                 />
-                </div><div className="field">
-                <input type="text" placeholder="Enter Gender" name ="email" id="phone" required
-                    value = {gender}
-                    onChange = {(e)=>{setGender(e.target.value)}}
-                />
-                </div><div className="field">
-                <textarea type="text" placeholder="Address" name ="email" id="phone" required
-                    value = {address}
-                    onChange = {(e)=>{setAddress(e.target.value)}}
-                />
-                </div><div className="field">
-                <input type="text" placeholder="User Type" name ="email" id="phone" required
+                </div>
+
+            <label className="formlable" for="Gender"> <strong>Gender :</strong> </label>      
+                <div className="field">
+                <select
+                         value = {gender}
+                         onChange = {(e)=>{setGender(e.target.value)}}
+                         style={{width:"100%",
+                        height:"40px"}}
+                        >
+                          <option value="male">Male</option>
+                          <option value="Female">FeMale</option>
+                        </select>
+                
+                </div>
+                
+               
+            <label className="formlable" for="usertype"> <strong>User Type :</strong> </label>      
+                <div className="field">
+                <select
                     value = {usertype}
                     onChange = {(e)=>{setUserType(e.target.value)}}
+                    style={{width:"100%",
+                  height:"40px"}}
+                  >
+                    <option value="male">Administration</option>
+                    <option value="Female">Tailor</option>
+                    <option value="Female">User</option>
+                  </select>
+
+                
+                </div>
+                <label className="formlable" for="Address"> <strong>Address  :</strong> </label>      
+                <div className="">
+                <textarea type="text" placeholder="Address" name ="Address" id="Address" required
+                    value = {address}
+                    onChange = {(e)=>{setAddress(e.target.value)}}
+                    style={{height:"100px",
+                  marginTop:"10px"}}
                 />
-                </div> 
-                <div className="field">
+                </div>
+                
+                <label className="formlable" for="Address"> <strong>Address  :</strong> </label>      
+                <div className="">
                 <textarea  type="text" placeholder="Bio" name ="email" id="phone" required
                     value = {bio}
                     onChange = {(e)=>{setBio(e.target.value)}}
+                    style={{height:"100px",
+                  marginTop:"10px"}}
                 />
                 </div>
+
+                
+
                <div className="field btn">
                 <div className="btn-layer"></div>
                 <input type="submit" value="Add New Tailor"/>

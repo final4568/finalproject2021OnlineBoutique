@@ -39,6 +39,7 @@
 .form-container .form-inner, textarea{
   display: flex;
   width: 200%;
+
 }
 .form-container .form-inner form, textarea{
   width: 50%;
@@ -59,6 +60,7 @@
   border-bottom-width: 2px;
   font-size: 17px;
   transition: all 0.3s ease;
+  margin-top: -10px;
 }
 .form-inner form .field input:focus{
   border-color: #fc83bb;
@@ -156,4 +158,8 @@ form .btn input[type="submit"]{
   overflow: hidden;
   font-size: 14px;
  
+}
+
+.formlable{
+  margin-top: 10px;
 }

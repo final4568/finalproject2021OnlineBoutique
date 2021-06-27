@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken");
 
 exports.register = async (req, res, next) => {
 
-   const { username, email, phone, gender, password, address,usertype, bio} = req.body;
+   const { username, email, phone, gender, password, address, usertype, bio} = req.body;
    try {
      const tailor = await Tailor.create({
       username, 
