@@ -4,6 +4,8 @@ import axios from "axios";
 import "../index.css";
 import TailorHeader from "../layouts/TailorHeader";
 import TailorSideBar from "../layouts/TailorSidebar";
+import { useRouteMatch, Link } from "react-router-dom";
+import {Button} from "reactstrap";
 
 const UserRegister_Tailor = ({ history }) => {
   const [username, setUsername] = useState("");
@@ -202,6 +204,9 @@ const UserRegister_Tailor = ({ history }) => {
                 </div>
               </div>
             </div>
+            <Link to="/tailor/User/UserMain">
+          <Button color="success">Go Back</Button>
+          </Link>
           </div>
         </div>
       </div>

@@ -25,4 +25,6 @@
     padding: 5px 10px 5px 10px;
     border:1px solid rgba(56, 56, 56, 0.301);
     margin-bottom: 20px;
+    overflow: scroll;
+    
 }

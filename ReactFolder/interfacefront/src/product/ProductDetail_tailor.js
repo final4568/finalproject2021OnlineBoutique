@@ -70,7 +70,9 @@ const ProductDetail_tailor = ({history}) => {
 							<span class="color red"></span>
 							<span class="color yellow"></span>
 						</h5>
-						<Button href="/ProductTable_tailor">GO Back</Button>
+						<Link to="/ProductTable_tailor">
+						<Button style={{width:"100%"}} color="success">Go Back</Button>
+						</Link>
 					</div>
 				</div>
 			</div>

@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import "../index.css";
 import TailorHeader from "../layouts/TailorHeader";
 import TailorSidebar from "../layouts/TailorSidebar";
+import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
 
 
 const LoggedInTailorUpdate = ({ match , history}) => {
@@ -135,6 +137,9 @@ const LoggedInTailorUpdate = ({ match , history}) => {
               </div>
             </div>
           </div>
+          <Link to="/LoggedTailor/Profile">
+          <Button color="success">Go Back</Button>
+          </Link>
         </div>
       </div>
       </div>

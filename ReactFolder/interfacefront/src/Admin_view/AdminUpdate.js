@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import "../index.css";
 import AdminHeader from "../layouts/AdminHeader";
 import AdminSideBar from "../layouts/AdminSlidebar";
+import {Link} from "react-router-dom";
+import {Button} from "reactstrap"
 
 
 const AdminUpdate = ({ match , history}) => {
@@ -132,12 +134,18 @@ const AdminUpdate = ({ match , history}) => {
                   </div>
                   
                 </form>
+                
               </div>
             </div>
+            
           </div>
         </div>
+          <Link to="/admin/profile">
+          <Button color="success">Go Back</Button>
+          </Link>
       </div>
       </div>
+          
     </>
   );
 };

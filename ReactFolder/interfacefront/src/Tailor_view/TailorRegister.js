@@ -5,7 +5,8 @@ import '../index.css';
 import AdminHeader from "../layouts/AdminHeader";
 import AdminSideBar from "../layouts/AdminSlidebar";
 
-
+import { Link } from "react-router-dom";
+import {Button} from "reactstrap";
 
 const TailorRegister = ({history}) => {
 
@@ -169,7 +170,9 @@ const TailorRegister = ({history}) => {
         </div>
         </div>
 
-                
+          <Link to="/tailorMain">
+          <Button style={{marginBottom:"70px"}} color="success">Go Back</Button>
+          </Link>
 
         </div>
       </div>

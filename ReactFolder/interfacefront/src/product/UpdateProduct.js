@@ -4,6 +4,9 @@ import "../index.css";
 import AdminHeader from "../layouts/AdminHeader";
 import AdminSideBar from "../layouts/AdminSlidebar";
 import axios from 'axios'
+import { Link } from "react-router-dom";
+import {Button} from "reactstrap";
+
 
 const Updateproduct = ({history, match}) => {
     const[product_name, setPName] =useState("");
@@ -136,7 +139,9 @@ const Updateproduct = ({history, match}) => {
         </div>
         </div>
         </div>
-
+        <Link to="/product/allProducttable">
+						<Button color="success">GO Back</Button>
+						</Link>
           
         </div>
       </div>

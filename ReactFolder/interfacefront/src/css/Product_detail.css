@@ -135,3 +135,7 @@ img {
                 box-shadow: 0px 15px 20px rgb(0 0 0 / 10%);
                 margin: 0 auto;
             }
+
+            .ordered_img{
+              border: 1px solid rgba(0, 0, 0, 0.192);
+            }

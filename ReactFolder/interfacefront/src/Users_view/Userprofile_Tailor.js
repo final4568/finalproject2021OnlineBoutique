@@ -5,23 +5,23 @@ import TailorHeader from "../layouts/TailorHeader";
 import TailorSideBar from "../layouts/TailorSidebar";
 import "../index.css";
 import { useState, useEffect } from "react";
-import { useRouteMatch } from "react-router-dom";
-
+import { useRouteMatch, Link } from "react-router-dom";
+import {Button} from "reactstrap";
 
 const Userprofile_Tailor = ({ history }) => {
     const match = useRouteMatch();
     const [users, setUsers] = useState([]);
   
     const getTodo = (id) =>
-      fetch(`/api/users/loggeduserprofile/${id}`).then((res) => res.json());
+      fetch(`/api/users/userprofile/${id}`).then((res) => res.json());
   
     useEffect(() => {
       const fetchTodo = async () => {
-        const users = await getTodo(match.params.id);
-        setUsers(users);
+        const tailo = await getTodo(match.params.id);
+        setUsers(tailo);
       };
       fetchTodo();
-    }, [history]);
+    }, [history, match]);
   
     return (
       <>
@@ -42,7 +42,9 @@ const Userprofile_Tailor = ({ history }) => {
               scrambled it to make a type specimen book. It has survived not only
               five centuries,
             </p>
-  
+            <Link to="/tailor/User/UserMain">
+          <Button color="success">Go Back</Button>
+          </Link>
             <table class="table border" style={{ marginTop: "60px" }}>
               <thead>
                 <tr>

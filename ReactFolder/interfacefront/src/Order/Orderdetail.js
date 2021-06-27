@@ -4,6 +4,8 @@ import AdminSideBar from "../layouts/AdminSlidebar";
 import "../index.css";
 import { useState, useEffect } from "react";
 import { useRouteMatch } from "react-router-dom";
+import {Link} from "react-router-dom";
+import {Button} from "reactstrap";
 
 const Orderdetail = ({ history }) => {
   const match = useRouteMatch();
@@ -41,8 +43,11 @@ const Orderdetail = ({ history }) => {
             five centuries,
           </p>
            
-
-          <table class="table border" style={{ marginTop: "60px" }}>
+          <Link to="/allorders">
+          <Button color="success">Go Back</Button>
+          </Link>
+          
+          <table class="table border" style={{ marginTop: "30px", marginBottom:"60px"  }}>
             <thead>
               <tr>
                 <th scope="col">
@@ -51,7 +56,7 @@ const Orderdetail = ({ history }) => {
                 <th scope="col">
                 </th>
                 <th scope="col">
-                <img src={`/images/${orderdetails.productimage}`} width="100%" alt="Loading..!"/>
+                <img className="ordered_img" src={`/images/${orderdetails.productimage}`} width="100%" alt="Loading..!"/>
                 </th>
                 {/* <th scope="col"> Email:{tailors.email}</th> */}
               </tr>
@@ -92,7 +97,7 @@ const Orderdetail = ({ history }) => {
                 <td><strong>Neck Size : </strong>{orderdetails.neck}</td>
                 <td><strong>Pents Length : </strong>{orderdetails.pntlength}</td>
               </tr>
-              <h3 style={{color:"#ff318e", padding:"10px"}}>Shirt Size:</h3>
+              <h3 style={{color:"#ff318e", padding:"10px"}}>Pents Size:</h3>
 
               <tr>
               <td><strong>Pents Length : </strong>{orderdetails.pntlength}</td>

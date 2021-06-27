@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import AdminHeader from '../layouts/AdminHeader';
 import AdminSideBar from '../layouts/AdminSlidebar';
+import {Link} from "react-router-dom";
+import {Button} from "reactstrap";
 
 const UploadProducts = ({history}) => {
     const[product_name, setPName] =useState("");
@@ -117,7 +119,9 @@ const UploadProducts = ({history}) => {
         </div>
         </div>
         </div>
-
+         <Link to="/product/allProducttable">
+          <Button color="success">Go Back</Button>
+          </Link>
           
         </div>
       </div>

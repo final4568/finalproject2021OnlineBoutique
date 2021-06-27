@@ -3,6 +3,8 @@ import "../index.css";
 import TailorSideBar from "../layouts/TailorSidebar";
 import TailorHeader from "../layouts/TailorHeader";
 
+import {  Link } from "react-router-dom";
+import {Button} from "reactstrap";
 
 const UserProdileEdit_Tailor = ({ history, match }) => {
   const [username, setUsername] = useState("");
@@ -107,7 +109,11 @@ const UserProdileEdit_Tailor = ({ history, match }) => {
             </form>
             </div>
         </div>
+        
         </div>
+        <Link to="/tailor/User/UserMain">
+          <Button color="success">Go Back</Button>
+          </Link>
         </div>
 
                 

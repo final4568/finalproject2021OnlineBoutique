@@ -70,7 +70,9 @@ const ProductDetail = ({history}) => {
 							<span class="color red"></span>
 							<span class="color yellow"></span>
 						</h5>
-						<Button href="/product/allProducttable">GO Back</Button>
+						<Link to="/product/allProducttable">
+						<Button style={{width:"100%", marginTop:"20px"}} color="success">GO Back</Button>
+						</Link>
 					</div>
 				</div>
 			</div>

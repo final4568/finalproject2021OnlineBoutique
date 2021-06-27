@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import TailorHeader from '../layouts/TailorHeader';
 import TailorSidebar from '../layouts/TailorSidebar';
+import {  Link } from "react-router-dom";
+import {Button} from "reactstrap";
 
 const UploadProduct_tailor = ({history}) => {
     const[product_name, setPName] =useState("");
@@ -118,7 +120,9 @@ const UploadProduct_tailor = ({history}) => {
         </div>
         </div>
 
-          
+        <Link to="/ProductTable_tailor">
+          <Button color="success">Go Back</Button>
+          </Link>
         </div>
       </div>
       </> 

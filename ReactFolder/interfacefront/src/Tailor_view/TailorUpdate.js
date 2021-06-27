@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import "../index.css";
 import AdminHeader from "../layouts/AdminHeader";
 import AdminSideBar from "../layouts/AdminSlidebar";
-
+import {Link} from "react-router-dom";
+import {Button} from "reactstrap";
 
 const TailorUpdate = ({ history, match }) => {
   const [username, setUsername] = useState("");
@@ -123,11 +124,14 @@ const TailorUpdate = ({ history, match }) => {
             </form>
             </div>
         </div>
+        
         </div>
         </div>
 
                 
-
+        <Link to="/tailorMain">
+          <Button color="success">Go Back</Button>
+          </Link>
         </div>
       </div>
   

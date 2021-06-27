@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import "../index.css";
 import UserHeader from "../layouts/UserHeader";
-
+import { Link } from "react-router-dom";
+import { Button } from "reactstrap"
 
 const LoggedUserProfileEdit = ({ match , history}) => {
 
@@ -113,6 +114,9 @@ const LoggedUserProfileEdit = ({ match , history}) => {
             </div>
         </div>
         </div>
+        <Link to="/Loogeduser/Profile">
+          <Button color="success">Go Back</Button>
+          </Link>
         </div>
         </div>
       </div>

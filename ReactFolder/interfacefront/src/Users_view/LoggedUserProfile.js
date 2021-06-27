@@ -50,7 +50,9 @@ const LoggedUserProfile = ({ history }) => {
             scrambled it to make a type specimen book. It has survived not only
             five centuries,
           </p>
-
+          <Link to="/user/dashboard">
+          <Button color="success">Go Back</Button>
+          </Link>
           <table class="table border" style={{ marginTop: "60px" }}>
             <thead>
               <tr>

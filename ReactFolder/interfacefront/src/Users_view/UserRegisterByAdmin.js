@@ -4,6 +4,8 @@ import axios from "axios";
 import "../index.css";
 import AdminHeader from "../layouts/AdminHeader";
 import AdminSideBar from "../layouts/AdminSlidebar";
+import { Link } from "react-router-dom";
+import {Button} from "reactstrap";
 
 const UserRegisterByAdmin = ({ history }) => {
   const [username, setUsername] = useState("");
@@ -201,6 +203,9 @@ const UserRegisterByAdmin = ({ history }) => {
                 </div>
               </div>
             </div>
+            <Link to="/User/UserMain">
+          <Button style={{marginBottom:"70px"}} color="success">Go Back</Button>
+          </Link>
           </div>
         </div>
       </div>

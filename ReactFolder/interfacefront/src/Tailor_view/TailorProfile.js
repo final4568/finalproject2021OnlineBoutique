@@ -3,7 +3,9 @@ import AdminHeader from "../layouts/AdminHeader";
 import AdminSideBar from "../layouts/AdminSlidebar";
 import "../index.css";
 import { useState, useEffect } from "react";
-import { useRouteMatch } from "react-router-dom";
+import { useRouteMatch, Link } from "react-router-dom";
+import {Button} from "reactstrap";
+
 
 const TailorProfile = ({ history }) => {
   const match = useRouteMatch();
@@ -39,7 +41,10 @@ const TailorProfile = ({ history }) => {
             scrambled it to make a type specimen book. It has survived not only
             five centuries,
           </p>
-
+  
+          <Link to="/tailorMain">
+          <Button color="success">Go Back</Button>
+          </Link>
           <table class="table border" style={{ marginTop: "60px" }}>
             <thead>
               <tr>
