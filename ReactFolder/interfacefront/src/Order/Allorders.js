@@ -47,9 +47,9 @@ const Allorders = ({history}) => {
           <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">
-                <th scope="col"> Image</th>
                 <th scope="col">Products Name</th>
                 <th scope="col">Category</th>
+                <th scope="col"> Status</th>
                 <th scope="col">Action </th>
               </tr>
             </thead>
@@ -57,12 +57,10 @@ const Allorders = ({history}) => {
             <tbody>
               {orders.map((order) => (
                 <tr key={order._id}>
-                  <td>
-                      <img src={`/images/${order.productimage}`} alt="..."
-                      width="100px" height="60px"/>
-                  </td>
                   <td>{order.productname}</td>
-                  <td>{order.productcategory}</td>                  
+                  <td>{order.productcategory}</td> 
+                  <td><p style={{background:"yellow", padding:"10px"}}>
+                  {order.orderstatus}</p></td>                  
                   <td>
                   
                 <Link to={`/orderdetail/${order._id}`}>
@@ -70,7 +68,7 @@ const Allorders = ({history}) => {
                         View
                       </Button>
                     </Link>
-                    <Link to={`/product/Update/${order._id}`}>
+                    <Link to={`/EditOrderAdmin/${order._id}`}>
                       <Button id="btn_table" color="warning" size="sm" >
                         Edit
                       </Button>

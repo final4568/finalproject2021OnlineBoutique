@@ -79,3 +79,19 @@ exports.deleteorder = async(req, res)=>{
         });
   }
 };
+
+exports.orderUpdate = async(req, res)=>{
+  const id = req.params.id;
+  await Order.findOneAndUpdate({_id:id}, req.body, {new:true})
+  .then((order)=>{
+    res.status(200).json({
+      success:true,
+      order})
+  }).catch((err)=>{
+    res.status(200).json({
+    sucess:false, 
+    err: err.message
+  })
+  });
+
+};

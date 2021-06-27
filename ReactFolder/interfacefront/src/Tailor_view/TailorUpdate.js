@@ -15,9 +15,9 @@ const TailorUpdate = ({ history, match }) => {
   const [bio, setBio] = useState("");
 
 
-
   useEffect(() => {
     const fetchTailor = async () => {
+
       const tailors = await fetch(
         `/api/tailor/tailorprofile/${match.params.id}`
       ).then((res) => res.json());
@@ -32,7 +32,7 @@ const TailorUpdate = ({ history, match }) => {
 
     };
     fetchTailor();
-  }, []);
+  }, [history, match]);
 
   const updateData = async (evt) => {
     evt.preventDefault();
@@ -54,6 +54,9 @@ const TailorUpdate = ({ history, match }) => {
     alert("Update successFully");
     history.push("/tailorMain")
   };
+
+
+  
   return (
     <>
       <AdminHeader />

@@ -23,6 +23,7 @@ const Order = ({history}) => {
                 <th scope="col">Products Name</th>
                 <th scope="col">Category</th>
                 <th scope="col">Product Type </th>
+                <th scope="col">Status </th>
               </tr>
             </thead>
 
@@ -36,6 +37,7 @@ const Order = ({history}) => {
                   <td>{order.productname}</td>
                   <td>{order.productcategory}</td>                  
                   <td>{order.producttype}</td>                  
+                  <td>{order.orderstatus}</td>                  
                 </tr>
               ))}
             </tbody>

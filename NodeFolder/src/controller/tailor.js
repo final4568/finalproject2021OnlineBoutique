@@ -199,7 +199,7 @@ exports.tailorprofile = async(req, res) =>{
 
 exports.update = async(req, res)=>{
   const id = req.params.id;
-  Tailor.findOneAndUpdate({ _id: id }, req.body, { new: true })
+  await Tailor.findOneAndUpdate({ _id: id }, req.body, { new: true })
   .then((tailor) => res.status(200).send(tailor))
   .catch((err) => res.status(500).send(err.message)); 
 
