@@ -4,6 +4,7 @@ const router = express.Router();
 
 const {
     register, 
+    registerbyauth,
     login,
     forgotpassword,
     resetpassword,
@@ -16,6 +17,7 @@ const {
 } = require("../controller/users");
 
 router.route('/register').post(register);
+router.route('/registerbyauthority').post(registerbyauth);
 router.route('/login').post(login);
 router.route('/forgotpassword').post(forgotpassword);
 router.route("/resetpassword/:resetToken").put(resetpassword);

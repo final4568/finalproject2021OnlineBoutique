@@ -92,7 +92,7 @@
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: #fa4298c4;
+    background-color: rgba(0, 0, 0, 0.541);
   }
   
   .imageclass:hover .overlay {

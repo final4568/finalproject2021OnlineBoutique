@@ -85,17 +85,30 @@ const UploadProduct_tailor = ({history}) => {
                 
 
                 <div className="field">
-                <input type="text" placeholder="ProductCategory" required name ="productcategory" id="Uploadby" 
+                <select
                     value = {product_category}
                     onChange = {(e)=>{setCate(e.target.value)}}
-                />
+                    style={{width:"100%",
+                  height:"40px"}}
+                  >
+                    <option value="male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Female">Baby</option>
+                  </select>
+               
                 </div>
 
                 <div className="field">
-                <input type="text" placeholder="Product Upload By" required name ="Uploadby" id="Uploadby" 
+                <select
                     value = {product_uploadby}
                     onChange = {(e)=>{setULby(e.target.value)}}
-                />
+                    style={{width:"100%",
+                  height:"40px"}}
+                  >
+                    <option value="male">Admin</option>
+                    <option value="Female">Tailor</option>
+                  </select>
+               
                 </div>
                 <div className="">
                 <textarea type="text" placeholder="Product Description" required name ="productDes" id="productDes" 

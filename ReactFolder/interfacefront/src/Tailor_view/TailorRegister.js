@@ -56,7 +56,7 @@ const TailorRegister = ({history}) => {
         },
         config
       );  
-      // history.push("/tailorMain");
+      history.push("/tailorMain");
       alert("New Tailor Registered Successfully...")
         
 
@@ -127,6 +127,7 @@ const TailorRegister = ({history}) => {
                          style={{width:"100%",
                         height:"40px"}}
                         >
+                          <option value="select">select Gender</option>
                           <option value="male">Male</option>
                           <option value="Female">FeMale</option>
                         </select>

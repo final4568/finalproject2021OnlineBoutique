@@ -18,8 +18,7 @@ exports.register = async (req, res, next) => {
       address,
       birthday
     });
-    sendToken(users, 201, res);
-  
+    sendToken(users, 201, res);  
 
   } catch {
     res.status(500).json({
@@ -28,6 +27,34 @@ exports.register = async (req, res, next) => {
     });
   }
 };
+
+exports.registerbyauth = async(req, res)=>{
+  const{username, email, phone, gender, password, address, birthday}=req.body;
+  try{
+    const users = await Users.create({
+      username,
+      email,
+      phone,
+      gender,
+      password,
+      address,
+      birthday
+    });
+ 
+      res.status(200).json({
+        success:true,
+        message:"Registered User successfully..!"
+      })
+  
+
+  }catch(error){
+    res.status(500).json({
+      success:false,
+      error: error.message
+    })
+  }
+};
+
 
 exports.login = async (req, res, next) => {
   const { email, password } = req.body;

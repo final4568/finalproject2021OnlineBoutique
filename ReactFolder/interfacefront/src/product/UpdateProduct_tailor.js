@@ -124,8 +124,7 @@ const UpdateProduct_tailor = ({history, match}) => {
                   height:"40px"}}
                   >
                     <option value="male">Admin</option>
-                    <option value="Female">Male Tailor</option>
-                    <option value="Female">Female Tailor</option>
+                    <option value="Female">Tailor</option>
                   </select>
                 
                 </div>

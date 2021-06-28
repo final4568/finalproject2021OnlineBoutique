@@ -111,6 +111,7 @@ const LoggedUserProfileEdit = ({ match , history}) => {
                          style={{width:"100%",
                         height:"40px"}}
                         >
+                          <option value="select">select Gender</option>
                           <option value="male">Male</option>
                           <option value="Female">FeMale</option>
                         </select>

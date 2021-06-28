@@ -38,7 +38,7 @@ const UserRegisterByAdmin = ({ history }) => {
     }
     try {
       const { data } = await axios.post(
-        "/api/users/register",
+        "/api/users/registerbyauthority",
         {
           username,
           email,
@@ -50,6 +50,7 @@ const UserRegisterByAdmin = ({ history }) => {
         },
         config
       );
+      
       alert("New User Registered Successfully...!");
       history.push("/user/UserMain")
 
@@ -135,6 +136,7 @@ const UserRegisterByAdmin = ({ history }) => {
                          style={{width:"100%",
                         height:"40px"}}
                         >
+                          <option value="select">select Gender</option>
                           <option value="male">Male</option>
                           <option value="Female">FeMale</option>
                         </select>

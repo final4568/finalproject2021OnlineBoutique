@@ -114,7 +114,7 @@ const AdminUpdate = ({ match , history}) => {
                 </div>
 
                 <label className="formlable" for="name"><strong>Gender :</strong> </label>                        
-                <div className="field">
+                        <div className="field">
                         <select
                          value = {gender}
                          onChange = {(e)=>{setGender(e.target.value)}}

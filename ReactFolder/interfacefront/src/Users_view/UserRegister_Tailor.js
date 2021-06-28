@@ -20,50 +20,50 @@ const UserRegister_Tailor = ({ history }) => {
 //   const [success, setSuccess] = useState("");
 
 
-  const user_register = async (e) => {
-    e.preventDefault();
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
+const user_register = async (e) => {
+  e.preventDefault();
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  if (password !== confirmpassword) {
+    setPassword("");
+    setConfirmPassword("");
+
+    setTimeout(() => {
+      setError("");
+    }, 5000);
+    return setError("Passwords do not match");
+  }
+  try {
+    const { data } = await axios.post(
+      "/api/users/registerbyauthority",
+      {
+        username,
+        email,
+        phone,
+        gender,
+        password,
+        address,
+        birthday,
       },
-    };
-    if (password !== confirmpassword) {
+      config
+    );
+    
+    alert("New User Registered Successfully...!");
+    history.push("/tailor/User/UserMain")
+
+  } catch (error) {
+    setError(error.response.data.error);
+    setTimeout(() => {
       setPassword("");
       setConfirmPassword("");
-
-      setTimeout(() => {
-        setError("");
-      }, 5000);
-      return setError("Passwords do not match");
-    }
-    try {
-      const { data } = await axios.post(
-        "/api/users/register",
-        {
-          username,
-          email,
-          phone,
-          gender,
-          password,
-          address,
-          birthday,
-        },
-        config
-      );
-      
-      alert("New User Registered Successfully...!");
-      history.push("/tailor/User/UserMain")
-
-    } catch (error) {
-      setError(error.response.data.error);
-      setTimeout(() => {
-        setPassword("");
-        setConfirmPassword("");
-        setError("");
-      }, 3000);
-      return setError("This Email Already Registered...! Try Another");
-    }
-  };
+      setError("");
+    }, 3000);
+    return setError("This Email Already Registered...! Try Another");
+  }
+};
 
   return (
     <>
@@ -136,6 +136,7 @@ const UserRegister_Tailor = ({ history }) => {
                          style={{width:"100%",
                         height:"40px"}}
                         >
+                          <option value="select">select Gender</option>
                           <option value="male">Male</option>
                           <option value="Female">FeMale</option>
                         </select>
