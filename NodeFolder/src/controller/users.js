@@ -1,5 +1,5 @@
 
-const Users = require("../models/Users");
+const User = require("../models/Users");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 const sendEmail = require("../utils/sendemail");
@@ -9,7 +9,7 @@ const sendEmail = require("../utils/sendemail");
 exports.register = async (req, res, next) => {
   const { username, email, phone, gender, password, address, birthday } = req.body;
   try {
-    const users = await Users.create({
+    const user = await User.create({
       username,
       email,
       phone,
@@ -18,7 +18,7 @@ exports.register = async (req, res, next) => {
       address,
       birthday
     });
-    sendToken(users, 201, res);  
+    sendToken(user, 201, res);  
 
   } catch {
     res.status(500).json({
@@ -31,7 +31,7 @@ exports.register = async (req, res, next) => {
 exports.registerbyauth = async(req, res)=>{
   const{username, email, phone, gender, password, address, birthday}=req.body;
   try{
-    const users = await Users.create({
+    const user = await User.create({
       username,
       email,
       phone,
@@ -67,21 +67,21 @@ exports.login = async (req, res, next) => {
   }
 
   try {
-    const users = await Users.findOne({ email }).select("+password");
-    if (!users) {
+    const user = await User.findOne({ email }).select("+password");
+    if (!user) {
       res.status(404).json({
         success: false,
         error: "Email Not Found, Try with Valid Email",
       });
     }
-    const isMatch = await users.matchPasswords(password);
+    const isMatch = await user.matchPasswords(password);
     if (!isMatch) {
       res.status(404).json({
         success: false,
         error: "Password Not Match",
       });
     }
-    sendToken(users, 201, res);
+    sendToken(user, 201, res);
 
    
   } catch{
@@ -96,16 +96,16 @@ exports.login = async (req, res, next) => {
 exports.forgotpassword = async (req, res, next) => {
   const { email } = req.body;
   try {
-    const users = await Users.findOne({ email });
+    const user = await User.findOne({ email });
     
-    if (!users) {
+    if (!user) {
       res.status(404).json({
         success: false,
         error: "Email could not be sent",
       });
     }
-    const resetToken = users.getResetPasswordToken();
-    await users.save();
+    const resetToken = user.getResetPasswordToken();
+    await user.save();
 
     const resetUrl = `http://localhost:3000/Userpasswordreset/${resetToken}`;
     const message = `
@@ -115,7 +115,7 @@ exports.forgotpassword = async (req, res, next) => {
             `;
     try {
       await sendEmail({
-        to: users.email,
+        to: user.email,
         subject: "Password Reset Request",
         text: message,
       });
@@ -124,9 +124,9 @@ exports.forgotpassword = async (req, res, next) => {
         data: "Email send successfully...! Check Your Email",
       });
     } catch (error) {
-      users.getResetPasswordToken = undefined;
-      users.getResetPasswordExpire = undefined;
-      await users.save();
+      user.getResetPasswordToken = undefined;
+      user.getResetPasswordExpire = undefined;
+      await user.save();
       res.status(500).json({
         success: false,
         error: "Email could not be sent",
@@ -144,20 +144,20 @@ exports.resetpassword = async (req, res, next) => {
     .update(req.params.resetToken)
     .digest("hex");
   try {
-    const users = await Users.findOne({
+    const user = await User.findOne({
       resetPasswordToken,
       resetPasswordExpire: { $gt: Date.now() },
     });
-    if (!users) {
+    if (!user) {
       res.status(400).json({
         success: false,
         error: "Invalid Reset Token xyz",
       });
     }
-    users.password = req.body.password;
-    users.resetPasswordToken = undefined;
-    users.resetPasswordExpire = undefined;
-    await users.save();
+    user.password = req.body.password;
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpire = undefined;
+    await user.save();
     res.status(201).json({
       success: true,
       data: "Password Reset Successfully",
@@ -172,7 +172,7 @@ exports.resetpassword = async (req, res, next) => {
 };
 
 exports.getallusers = (req, res, next)=>{
-  Users.find((err, docs)=>{
+  User.find((err, docs)=>{
    if (err) {
      console.log(err);
    } else {
@@ -183,7 +183,7 @@ exports.getallusers = (req, res, next)=>{
 
  exports.deleteUser = async (req, res)=>{
   try{
-    await Users.findByIdAndDelete(req.params.id);
+    await User.findByIdAndDelete(req.params.id);
   res.status(200).json({
     success: true,
     message: "deteleted...!"
@@ -201,7 +201,7 @@ exports.getallusers = (req, res, next)=>{
 exports.Userprofile = async(req, res) =>{
   try{
     const id = req.params.id
-    Users.findById(id, (err, user)=>{
+    User.findById(id, (err, user)=>{
       res.json(user)
     });   
   }catch{
@@ -214,7 +214,7 @@ exports.Userprofile = async(req, res) =>{
 
 exports.Userupdate = async(req, res)=>{
   const id = req.params.id;
-  Users.findOneAndUpdate({ _id: id }, req.body, { new: true })
+  User.findOneAndUpdate({ _id: id }, req.body, { new: true })
   .then((user) => res.status(200).send(user))
   .catch((err) => res.status(500).send(err.message)); 
 
@@ -235,14 +235,14 @@ exports.loggeduserprofile = async (req, res)=>{
         .json({ success: false, error: "Not authorized to access this route" });
     }
     const decoded = jwt.verify(token, process.env.JWT_SECRETKEYUSER);
-    const users = await Users.findById(decoded.id);
-    if (!users) {
+    const user = await User.findById(decoded.id);
+    if (!user) {
       res.status(404).json({
         success: false,
         error: "No user Found with this id",
       });
     }
-    res.status(200).json(users);
+    res.status(200).json(user);
   } catch {
     res.status(400).json({
       success: false,
@@ -251,9 +251,7 @@ exports.loggeduserprofile = async (req, res)=>{
   }
 };
 
-
-
-const sendToken = (users, statusCode, res) => {
-  const token = users.getSignedJwtToken();
-  res.status(statusCode).json({ success: true, token, users });
+const sendToken = (user, statusCode, res) => {
+  const token = user.getSignedJwtToken();
+  res.status(statusCode).json({ success: true, token, user });
 };

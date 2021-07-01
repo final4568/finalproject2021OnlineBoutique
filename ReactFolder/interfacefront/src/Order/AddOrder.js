@@ -327,8 +327,8 @@ const AddOrder = ({history, match}) => {
                       setTailortype(e.target.value)
                     }}
                    >
-                     <option className="option" value="Male_Tailor">Male</option>
-                     <option className="option" value="Female_Tailor">Female</option>
+                          <option value="male">Male</option>
+                          <option value="Female">FeMale</option>
                    </select>
 
                    <button type="submit" className="btnorder">Place Order</button>

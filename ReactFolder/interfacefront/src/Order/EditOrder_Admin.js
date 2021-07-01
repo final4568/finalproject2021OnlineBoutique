@@ -127,12 +127,13 @@ const EditOrder_Admin = ({history, match}) => {
                     onChange={(e)=>{setQunty(e.target.value)}}
                     />
                     
-                    <label for="date" >Add Status:</label>
+                    <label for="status" >Add Status:</label>
                    <select className="selection" 
                    value={orderstatus} 
                    onChange ={(e)=>{
                     setOrderstatus(e.target.value)
                    }}>
+                     <option className="option" value= "Add Status">Add Status</option>
                      <option className="option" value= "Start">Start</option>
                      <option className="option" value= "Pending">Pending</option>
                      <option className="option" value= "50% done">50 % done</option>
@@ -147,6 +148,7 @@ const EditOrder_Admin = ({history, match}) => {
                    onChange ={(e)=>{
                     setSuitsize(e.target.value)
                    }}>
+
                      <option className="option" value= "Small">Small</option>
                      <option className="option" value= "Medium">Medium</option>
                      <option className="option" value= "Large">Large</option>
@@ -162,6 +164,7 @@ const EditOrder_Admin = ({history, match}) => {
                      onChange ={(e)=>{
                       setUseraddress(e.target.value)
                      }}
+                     style={{marginTop:"20px", marginBottom:"20px"}}
                     />
                     </div>
                     
@@ -290,8 +293,8 @@ const EditOrder_Admin = ({history, match}) => {
                       setTailortype(e.target.value)
                     }}
                    >
-                     <option className="option" value="Male_Tailor">Male</option>
-                     <option className="option" value="Female_Tailor">Female</option>
+                      <option value="male">Male</option>
+                      <option value="Female">FeMale</option>
                    </select>
 
                    <button type="submit" className="btnorder">Update Order</button>

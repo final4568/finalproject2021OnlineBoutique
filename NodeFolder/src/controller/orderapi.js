@@ -43,6 +43,7 @@ exports.seeorder = async(req, res)=>{
 };
 
 
+
 exports.getsingleoder = async (req, res)=>{
   try{
     const id = req.params.id;   
@@ -95,3 +96,53 @@ exports.orderUpdate = async(req, res)=>{
   });
 
 };
+
+exports.orderbyUserid = async(req, res)=>{
+  try{
+    const userid = req.body.userid;
+    await Order.find({userid:userid},(err, detail)=>{
+      if(err){
+          res.status(500).json({
+          success:false,
+        });
+      }else{
+        console.log(detail)
+        res.status(200).json(detail);
+      }
+    })
+  }catch{
+    res.status(400).json({
+      success: false,
+      message: "Order Data Not Found"
+  });
+  }
+};
+
+
+
+exports.orderbytailor = async (req, res)=>{
+  const tailorType = req.body.tailortype;
+
+  try{
+    await Order.find({tailortype:tailorType},(err, details)=>{
+      if(err){
+        res.status(500).json({
+          success:false,
+          message:"The orders Not availables"
+        })
+      }else{
+        console.log(details)
+        res.status(200).json(details)
+      }
+    });
+
+  }catch{
+    res.status(500).json({
+      success:false,
+      message:"The orders Not availables"
+    })
+
+  }
+
+};
+

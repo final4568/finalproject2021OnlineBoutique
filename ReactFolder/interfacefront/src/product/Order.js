@@ -37,7 +37,7 @@ const Order = ({history}) => {
                   <td>{order.productname}</td>
                   <td>{order.productcategory}</td>                  
                   <td>{order.producttype}</td>                  
-                  <td>{order.orderstatus}</td>                  
+                  <td><strong>{order.orderstatus} </strong></td>                  
                 </tr>
               ))}
             </tbody>

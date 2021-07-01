@@ -7,13 +7,13 @@ import UserHeader from "../layouts/UserHeader";
 
 
 const LoggedUserProfile = ({ history }) => {
-  const [userprofile, setProfile] = useState({});
+  const [userprofile, setProfile] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     if (!token) history.push("/user/login");
 
-    const fetchPrivateDate = async () => {
+    const fetchloggedUserdate = async () => {
       const config = {
         headers: {
           "Content-Type": "application/json",
@@ -32,7 +32,7 @@ const LoggedUserProfile = ({ history }) => {
       }
     };
 
-    fetchPrivateDate();
+    fetchloggedUserdate();
   }, [history]);
   return (
     < >

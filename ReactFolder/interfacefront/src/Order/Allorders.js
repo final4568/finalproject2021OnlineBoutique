@@ -8,25 +8,24 @@ import { Button } from "reactstrap";
 import {Link } from "react-router-dom"
 const Allorders = ({history}) => {
     const [orders, setOrders] = useState([]);
-    const [refresh, serRefresh] =useState(false);
+    const [refresh, setRefresh] =useState(false);
 
 
     useEffect(() => {   
-      if (refresh) return serRefresh(false);
-
+      if (refresh) return setRefresh(false);
         const loadorders = async () => {
           const result = await axios.get("/api/oders/seeorder");
           setOrders(result.data);
         };
-    
         loadorders();
       }, [history, refresh]);
-
       const deleteorder =(id)=>{
           axios.delete(`/api/oders/deleteorder/${id}`);
-          serRefresh(true)
+          setRefresh(true);
       };
-
+      const refresher =()=>{
+        setRefresh(true)
+      };
     return ( 
       <>
       <AdminHeader />
@@ -42,28 +41,34 @@ const Allorders = ({history}) => {
             the 1500s, when an unknown printer took a galley of type and
             scrambled it to make a type specimen book.
           </p>
-        
+      
 
           <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">
                 <th scope="col">Products Name</th>
-                <th scope="col">Category</th>
+                <th scope="col">Handle By Tailor</th>
                 <th scope="col"> Status</th>
                 <th scope="col">Action </th>
+                <th>  <Button color="danger" size="sm" style={{marginLeft:"10px"}}
+                    onClick={() => {
+                      refresher();
+                    }}
+                    >
+                      Refresh
+                    </Button></th>
               </tr>
             </thead>
-
             <tbody>
               {orders.map((order) => (
                 <tr key={order._id}>
                   <td>{order.productname}</td>
-                  <td>{order.productcategory}</td> 
-                  <td><p style={{background:"yellow", padding:"10px"}}>
+                  <td>{order.tailortype}</td> 
+                  <td><p style={{background:"yellow", padding:"10px", fontWeight:"bold"}}>
                   {order.orderstatus}</p></td>                  
                   <td>
                   
-                <Link to={`/orderdetail/${order._id}`}>
+                    <Link to={`/orderdetail/${order._id}`}>
                       <Button id="btn_table" color="primary" size="sm">
                         View
                       </Button>

@@ -37,6 +37,7 @@ const UserRegister = ({history}) => {
         }, 5000);
         return setError("Passwords do not match");
         }
+        
         try{
             const { data } = await axios.post(
                 "/api/users/register",

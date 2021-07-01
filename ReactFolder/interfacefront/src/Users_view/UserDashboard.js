@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "../index.css";
 import UserHeader from "../layouts/UserHeader"
+import UserOrders from "../Order/UserOrder";
 
 const UserDashboards = ({history}) => {
     const [error, setError] = useState("");
@@ -46,13 +47,11 @@ const UserDashboards = ({history}) => {
         <>
         <UserHeader/>
           <div className="containter">
-            <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
-        
-            </div>
+           
             <div
-              className="col-10"
+              className="col-12"
               id="right_dasBoard_col"
-              style={{ float: "right" }}
+              style={{ padding:"30px"}}
             >
               <h1>User Dashboard</h1>
               <p>
@@ -60,7 +59,7 @@ const UserDashboards = ({history}) => {
                 the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book.
               </p>
-
+              <UserOrders/>
             </div>
           </div>
         </>

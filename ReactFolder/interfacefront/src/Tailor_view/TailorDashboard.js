@@ -57,7 +57,7 @@ const TailorDashboard = ({ history }) => {
             scrambled it to make a type specimen book.
           </p>
           <Dashboard_component/>          
-          <h1>Orders</h1>
+          <h1>All Orders</h1>
           <hr/>
           <Order/>
         </div>

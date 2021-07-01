@@ -13,9 +13,10 @@ const UserProfile = ({ history }) => {
   const match = useRouteMatch();
   const [users, setUsers] = useState([]);
 
-  const getTodo = (id) =>
+  const getTodo = (id) =>{
     fetch(`/api/users/Userprofile/${id}`).then((res) => res.json());
-
+  }
+  
   useEffect(() => {
     const fetchTodo = async () => {
       const users = await getTodo(match.params.id);

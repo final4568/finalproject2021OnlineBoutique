@@ -32,7 +32,7 @@ const ProductsPage = ({history}) => {
                             <img src={`/images/${product.product_photo}`} className="img-fluid" alt="...Loading " width="100%"/>
                             <div class="overlay">
                                 <Link to = {`/product/Details/${product._id}`}>
-                                <div class="text">Check {product.product_name}</div>
+                                <div class="text">Quick View {product.product_name}</div>
                                 </Link>
 
                                  <Link to={`/orderNow/${product._id}`}>
