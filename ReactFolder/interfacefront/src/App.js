@@ -66,6 +66,8 @@ import Allorders from "./Order/Allorders";
 import Orderdetail from "./Order/Orderdetail";
 import EditOrder_Admin from "./Order/EditOrder_Admin";
 import OrderByTailors from "./Order/OrdersByTailor";
+import Vieworder_tailor from "./Order/Vieworder_tailor";
+import Editorder_tailor from "./Order/Editorder_tailor";
 
 
 function App() {
@@ -172,11 +174,13 @@ function App() {
           <Route exact path="/orderdetail/:id" component={Orderdetail}/>
           <Route exact path="/EditOrderAdmin/:id" component={EditOrder_Admin}/>
           <Route exact path="/tailororderbygender" component={OrderByTailors }/>
-           
+          <Route exact path ="/Viewordertailor/:id" component={Vieworder_tailor}/>
+          <Route exact path ="/Editordertailor/:id" component={Editorder_tailor}/>
           
         </Switch>
 
           <Switch>
+
             <Route exact path="/Customer">
               <Customer />
             </Route>

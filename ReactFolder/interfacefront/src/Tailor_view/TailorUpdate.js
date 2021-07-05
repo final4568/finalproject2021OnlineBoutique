@@ -114,7 +114,7 @@ const TailorUpdate = ({ history, match }) => {
                         height:"40px"}}
                         >
                           <option value="select">select Gender</option>
-                          <option value="male">Male</option>
+                          <option value="Male">Male</option>
                           <option value="Female">FeMale</option>
                         </select>
                 

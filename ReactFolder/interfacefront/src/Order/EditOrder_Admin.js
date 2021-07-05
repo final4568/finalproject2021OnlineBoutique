@@ -140,6 +140,7 @@ const EditOrder_Admin = ({history, match}) => {
                      <option className="option" value= "70% done">70 % done</option>
                      <option className="option" value= "90% done">90 % done</option>
                      <option className="option" value= "Complete">Complete</option>
+                     <option className="option" value= "You Can Get Your Dress Tomorrow">Delivered</option>
                    </select>
 
                     <label for="date" >Select Size:</label>
@@ -293,7 +294,8 @@ const EditOrder_Admin = ({history, match}) => {
                       setTailortype(e.target.value)
                     }}
                    >
-                      <option value="male">Male</option>
+                      <option value="select">Select Tailor</option>
+                      <option value="Male">Male</option>
                       <option value="Female">FeMale</option>
                    </select>
 

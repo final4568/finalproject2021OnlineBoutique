@@ -25,7 +25,7 @@ const TailorHeader = () => {
                     <li><NavLink exact to="/product">Product</NavLink></li>               
                     <li><NavLink exact to="/user/dashboard">Dashboard</NavLink></li>               
                     <li><NavLink exact to="/Loogeduser/Profile">My Profile</NavLink></li>               
-                    <li><NavLink exact to="/UserOrders">My Order</NavLink></li>                    
+                    {/* <li><NavLink exact to="/UserOrders">My Order</NavLink></li>                     */}
                     </ul>
               </nav>
             </div>

@@ -46,7 +46,7 @@ const LoggedTailorProfile = ({ history }) => {
           id="right_dasBoard_col"
           style={{ float: "right", marginRight: "0px"}}>
 
-          <h1>Tailor Profile</h1>
+          <h1>{tailorprofile.gender} Tailor Profile</h1>
           <p className="tailorprofile">
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and

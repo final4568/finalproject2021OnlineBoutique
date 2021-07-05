@@ -4,14 +4,9 @@ import { Link} from "react-router-dom";
 import "../index.css";
 import {Button} from 'reactstrap'
 
-const AddOrder = ({history, match}) => {
-    const[productname, setProductName] =useState("");
-    const[productid, setProductID] =useState("");
-    const[userid, setUserID] =useState("");
-    const[username, setUsername] = useState("");
-    const[productimage, setImg] = useState("");
+const Editorder_tailor = ({history, match}) => {
+   
     const[name, setName] = useState("");
-    const[usergmail, setUsermail] =useState("");
     const[gmail, setGmail] =useState("");
     const[phone, setPhone]= useState("");
     const[quantity, setQunty]=useState("");
@@ -29,111 +24,73 @@ const AddOrder = ({history, match}) => {
     const[thigh, setThigh]=useState("");
     const[knee, setKnee]=useState("");
     const[suitsize, setSuitsize] = useState("");
-    const[clientdate, setClientdate]=useState("");
+    const[orderstatus, setOrderstatus]=useState("");
     const[legopening, setLegopening]=useState("");
     const[useraddress, setUseraddress]=useState("");
     const[tailortype, setTailortype]=useState("");
-    const[producttype, setType]= useState("ReadMade");
-    const[productcategory, setproductcat] =useState("");
-
-
-    const [userprofile, setProfile] = useState({});
-    const [error, setError] = useState("")
-    const [success, setSuccess] = useState("");
-
-
-    useEffect(() => {      
-      // get proiduct data 
-      const fetchproduct = async () => {
-          const product = await fetch(
-            `/api/product/productdetail/${match.params.id}`
-          ).then((res) => res.json());   
-          
-          setProductName(product.product_name);
-          setProductID(product._id);
-          setImg(product.product_photo);
-          setproductcat(product.product_category);
     
+    useEffect(() => {
+        const fetchorderdetail = async () => {
+          
+          const orderdetail = await fetch(
+            `/api/oders/orderdetail/${match.params.id}`
+          ).then((res) => res.json());
+    
+          setName(orderdetail.name);
+          setGmail(orderdetail.gmail);
+          setPhone(orderdetail.phone);
+          setQunty(orderdetail.quantity);
+          setChest(orderdetail.chest);
+          setShirtlength(orderdetail.shirtlength);
+          setSleevlength(orderdetail.sleevlength);
+          setSholder(orderdetail.sholder);
+          setOrderstatus(orderdetail.orderstatus);
+          setOverarm(orderdetail.overarm);
+          setWaistcoatlength(orderdetail.waistcoatlength);
+          setWrist(orderdetail.wrist);
+          setNeck(orderdetail.neck);
+          setPntlength(orderdetail.pntlength);
+          setPnwaist(orderdetail.pnwaist);
+          setThigh(orderdetail.thigh);
+          setKnee(orderdetail.knee);
+          setLegopening(orderdetail.legopening);
+          setUseraddress(orderdetail.useraddress);
+          setTailortype(orderdetail.tailortype);
+          setSuitsize(orderdetail.suitsize);
+          sethip(orderdetail.hip);
+
         };
-
-        // get looged User
-        const token = localStorage.getItem("authToken");
-        if (!token) history.push("/user/login");
-        const fetchPrivateDate = async () => {
-            const config = {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-              },
-            };
-            try {
-              const { data } = await axios.get(
-                "/api/users/LoggedUserProfile",
-                config
-              );
-              setProfile(data); // data holding all the users information and data
-              setUserID(data._id);
-              setUsername(data.username);
-              setUsermail(data.email);
-
-            } catch (error) {
-              console.log("You are not authorized, please login first");
-            }
-          };
-
-        fetchPrivateDate();
-        fetchproduct();
+        fetchorderdetail();
       }, [history, match]);
 
-      const registerHandler = async (e) => {
-        e.preventDefault();
-        const config = {
-          header: {
-            "Content-Type": "application/json",
-          },
-        };
-        try {
-          const { data } = await axios.post(
-          "/api/oders/orderadd",
-            {
-              productname, productid, userid, username, productimage,name,
-              usergmail, gmail, phone, quantity, chest, shirtlength, sleevlength,
-              sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
-              hip, thigh, knee, legopening, suitsize, clientdate, useraddress, tailortype,
-              producttype, productcategory
-            },
-            config
-          );
-          console.log(data.data)
-          setSuccess(data.data); 
+      const updateorder = async (evt)=>{
+        evt.preventDefault();
 
-        alert("oder successfully");
-        history.push("/product")
-  
-        } catch (error) {
-          setError(error.response.data.error);
-          setTimeout(() => {
-          }, 3000);
-          return setError("This Email Already Registered...! Try Another");
-          
+        const body = {
+            name, gmail, phone, quantity, chest, shirtlength, sleevlength,
+            sholder,orderstatus, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
+            hip, thigh, knee, legopening, suitsize, useraddress, tailortype,
+            
         }
+        await fetch(`/api/oders/orderUpdate/${match.params.id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+          });
+          alert("Update successFully");
+          history.push("/tailororderbygender")
       };
-
-    return (
-        <>
-        
-        {/* <h1>{productname}</h1>
-        <h1>{productid}</h1>
-        <h1>{productimage}</h1>
-        <h1>{username}</h1>
-        <h1>{userid}</h1> */}
     
-      <div className="container"  id="productForm">
+    
+    
+    return ( 
+       <>
+       <div className="container"  id="productForm">
         <div className="heading">
         Product Order Form
-        <Link to ="/product">
-        <Button color="danger" id="btn_back">GO Back</Button>{' '}
-        </Link>
+          <Link to="/tailororderbygender">
+          <Button color="success">Go Back</Button>
+          </Link>
         </div>      
         
         <div className="DetailLine">
@@ -146,7 +103,7 @@ const AddOrder = ({history, match}) => {
         <div className="row">
           <div className="col-lg-12 col-sm">
               <div className="form">
-                  <form class="form-inline" onSubmit={registerHandler}>                   
+                  <form class="form-inline" onSubmit={updateorder}>                   
                     <label for="name">Name : </label><br/>
                     <input type="text" required id="name" placeholder="Enter User Name" name="name"
                     value={name}
@@ -170,13 +127,21 @@ const AddOrder = ({history, match}) => {
                     onChange={(e)=>{setQunty(e.target.value)}}
                     />
                     
-                    <label for="date">Delivery-Date:</label>
-                    <input type="date" required id="clientdate" placeholder="Enter Delivery Date" name="clientdate"
-                    value={clientdate} 
-                    onChange ={(e)=>{
-                      setClientdate(e.target.value)
-                    }}
-                    />
+                    <label for="status" >Add Status:</label>
+                   <select className="selection" 
+                   value={orderstatus} 
+                   onChange ={(e)=>{
+                    setOrderstatus(e.target.value)
+                   }}>
+                     <option className="option" value= "Add Status">Add Status</option>
+                     <option className="option" value= "Start">Start</option>
+                     <option className="option" value= "Pending">Pending</option>
+                     <option className="option" value= "50% done">50 % done</option>
+                     <option className="option" value= "70% done">70 % done</option>
+                     <option className="option" value= "90% done">90 % done</option>
+                     <option className="option" value= "Complete">Complete</option>
+                     <option className="option" value= "You Can Get Your Dress Tomorrow">Delivered</option>
+                   </select>
 
                     <label for="date" >Select Size:</label>
                    <select className="selection" 
@@ -184,6 +149,7 @@ const AddOrder = ({history, match}) => {
                    onChange ={(e)=>{
                     setSuitsize(e.target.value)
                    }}>
+
                      <option className="option" value= "Small">Small</option>
                      <option className="option" value= "Medium">Medium</option>
                      <option className="option" value= "Large">Large</option>
@@ -199,6 +165,7 @@ const AddOrder = ({history, match}) => {
                      onChange ={(e)=>{
                       setUseraddress(e.target.value)
                      }}
+                     style={{marginTop:"20px", marginBottom:"20px"}}
                     />
                     </div>
                     
@@ -326,13 +293,13 @@ const AddOrder = ({history, match}) => {
                     onChange ={(e)=>{
                       setTailortype(e.target.value)
                     }}
-                   >  
+                   >
                       <option value="select">Select Tailor</option>
-                          <option value="Male">Male</option>
-                          <option value="Female">FeMale</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">FeMale</option>
                    </select>
 
-                   <button type="submit" className="btnorder">Place Order</button>
+                   <button type="submit" className="btnorder">Update Order</button>
                    
                   </form>
 
@@ -347,10 +314,8 @@ const AddOrder = ({history, match}) => {
   
 
       </div>
-        
- </>
-        
-      );
+       </>
+     );
 }
  
-export default AddOrder;
+export default Editorder_tailor;

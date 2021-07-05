@@ -32,7 +32,9 @@ const UserOrders = () => {
         setError("user not find")
       }
     };
-    const getdata = async()=>{
+
+
+    const getordersbyuser = async()=>{
       const configg = {
         headers:{
             "Content-Type" : "application/json",
@@ -49,11 +51,11 @@ const UserOrders = () => {
 
   };
     LoggedUserdata();
-    getdata();
+    getordersbyuser();
     
    },[refresh]);
 
-   const deleteorder =(id)=>{
+    const deleteorder =(id)=>{
     axios.delete(`/api/oders/deleteorder/${id}`);
     setRefresh(true)
     };
@@ -76,7 +78,7 @@ const UserOrders = () => {
                     onClick={() => {
                       refresher();
                     }}
-                    
+                    style={{fontWeight:"bold"}}
                     >
                       Refresh
                     </Button>
@@ -91,7 +93,7 @@ const UserOrders = () => {
                    width="100px" height="60px"/>
                   </td>
                   <td>{order.productname}</td>
-                  <td><p style={{background:"yellow", padding:"10px"}}>
+                  <td><p style={{background:"yellow", padding:"10px", fontWeight:"bold"}}>
                   {order.orderstatus}</p> </td>
                   <td>
 

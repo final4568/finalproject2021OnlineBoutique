@@ -11,8 +11,8 @@ const TailorSideBar = () => {
         <NavLink  to ="/tailor/dashboard">Dashboard</NavLink>
         <NavLink  to ="/tailor/User/UserMain">User</NavLink>
         <NavLink  to ="/ProductTable_tailor">Products</NavLink>
-        <NavLink  to ="/LoggedTailor/Profile">Profile</NavLink>
         <NavLink  to ="/tailororderbygender">My Order</NavLink>
+        <NavLink  to ="/LoggedTailor/Profile">Profile</NavLink>
       </div>
     </>
   );
