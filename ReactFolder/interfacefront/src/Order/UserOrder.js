@@ -97,12 +97,12 @@ const UserOrders = () => {
                   {order.orderstatus}</p> </td>
                   <td>
 
-                      <Link to={`/orderdetail/${order._id}`}>
+                      <Link to={`/OrderDetailUser/${order._id}`}>
                       <Button id="btn_table" color="primary" size="sm">
                         View
                       </Button>
                     </Link>
-                    <Link to={`/EditOrderAdmin/${order._id}`}>
+                    <Link to={`/EditorderUser/${order._id}`}>
                       <Button id="btn_table" color="warning" size="sm" >
                         Edit
                       </Button>
@@ -116,7 +116,7 @@ const UserOrders = () => {
                     }}
                     
                     >
-                      Delete
+                      Cancel
                     </Button>
                     
 

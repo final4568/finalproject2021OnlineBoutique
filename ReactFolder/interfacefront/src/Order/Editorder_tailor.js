@@ -89,7 +89,7 @@ const Editorder_tailor = ({history, match}) => {
         <div className="heading">
         Product Order Form
           <Link to="/tailororderbygender">
-          <Button color="success">Go Back</Button>
+          <Button color="success" style={{float:"right"}}>Go Back</Button>
           </Link>
         </div>      
         
@@ -140,7 +140,7 @@ const Editorder_tailor = ({history, match}) => {
                      <option className="option" value= "70% done">70 % done</option>
                      <option className="option" value= "90% done">90 % done</option>
                      <option className="option" value= "Complete">Complete</option>
-                     <option className="option" value= "You Can Get Your Dress Tomorrow">Delivered</option>
+                     <option className="option" value= "Customer Can Get Your Dress Tomorrow">Delivered</option>
                    </select>
 
                     <label for="date" >Select Size:</label>

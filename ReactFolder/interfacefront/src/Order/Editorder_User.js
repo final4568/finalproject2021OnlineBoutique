@@ -4,7 +4,7 @@ import { Link} from "react-router-dom";
 import "../index.css";
 import {Button} from 'reactstrap'
 
-const EditOrder_Admin = ({history, match}) => {
+const Editorder_User = ({history, match}) => {
    
     const[name, setName] = useState("");
     const[gmail, setGmail] =useState("");
@@ -36,7 +36,6 @@ const EditOrder_Admin = ({history, match}) => {
             `/api/oders/orderdetail/${match.params.id}`
           ).then((res) => res.json());
     
-          setName(orderdetail.name);
           setGmail(orderdetail.gmail);
           setPhone(orderdetail.phone);
           setQunty(orderdetail.quantity);
@@ -67,7 +66,7 @@ const EditOrder_Admin = ({history, match}) => {
         evt.preventDefault();
 
         const body = {
-            name, gmail, phone, quantity, chest, shirtlength, sleevlength,
+            gmail, phone, quantity, chest, shirtlength, sleevlength,
             sholder,orderstatus, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
             hip, thigh, knee, legopening, suitsize, useraddress, tailortype,
             
@@ -78,7 +77,7 @@ const EditOrder_Admin = ({history, match}) => {
             body: JSON.stringify(body),
           });
           alert("Update successFully");
-          history.push("/allorders")
+          history.push("/user/dashboard")
       };
     
     
@@ -88,7 +87,7 @@ const EditOrder_Admin = ({history, match}) => {
        <div className="container"  id="productForm">
         <div className="heading">
         Product Order Form
-        <Link to ="/allorders">
+        <Link to ="/user/dashboard">
         <Button color="danger" id="btn_back">GO Back</Button>{' '}
         </Link>
         </div>      
@@ -104,10 +103,7 @@ const EditOrder_Admin = ({history, match}) => {
           <div className="col-lg-12 col-sm">
               <div className="form">
                   <form class="form-inline" onSubmit={updateorder}>                   
-                    <label for="name">Name : </label><br/>
-                    <input type="text" required id="name" placeholder="Enter User Name" name="name"
-                    value={name}
-                    onChange={(e)=>{setName(e.target.value)}}/>
+                    
                     
                     <label for="phone">Email :</label>
                     <input type="email" required id="gmail" placeholder="Enter Valid Email Address" name="gmail"
@@ -127,21 +123,7 @@ const EditOrder_Admin = ({history, match}) => {
                     onChange={(e)=>{setQunty(e.target.value)}}
                     />
                     
-                    <label for="status" >Add Status:</label>
-                   <select className="selection" 
-                   value={orderstatus} 
-                   onChange ={(e)=>{
-                    setOrderstatus(e.target.value)
-                   }}>
-                     <option className="option" value= "Add Status">Add Status</option>
-                     <option className="option" value= "Start">Start</option>
-                     <option className="option" value= "Pending">Pending</option>
-                     <option className="option" value= "50% done">50 % done</option>
-                     <option className="option" value= "70% done">70 % done</option>
-                     <option className="option" value= "90% done">90 % done</option>
-                     <option className="option" value= "Complete">Complete</option>
-                     <option className="option" value= "Customer Can Get Your Dress Tomorrow">Delivered</option>
-                   </select>
+                   
 
                     <label for="date" >Select Size:</label>
                    <select className="selection" 
@@ -318,4 +300,4 @@ const EditOrder_Admin = ({history, match}) => {
      );
 }
  
-export default EditOrder_Admin;
+export default Editorder_User;

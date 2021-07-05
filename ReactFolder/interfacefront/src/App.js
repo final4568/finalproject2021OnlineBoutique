@@ -68,6 +68,10 @@ import EditOrder_Admin from "./Order/EditOrder_Admin";
 import OrderByTailors from "./Order/OrdersByTailor";
 import Vieworder_tailor from "./Order/Vieworder_tailor";
 import Editorder_tailor from "./Order/Editorder_tailor";
+import OrderDetail_User from "./Order/OrderDetail_User";
+import Editorder_User from "./Order/Editorder_User";
+import Tailordeatils_User from "./Tailor_view/Tailorlist_User";
+import Tailordetails_User from "./Tailor_view/Tailordetails_User";
 
 
 function App() {
@@ -176,6 +180,11 @@ function App() {
           <Route exact path="/tailororderbygender" component={OrderByTailors }/>
           <Route exact path ="/Viewordertailor/:id" component={Vieworder_tailor}/>
           <Route exact path ="/Editordertailor/:id" component={Editorder_tailor}/>
+          <Route exact path ="/OrderDetailUser/:id" component={OrderDetail_User}/>
+          <Route exact path ="/EditorderUser/:id" component={Editorder_User}/>
+          <Route exact path ="/users/All/Tailor" component={Tailordeatils_User}/>
+          <Route exact path ="/users/TailorDetailss/:id" component={Tailordetails_User}/>
+      
           
         </Switch>
 
