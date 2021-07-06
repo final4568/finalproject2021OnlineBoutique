@@ -115,6 +115,7 @@ const Updateproduct = ({history, match}) => {
                     style={{width:"100%",
                   height:"40px"}}
                   >
+                    <option value="select Category">select Category</option>
                     <option value="male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Female">Baby</option>

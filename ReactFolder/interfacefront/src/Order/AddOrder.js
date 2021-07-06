@@ -4,6 +4,7 @@ import { Link} from "react-router-dom";
 import "../index.css";
 import {Button} from 'reactstrap'
 
+
 const AddOrder = ({history, match}) => {
     const[productname, setProductName] =useState("");
     const[productid, setProductID] =useState("");
@@ -129,7 +130,6 @@ const AddOrder = ({history, match}) => {
         <h1>{productimage}</h1>
         <h1>{username}</h1>
         <h1>{userid}</h1> */}
-    
       <div className="container"  id="productForm">
         <div className="heading">
         Product Order Form

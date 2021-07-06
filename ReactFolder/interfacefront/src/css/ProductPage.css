@@ -139,3 +139,41 @@
     }
     
 }
+
+
+
+
+#product_bannermale{
+    height: 300px;
+    text-align: center;
+    padding-top: 80px;
+    margin-bottom: 60px;
+    background-image: url("https://jobsgum.com/wp-content/uploads/2021/07/aik-atelier-banner-lawn-20-vol-2-blog-image_1024x10241-1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+    overflow: hidden;
+    top: 0%;
+
+}
+#product_bannermale h1{
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color:black;
+}
+#product_bannermale p{
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-top: -5px;
+    color: black;
+}
+@media screen and (max-width: 600px) {
+    #product_bannermale {
+        padding: 80px 50px 50px 50px;
+    }
+    #product_bannermale h1{
+        font-size: 50px;
+    }
+}

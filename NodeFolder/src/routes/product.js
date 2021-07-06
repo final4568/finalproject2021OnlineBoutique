@@ -19,6 +19,6 @@ router.put('/update/:id', uploadImage, update);
 router.route('/getallproducts').get(getallproducts);
 router.route('/delete/:id').delete(deleteproduct);
 router.route('/productdetail/:id').get(productdetail);
-router.route('/maleproducts').get(maleproducts);
+router.route('/maleproducts').post(maleproducts);
 
 module.exports = router;

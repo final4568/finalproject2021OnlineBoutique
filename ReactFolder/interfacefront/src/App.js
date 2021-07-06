@@ -60,6 +60,8 @@ import UpdateProduct_tailor from './product/UpdateProduct_tailor';
 
 import ProductsPage  from "./ShopPage/ProductPage";
 import ProductView from "./ShopPage/ProductView";
+import Maleproducts from "./ShopPage/Maleproducts";
+import FemaleProducts from "./ShopPage/FemaleProducts";
 
 import AddOrder from "./Order/AddOrder";
 import Allorders from "./Order/Allorders";
@@ -74,12 +76,13 @@ import Tailordeatils_User from "./Tailor_view/Tailorlist_User";
 import Tailordetails_User from "./Tailor_view/Tailordetails_User";
 
 
+
 function App() {
   return (
     <>
       <Router>
         <div className="app_main">
-         
+        
           <Switch>
             <Route exact path="/"><Home /> </Route>
           </Switch>
@@ -170,6 +173,9 @@ function App() {
          <Switch>
               <Route exact path="/product" component={ProductsPage}/>
               <Route exact path="/product/Details/:id" component={ProductView}/>
+              <Route exact path="/product/femaleproducts" component={FemaleProducts}/>
+              <Route exact path="/product/maleproducts" component={Maleproducts}/>
+              
          </Switch>
 
         <Switch>

@@ -119,14 +119,15 @@ exports.productdetail = async (req, res)=>{
 };
 
 exports.maleproducts = async (req, res)=>{
-    const product_category = req.body.product_category;
+    const productcate = req.body.product_category;
     try{
-        await Product.find({product_category:product_category}, (err, product)=>{
+        await Product.find({product_category:productcate}, (err, product)=>{
             if(err){
                 res.status(500).json({
                     success:false,
                   });
             }else{
+                console.log(product)
                 res.status(200).json(product)
             }
         });
