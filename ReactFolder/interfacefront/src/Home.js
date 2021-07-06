@@ -1,5 +1,5 @@
 import "./index.css";
-import Usama from "./Example";
+import Slider from "./Slider";
 import Menu from './layouts/Menu';
 import Top from './layouts/Top';
 import Footer from './layouts/Footer'
@@ -10,7 +10,7 @@ const Home = () => {
     <>
      <Top />
       <Menu />
-      <Usama />
+      <Slider />
       <div className="container-container_fluide" id="section2">
         <div className="container" id="Inersection2">
           <div className="row">
@@ -59,7 +59,7 @@ const Home = () => {
         <div className="container" id="serv_img">
           <div className="row" id="ser_img_row">
             <div className="col-lg-6 col-md col-sm">
-              <Link to="/shop">
+              <Link to="/product">
                 <div id="container">
                   <img
                     src="https://jobsgum.com/wp-content/uploads/2021/05/Untitled-2.jpg"
@@ -73,7 +73,7 @@ const Home = () => {
               </Link>
             </div>
             <div className="col-lg-6 col-md col-sm">
-              <Link to="/shop">
+              <Link to="/product">
                 <div id="container">
                   <img
                     src="https://jobsgum.com/wp-content/uploads/2021/05/Untitled-4.jpg"

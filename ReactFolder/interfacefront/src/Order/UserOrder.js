@@ -70,8 +70,8 @@ const UserOrders = () => {
               <tr class="table-dark">
                 <th scope="col">Prdduct Image</th>
                 <th scope="col">Product Name</th>
-                <th scope="col">Status</th>
-                <th scope="col">Action</th>
+                <th scope="col">Progress</th>
+                <th scope="col">Order Status</th>
                 <th>
 
                 <Button color="danger" size="sm" style={{marginLeft:"10px"}}
@@ -93,7 +93,8 @@ const UserOrders = () => {
                    width="100px" height="60px"/>
                   </td>
                   <td>{order.productname}</td>
-                  <td><p style={{background:"yellow", padding:"10px", fontWeight:"bold"}}>
+                  <td>{order.orderprogress}</td>
+                  <td><p style={{color:"green", padding:"10px", fontWeight:"bold"}}>
                   {order.orderstatus}</p> </td>
                   <td>
 

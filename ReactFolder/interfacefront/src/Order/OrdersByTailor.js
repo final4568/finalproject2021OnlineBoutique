@@ -90,11 +90,11 @@ const OrderByTailors = () => {
               <tr class="table-dark">
                 <th scope="col">Prdduct Image</th>
                 <th scope="col">Product Name</th>
-                <th scope="col">Status</th>
-                <th scope="col">Action</th>
+                <th scope="col">Order Status</th>
+                <th scope="col">Progress</th>
                 <th>
 
-                <Button color="danger" size="sm" style={{marginLeft:"10px"}}
+                <Button color="danger" size="sm" style={{marginLeft:"10px", float:"right"}}
                     onClick={() => {
                       refresher();
                     }}
@@ -113,8 +113,10 @@ const OrderByTailors = () => {
                    width="100px" height="60px"/>
                   </td>
                   <td>{order.productname}</td>
-                  <td><p style={{background:"yellow", padding:"10px", fontWeight:"bold"}}>
+                  <td><p style={{padding:"10px",color:"green", fontWeight:"bold"}}>
                   {order.orderstatus}</p> </td>
+                  <td><p style={{padding:"10px", fontWeight:"bold"}}>
+                  {order.orderprogress}</p> </td>
                   <td>
 
                       <Link to={`/Viewordertailor/${order._id}`}>

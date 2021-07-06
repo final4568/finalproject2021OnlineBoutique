@@ -21,9 +21,10 @@ const Order = ({history}) => {
               <tr class="table-dark">
                 <th scope="col"> Image</th>
                 <th scope="col">Products Name</th>
-                <th scope="col">Category</th>
+                <th scope="col">UserName </th>
+                <th scope="col">Handle Tailor </th>
                 <th scope="col">Product Type </th>
-                <th scope="col">Status </th>
+                <th scope="col">Progress </th>
               </tr>
             </thead>
 
@@ -35,9 +36,10 @@ const Order = ({history}) => {
                       width="100px" height="60px"/>
                   </td>
                   <td>{order.productname}</td>
-                  <td>{order.productcategory}</td>                  
+                  <td>{order.username}</td>
+                  <td><strong>{order.tailortype} </strong></td>                  
                   <td>{order.producttype}</td>                  
-                  <td><strong>{order.orderstatus} </strong></td>                  
+                  <td><strong>{order.orderprogress} </strong></td>                  
                 </tr>
               ))}
             </tbody>

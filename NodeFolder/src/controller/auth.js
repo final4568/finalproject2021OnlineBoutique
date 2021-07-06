@@ -7,13 +7,14 @@ const Admin = require("../models/Admin");
 const sendEmail = require("../utils/sendemail");
 
 exports.register = async (req, res, next) => {
-  const { username, email, phone, gender, password, address,usertype, bio } = req.body;
+  const { username, email, phone, gender,date, password, address,usertype, bio } = req.body;
   try {
     const admin = await Admin.create({
       username,
       email,
       phone, 
       gender,
+      date,
       password,
       address,
       usertype,

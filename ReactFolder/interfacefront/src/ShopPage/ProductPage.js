@@ -12,6 +12,8 @@ const Allproducts = () => {
 
         <div className="container-fluid" id="product_banner">
             <h1>Product Page</h1>
+            <p>We are trying Provides all kinds of good ReadyMade & Custom Dress</p>
+
         {/* top banner */}
         </div>
 

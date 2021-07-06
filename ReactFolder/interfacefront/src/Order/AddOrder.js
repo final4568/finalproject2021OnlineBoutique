@@ -35,6 +35,8 @@ const AddOrder = ({history, match}) => {
     const[tailortype, setTailortype]=useState("");
     const[producttype, setType]= useState("ReadMade");
     const[productcategory, setproductcat] =useState("");
+    const[orderstatus, setOrderstatus] =useState("New Order");
+    const[orderprogress, setOrderprogress] =useState("Pending");
 
 
     const [userprofile, setProfile] = useState({});
@@ -100,7 +102,7 @@ const AddOrder = ({history, match}) => {
               usergmail, gmail, phone, quantity, chest, shirtlength, sleevlength,
               sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
               hip, thigh, knee, legopening, suitsize, clientdate, useraddress, tailortype,
-              producttype, productcategory
+              producttype, productcategory,orderstatus,orderprogress
             },
             config
           );

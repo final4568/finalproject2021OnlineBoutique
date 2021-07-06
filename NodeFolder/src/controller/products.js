@@ -117,3 +117,24 @@ exports.productdetail = async (req, res)=>{
         });
     }
 };
+
+exports.maleproducts = async (req, res)=>{
+    const product_category = req.body.product_category;
+    try{
+        await Product.find({product_category:product_category}, (err, product)=>{
+            if(err){
+                res.status(500).json({
+                    success:false,
+                  });
+            }else{
+                res.status(200).json(product)
+            }
+        });
+    }catch{
+        res.status(400).json({
+            success: false,
+            message: "Product Not Available"
+        });
+    }
+
+};

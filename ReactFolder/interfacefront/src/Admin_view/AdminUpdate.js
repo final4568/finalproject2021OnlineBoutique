@@ -11,6 +11,7 @@ const AdminUpdate = ({ match , history}) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [gender, setGender] = useState("");
+  const [date, setDate] = useState("");
   const [address, setAddress] = useState("");
   const [usertype, setUserType] = useState("");
   const [bio, setBio] = useState("");
@@ -24,6 +25,7 @@ const AdminUpdate = ({ match , history}) => {
       setUsername(admin.username);
       setEmail(admin.email);
       setPhone(admin.phone);
+      setDate(admin.time);
       setGender(admin.gender);
       setAddress(admin.address);
       setUserType(admin.usertype);
@@ -40,6 +42,7 @@ const AdminUpdate = ({ match , history}) => {
       email,  
       phone,
       gender,
+      date,
       address,
       usertype,
       bio  
@@ -127,6 +130,15 @@ const AdminUpdate = ({ match , history}) => {
 
                
                 </div>
+
+                <label  className="formlable" for="name"> <strong>BirthDay :</strong> </label>
+                  <div className="field">
+                <input type="date" placeholder="Phone" name ="email" id="phone" required
+                    value = {date}
+                    onChange = {(e)=>{setDate(e.target.value)}}
+                />
+                </div>
+
                 
                 <label className="formlable" for="name"><strong>User_Type :</strong> </label>    
                 <div className="field">

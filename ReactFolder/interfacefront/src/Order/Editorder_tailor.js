@@ -24,10 +24,11 @@ const Editorder_tailor = ({history, match}) => {
     const[thigh, setThigh]=useState("");
     const[knee, setKnee]=useState("");
     const[suitsize, setSuitsize] = useState("");
-    const[orderstatus, setOrderstatus]=useState("");
+    const[orderprogress, setOrderprogress]=useState("");
     const[legopening, setLegopening]=useState("");
     const[useraddress, setUseraddress]=useState("");
     const[tailortype, setTailortype]=useState("");
+    const[orderstatus, setOrderstatus]=useState("");
     
     useEffect(() => {
         const fetchorderdetail = async () => {
@@ -40,11 +41,12 @@ const Editorder_tailor = ({history, match}) => {
           setGmail(orderdetail.gmail);
           setPhone(orderdetail.phone);
           setQunty(orderdetail.quantity);
+          setOrderstatus(orderdetail.orderstatus);
           setChest(orderdetail.chest);
           setShirtlength(orderdetail.shirtlength);
           setSleevlength(orderdetail.sleevlength);
           setSholder(orderdetail.sholder);
-          setOrderstatus(orderdetail.orderstatus);
+          setOrderprogress(orderdetail.orderprogress);
           setOverarm(orderdetail.overarm);
           setWaistcoatlength(orderdetail.waistcoatlength);
           setWrist(orderdetail.wrist);
@@ -67,8 +69,8 @@ const Editorder_tailor = ({history, match}) => {
         evt.preventDefault();
 
         const body = {
-            name, gmail, phone, quantity, chest, shirtlength, sleevlength,
-            sholder,orderstatus, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
+            name,orderstatus, phone, quantity, chest, shirtlength, sleevlength,
+            sholder,orderprogress, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
             hip, thigh, knee, legopening, suitsize, useraddress, tailortype,
             
         }
@@ -88,9 +90,9 @@ const Editorder_tailor = ({history, match}) => {
        <div className="container"  id="productForm">
         <div className="heading">
         Product Order Form
-          <Link to="/tailororderbygender">
-          <Button color="success" style={{float:"right"}}>Go Back</Button>
-          </Link>
+        <Link to ="/tailororderbygender">
+        <Button color="danger" id="btn_back">GO Back</Button>{' '}
+        </Link>
         </div>      
         
         <div className="DetailLine">
@@ -109,11 +111,17 @@ const Editorder_tailor = ({history, match}) => {
                     value={name}
                     onChange={(e)=>{setName(e.target.value)}}/>
                     
-                    <label for="phone">Email :</label>
-                    <input type="email" required id="gmail" placeholder="Enter Valid Email Address" name="gmail"
-                    value={gmail}
-                    onChange={(e)=>{setGmail(e.target.value)}}
-                    />
+                    <label for="status" >Add Status:</label>
+                   <select className="selection" 
+                   value={orderstatus} 
+                   onChange ={(e)=>{
+                    setOrderstatus(e.target.value)
+                   }}>
+                     <option className="option" value= "Add Status">Add Status</option>
+                     <option className="option" value= "Accepted">Accepted</option>
+                     <option className="option" value= "Rejected">Rejected</option>
+                   
+                   </select>
                     
                     <label for="phone">Phone:</label>
                     <input type="number" required id="phone" placeholder="Enter phone" name="phone"
@@ -127,11 +135,11 @@ const Editorder_tailor = ({history, match}) => {
                     onChange={(e)=>{setQunty(e.target.value)}}
                     />
                     
-                    <label for="status" >Add Status:</label>
+                    <label for="status" >Add Progress:</label>
                    <select className="selection" 
-                   value={orderstatus} 
+                   value={orderprogress} 
                    onChange ={(e)=>{
-                    setOrderstatus(e.target.value)
+                    setOrderprogress(e.target.value)
                    }}>
                      <option className="option" value= "Add Status">Add Status</option>
                      <option className="option" value= "Start">Start</option>
@@ -319,3 +327,4 @@ const Editorder_tailor = ({history, match}) => {
 }
  
 export default Editorder_tailor;
+

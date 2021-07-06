@@ -19,7 +19,7 @@ const items = [
   
 ];
 
-const Usama = (props) => {
+const Slider = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -68,4 +68,4 @@ const Usama = (props) => {
   
 }
 
-export default Usama;
+export default Slider;

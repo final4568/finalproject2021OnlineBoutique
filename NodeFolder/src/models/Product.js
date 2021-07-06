@@ -22,7 +22,7 @@ const ProductSchema  = new mongoose.Schema({
     },
     product_photo:{
         type: String,
-        require:true,
+        
     }
 
 });

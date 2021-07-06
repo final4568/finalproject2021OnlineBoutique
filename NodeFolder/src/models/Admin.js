@@ -28,6 +28,9 @@ const AdminSchema = new mongoose.Schema({
     type:String,
     required: true,
   },
+  date: { 
+    type: Date,
+    default: Date.now },
   password: {
     type: String,
     require: [true, " Please Enter Your Password"],
@@ -46,6 +49,7 @@ const AdminSchema = new mongoose.Schema({
     type:String,
     minlength:10,    
   },
+  
 
   resetPasswordToken: String,
   resetPasswordExpire: Date,

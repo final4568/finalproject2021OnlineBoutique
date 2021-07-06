@@ -28,12 +28,15 @@ const OrderSchema = new mongoose.Schema({
   knee:{type: Number, require:true},
   legopening:{type: Number, require:true},
   suitsize:{type:String, require:true},
-  clientdate:{type:Date, require:true, trim: true},
+  clientdate:{type:Date, 
+    default:Date.now,
+    require:true, trim: true},
   tailodate:{type:Date},
   useraddress:{type: String,require:true},
   tailortype:{type:String, require :true},
   producttype:{type:String},
   productcategory:{type:String},
+  orderprogress:{type:String},
   orderstatus:{type:String}
 
 

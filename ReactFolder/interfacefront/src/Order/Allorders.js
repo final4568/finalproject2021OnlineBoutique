@@ -46,10 +46,10 @@ const Allorders = ({history}) => {
           <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">
-                <th scope="col">Products Name</th>
+                <th scope="col-sm">Products Name</th>
                 <th scope="col">Handle By Tailor</th>
-                <th scope="col"> Status</th>
-                <th scope="col">Action </th>
+                <th scope="col"> Progress</th>
+                <th scope="col">Latest Order </th>
                 <th>  <Button color="danger" size="sm" style={{marginLeft:"10px"}}
                     onClick={() => {
                       refresher();
@@ -64,9 +64,12 @@ const Allorders = ({history}) => {
                 <tr key={order._id}>
                   <td>{order.productname}</td>
                   <td>{order.tailortype}</td> 
-                  <td><p style={{background:"yellow", padding:"10px", fontWeight:"bold"}}>
-                  {order.orderstatus}</p></td>                  
+                  <td><p style={{ padding:"10px",fontWeight:"bold" }}>
+                  {order.orderprogress}</p></td>   
+                  <td><p style={{ color:"green", padding:"10px", fontWeight:"bold"}}>
+                  {order.orderstatus}</p></td>                
                   <td>
+                    
                   
                     <Link to={`/orderdetail/${order._id}`}>
                       <Button id="btn_table" color="primary" size="sm">

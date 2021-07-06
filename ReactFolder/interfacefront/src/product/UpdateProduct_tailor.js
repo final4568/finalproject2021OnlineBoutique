@@ -139,7 +139,7 @@ const UpdateProduct_tailor = ({history, match}) => {
                 />
                 </div>
                 
-                <input type="file" placeholder="Upload photo" required name ="product_photo" id="photo"
+                <input type="file" placeholder="Upload photo"  name ="product_photo" id="photo"
                 onChange = {onInputchaged}                
                 />
                 </div>
