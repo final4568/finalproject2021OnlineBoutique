@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import '../index.css'
 import { Link } from "react-router-dom";
-import Top from '../layouts/Top';
 import Menu from '../layouts/Menu';
 import Footer from '../layouts/Footer';
 
@@ -34,7 +33,6 @@ const Maleproducts = () => {
     
     return ( 
         <>
-        <Top/>
         <Menu/>
 
         <div className="container-fluid" id="product_bannermale">

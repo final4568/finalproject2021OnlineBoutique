@@ -1,5 +1,4 @@
 
-import Top from './layouts/Top';
 import Menu from './layouts/Menu';
 import Footer from './layouts/Footer';
 
@@ -8,7 +7,6 @@ import Footer from './layouts/Footer';
 const Contact = () => {
     return (
       <>
-      <Top/>
       <Menu/>
       <h1>CONTACT US</h1>
       <p>

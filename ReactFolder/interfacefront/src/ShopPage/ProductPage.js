@@ -1,5 +1,4 @@
 import axios from "axios";
-import Top from '../layouts/Top';
 import Menu from '../layouts/Menu';
 import Footer from '../layouts/Footer';
 import '../index.css'
@@ -7,7 +6,6 @@ import ProductsComponet from './ProductsComponet'
 const Allproducts = () => {
     return ( 
        <>
-        <Top/>
         <Menu/>
 
         <div className="container-fluid" id="product_banner">

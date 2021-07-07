@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import '../index.css';
-import Top from '../layouts/Top';
 import Menu from '../layouts/Menu';
 import Footer from '../layouts/Footer';
 
@@ -45,7 +44,6 @@ const TailorLogin = ({history}) => {
       };
     return ( 
         <>
-        <Top/>
         <Menu/>
         <div className="form_main_class">
         <div className="wrapper">
@@ -82,9 +80,7 @@ const TailorLogin = ({history}) => {
                 <input type="submit" value="Login Now"/>
                 </div>
                 {/* <button type="submit">Login</button> */}
-                <div className="pass-link">
-                Don't Have A Account ? <Link to="/tailor/register">SignUp Now</Link>
-                </div>
+                
             </form>
             </div>
         </div>

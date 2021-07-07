@@ -4,7 +4,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import '../index.css';
 import Menu from '../layouts/Menu';
-import Top from '../layouts/Top';
 import Footer from '../layouts/Footer';
 
 const Adminlogin = ({history}) => { 
@@ -12,17 +11,11 @@ const Adminlogin = ({history}) => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    
-    
-    
     useEffect(() => {
       if (localStorage.getItem("authToken")) {
          history.push("/admin");
       }
     }, [history]);
-
-
-
       const loginHandler = async (e) => {
         e.preventDefault();            
         const config = {
@@ -34,7 +27,6 @@ const Adminlogin = ({history}) => {
         try {
           const { data }  = await axios.post("/api/admin/login",{ email, password }, config);
           console.log(data.admin);
-
           localStorage.setItem("authToken", data.token);                   
           history.push('/admin/dashboard'); 
 
@@ -49,7 +41,6 @@ const Adminlogin = ({history}) => {
     
     return ( 
         <>
-        <Top/>
         <Menu/>
         <div className="form_main_class">
         <div className="wrapper">
@@ -70,14 +61,12 @@ const Adminlogin = ({history}) => {
                     onChange = {(e)=>{setEmail(e.target.value)}}
                 />
                 </div>
-                
                 <div className="field">
                 <input type="password" name="password" id="password" required  placeholder="Password" 
                     value = {password}
                     onChange = {(e)=>{setPassword(e.target.value)}}
                 />
                 </div>
-            
                 <div className="pass-link">
                 Forgot Passowrd ? <Link to="/admin/forgetpassword">Click Now</Link>
                 </div>

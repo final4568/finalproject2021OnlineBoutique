@@ -1,8 +1,11 @@
 import '../index.css';
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom';
+import Top from "../layouts/Top"
 const Menu = () => {
     return (
         <>
+        <div className="header">
+        <Top/>
         <div className="container-fluid" id="Menu" >   
             <div className="row" id="navigavtion">
                 <div className="col-left">
@@ -19,8 +22,8 @@ const Menu = () => {
                     <ul>
                     <li><NavLink exact to="/">Home</NavLink></li>
                     <li><NavLink exact to="/product">Product</NavLink></li>
-                    <li className="productmenu"><NavLink exact to="/product/femaleproducts">Female</NavLink></li>
                     <li><NavLink exact to="/product/maleproducts">male</NavLink></li>
+                    <li className="productmenu"><NavLink exact to="/product/femaleproducts">Female</NavLink></li>
                     <li><NavLink exact to="/CustomDress">Custom Dress</NavLink></li>                    
                     </ul>
                  </nav>               
@@ -41,7 +44,9 @@ const Menu = () => {
                
 
             </div>             
-        </div>               
+        </div>    
+        </div>
+                   
 
            
         

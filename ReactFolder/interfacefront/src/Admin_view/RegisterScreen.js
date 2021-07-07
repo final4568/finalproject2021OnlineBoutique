@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import '../index.css';
-import Top from '../layouts/Top';
 import Menu from '../layouts/Menu';
 import Footer from '../layouts/Footer';
 
@@ -63,7 +62,6 @@ const ResignerScreen = ({history}) => {
     
     return ( 
         <>
-        <Top/>
         <Menu/>
         <div className="form_main_class">
         <div className="wrapper">

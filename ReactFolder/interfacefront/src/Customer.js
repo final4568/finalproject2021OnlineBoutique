@@ -1,4 +1,3 @@
-import Top from './layouts/Top';
 import Menu from './layouts/Menu';
 import Footer from './layouts/Footer';
 
@@ -6,7 +5,6 @@ import Footer from './layouts/Footer';
 const CustomerLogin = () => {
     return (  
         <>
-                <Top/>
                 <Menu/>
                 <h1>User login Signup </h1>
                 <p>

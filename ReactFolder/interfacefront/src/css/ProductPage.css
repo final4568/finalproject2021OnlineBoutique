@@ -1,17 +1,17 @@
 
 
 #product_banner{
-    height: 300px;
+    height: 400px;
     text-align: center;
     padding-top: 80px;
     margin-bottom: 60px;
-    background-image: url("https://jobsgum.com/wp-content/uploads/2021/07/aik-atelier-banner-lawn-20-vol-2-blog-image_1024x1024.jpg");
+    background-image: url("https://jobsgum.com/wp-content/uploads/2021/07/aaaaaaaaaa.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: contain;
-    overflow: hidden;
-    top: 0%;
+    background-size: cover;
+    top: 0;
+    padding-top: 100px;
 
 }
 #product_banner h1{
@@ -152,22 +152,21 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: contain;
-    overflow: hidden;
-    top: 0%;
+    background-size: cover;    
+    bottom: 0;
 
 }
 #product_bannermale h1{
     font-size: 50px;
     font-weight: bold;
     text-transform: uppercase;
-    color:black;
+    color: white;
 }
 #product_bannermale p{
     font-size: 15px;
     text-transform: uppercase;
     margin-top: -5px;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 @media screen and (max-width: 600px) {
     #product_bannermale {

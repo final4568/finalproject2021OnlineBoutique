@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import "../index.css";
-import Top from '../layouts/Top';
 import Menu from '../layouts/Menu';
 import Footer from '../layouts/Footer';
 
@@ -39,7 +38,6 @@ const TailorForgotPassword = () => {
 
   return (
     <>
-    <Top/>
     <Menu/>
       <div className="form_main_class">
         <div className="wrapper">

@@ -124,12 +124,7 @@ const AddOrder = ({history, match}) => {
 
     return (
         <>
-        
-        {/* <h1>{productname}</h1>
-        <h1>{productid}</h1>
-        <h1>{productimage}</h1>
-        <h1>{username}</h1>
-        <h1>{userid}</h1> */}
+      
       <div className="container"  id="productForm">
         <div className="heading">
         Product Order Form
@@ -137,7 +132,6 @@ const AddOrder = ({history, match}) => {
         <Button color="danger" id="btn_back">GO Back</Button>{' '}
         </Link>
         </div>      
-        
         <div className="DetailLine">
           <div>
           Enter Your Order Detail Below And Make Your Order Success

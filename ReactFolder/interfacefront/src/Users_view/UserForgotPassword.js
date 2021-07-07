@@ -7,7 +7,6 @@ import { useState } from "react";
 import axios from "axios";
 import '../index.css';
 import Menu from '../layouts/Menu';
-import Top from '../layouts/Top';
 import Footer from '../layouts/Footer';
 import {Link} from 'react-router-dom'
 
@@ -46,7 +45,6 @@ const UserForgotPassword = () => {
     
     return ( 
         <>
-        <Top/>
         <Menu/>
 
         <div className="form_main_class">

@@ -1,7 +1,6 @@
 import "./index.css";
 import Slider from "./Slider";
 import Menu from './layouts/Menu';
-import Top from './layouts/Top';
 import Footer from './layouts/Footer'
 import { Link } from "react-router-dom";
 import ProductsComponet from "./ShopPage/ProductsComponet";
@@ -10,7 +9,6 @@ import Navbar from "./layouts/NavBar"
 const Home = () => {
   return (
     <>
-     <Top />
       <Menu />
       <Slider />
       <div className="container-container_fluide" id="section2">

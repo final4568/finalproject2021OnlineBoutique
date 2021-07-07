@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import Top from "./layouts/Top";
 import Menu from "./layouts/Menu";
 import Footer from "./layouts/Footer";
 
@@ -17,7 +16,6 @@ const Custom = () => {
 
   return (
     <>
-      <Top />
       <Menu />
       <h1>CUSTOM DSIGN PAGE</h1>
       <p>

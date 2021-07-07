@@ -1,5 +1,4 @@
 
-import Top from './layouts/Top';
 import Menu from './layouts/Menu';
 import Footer from './layouts/Footer';
 
@@ -7,7 +6,7 @@ import Footer from './layouts/Footer';
 const About = () => {
     return (  
             <>
-                <Top/>
+           
                 <Menu/>
                 <h1>ABOUT US</h1>
                 <p>

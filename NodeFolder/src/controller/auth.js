@@ -70,7 +70,6 @@ exports.forgotpassword = async (req, res, next) => {
   try {
     const admin = await Admin.findOne({ email });
     if (!admin) {
-      // return next(new ErrorResponse("Email could not be sent yes", 404));
       res.status(404).json({
         success: false,
         error: "Email could not be sent",
