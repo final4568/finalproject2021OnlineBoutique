@@ -40,7 +40,7 @@ const Tailordetails_User = ({ history }) => {
             five centuries,
           </p>
   
-          <Link to="/user/dashboard">
+          <Link to="/users/All/Tailor">
           <Button color="success">Go Back</Button>
           </Link>
           <table class="table border" style={{ marginTop: "60px" }}>

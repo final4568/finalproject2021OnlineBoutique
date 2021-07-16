@@ -4,8 +4,9 @@ import "./index.css";
 import Home from "./Home";
 import Contact from "./Contact";
 import About from "./About";
-import Custom from "./Custom";
 import Customer from "./Customer";
+import ManModel from "./customeDress/ManModel";
+import Custom from "./Custom";
 
 import PrivateRoute from "./Admin_view/PrivateRoute";
 import Adminlogin from "./Admin_view/Adminlogin";
@@ -75,7 +76,7 @@ import Editorder_User from "./Order/Editorder_User";
 import Tailordeatils_User from "./Tailor_view/Tailorlist_User";
 import Tailordetails_User from "./Tailor_view/Tailordetails_User";
 
-
+import Addmeasurement from "./customeDress/Addmeasurement" 
 
 function App() {
   return (
@@ -84,18 +85,12 @@ function App() {
         <div className="app_main">
         
           <Switch>
-            <Route exact path="/"><Home /> </Route>
-          </Switch>
-          <Switch>
-            <Route exact  path="/Contact"><Contact /></Route>
-          </Switch>
-
-          <Switch>
-            <Route exact path="/About"> <About /> </Route>
-          </Switch>
-
-          <Switch>
-            <Route  exact path="/CustomDress"><Custom /></Route>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/Contact" component={Contact} />
+            <Route exact path="/About"component={About}/>
+            <Route exact path="/CustomDress" component={Custom}/>
+            <PrivateRoute exact path="/Customer" component={Customer} />
+            <Route exact path="/manmodel" component={ManModel} />
           </Switch>
 
             {/* Admin login pages routes */}
@@ -190,12 +185,12 @@ function App() {
           <Route exact path ="/EditorderUser/:id" component={Editorder_User}/>
           <Route exact path ="/users/All/Tailor" component={Tailordeatils_User}/>
           <Route exact path ="/users/TailorDetailss/:id" component={Tailordetails_User}/>
-      
-          
         </Switch>
 
+        <Switch>
+          <Route exact path="/addmeasurement/:id" component={Addmeasurement}/>
+        </Switch>
           <Switch>
-
             <Route exact path="/Customer">
               <Customer />
             </Route>

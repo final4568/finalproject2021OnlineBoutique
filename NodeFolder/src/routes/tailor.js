@@ -24,5 +24,4 @@ router.route("/tailorprofile/:id").get(tailorprofile);
 router.route("/update/:id").put(update);
 router.route("/LoggedTailorProfile").get(tailorLoggedprofile);
 
-
 module.exports = router;

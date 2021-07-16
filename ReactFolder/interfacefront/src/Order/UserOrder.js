@@ -68,7 +68,7 @@ const UserOrders = () => {
          <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">
-                <th scope="col">Prdduct Image</th>
+                <th scope="col">Order Type</th>
                 <th scope="col">Product Name</th>
                 <th scope="col">Progress</th>
                 <th scope="col">Order Status</th>
@@ -88,10 +88,7 @@ const UserOrders = () => {
             <tbody>
               {orders.map((order) => (
                 <tr key={order._id}>
-                  <td>
-                  <img src={`/images/${order.productimage}`} alt="Loading...!"
-                   width="100px" height="60px"/>
-                  </td>
+                  <td>{order.producttype}</td>
                   <td>{order.productname}</td>
                   <td>{order.orderprogress}</td>
                   <td><p style={{color:"green", padding:"10px", fontWeight:"bold"}}>

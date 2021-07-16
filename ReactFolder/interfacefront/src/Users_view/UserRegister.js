@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import '../index.css';
 
 import Menu from '../layouts/Menu';
@@ -58,8 +57,8 @@ const UserRegister = ({history}) => {
                 history.push("/user/dashboard");
 
         }catch(error){
-            setError(error.response.data.error);
-        setTimeout(() => {
+          setError(error.response.data.error);
+          setTimeout(() => {
           setPassword("");
           setConfirmPassword("");
           setError("");

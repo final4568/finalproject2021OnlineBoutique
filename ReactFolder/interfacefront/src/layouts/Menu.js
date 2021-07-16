@@ -24,7 +24,8 @@ const Menu = () => {
                     <li><NavLink exact to="/product">Product</NavLink></li>
                     <li><NavLink exact to="/product/maleproducts">male</NavLink></li>
                     <li className="productmenu"><NavLink exact to="/product/femaleproducts">Female</NavLink></li>
-                    <li><NavLink exact to="/CustomDress">Custom Dress</NavLink></li>                    
+                    <li><NavLink exact to="/manmodel">Man Dress</NavLink></li> 
+                                    
                     </ul>
                  </nav>               
                 </div>

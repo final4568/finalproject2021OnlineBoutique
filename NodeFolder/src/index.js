@@ -24,7 +24,7 @@ app.use('/api/userprivate', require('./routes/userprivate'));
 app.use('/api/product', require("./routes/product"));
 app.use('/api/oders', require("./routes/order"));
 
-
+app.use('/api/customOrder', require("./routes/customeDress"));
 
 app.use(errorHandler);
 

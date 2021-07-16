@@ -110,6 +110,12 @@ const Vieworder_tailor = ({ history }) => {
                 <td><strong>knee Size : </strong>{orderdetails.knee}</td>
                 <td><strong>Legopening Size : </strong>{orderdetails.legopening}</td>
               </tr>
+              <tr>
+              <td><strong>Thigh Size : </strong>{orderdetails.thigh}</td>
+                <td><strong>knee Size : </strong>{orderdetails.knee}</td>
+                <td><strong>Legopening Size : </strong>{orderdetails.legopening}</td>
+              </tr>
+
 
                 
               

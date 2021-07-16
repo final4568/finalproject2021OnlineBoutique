@@ -4,7 +4,8 @@ import Menu from './layouts/Menu';
 import Footer from './layouts/Footer'
 import { Link } from "react-router-dom";
 import ProductsComponet from "./ShopPage/ProductsComponet";
-import Navbar from "./layouts/NavBar"
+
+
 
 const Home = () => {
   return (

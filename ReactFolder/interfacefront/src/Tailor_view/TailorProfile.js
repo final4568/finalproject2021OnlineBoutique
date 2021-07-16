@@ -11,17 +11,19 @@ const TailorProfile = ({ history }) => {
   const match = useRouteMatch();
   const [tailors, setTailor] = useState([]);
 
-  const getTodo = (id) =>
+  const getTailor = (id) =>
     fetch(`/api/tailor/tailorprofile/${id}`).then((res) => res.json());
 
   useEffect(() => {
-    const fetchTodo = async () => {
-      const tailors = await getTodo(match.params.id);
+    const fetchTailor = async () => {
+      const tailors = await getTailor(match.params.id);
       setTailor(tailors);
     };
-    fetchTodo();
+    fetchTailor();
   }, [history]);
 
+
+  
   return (
     <>
       <AdminHeader />

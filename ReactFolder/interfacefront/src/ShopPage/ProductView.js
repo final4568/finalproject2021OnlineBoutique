@@ -9,7 +9,6 @@ import '../css/Product_detail.css';
 import Footer from "../layouts/Footer"
 
 
-
 const ProductView = ({history}) => {
     const match = useRouteMatch();
     const [product, setProduct] = useState([]);
@@ -94,6 +93,7 @@ const ProductView = ({history}) => {
 		{product.product_description}
 		</p>
 	</div>
+	
    
         <Footer/>
       </>

@@ -56,7 +56,7 @@ const Orderdetail = ({ history }) => {
                 <th scope="col">
                 </th>
                 <th scope="col">
-                <img className="ordered_img" src={`/images/${orderdetails.productimage}`} width="100%" alt="Loading..!"/>
+                <img className="ordered_img" src={`/images/${orderdetails.productimage}`} width="100%" alt="Custom Dress"/>
                 </th>
                 {/* <th scope="col"> Email:{tailors.email}</th> */}
               </tr>
@@ -110,7 +110,22 @@ const Orderdetail = ({ history }) => {
                 <td><strong>knee Size : </strong>{orderdetails.knee}</td>
                 <td><strong>Legopening Size : </strong>{orderdetails.legopening}</td>
               </tr>
-
+              <tr>
+              <td><strong>Thigh Size : </strong>{orderdetails.thigh}</td>
+                <td><strong>knee Size : </strong>{orderdetails.knee}</td>
+                <td><strong>Legopening Size : </strong>{orderdetails.legopening}</td>
+              </tr>
+              
+              <tr>
+              <td><strong>Coller : </strong>{orderdetails.collerid}</td>
+                <td><strong>Coller Color : </strong>{orderdetails.collercolor}</td>
+                <td><strong>Body  : </strong>{orderdetails.bodyid}</td>
+              </tr>
+              <tr>
+              <td><strong>Body Color : </strong>{orderdetails.bodycolor}</td>
+                <td><strong>knee Size : </strong>{orderdetails.collercolor}</td>
+                <td><strong>Legopening Size : </strong>{orderdetails.bodyid}</td>
+              </tr>
                 
               
 

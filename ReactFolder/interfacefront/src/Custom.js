@@ -12,7 +12,8 @@ const Custom = () => {
     setData({ ...data, [selected]: color });
   };
 
-  console.log(data);
+
+
 
   return (
     <>
@@ -31,6 +32,7 @@ const Custom = () => {
       <div>Seleted: {selected}</div>
       <button onClick={() => setColor("red")}>Color Red</button>
       <button onClick={() => setColor("black")}>Color Black</button>
+      
       <div style={{ width: 400 }}>
         <svg
           id="Layer_1"
@@ -54,6 +56,8 @@ const Custom = () => {
           <path
             d="m364.02 180.9v47.96a18.965 18.965 0 0 1 -9.02 16.14l-26.44 16.26-26.43-16.26a18.943 18.943 0 0 1 -9.02-16.14v-47.96z"
             fill="#3090fc"
+            id="Pocket left"
+            onClick={() => setSelected("Pocket left")}
           />
           <path
             d="m474.25 182.24-.22.09-74.05 20.17v32.97l86.83-23.67z"
@@ -86,6 +90,15 @@ const Custom = () => {
           </g>
         </svg>
       </div>
+
+   
+
+    
+
+    
+      
+
+      
       <Footer />
     </>
   );

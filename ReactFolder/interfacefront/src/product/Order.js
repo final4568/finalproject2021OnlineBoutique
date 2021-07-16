@@ -32,7 +32,7 @@ const Order = ({history}) => {
               {orders.map((order) => (
                 <tr key={order._id}>
                   <td>
-                      <img src={`/images/${order.productimage}`} alt="..."
+                      <img src={`/images/${order.productimage}`} alt="Cusmtom Dress"
                       width="100px" height="60px"/>
                   </td>
                   <td>{order.productname}</td>

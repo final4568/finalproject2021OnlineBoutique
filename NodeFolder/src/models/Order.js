@@ -37,7 +37,11 @@ const OrderSchema = new mongoose.Schema({
   producttype:{type:String},
   productcategory:{type:String},
   orderprogress:{type:String},
-  orderstatus:{type:String}
+  orderstatus:{type:String},
+  collercolor:{type:String},
+  collerid:{type:String},
+  bodyid:{type:String},
+  bodycolor:{type:String}
 
 
 });

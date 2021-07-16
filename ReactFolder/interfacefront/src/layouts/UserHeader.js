@@ -21,11 +21,12 @@ const TailorHeader = () => {
                     User Dashboard
                   </label>
                   <ul>
+                    <li><NavLink exact to="/user/dashboard">Dashboard</NavLink></li>               
                     <li><NavLink exact to="/">Home</NavLink></li>               
                     <li><NavLink exact to="/product">Product</NavLink></li>               
-                    <li><NavLink exact to="/user/dashboard">Dashboard</NavLink></li>               
                     <li><NavLink exact to="/Loogeduser/Profile">My Profile</NavLink></li>               
                     <li><NavLink exact to="/users/All/Tailor">All Tailor</NavLink></li>               
+                    <li><NavLink exact to="/manmodel">Custom Dress</NavLink></li>               
                     </ul>
               </nav>
             </div>

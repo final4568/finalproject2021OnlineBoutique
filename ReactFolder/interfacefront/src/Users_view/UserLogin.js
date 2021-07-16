@@ -4,7 +4,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import '../index.css';
 import Menu from '../layouts/Menu';
-import Top from '../layouts/Top';
 import Footer from '../layouts/Footer';
 
 const UserLogin = ({history}) => { 
@@ -49,7 +48,6 @@ const UserLogin = ({history}) => {
     
     return ( 
         <>
-        <Top/>
         <Menu/>
         <div className="form_main_class">
         <div className="wrapper">

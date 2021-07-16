@@ -107,6 +107,7 @@ const OrderDetail_User = ({ history }) => {
                 <td><strong>Legopening Size : </strong>{orderdetails.legopening}</td>
               </tr>
 
+          
                 
               
 
