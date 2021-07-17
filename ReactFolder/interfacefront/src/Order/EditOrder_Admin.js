@@ -68,7 +68,7 @@ const EditOrder_Admin = ({history, match}) => {
       const updateorder = async (evt)=>{
         evt.preventDefault();
 
-        const body = {
+      const body = {
             name,orderstatus, phone, quantity, chest, shirtlength, sleevlength,
             sholder,orderprogress, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
             hip, thigh, knee, legopening, suitsize, useraddress, tailortype,

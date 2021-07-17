@@ -10,7 +10,9 @@ const {
     deleteorder,
     orderUpdate,
     orderbyUserid,
-    orderbytailor
+    orderbytailor,
+    getorderbyproducttype,
+    customorderbyuser
 } = require("../controller/orderapi");
 
 router.route("/orderadd").post(orderadd);
@@ -20,6 +22,8 @@ router.route("/deleteorder/:id").delete(deleteorder);
 router.route("/orderUpdate/:id").put(orderUpdate);
 router.route("/orderbyUserid").post(orderbyUserid);
 router.route("/orderbytailor").post(orderbytailor);
+router.route("/orderbytype").post(getorderbyproducttype);
+router.route("/customorderbyuser").post(customorderbyuser);
 
 
 module.exports = router;

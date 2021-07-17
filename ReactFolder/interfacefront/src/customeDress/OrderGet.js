@@ -6,19 +6,40 @@ import AdminHeader from '../layouts/AdminHeader';
 import AdminSideBar from '../layouts/AdminSlidebar';
 import { Button } from "reactstrap";
 import {Link } from "react-router-dom"
-const Allorders = ({history}) => {
+
+
+
+const Orderget = ({history}) => {
     const [orders, setOrders] = useState([]);
     const [refresh, setRefresh] =useState(false);
 
 
     useEffect(() => {   
       if (refresh) return setRefresh(false);
-        const loadorders = async () => {
-          const result = await axios.get("/api/oders/seeorder");
-          setOrders(result.data);
-        };
-        loadorders();
+       
+      // const loadorders = async () => {
+      //     const result = await axios.get("/api/oders/seeorder");
+      //     setOrders(result.data);
+      //   };
+      
+      const producttype = "Customdress"
+      const loadorders = async()=>{
+        const configg = {
+          headers:{
+              "Content-Type" : "application/json",
+          },
+      };
+      try{
+        const { data } = await axios.post('/api/oders/orderbytype',{producttype}, configg);
+        setOrders(data);
+      }catch(error){
+        console.log("not Fetch Data")      
+      }
+  
+    };
+      loadorders();
       }, [history, refresh]);
+
       const deleteorder =(id)=>{
           axios.delete(`/api/oders/deleteorder/${id}`);
           setRefresh(true);
@@ -35,7 +56,7 @@ const Allorders = ({history}) => {
         </div>
         <div className="col-10" id="right_dasBoard_col" style={{ float: "right", paddingRight:"20px"}}>
        
-          <h1 style={{marginTop:"-10px"}}>All Orders</h1>
+          <h1 style={{marginTop:"-10px"}}>All Customized Dress Orders</h1>
           <p>
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
@@ -71,7 +92,7 @@ const Allorders = ({history}) => {
                   <td>
                     
                   
-                    <Link to={`/orderdetail/${order._id}`}>
+                    <Link to={`/customdress/view/${order._id}`}>
                       <Button id="btn_table" color="primary" size="sm">
                         View
                       </Button>
@@ -116,4 +137,4 @@ const Allorders = ({history}) => {
      );
 }
  
-export default Allorders;
+export default Orderget;

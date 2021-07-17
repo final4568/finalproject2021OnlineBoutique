@@ -4,14 +4,14 @@ import AdminSideBar from "../layouts/AdminSlidebar";
 import "../index.css";
 import { useState, useEffect } from "react";
 import { useRouteMatch } from "react-router-dom";
-import {Link} from "react-router-dom";
-import {Button} from "reactstrap";
+import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
 
 const Orderdetail = ({ history }) => {
   const match = useRouteMatch();
-  const [orderdetails, setOrderdetails] = useState([]);
+  const [orderdetails, setOrderdetails] = useState({});
 
-  const getorderdetail= (id) =>
+  const getorderdetail = (id) =>
     fetch(`/api/oders/orderdetail/${id}`).then((res) => res.json());
 
   useEffect(() => {
@@ -42,111 +42,214 @@ const Orderdetail = ({ history }) => {
             scrambled it to make a type specimen book. It has survived not only
             five centuries,
           </p>
-           
+
           <Link to="/allorders">
-          <Button color="success">Go Back</Button>
+            <Button color="success">Go Back</Button>
           </Link>
-          
-          <table class="table border" style={{ marginTop: "30px", marginBottom:"60px"  }}>
+
+          <table
+            class="table border"
+            style={{ marginTop: "30px", marginBottom: "60px" }}
+          >
             <thead>
               <tr>
                 <th scope="col">
-                 Customer Name: <h1>{orderdetails.name} </h1>
+                  Customer Name: <h1>{orderdetails.name} </h1>
                 </th>
+                <th scope="col"></th>
                 <th scope="col">
-                </th>
-                <th scope="col">
-                <img className="ordered_img" src={`/images/${orderdetails.productimage}`} width="100%" alt="Custom Dress"/>
+                  <img
+                    className="ordered_img"
+                    src={`/images/${orderdetails.productimage}`}
+                    width="100%"
+                    alt="Custom Dress"
+                  />
                 </th>
                 {/* <th scope="col"> Email:{tailors.email}</th> */}
               </tr>
             </thead>
             <tbody>
               <tr>
-                 
-                <td><strong>Email: </strong> {orderdetails.usergmail}</td>
-                <td><strong>Phone: </strong> {orderdetails.phone} </td>
-                <td><strong>UserName: </strong> {orderdetails.username} </td>
+                <td>
+                  <strong>Email: </strong> {orderdetails.usergmail}
+                </td>
+                <td>
+                  <strong>Phone: </strong> {orderdetails.phone}{" "}
+                </td>
+                <td>
+                  <strong>UserName: </strong> {orderdetails.username}{" "}
+                </td>
               </tr>
               <tr>
-                <td> <strong>Product Name: </strong>{orderdetails.productname} </td>
-                <td><strong>Product Category: </strong>{orderdetails.productcategory}</td>
-                <td><strong>Product Type : </strong>{orderdetails.producttype}</td>
-              
+                <td>
+                  {" "}
+                  <strong>Product Name: </strong>
+                  {orderdetails.productname}{" "}
+                </td>
+                <td>
+                  <strong>Product Category: </strong>
+                  {orderdetails.productcategory}
+                </td>
+                <td>
+                  <strong>Product Type : </strong>
+                  {orderdetails.producttype}
+                </td>
               </tr>
               <tr>
-                <td> <strong>Suite Quantity: </strong>{orderdetails.quantity} </td>
-                <td><strong>Delivery Date: </strong>{orderdetails.clientdate}</td>
-                <td><strong>Suite Size: </strong>{orderdetails.suitsize}</td>
+                <td>
+                  {" "}
+                  <strong>Suite Quantity: </strong>
+                  {orderdetails.quantity}{" "}
+                </td>
+                <td>
+                  <strong>Delivery Date: </strong>
+                  {orderdetails.clientdate}
+                </td>
+                <td>
+                  <strong>Suite Size: </strong>
+                  {orderdetails.suitsize}
+                </td>
               </tr>
 
-              <h3 style={{color:"#ff318e", padding:"10px"}}>Shirt Size:</h3>
+              <h3 style={{ color: "#ff318e", padding: "10px" }}>Shirt Size:</h3>
               <tr>
-                <td> <strong>chest Size: </strong>{orderdetails.chest} </td>
-                <td><strong>Shirt length : </strong>{orderdetails.shirtlength}</td>
-                <td><strong>Sleeve Length : </strong>{orderdetails.sleevlength}</td>
+                <td>
+                  {" "}
+                  <strong>chest Size: </strong>
+                  {orderdetails.chest}{" "}
+                </td>
+                <td>
+                  <strong>Shirt length : </strong>
+                  {orderdetails.shirtlength}
+                </td>
+                <td>
+                  <strong>Sleeve Length : </strong>
+                  {orderdetails.sleevlength}
+                </td>
               </tr>
               <tr>
-                <td> <strong>Wholder Size: </strong>{orderdetails.sholder} </td>
-                <td><strong>Overarm Size : </strong>{orderdetails.overarm}</td>
-                <td><strong>Waistcoat Length : </strong>{orderdetails.waistcoatlength}</td>
+                <td>
+                  {" "}
+                  <strong>Wholder Size: </strong>
+                  {orderdetails.sholder}{" "}
+                </td>
+                <td>
+                  <strong>Overarm Size : </strong>
+                  {orderdetails.overarm}
+                </td>
+                <td>
+                  <strong>Waistcoat Length : </strong>
+                  {orderdetails.waistcoatlength}
+                </td>
               </tr>
 
               <tr>
-                <td> <strong>Wrist Size: </strong>{orderdetails.wrist} </td>
-                <td><strong>Neck Size : </strong>{orderdetails.neck}</td>
-                <td><strong>Pents Length : </strong>{orderdetails.pntlength}</td>
+                <td>
+                  {" "}
+                  <strong>Wrist Size: </strong>
+                  {orderdetails.wrist}{" "}
+                </td>
+                <td>
+                  <strong>Neck Size : </strong>
+                  {orderdetails.neck}
+                </td>
+                <td>
+                  <strong>Pents Length : </strong>
+                  {orderdetails.pntlength}
+                </td>
               </tr>
-              <h3 style={{color:"#ff318e", padding:"10px"}}>Pents Size:</h3>
+              <h3 style={{ color: "#ff318e", padding: "10px" }}>Pents Size:</h3>
 
               <tr>
-              <td><strong>Pents Length : </strong>{orderdetails.pntlength}</td>
-                <td><strong>Waist Size : </strong>{orderdetails.pnwaist}</td>
-                <td><strong>Size From back : </strong>{orderdetails.hip}</td>
+                <td>
+                  <strong>Pents Length : </strong>
+                  {orderdetails.pntlength}
+                </td>
+                <td>
+                  <strong>Waist Size : </strong>
+                  {orderdetails.pnwaist}
+                </td>
+                <td>
+                  <strong>Size From back : </strong>
+                  {orderdetails.hip}
+                </td>
               </tr>
 
               <tr>
-              <td><strong>Thigh Size : </strong>{orderdetails.thigh}</td>
-                <td><strong>knee Size : </strong>{orderdetails.knee}</td>
-                <td><strong>Legopening Size : </strong>{orderdetails.legopening}</td>
+                <td>
+                  <strong>Thigh Size : </strong>
+                  {orderdetails.thigh}
+                </td>
+                <td>
+                  <strong>knee Size : </strong>
+                  {orderdetails.knee}
+                </td>
+                <td>
+                  <strong>Legopening Size : </strong>
+                  {orderdetails.legopening}
+                </td>
               </tr>
               <tr>
-              <td><strong>Thigh Size : </strong>{orderdetails.thigh}</td>
-                <td><strong>knee Size : </strong>{orderdetails.knee}</td>
-                <td><strong>Legopening Size : </strong>{orderdetails.legopening}</td>
+                <td>
+                  <strong>Thigh Size : </strong>
+                  {orderdetails.thigh}
+                </td>
+                <td>
+                  <strong>knee Size : </strong>
+                  {orderdetails.knee}
+                </td>
+                <td>
+                  <strong>Legopening Size : </strong>
+                  {orderdetails.legopening}
+                </td>
               </tr>
-              
-              <tr>
-              <td><strong>Coller : </strong>{orderdetails.collerid}</td>
-                <td><strong>Coller Color : </strong>{orderdetails.collercolor}</td>
-                <td><strong>Body  : </strong>{orderdetails.bodyid}</td>
-              </tr>
-              <tr>
-              <td><strong>Body Color : </strong>{orderdetails.bodycolor}</td>
-                <td><strong>knee Size : </strong>{orderdetails.collercolor}</td>
-                <td><strong>Legopening Size : </strong>{orderdetails.bodyid}</td>
-              </tr>
-                
-              
 
+              <tr>
+                <td>
+                  <strong>Coller : </strong>
+                  {orderdetails.collerid}
+                </td>
+                <td>
+                  <strong>Coller Color : </strong>
+                  <div
+                    style={{
+                      background: orderdetails.collercolor,
+                      height: "20px",
+                      width: "20px",
+                    }}
+                  ></div>
+                </td>
+                <td>
+                  <strong>Body : </strong>
+                  {orderdetails.bodyid}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Body Color : </strong>
+                  {orderdetails.bodycolor}
+                </td>
+                <td>
+                  <strong>knee Size : </strong>
+                  {orderdetails.collercolor}
+                </td>
+                <td>
+                  <strong>Legopening Size : </strong>
+                  {orderdetails.bodyid}
+                </td>
+              </tr>
             </tbody>
-            
-
           </table>
 
           <div className="AP_address">
             <p>
-              <strong>Address:  </strong>{orderdetails.useraddress}
+              <strong>Address: </strong>
+              {orderdetails.useraddress}
             </p>
           </div>
-          
-
-                  
         </div>
       </div>
     </>
-      
-
   );
 };
 

@@ -30,7 +30,7 @@ const OrderByTailors = () => {
           "/api/tailor/LoggedTailorProfile",
           config
         );
-        console.log(data.gender)
+        // console.log(data.gender)
         setTailortype(data.gender);
       }catch(err){
         setError("user not find")

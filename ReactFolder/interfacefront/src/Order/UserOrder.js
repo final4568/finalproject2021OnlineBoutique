@@ -55,10 +55,10 @@ const UserOrders = () => {
     
    },[refresh]);
 
-    const deleteorder =(id)=>{
-    axios.delete(`/api/oders/deleteorder/${id}`);
-    setRefresh(true)
-    };
+    // const deleteorder =(id)=>{
+    // axios.delete(`/api/oders/deleteorder/${id}`);
+    // setRefresh(true)
+    // };
 
     const refresher =()=>{
       setRefresh(true)
@@ -70,8 +70,10 @@ const UserOrders = () => {
               <tr class="table-dark">
                 <th scope="col">Order Type</th>
                 <th scope="col">Product Name</th>
-                <th scope="col">Progress</th>
                 <th scope="col">Order Status</th>
+                <th scope="col">Progress</th>
+                <th scope="col">Submitted To</th>
+                <th scope="col">User Name</th>
                 <th>
 
                 <Button color="danger" size="sm" style={{marginLeft:"10px"}}
@@ -90,35 +92,13 @@ const UserOrders = () => {
                 <tr key={order._id}>
                   <td>{order.producttype}</td>
                   <td>{order.productname}</td>
-                  <td>{order.orderprogress}</td>
                   <td><p style={{color:"green", padding:"10px", fontWeight:"bold"}}>
                   {order.orderstatus}</p> </td>
-                  <td>
-
-                      <Link to={`/OrderDetailUser/${order._id}`}>
-                      <Button id="btn_table" color="primary" size="sm">
-                        View
-                      </Button>
-                    </Link>
-                    <Link to={`/EditorderUser/${order._id}`}>
-                      <Button id="btn_table" color="warning" size="sm" >
-                        Edit
-                      </Button>
-                    </Link>
-
-                    
-                    <Button color="danger" size="sm" style={{marginLeft:"10px"}}
-                    onClick={() => {
-                      if (window.confirm (`Are you sure you wish to delete this Order?`))
-                        deleteorder(order._id);
-                    }}
-                    
-                    >
-                      Cancel
-                    </Button>
-                    
-
-                  </td>
+                  <td>{order.orderprogress}</td>
+                  <td>{order.tailortype}</td>
+                  <td>{order.username}</td>
+                 
+                  
                 </tr>
               ))}
             </tbody>

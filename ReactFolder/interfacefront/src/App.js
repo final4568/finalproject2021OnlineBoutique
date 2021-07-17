@@ -26,7 +26,7 @@ import LoggedTailorProfile from "./Tailor_view/LoggedTailorProfile";
 import LoggedInTailorUpdate from "./Tailor_view/LoggedInTailorUpdate";
 
 
-import Overview from './Tailor_view/Overview';
+import Overview from './Order/Overview';
 import  Reports from './Tailor_view/Reports';
 import TailorMainpage from './Tailor_view/TailorMain';
 import TailorProfile from './Tailor_view/TailorProfile';
@@ -65,7 +65,7 @@ import Maleproducts from "./ShopPage/Maleproducts";
 import FemaleProducts from "./ShopPage/FemaleProducts";
 
 import AddOrder from "./Order/AddOrder";
-import Allorders from "./Order/Allorders";
+import Allorders from "./Order/Allreadymadorders";
 import Orderdetail from "./Order/Orderdetail";
 import EditOrder_Admin from "./Order/EditOrder_Admin";
 import OrderByTailors from "./Order/OrdersByTailor";
@@ -75,9 +75,13 @@ import OrderDetail_User from "./Order/OrderDetail_User";
 import Editorder_User from "./Order/Editorder_User";
 import Tailordeatils_User from "./Tailor_view/Tailorlist_User";
 import Tailordetails_User from "./Tailor_view/Tailordetails_User";
+import GetRMorderbyuser from "./Order/GetRMorderbyuser";
 
-import Addmeasurement from "./customeDress/Addmeasurement" 
-
+import Addmeasurement from "./customeDress/Addmeasurement";
+import Orderget from "./customeDress/OrderGet";
+import Custorderview from "./customeDress/Custorderview";
+import Getcustcorderbyuser from "./customeDress/Getcorderbyuser";
+import OrderViewByuser from"./customeDress/OrderViewByuser";
 function App() {
   return (
     <>
@@ -185,10 +189,18 @@ function App() {
           <Route exact path ="/EditorderUser/:id" component={Editorder_User}/>
           <Route exact path ="/users/All/Tailor" component={Tailordeatils_User}/>
           <Route exact path ="/users/TailorDetailss/:id" component={Tailordetails_User}/>
+          <Route exact path ="/users/GetRMorderbyuser/" component={GetRMorderbyuser}/>
+          
         </Switch>
 
         <Switch>
           <Route exact path="/addmeasurement/:id" component={Addmeasurement}/>
+          <Route exact path="/customdress/orders" component={Orderget}/>
+          <Route exact path="/customdress/view/:id" component={Custorderview}/>
+          <Route exact path="/customdress/allorderbyuser" component={Getcustcorderbyuser}/>
+          <Route exact path="/customized/orderbyuser/:id" component={OrderViewByuser}/>
+          
+          
         </Switch>
           <Switch>
             <Route exact path="/Customer">

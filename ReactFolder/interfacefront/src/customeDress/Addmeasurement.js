@@ -40,11 +40,8 @@ import {Button} from 'reactstrap'
 
 
 const Addmeasurement = ({history, match}) => {
-    const[productname, setProductName] =useState("Man Custom Order");
-    const[productid, setProductID] =useState("");
     const[userid, setUserID] =useState("");
     const[username, setUsername] = useState("");
-    const[productimage, setImg] = useState("");
     const[name, setName] = useState("");
     const[usergmail, setUsermail] =useState("");
     const[gmail, setGmail] =useState("");
@@ -68,40 +65,18 @@ const Addmeasurement = ({history, match}) => {
     const[legopening, setLegopening]=useState("");
     const[useraddress, setUseraddress]=useState("");
     const[tailortype, setTailortype]=useState("");
-    const[producttype, setType]= useState("Man Custom Model");
-    const[productcategory, setproductcat] =useState("ManCutsomModel");
+    const productcategory ="ManCutsomModel";
+    const orderprogress = "Pending";
     const[orderstatus, setOrderstatus] =useState("New Order");
-    const[orderprogress, setOrderprogress] =useState("Pending");
-
-    const [collercolor, setCollercolor] = useState([]);
-    const [collerid, setCollerid] = useState([]);
-    const [bodyid, setBodyid] = useState([]);
-    const [bodycolor, setBodycolor] = useState([]);
 
 
     const [userprofile, setProfile] = useState({});
-    const [error, setError] = useState("")
-    const [success, setSuccess] = useState("");
+   
 
-    const getmodel = (id) =>
-    fetch(`/api/customOrder/getmodelpro/${id}`).then((res) => res.json());
+ 
 
     useEffect(() => {      
-      // get proiduct data 
-      const fetchmodel = async () => {
-        const Model = await getmodel(match.params.id);
-        console.log(Model);
-        setCollercolor(Model.collercolor);
-        setCollerid(Model.collerid);
-        setBodyid(Model.bodyid);
-        setBodycolor(Model.bodycolor);
-        setProductID(Model._id)
-
-        
-
-      };
-
-        // get looged User
+     
         const token = localStorage.getItem("authToken");
         if (!token) history.push("/user/login");
         const fetchPrivateDate = async () => {
@@ -127,10 +102,11 @@ const Addmeasurement = ({history, match}) => {
           };
 
         fetchPrivateDate();
-        fetchmodel();
 
       }, [history, match]);
 
+
+      
       const registerHandler = async (e) => {
         e.preventDefault();
         const config = {
@@ -138,33 +114,21 @@ const Addmeasurement = ({history, match}) => {
             "Content-Type": "application/json",
           },
         };
-        try {
-          const { data } = await axios.post(
-          "/api/oders/orderadd",
-            {
-              productname, productid, userid, username, productimage,name,
-              usergmail, gmail, phone, quantity, chest, shirtlength, sleevlength,
-              sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
-              hip, thigh, knee, legopening, suitsize, clientdate, useraddress, tailortype,
-              producttype, productcategory,orderstatus,orderprogress,collercolor, collerid, 
-              bodyid, bodycolor
-              
-            },
-            config
-          );
-          console.log(data.data)
-          setSuccess(data.data); 
-
-        alert("oder successfully");
-        history.push("/product")
-  
-        } catch (error) {
-          setError(error.response.data.error);
-          setTimeout(() => {
-          }, 3000);
-          return setError("This Email Already Registered...! Try Another");
+        const body = {
+          userid, username,name,
+          usergmail, gmail, phone, quantity, chest, shirtlength, sleevlength,
+          sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
+          hip, thigh, knee, legopening, suitsize, clientdate, useraddress, tailortype,
+          productcategory,orderstatus: "SUBMITTED", orderprogress
           
-        }
+      }
+      await fetch(`/api/oders/orderUpdate/${match.params.id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        alert("oder successfully");
+        history.push("/user/dashboard")
       };
 
     return (

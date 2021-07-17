@@ -19,27 +19,27 @@ const Order = ({history}) => {
         <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">
-                <th scope="col"> Image</th>
                 <th scope="col">Products Name</th>
                 <th scope="col">UserName </th>
                 <th scope="col">Handle Tailor </th>
                 <th scope="col">Product Type </th>
-                <th scope="col">Progress </th>
+                <th scope="col">Progress Status </th>
+                <th scope="col">Order Status </th>
+
               </tr>
             </thead>
 
             <tbody>
               {orders.map((order) => (
                 <tr key={order._id}>
-                  <td>
-                      <img src={`/images/${order.productimage}`} alt="Cusmtom Dress"
-                      width="100px" height="60px"/>
-                  </td>
+                 
                   <td>{order.productname}</td>
                   <td>{order.username}</td>
                   <td><strong>{order.tailortype} </strong></td>                  
                   <td>{order.producttype}</td>                  
-                  <td><strong>{order.orderprogress} </strong></td>                  
+                  <td><strong>{order.orderprogress} </strong></td>          
+                  <td><strong>{order.orderstatus} </strong></td>          
+                       
                 </tr>
               ))}
             </tbody>

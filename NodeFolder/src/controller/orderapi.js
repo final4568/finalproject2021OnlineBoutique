@@ -7,7 +7,7 @@ exports.orderadd = async (req, res)=>{
     sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
     hip, thigh, knee, legopening, suitsize,tailodate, clientdate,useraddress, 
     tailortype,producttype, productcategory, orderprogress,orderstatus,
-    collercolor, collerid, bodyid, bodycolor
+    collercolor, collerid, bodyid, bodycolor, coller,shirtbody
     } = req.body;
     try {
       const order = await Order.create({
@@ -16,13 +16,10 @@ exports.orderadd = async (req, res)=>{
         sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
         hip, thigh, knee, legopening, suitsize, clientdate,tailodate, useraddress, 
         tailortype, producttype, productcategory,orderprogress, orderstatus,
-        collercolor, collerid, bodyid, bodycolor
+        collercolor, collerid, bodyid, bodycolor,coller, shirtbody
         //orderstatus, tailodate
-      }).then(()=>{
-          res.status(200).json({
-              success:true,
-              message:"Ordered Successfully"
-          })
+      }).then((response)=>{
+          res.status(200).send(response)
       })
     } catch (error) {
       res.status(500).json({
@@ -107,7 +104,30 @@ exports.orderbyUserid = async(req, res)=>{
           success:false,
         });
       }else{
-        console.log(detail)
+        // console.log(detail)
+        res.status(200).json(detail);
+      }
+    })
+  }catch{
+    res.status(400).json({
+      success: false,
+      message: "Order Data Not Found"
+  });
+  }
+};
+
+
+exports.customorderbyuser = async(req, res)=>{
+  try{
+    const userid = req.body.userid;
+    const producttype = req.body.producttype;
+    await Order.find({userid:userid, producttype:producttype},(err, detail)=>{
+      if(err){
+          res.status(500).json({
+          success:false,
+        });
+      }else{
+        // console.log(detail)
         res.status(200).json(detail);
       }
     })
@@ -132,7 +152,7 @@ exports.orderbytailor = async (req, res)=>{
           message:"The orders Not availables"
         })
       }else{
-        console.log(details)
+        // console.log(details)
         res.status(200).json(details)
       }
     });
@@ -145,5 +165,30 @@ exports.orderbytailor = async (req, res)=>{
 
   }
 
+};
+
+exports.getorderbyproducttype = async (req, res)=>{
+  const producttype = req.body.producttype;
+
+  try{
+    await Order.find({producttype:producttype}, (err, details)=>{
+      if(err){
+        res.status(500).json({
+          success:false,
+          message:"The orders Not availables"
+        })
+      }else{
+        // console.log(details)
+        res.status(200).json(details)
+      }
+    });
+
+  }catch{
+    res.status(500).json({
+      success:false,
+      message:"The orders Not availables"
+    })
+
+  }
 };
 
