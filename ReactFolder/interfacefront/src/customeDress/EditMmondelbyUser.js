@@ -114,16 +114,15 @@ const EditManModelbyUser = ({ history }) => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(body),
           });
+          alert("Your Dress Cutomized Successfully");
+          history.puch("/customdress/allorderbyuser")
+
      
     } catch (e) {
       console.log(e);
     }
    
   };
-//   const Editmeasurement =()=>{
-//     history.push(`/addmeasurement/${orderid}`);
-
-// };
 
 
   return (

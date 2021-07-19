@@ -77,7 +77,7 @@ const Measment_EditbyUser = ({history, match}) => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(body),
           });
-          alert("Update successFully");
+          alert("Your Order Done successFully");
           history.push("/user/dashboard")
       };
     
