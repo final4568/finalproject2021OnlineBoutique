@@ -10,24 +10,46 @@ const Menu = () => {
             <div className="row" id="navigavtion">
                 <div className="col-left">
                 <div className="menu">              
-                <nav>
-                    <input type="checkbox" id="check"/>
-                    <label for="check" class="checkbtn">
-                    <i className="fas fa-bars"></i>
-                    </label>
-               
-                    <label for="" className="logo">Online Boutique</label>
-                  
-                                      
-                    <ul>
-                    <li><NavLink exact to="/">Home</NavLink></li>
-                    <li><NavLink exact to="/product">Product</NavLink></li>
-                    <li><NavLink exact to="/product/maleproducts">male</NavLink></li>
-                    <li className="productmenu"><NavLink exact to="/product/femaleproducts">Female</NavLink></li>
-                    <li><NavLink exact to="/manmodel">Man Dress</NavLink></li> 
-                                    
-                    </ul>
-                 </nav>               
+                 
+
+                 <nav>
+                  <div id="logo" >ONLINE BOUTIQUE</div>
+                  <ul className="menu">
+                    <li>
+                      <NavLink exact to="/">Home</NavLink>
+                    </li>
+                    <li>                      
+                      <NavLink exact to="/product">Ready Dress</NavLink>
+                      <input type="checkbox" id="drop-1"  style={{opacity:"0"}}/>
+                      <ul>
+                        <li>
+                          <NavLink exact to="/product/maleproducts">Male Dress</NavLink>
+                        </li>
+                        <li>
+                          <NavLink exact to="/product/femaleproducts">Female Dress</NavLink>
+                        </li>
+                        
+                      </ul>
+                    </li>
+
+                    <li>                      
+                      <NavLink to="/manmodel">Customized Dress</NavLink>
+                      <input type="checkbox" id="drop-1"  style={{opacity:"0"}}/>
+                      <ul>
+                        <li>
+                          <NavLink to="/manmodel">Male Dress</NavLink>
+                        </li>
+                      
+                        
+                      </ul>
+                    </li>
+                    
+                    <li>
+                      <NavLink to="/Contact">Contact Us</NavLink>
+                    </li>
+                    
+                  </ul>
+                </nav>              
                 </div>
 
                 </div>

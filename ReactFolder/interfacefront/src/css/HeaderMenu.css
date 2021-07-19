@@ -12,15 +12,233 @@
   z-index: 1;
  
 }
-
 #navigavtion .col-left{
   width: 80%;
+  padding-top: 3px;
 }
+
+nav { 
+	margin-top:20px;
+	padding: 0;
+	background-color: #1a1d1f;
+  
+}
+ 
+#logo {
+	display: block;
+	padding: 0 30px;
+	float: left;
+	font-size:22px;
+    font-weight: 700;
+	line-height: 60px;
+    color: #fff;
+    text-transform: uppercase;
+}
+nav ul {
+	float: right;
+	padding:0;
+	margin:0;
+	list-style: none;
+	position: relative;
+	}
+
+nav ul li {
+	margin: 0px;
+	display:inline-block;
+	float: left;
+	background-color: #1a1d1f;
+	}
+
+
+  nav a {
+    display:block;
+    padding:14px 20px;	
+    color:#FFF;
+    font-size:14px;
+    text-decoration:none;
+    text-transform: uppercase;
+
+  }
+   
+   
+  nav ul li ul li:hover { background: #000000; 
+
+  }
+
+  nav a:hover { 
+    background-color: hsl(0, 0%, 0%); 
+    color: #ff318e;
+    
+  }
+
+  nav ul ul {
+    display: none;
+    position: absolute; 
+    top: 60px; 
+  }
+    
+  nav ul li:hover > ul {
+    display:inherit;
+  }
+
+
+nav ul ul li {
+	width:170px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+ 
+/* Second, Third and more Tiers	
+ * We move the 2nd and 3rd etc tier dropdowns to the left
+ * by the amount of the width of the first tier.
+*/
+nav ul ul ul li {
+	position: relative;
+	top:-60px;
+	left:170px; 
+}
+ 
+	
+li > a:after { content:  ' +'; }
+li > a:only-child:after { content: ''; }
+
+
+
+
+
+@media all and (max-width : 768px) {
+ 
+	#logo {
+		display: block;
+		padding: 0;
+		width: 100%;
+		text-align: center;
+		float: none;
+	}
+ 
+	nav {
+		margin: 0;
+    
+	}
+ 
+	/* Hide the navigation menu by default */
+	/* Also hide the  */
+	.toggle + a,
+	.menu {
+		display: none;
+	}
+ 
+	/* Stylinf the toggle lable */
+	.toggle {
+		display: block;
+		background-color: #1a1d1f;
+		padding:14px 20px;	
+		color:#FFF;
+		font-size:17px;
+		text-decoration:none;
+		border:none;
+	}
+ 
+	.toggle:hover {
+		background-color: #000000;
+	}
+ 
+	/* Display Dropdown when clicked on Parent Lable */
+	[id^=drop]:checked + ul {
+		display: block;
+	}
+ 
+	/* Change menu item's width to 100% */
+	nav ul li {
+		display: block;
+		width: 100%;
+    
+		}
+ 
+	nav ul ul .toggle,
+	nav ul ul a {
+		padding: 0 40px;
+	}
+ 
+	nav ul ul ul a {
+		padding: 0 80px;
+	}
+ 
+	nav a:hover,
+ 	nav ul ul ul a {
+		background-color: #000000;
+    color: #ff318e;
+	}
+  
+	nav ul li ul li .toggle,
+	nav ul ul a,
+  nav ul ul ul a{
+		padding:14px 20px;	
+		color:#FFF;
+		font-size:17px; 
+	}
+
+	nav ul li ul li .toggle,
+	nav ul ul a {
+		background-color: #1a1d1f; 
+    text-transform: uppercase;
+	}
+ 
+	/* Hide Dropdowns by Default */
+	nav ul ul {
+		float: none;
+		position:static;
+		color: #ffffff;
+		
+	}
+		
+	/* Hide menus on hover */
+	nav ul ul li:hover > ul,
+	nav ul li:hover > ul {
+		display: none;
+    color: #cf0661;
+	}
+		
+	/* Fisrt Tier Dropdown */
+	nav ul ul li {
+		display: block;
+		width: 100%;
+	}
+ 
+	nav ul ul ul li {
+		position: static;
+		/* has to be the same number as the "width" of "nav ul ul li" */ 
+ 
+	}
+ 
+}
+ 
+@media all and (max-width : 330px) {
+ 
+	nav ul li {
+		display:block;
+		width: 94%;
+	}
+ 
+}
+
+.active{
+  border-bottom: 1px solid #ff318e;
+  font-weight: 500;
+
+}
+
+
+
 #navigavtion .col-right{
   width: 20%;
   background-color: #ff318e;
   text-align: center;
+  z-index: 1;
 }
+
+
 @media (max-width:900px){
   #navigavtion .col-left{
     width: 100%;
@@ -29,106 +247,6 @@
     width: 100%;
   }
 }
-
-    
-    nav {
-      width:100%;
-      background-color: #1a1d1f;
-    }
-    label.logo {
-      color:white;
-      line-height:50px;
-      font-size: 18px;
-      padding: 10px;
-      font-weight:bold;
-      text-transform:uppercase;
-    } label.logo:hover{
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-    }
-    nav ul {
-      float: right;
-      margin-right:20px;
-      text-decoration: none;
-    }   nav ul li a{
-      text-decoration: none;
-    }
-    nav ul li {
-      line-height:70px;
-      display:inline-block;
-      text-decoration: none;
-      margin:0 5px;
-    }
-    nav ul li a {
-      text-transform:uppercase;
-      font-size: 14px;
-      color: white;
-      padding:7px 13px;
-      font-family: 'roboto';
-
-    }
-    a.active,a:hover {
-      border-bottom: 1px solid #ff318e;
-      transition:0.5s;
-      color: #ff318e;
-      font-weight: bold;
-    }
-    .checkbtn {
-      font-size:30px;
-      color:white;
-      float:right;
-      line-height:80px;
-      margin-right:40px;
-      cursor:pointer;
-      display:none;
-    }
-    #check {
-      display:none;
-    }
-    @media (max-width:952px) {
-      label.logo {
-        font-size:30px;
-        padding-left:55px;
-
-      }
-      nav ul li a {
-        font-size:16px;
-      }
-    }
-    @media (max-width:858px) {
-      .checkbtn {
-        display:block;
-        float: left;
-      
-      }
-      ul {
-        position: fixed;
-        width:40%;
-        background: #1a1d1f;
-        top:110px;
-        left:-100%;
-        text-align:left;
-        transition: all .5s;
-        z-index: 1;
-      }
-      nav ul li {
-        display:block;
-        line-height:20px;
-        margin:50px 0;
-      }
-      nav ul li a {
-        font-size: 14px;
-      }
-      a.active,a:hover {
-        background:none;
-        color: #ff318e;
-      }
-      #check:checked ~ ul {
-        left:0;
-      }
-    }
-
     #navigavtion .col-right:hover{
       background-color: #cf0661;
       cursor: pointer;

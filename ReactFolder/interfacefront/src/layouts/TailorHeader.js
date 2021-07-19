@@ -13,13 +13,9 @@ const TailorHeader = () => {
           <div className="col-left">
             <div className="menu">
               <nav>
-                <input type="checkbox" id="check" />
-                <label for="check" class="checkbtn">
-                  <i className="fas fa-bars"></i>
-                </label>
-                  <label for="" className="logo">
-                    Tailor Dashboard
-                  </label>
+              <div id="logo" style={{marginTop:"-10px"}}>Tailor Dashboard</div>
+               
+                  
                   <ul>
                     <li><NavLink exact to="/tailor/adduser">Add New User</NavLink></li>
                     <li><NavLink exact to="/UploadProduct_tailor">Add Products</NavLink></li>                    

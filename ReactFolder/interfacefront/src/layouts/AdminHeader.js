@@ -12,14 +12,7 @@ const AdminHeader = () => {
           <div className="col-left">
             <div className="menu">
               <nav>
-                <input type="checkbox" id="check" />
-                <label for="check" class="checkbtn">
-                  <i className="fas fa-bars"></i>
-                </label>
-               
-                  <label for="" className="logo">
-                    Admin Dashboard
-                  </label>
+              <div id="logo" style={{marginTop:"-10px"}}>Admin dashboard</div>    
                   <ul>
                     <li><NavLink exact to="/User/RegisterByAdmin">Add New User</NavLink></li>
                     <li><NavLink exact to="/tailor/registerbyadmin">Add New Tailor</NavLink></li>
