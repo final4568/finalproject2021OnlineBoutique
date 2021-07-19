@@ -7,7 +7,6 @@ import "../index.css";
 
 // import html2canvas from 'html2canvas';
 
-
 // const capture = ()=>{
 //   html2canvas(document.svgg).then(function(canvas) {
 //     document.svgg.appendChild(canvas);
@@ -15,9 +14,9 @@ import "../index.css";
 // }
 
 const ManModel = ({ history }) => {
-  const productname= "Man Custom Dress";
-  const producttype ="Customdress";
-  
+  const productname = "Man Custom Dress";
+  const producttype = "Customdress";
+
   const [selected, setSelected] = useState("");
   const [data, setData] = useState({});
 
@@ -49,14 +48,12 @@ const ManModel = ({ history }) => {
     document.getElementById(selected).style.fill = color;
     setData({ ...data, [selected]: color });
     setCollercolor(color);
-    setBodycolor(color)
-    console.log(data);
   };
 
   const setColorbody = (color) => {
     document.getElementById(selected).style.fill = color;
     setData({ ...data, [selected]: color });
-    setBodycolor(color)
+    setBodycolor(color);
     console.log(data);
   };
 
@@ -83,14 +80,13 @@ const ManModel = ({ history }) => {
           collercolor,
           bodyid,
           bodycolor,
-          coller, 
-          shirtbody
+          coller,
+          shirtbody,
         },
         config
       );
       //   console.log(data)
       history.push(`/addmeasurement/${data._id}`);
-   
     } catch (e) {
       console.log(e);
     }
@@ -100,13 +96,12 @@ const ManModel = ({ history }) => {
   return (
     <>
       <Menu />
-     
+
       <div className="container" style={{ paddingTop: "30px" }}>
         <h2 style={{ textTransform: "uppercase", fontSize: "30px" }}>
           Customized Any Part
         </h2>
         <p>
-       
           Lorem Ipsum has been the industry's standard dummy text ever since the
           1500s, when an unknown printer took a galley of type and scrambled it
           to make a type specimen book. It has survived not only five centuries,
@@ -122,182 +117,183 @@ const ManModel = ({ history }) => {
           >
             {selected}
           </strong>
-          
         </div>
       </div>
+
+      
       <div className="container">
         <div className="row">
           <div className="col-lg-6" id="svgcol_right">
-          <div id="svgg">
-            <svg
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 600 800"
-              style={{ width: "400px", marginTop: "-10px" }}
-            >
-              <g ids="XMLID_9_">
-                <g ide="XMLID_47_">
-                  <path
-                    id="Left_Arm"
-                    class="st0"
-                    d="M489.9,479.1c0,0,5.9-10.2,1.4-26.3c0,0-52.3-317.3-76.3-335.6l-13.6,89.2l2,100.1l1.8,67
+            <div id="svgg">
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 600 800"
+                style={{ width: "400px", marginTop: "-10px" }}
+              >
+                <g ids="XMLID_9_">
+                  <g ide="XMLID_47_">
+                    <path
+                      id="Left_Arm"
+                      class="st0"
+                      d="M489.9,479.1c0,0,5.9-10.2,1.4-26.3c0,0-52.3-317.3-76.3-335.6l-13.6,89.2l2,100.1l1.8,67
 			l35.2,145.4c0,0,19,10.4,54.1-12.5L489.9,479.1z"
-                    fill="#313828"
-                    stroke="#020202"
-                    stroke-width="0.3"
-                    stroke-miterlimit="10"
-                    onClick={() => setSelected("Left_Arm")}
-                    //right arm
-                  />
-                  <path
-                    id="Left_Arm"
-                    class="st0"
-                    d="M139.1,115.6c-24,18.3-76.7,335.1-76.7,335.1C58,466.8,63.9,477,63.9,477l-4.7,27.2
+                      fill="#313828"
+                      stroke="#020202"
+                      stroke-width="0.3"
+                      stroke-miterlimit="10"
+                      onClick={() => setSelected("Left_Arm")}
+                      //right arm
+                    />
+                    <path
+                      id="Left_Arm"
+                      class="st0"
+                      d="M139.1,115.6c-24,18.3-76.7,335.1-76.7,335.1C58,466.8,63.9,477,63.9,477l-4.7,27.2
 			c35.1,22.9,54.1,12.5,54.1,12.5l33.8-135.3l12.7-76l-2.5-99.9L139.1,115.6z"
-                    fill="#313828"
-                    stroke="#020202"
-                    stroke-width="0.3"
-                    stroke-miterlimit="10"
-                    onClick={() => setSelected("Left_Arm")}
+                      fill="#313828"
+                      stroke="#020202"
+                      stroke-width="0.3"
+                      stroke-miterlimit="10"
+                      onClick={() => setSelected("Left_Arm")}
 
-                    //left arm
-                  />
+                      //left arm
+                    />
+                  </g>
                 </g>
-              </g>
-              <path
-                // id={bodyid}
-                // class="st1"
-                // d={shirtbody}
-                // fill="#313828"
-                // stroke="#020202"
-                // stroke-width="0.3"
-                // stroke-miterlimit="10"
-                // onClick={managebody}
+                <path
+                  // id={bodyid}
+                  // class="st1"
+                  // d={shirtbody}
+                  // fill="#313828"
+                  // stroke="#020202"
+                  // stroke-width="0.3"
+                  // stroke-miterlimit="10"
+                  // onClick={managebody}
 
-                id={bodyid}
-                class="st1"
-                d={shirtbody}
-                fill="#313828"
-                onClick={managebody}
+                  id={bodyid}
+                  class="st1"
+                  d={shirtbody}
+                  fill="#313828"
+                  onClick={managebody}
 
-                //body
-              />
-              <g ids="XMLID_13_">
-                <g ide="XMLID_52_">
-                  <path
-                    id="Lower_Pati"
-                    class="st2"
-                    d="M270.9,113.4l-20.1-3.5c-3.5,41.6,9.7,108.6,15.3,131.5c2.1-10.9,6.1-32.5,9.8-55.2
+                  //body
+                />
+                <g ids="XMLID_13_">
+                  <g ide="XMLID_52_">
+                    <path
+                      id="Lower_Pati"
+                      class="st2"
+                      d="M270.9,113.4l-20.1-3.5c-3.5,41.6,9.7,108.6,15.3,131.5c2.1-10.9,6.1-32.5,9.8-55.2
 			C269.2,160.7,270.9,113.4,270.9,113.4z"
-                    fill="#a67d11"
-                    onClick={() => setSelected("Lower_Pati")}
+                      fill="#a67d11"
+                      onClick={() => setSelected("Lower_Pati")}
 
-                    //top lower patti
-                  />
+                      //top lower patti
+                    />
 
-                  <path
-                    id="Upper_Pati"
-                    class="st2"
-                    d="M299.3,106.8c0,0-1.3-1.7-6.2-1c-3.4,0.5-11.7,0.5-9.6,10c1.1,4.7,0.2,9-0.7,19.3
+                    <path
+                      id="Upper_Pati"
+                      class="st2"
+                      d="M299.3,106.8c0,0-1.3-1.7-6.2-1c-3.4,0.5-11.7,0.5-9.6,10c1.1,4.7,0.2,9-0.7,19.3
 			c-1.3,14.4-4,33.1-6.9,51.1c0,0.1,0.1,0.2,0.1,0.4c-0.4,1.9-1.5,8.4-1.8,10.3c-1,8-3.1,16-4.1,24c-0.9,7.2-3,13.7-3.9,20.9
 			c0-0.1-0.1-0.2-0.1-0.3c-0.9,4.6-1.4,7.2-1.4,7.2l5.7,11.7l10.5-8.6C317.9,83.4,299.3,106.8,299.3,106.8z"
-                    fill="#a67d11"
-                    onClick={() => setSelected("Upper_Pati")}
+                      fill="#a67d11"
+                      onClick={() => setSelected("Upper_Pati")}
 
-                    //top upper patti
-                  />
+                      //top upper patti
+                    />
+                  </g>
                 </g>
-              </g>
 
-              <path
-                id={collerid}
-                class="st3"
-                d={coller}
-                fill="#a67d11"
-                onClick={manageColler}
-
-                //coller
-              />
-
-              <g ide="XMLID_1_">
-                <polygon
-                  id="Pocket_Lower_part"
-                  class="st4"
-                  points="319.6,196.5 319.6,246.2 374.1,246.2 374.1,196.6 "
+                <path
+                  id={collerid}
+                  class="st3"
+                  d={coller}
                   fill="#a67d11"
-                  onClick={() => setSelected("Pocket_Lower_part")}
+                  onClick={manageColler}
 
-                  //front pocket lower part
+                  //coller
                 />
 
-                <polygon
-                  id="Pocket_Upper_part"
-                  class="st5"
-                  points="374.1,185.3 319.6,185.3 319.6,198.2 374.1,198"
-                  fill="#fff"
-                  onClick={() => setSelected("Pocket_Upper_part")}
-
-                  //front pocket upper part
-                />
-              </g>
-
-              <g ide="XMLID_2_">
-                <circle
-                  id="2nd_button"
-                  class="st6"
-                  cx="263.2"
-                  cy="163.1"
-                  r="4.3"
-                  //button 1
-                  fill="#fff"
-                  onClick={() => setSelected("2nd_button")}
-                />
-
-                <circle
-                  id="3rd_button"
-                  class="st6"
-                  cx="266.8"
-                  cy="187.4"
-                  r="4.3"
-                  //button 2
-                  fill="#fff"
-                  onClick={() => setSelected("3rd_button")}
-                />
-
-                <circle
-                  id="1st_button"
-                  class="st6"
-                  cx="260.3"
-                  cy="137.3"
-                  r="4.3"
-                  //button 3
-                  fill="#fff"
-                  onClick={() => setSelected("1st_button")}
-                />
-              </g>
-
-              <g ids="XMLID_8_">
-                <g ide="XMLID_55_">
-                  <path
-                    id="Left_Coof"
-                    class="st7"
-                    d="M489.8,479.1c-20.4-5-56.4,10.3-56.4,10.3l6.7,29.3c11.5-13.9,54.3-12.3,54.3-12.3L489.8,479.1z"
-                    //mscoofleft
+                <g ide="XMLID_1_">
+                  <polygon
+                    id="Pocket_Lower_part"
+                    class="st4"
+                    points="319.6,196.5 319.6,246.2 374.1,246.2 374.1,196.6 "
                     fill="#a67d11"
-                    onClick={() => setSelected("Left_Coof")}
+                    onClick={() => setSelected("Pocket_Lower_part")}
+
+                    //front pocket lower part
                   />
 
-                  <path
-                    id="Right_Coof"
-                    d="M59.3,504c16.1-8.1,54.1,12.5,54.1,12.5l6.2-24.6c-16.7-12.8-55.6-15.2-55.6-15.2L59.3,504z"
-                    fill="#a67d11"
-                    onClick={() => setSelected("Right_Coof")}
+                  <polygon
+                    id="Pocket_Upper_part"
+                    class="st5"
+                    points="374.1,185.3 319.6,185.3 319.6,198.2 374.1,198"
+                    fill="#fff"
+                    onClick={() => setSelected("Pocket_Upper_part")}
 
-                    //Coofright
+                    //front pocket upper part
                   />
                 </g>
-              </g>
-            </svg>
+
+                <g ide="XMLID_2_">
+                  <circle
+                    id="2nd_button"
+                    class="st6"
+                    cx="263.2"
+                    cy="163.1"
+                    r="4.3"
+                    //button 1
+                    fill="#fff"
+                    onClick={() => setSelected("2nd_button")}
+                  />
+
+                  <circle
+                    id="3rd_button"
+                    class="st6"
+                    cx="266.8"
+                    cy="187.4"
+                    r="4.3"
+                    //button 2
+                    fill="#fff"
+                    onClick={() => setSelected("3rd_button")}
+                  />
+
+                  <circle
+                    id="1st_button"
+                    class="st6"
+                    cx="260.3"
+                    cy="137.3"
+                    r="4.3"
+                    //button 3
+                    fill="#fff"
+                    onClick={() => setSelected("1st_button")}
+                  />
+                </g>
+
+                <g ids="XMLID_8_">
+                  <g ide="XMLID_55_">
+                    <path
+                      id="Left_Coof"
+                      class="st7"
+                      d="M489.8,479.1c-20.4-5-56.4,10.3-56.4,10.3l6.7,29.3c11.5-13.9,54.3-12.3,54.3-12.3L489.8,479.1z"
+                      //mscoofleft
+                      fill="#a67d11"
+                      onClick={() => setSelected("Left_Coof")}
+                    />
+
+                    <path
+                      id="Right_Coof"
+                      d="M59.3,504c16.1-8.1,54.1,12.5,54.1,12.5l6.2-24.6c-16.7-12.8-55.6-15.2-55.6-15.2L59.3,504z"
+                      fill="#a67d11"
+                      onClick={() => setSelected("Right_Coof")}
+
+                      //Coofright
+                    />
+                  </g>
+                </g>
+              </svg>
             </div>
           </div>
 
@@ -406,7 +402,6 @@ c-3.6,1.6-2.9,6.4-2.9,6.4c12.1-1.4,14.6-10.4,14.6-10.4L63.7,45.9z"
             .
           </button>
         </div>
-
         color for body
         <div style={{ marginBottom: "130px" }}>
           <button

@@ -82,6 +82,8 @@ import Orderget from "./customeDress/OrderGet";
 import Custorderview from "./customeDress/Custorderview";
 import Getcustcorderbyuser from "./customeDress/Getcorderbyuser";
 import OrderViewByuser from"./customeDress/OrderViewByuser";
+import EditManModelbyUser from "./customeDress/EditMmondelbyUser";
+import Measment_EditbyUser from "./customeDress/Measment_EditbyUser"
 function App() {
   return (
     <>
@@ -199,7 +201,9 @@ function App() {
           <Route exact path="/customdress/view/:id" component={Custorderview}/>
           <Route exact path="/customdress/allorderbyuser" component={Getcustcorderbyuser}/>
           <Route exact path="/customized/orderbyuser/:id" component={OrderViewByuser}/>
-          
+          <Route exact path="/customized/editManModelbyUser/:id" component={EditManModelbyUser}/>
+          <Route exact path="/customized/Measment_EditbyUser/:id" component={Measment_EditbyUser}/>
+        
           
         </Switch>
           <Switch>

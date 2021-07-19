@@ -134,7 +134,7 @@ const Getcustcorderbyuser = ({ history }) => {
                       View
                     </Button>
                   </Link>
-                  <Link to={`/EditorderUser/${order._id}`}>
+                  <Link to={`/customized/editManModelbyUser/${order._id}`}>
                     <Button id="btn_table" color="warning" size="sm">
                       Edit
                     </Button>
