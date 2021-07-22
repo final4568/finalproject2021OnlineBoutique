@@ -88,7 +88,7 @@ const Measment_EditbyUser = ({history, match}) => {
        <div className="container"  id="productForm">
         <div className="heading">
         Cutomized Dress Size Editor Form
-        <Link to ="/user/dashboard">
+        <Link to ="/customdress/allorderbyuser">
         <Button color="danger" id="btn_back">GO Back</Button>{' '}
         </Link>
         </div>      

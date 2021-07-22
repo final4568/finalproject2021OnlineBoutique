@@ -179,6 +179,8 @@ function App() {
               
          </Switch>
 
+
+
         <Switch>
           <Route exact path="/orderNow/:id" component={AddOrder}/>
           <Route exact path="/allorders" component={Allorders}/>
@@ -191,7 +193,7 @@ function App() {
           <Route exact path ="/EditorderUser/:id" component={Editorder_User}/>
           <Route exact path ="/users/All/Tailor" component={Tailordeatils_User}/>
           <Route exact path ="/users/TailorDetailss/:id" component={Tailordetails_User}/>
-          <Route exact path ="/users/GetRMorderbyuser/" component={GetRMorderbyuser}/>
+          <Route exact path ="/users/GetRMorderbyuser" component={GetRMorderbyuser}/>
         </Switch>
 
 

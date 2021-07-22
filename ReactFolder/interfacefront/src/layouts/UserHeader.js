@@ -47,13 +47,18 @@ const UserHeader = () => {
                       />
                       <ul>
                         <li>
-                          <NavLink exact to="/users/GetRMorderbyuser/">
+                          <NavLink exact to="/users/GetRMorderbyuser">
                             ReadyMade Dress
                           </NavLink>
                         </li>
                         <li>
                           <NavLink exact to="/customdress/allorderbyuser">
                             Customized Dress
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink exact to="/users/All/Tailor">
+                          About Tailors
                           </NavLink>
                         </li>
                       </ul>

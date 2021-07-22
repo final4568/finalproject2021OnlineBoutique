@@ -446,6 +446,7 @@ const EditManModelbyUser = ({ history }) => {
                     stroke-miterlimit="3"
                   />
                 </svg>
+            
               </div>
 
               <div className="col-lg-6">
@@ -605,19 +606,35 @@ const EditManModelbyUser = ({ history }) => {
                 </svg>
                 <button
                   style={{
-                    marginBottom: "50px",
+                    marginBottom: "0px",
                     float: "right",
                     background: "green",
                     marginTop: "100px",
                     color: "#fff",
-                    padding: "20px 40px 20px 40px",
+                    padding: "10px 20px 10px 20px",
                     borderRadius: "5px",
                   }}
                   onClick={Editmodel}
                 >
                   Save Edit
                 </button>
-                
+                <Link to={`/customized/Measment_EditbyUser/${orderid}`}>
+                  <button
+                    style={{
+                      marginBottom: "50px",
+                      marginRight: "20px",
+                      float: "right",
+                      background: "green",
+                      marginTop: "100px",
+                      color: "#fff",
+                      padding: "10px 20px 10px 20px",
+
+                      borderRadius: "5px",
+                    }}
+                  >
+                    Change Size
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
