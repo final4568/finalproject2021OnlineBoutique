@@ -37,8 +37,8 @@ const UserHeader = () => {
                     </li>
 
                     <li>
-                      <NavLink exact to="/product">
-                        Ready Dress
+                      <NavLink exact to="">
+                        Orders
                       </NavLink>
                       <input
                         type="checkbox"
@@ -47,35 +47,20 @@ const UserHeader = () => {
                       />
                       <ul>
                         <li>
-                          <NavLink exact to="/product/maleproducts">
-                            Male Dress
+                          <NavLink exact to="/users/GetRMorderbyuser/">
+                            ReadyMade Dress
                           </NavLink>
                         </li>
                         <li>
-                          <NavLink exact to="/product/femaleproducts">
-                            Female Dress
+                          <NavLink exact to="/customdress/allorderbyuser">
+                            Customized Dress
                           </NavLink>
                         </li>
                       </ul>
                     </li>
 
-                    <li>
-                      <NavLink to="/manmodel">Customized Dress</NavLink>
-                      <input
-                        type="checkbox"
-                        id="drop-1"
-                        style={{ opacity: "0" }}
-                      />
-                      <ul>
-                        <li>
-                          <NavLink to="/manmodel">Male Dress</NavLink>
-                        </li>
-                      </ul>
-                    </li>
-
-                    <li>
-                      <NavLink to="/Contact">Contact Us</NavLink>
-                    </li>
+                    
+                   
                   </ul>
                 </nav>
               </div>

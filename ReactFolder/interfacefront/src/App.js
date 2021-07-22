@@ -192,8 +192,9 @@ function App() {
           <Route exact path ="/users/All/Tailor" component={Tailordeatils_User}/>
           <Route exact path ="/users/TailorDetailss/:id" component={Tailordetails_User}/>
           <Route exact path ="/users/GetRMorderbyuser/" component={GetRMorderbyuser}/>
-          
         </Switch>
+
+
 
         <Switch>
           <Route exact path="/addmeasurement/:id" component={Addmeasurement}/>

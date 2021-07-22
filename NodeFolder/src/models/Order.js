@@ -43,6 +43,23 @@ const OrderSchema = new mongoose.Schema({
   shirtbody: { type: String },
   bodyid: { type: String },
   bodycolor: { type: String },
+  pocket: { type: String },
+  pocketcolor: { type: String },
+  pocketid: { type: String },
+  phati: { type: String },
+  phatiid: { type: String },
+  phaticolor: { type: String },
+  buttoncolor: { type: String },
+  arm: { type: String },
+  armid: { type: String },
+  armcolor: { type: String },
+  leftcoff: { type: String },
+  leftcoffid: { type: String },
+  leftcoffcolor: { type: String },
+  righttcoff: { type: String },
+  righttcoffid: { type: String },
+  righttcoffcolor: { type: String },
+  
 });
 const Order = mongoose.model("Order", OrderSchema);
 module.exports = Order;

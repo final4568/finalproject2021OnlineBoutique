@@ -7,7 +7,10 @@ exports.orderadd = async (req, res)=>{
     sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
     hip, thigh, knee, legopening, suitsize,tailodate, clientdate,useraddress, 
     tailortype,producttype, productcategory, orderprogress,orderstatus,
-    collercolor, collerid, bodyid, bodycolor, coller,shirtbody
+    collercolor, collerid, bodyid, bodycolor, coller,shirtbody, pocket,pocketid,
+    pocketcolor, arm, armcolor, armid, buttoncolor, phati,
+    phatiid, phaticolor, leftcoff, leftcoffid, leftcoffcolor, 
+    righttcoff, righttcoffid, righttcoffcolor
     } = req.body;
     try {
       const order = await Order.create({
@@ -16,7 +19,10 @@ exports.orderadd = async (req, res)=>{
         sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
         hip, thigh, knee, legopening, suitsize, clientdate,tailodate, useraddress, 
         tailortype, producttype, productcategory,orderprogress, orderstatus,
-        collercolor, collerid, bodyid, bodycolor,coller, shirtbody
+        collercolor, collerid, bodyid, bodycolor,coller, shirtbody, pocket,pocketid,
+        pocketcolor, arm, armcolor, armid,phati,phatiid, phaticolor,buttoncolor, leftcoff, 
+        leftcoffid, leftcoffcolor, 
+        righttcoff, righttcoffid, righttcoffcolor
         //orderstatus, tailodate
       }).then((response)=>{
           res.status(200).send(response)

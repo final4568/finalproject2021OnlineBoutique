@@ -36,10 +36,13 @@ const Menu = () => {
                       <NavLink to="/manmodel">Customized Dress</NavLink>
                       <input type="checkbox" id="drop-1"  style={{opacity:"0"}}/>
                       <ul>
-                        <li>
+                      <li>
                           <NavLink to="/manmodel">Male Dress</NavLink>
+                        </li> 
+                        <li>
+                          <NavLink to="/CustomDress">New Dress</NavLink>
                         </li>
-                      
+                        
                         
                       </ul>
                     </li>

@@ -11,13 +11,40 @@ const Custorderview = ({ history }) => {
   const match = useRouteMatch();
   const [orderdetails, setOrderdetails] = useState({});
 
-  const [shirtbody, setShirtbody] = useState({});
-  const [bodyid, setBodyid] =useState({});
-  const [bodycolor, setBodycolor] =useState({});
+  const [sb, setSB] = useState({});
+  const [bid, setBid] =useState({});
+  const [bolcolr, setBocolr] =useState({});
 
-  const [collers, setColler] = useState({});
-  const [collerids, setCollerid] =useState({});
-  const [collercolors, setCollercolor] =useState({});
+  const [collr, setCollr] = useState({});
+  const [collrid, setCollrid] =useState({});
+  const [collrcolr, setCollrcolr] =useState({});
+  
+
+  const [pokt, setPokt] = useState({});
+  const [poktid, setPoktid] = useState({});
+  const [poktcolr, setPoktColr] = useState({});
+
+  const [patis, setPatis] = useState({});
+  const [patisid, setPatisid] = useState({});
+  const [patiscolr, setPatiscolr] = useState({});
+
+  const [btncolr, setBtncolr] = useState({});
+
+  const [arms, setArms] = useState({});
+  const [armsid, setArmsid] = useState({});
+  const [armscolr, setArmscolr] = useState({});
+
+
+  const [ltcof, setLtcof] = useState({});
+  const [ltcofid, setLtcofid] = useState({});
+  const [ltcofcolr, setLtcofcolr] = useState({});
+
+
+
+  const [rtcof, setRtcof] = useState({});
+  const [rtcofid, setRtcofid] = useState({});
+  const [rtcofcolr, setRtcofcolr] = useState({});
+
 
   const getorderdetail = (id) =>
     fetch(`/api/oders/orderdetail/${id}`).then((res) => res.json());
@@ -28,14 +55,38 @@ const Custorderview = ({ history }) => {
       setOrderdetails(orderdetails);
       console.log(orderdetails);
 
-      setBodyid(orderdetails.bodyid);
-      setShirtbody(orderdetails.shirtbody);
-      setBodycolor(orderdetails.bodycolor);
+      setSB(orderdetails.shirtbody);
+      setBid(orderdetails.bodyid);
+      setBocolr(orderdetails.bodycolor);
 
 
-      setColler(orderdetails.coller);
-      setCollerid(orderdetails.collerid);
-      setCollercolor(orderdetails.collercolor)
+      setCollr(orderdetails.coller);
+      setCollrid(orderdetails.collerid);
+      setCollrcolr(orderdetails.collercolor);
+
+      setPokt(orderdetails.pocket);
+      setPoktid(orderdetails.pocketid);
+      setPoktColr(orderdetails.pocketcolor);
+
+      setBtncolr(orderdetails.buttoncolor);
+     
+      setArms(orderdetails.arm);
+      setArmsid(orderdetails.armid);
+      setArmscolr(orderdetails.armcolor);
+
+
+      setLtcof(orderdetails.leftcoff);
+      setLtcofid(orderdetails.leftcoffid);
+      setLtcofcolr(orderdetails.leftcoffcolor);
+
+      setRtcof(orderdetails.righttcoff);
+      setRtcofid(orderdetails.righttcoffid);
+      setRtcofcolr(orderdetails.righttcoffcolor);
+
+      setPatis(orderdetails.phati);
+      setPatisid(orderdetails.phatiid);
+      setPatiscolr(orderdetails.phaticolor);
+
     };
     fetchdetail();
   }, [history]);
@@ -302,169 +353,136 @@ const Custorderview = ({ history }) => {
               <div className="col-lg-4" style={{ marginTop: "30px" }}>
                 {/* right COlumn */}
 
-                <svg
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 600 800"
-                  style={{ width: "400px", marginTop: "-10px" }}
-                >
-                  <g ids="XMLID_9_">
-                    <g ide="XMLID_47_">
+               
+<svg
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 200 300"
+                style={{
+                  enableBackground: "new 0 0 200 300",
+                  width: "400px",
+                  marginTop: "-10px",
+                }}
+                xmlSpace="preserve"
+               >
+                <g id="XMLID_7_">
+                  <g id="XMLID_9_">
+                    <g id="XMLID_37_">
                       <path
-                        id="Left_Arm"
+                        id={armsid}
                         class="st0"
-                        d="M489.9,479.1c0,0,5.9-10.2,1.4-26.3c0,0-52.3-317.3-76.3-335.6l-13.6,89.2l2,100.1l1.8,67
-			l35.2,145.4c0,0,19,10.4,54.1-12.5L489.9,479.1z"
-                        fill="#313828"
-                        stroke="#020202"
-                        stroke-width="0.3"
-                        stroke-miterlimit="10"
-                        // onClick={() => setSelected("Left_Arm")}
-                        //right arm
-                      />
-                      <path
-                        id="Left_Arm"
-                        class="st0"
-                        d="M139.1,115.6c-24,18.3-76.7,335.1-76.7,335.1C58,466.8,63.9,477,63.9,477l-4.7,27.2
-			c35.1,22.9,54.1,12.5,54.1,12.5l33.8-135.3l12.7-76l-2.5-99.9L139.1,115.6z"
-                        fill="#313828"
-                        stroke="#020202"
-                        stroke-width="0.3"
-                        stroke-miterlimit="10"
-                        // onClick={() => setSelected("Left_Arm")}
-
-                        //left arm
+                        d={arms}
+                        opacity="0.99"
+                        fill={armscolr}
+                        stroke="black"
+                        stroke-width="0.09"
+                        stroke-miterlimit="3"
+                        // Both Arms
                       />
                     </g>
                   </g>
-                  <path
-                    id={bodyid}
-                    class="st1"
-                    d={shirtbody}
-                    fill={bodycolor}
-                    stroke="#020202"
-                    stroke-width="0.3"
-                    stroke-miterlimit="10"
 
+                  <path
+                    id={bid}
+                    class="st1"
+                    d={sb}
+                    fill={bolcolr}
+                    stroke="black"
+                    stroke-width="0.1"
+                    stroke-miterlimit="10"
                     //body
                   />
-                  <g ids="XMLID_13_">
-                    <g ide="XMLID_52_">
-                      <path
-                        id="Lower_Pati"
-                        class="st2"
-                        d="M270.9,113.4l-20.1-3.5c-3.5,41.6,9.7,108.6,15.3,131.5c2.1-10.9,6.1-32.5,9.8-55.2
-			C269.2,160.7,270.9,113.4,270.9,113.4z"
-                        fill="#a67d11"
-                        // onClick={() => setSelected("Lower_Pati")}
 
-                        //top lower patti
-                      />
+                  <polygon
+                    id={patisid}
+                    class="st2"
+                    points={patis}
+                    fill={patiscolr}
+                    stroke="black"
+                    stroke-width="0.1"
+                    stroke-miterlimit="10"
 
-                      <path
-                        id="Upper_Pati"
-                        class="st2"
-                        d="M299.3,106.8c0,0-1.3-1.7-6.2-1c-3.4,0.5-11.7,0.5-9.6,10c1.1,4.7,0.2,9-0.7,19.3
-			c-1.3,14.4-4,33.1-6.9,51.1c0,0.1,0.1,0.2,0.1,0.4c-0.4,1.9-1.5,8.4-1.8,10.3c-1,8-3.1,16-4.1,24c-0.9,7.2-3,13.7-3.9,20.9
-			c0-0.1-0.1-0.2-0.1-0.3c-0.9,4.6-1.4,7.2-1.4,7.2l5.7,11.7l10.5-8.6C317.9,83.4,299.3,106.8,299.3,106.8z"
-                        fill="#a67d11"
-                        // onClick={() => setSelected("Upper_Pati")}
+                    //phati
+                  />
 
-                        //top upper patti
-                      />
-                    </g>
+                  <g id="v" fill={btncolr}>
+                    <path
+                      id="button1"
+                      class="st2"
+                      d="M98.8,51.6c0,0,0.1-1.3,1.5-1.4c0,0,1-0.1,1.5,1c0,0,0.4,0.7-0.2,1.7c0,0-0.7,0.8-1.7,0.5
+                  C99.8,53.4,98.7,53,98.8,51.6z"
+                  fill={btncolr}
+                      
+                    />
+
+                    <path
+                      id="button2"
+                      class="st2"
+                      d="M98.6,61.1c0,0,0.1-1.3,1.5-1.4c0,0,1-0.1,1.5,1c0,0,0.4,0.7-0.2,1.7c0,0-0.7,0.8-1.7,0.5
+                  C99.6,62.8,98.5,62.4,98.6,61.1z"
+                  fill={btncolr}
+                    />
+                    <path
+                      id="button3"
+                      class="st2"
+                      d="M99.1,71.1c0,0,0.1-1.3,1.5-1.4c0,0,1-0.1,1.5,1c0,0,0.4,0.7-0.2,1.7c0,0-0.7,0.8-1.7,0.5
+                  C100.1,72.8,99,72.4,99.1,71.1z"
+                  fill={btncolr}
+                    />
+
+                    {/* //buttons */}
+                  </g>
+
+                  <g id="XMLID_6_">
+                    <path
+                      id={ltcofid}
+                      class="st5"
+                      d={ltcof}
+                      // left Coff
+                      fill={ltcofcolr}
+                      stroke="black"
+                      stroke-width="0.07"
+                      stroke-miterlimit="3"
+                    />
+                    <path
+                      id={rtcofid}
+                      class="st5"
+                      d={rtcof}
+                      // Right Coff
+                      fill={rtcofcolr}
+                      stroke="black"
+                      stroke-width="0.07"
+                      stroke-miterlimit="3"
+                    />
                   </g>
 
                   <path
-                    id={collerids}
-                    class="st3"
-                    d={collers}
-                    fill={collercolors}
-                    // onClick={manageColler}
+                    id={collrid}
+                    class="st2"
+                    d={collr}
+                    fill={collrcolr}
+                    stroke="black"
+                    stroke-width="0.1"
+                    stroke-miterlimit="10"
 
-                    //coller
+                    // ban
                   />
-
-                  <g ide="XMLID_1_">
-                    <polygon
-                      id="Pocket_Lower_part"
-                      class="st4"
-                      points="319.6,196.5 319.6,246.2 374.1,246.2 374.1,196.6 "
-                      fill="#a67d11"
-                    //   onClick={() => setSelected("Pocket_Lower_part")}
-
-                      //front pocket lower part
-                    />
-
-                    <polygon
-                      id="Pocket_Upper_part"
-                      class="st5"
-                      points="374.1,185.3 319.6,185.3 319.6,198.2 374.1,198"
-                      fill="#fff"
-                    //   onClick={() => setSelected("Pocket_Upper_part")}
-
-                      //front pocket upper part
-                    />
-                  </g>
-
-                  <g ide="XMLID_2_">
-                    <circle
-                      id="2nd_button"
-                      class="st6"
-                      cx="263.2"
-                      cy="163.1"
-                      r="4.3"
-                      //button 1
-                      fill="#fff"
-                    //   onClick={() => setSelected("2nd_button")}
-                    />
-
-                    <circle
-                      id="3rd_button"
-                      class="st6"
-                      cx="266.8"
-                      cy="187.4"
-                      r="4.3"
-                      //button 2
-                      fill="#fff"
-                    //   onClick={() => setSelected("3rd_button")}
-                    />
-
-                    <circle
-                      id="1st_button"
-                      class="st6"
-                      cx="260.3"
-                      cy="137.3"
-                      r="4.3"
-                      //button 3
-                      fill="#fff"
-                    //   onClick={() => setSelected("1st_button")}
-                    />
-                  </g>
-
-                  <g ids="XMLID_8_">
-                    <g ide="XMLID_55_">
-                      <path
-                        id="Left_Coof"
-                        class="st7"
-                        d="M489.8,479.1c-20.4-5-56.4,10.3-56.4,10.3l6.7,29.3c11.5-13.9,54.3-12.3,54.3-12.3L489.8,479.1z"
-                        //mscoofleft
-                        fill="#a67d11"
-                        // onClick={() => setSelected("Left_Coof")}
-                      />
-
-                      <path
-                        id="Right_Coof"
-                        d="M59.3,504c16.1-8.1,54.1,12.5,54.1,12.5l6.2-24.6c-16.7-12.8-55.6-15.2-55.6-15.2L59.3,504z"
-                        fill="#a67d11"
-                        // onClick={() => setSelected("Right_Coof")}
-
-                        //Coofright
-                      />
-                    </g>
-                  </g>
-                </svg>
-
+                </g>
+                <polygon
+                  class="st7"
+                  id={poktid}
+                  class="st5"
+                  fill={poktcolr}
+                  points={pokt}
+                  stroke="black"
+                  stroke-width="0.07"
+                  stroke-miterlimit="3"
+                />
+              </svg>
 
 
 
