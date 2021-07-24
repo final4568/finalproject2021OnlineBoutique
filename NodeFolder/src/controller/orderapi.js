@@ -148,27 +148,26 @@ exports.customorderbyuser = async(req, res)=>{
 
 
 exports.orderbytailor = async (req, res)=>{
-  const tailorType = req.body.tailortype;
-
+  const tailortype = req.body.tailortype;
+  const producttype = req.body.producttype;
   try{
-    await Order.find({tailortype:tailorType},(err, details)=>{
+   
+
+    await Order.find({tailortype:tailortype, producttype:producttype},(err, detail)=>{
       if(err){
-        res.status(500).json({
+          res.status(500).json({
           success:false,
-          message:"The orders Not availables"
-        })
+        });
       }else{
-        // console.log(details)
-        res.status(200).json(details)
+        // console.log(detail)
+        res.status(200).json(detail);
       }
-    });
-
-  }catch{
-    res.status(500).json({
-      success:false,
-      message:"The orders Not availables"
     })
-
+  }catch{
+    res.status(400).json({
+      success: false,
+      message: "Order Data Not Found"
+  });
   }
 
 };

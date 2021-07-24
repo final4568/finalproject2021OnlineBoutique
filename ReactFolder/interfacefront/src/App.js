@@ -83,7 +83,12 @@ import Custorderview from "./customeDress/Custorderview";
 import Getcustcorderbyuser from "./customeDress/Getcorderbyuser";
 import OrderViewByuser from"./customeDress/OrderViewByuser";
 import EditManModelbyUser from "./customeDress/EditMmondelbyUser";
-import Measment_EditbyUser from "./customeDress/Measment_EditbyUser"
+import Measment_EditbyUser from "./customeDress/Measment_EditbyUser";
+import CustOrderbytailor from "./customeDress/CustOrderbytailor";
+import CusOrderViewByTailor from "./customeDress/CusOrderViewByTailor";
+
+import FemaleModel from "./customeDress/FemaleModel"
+
 function App() {
   return (
     <>
@@ -206,7 +211,12 @@ function App() {
           <Route exact path="/customized/orderbyuser/:id" component={OrderViewByuser}/>
           <Route exact path="/customized/editManModelbyUser/:id" component={EditManModelbyUser}/>
           <Route exact path="/customized/Measment_EditbyUser/:id" component={Measment_EditbyUser}/>
-        
+          <Route exact path="/custom/tailororderbygender" component={CustOrderbytailor}/>
+          <Route exact path="/custom/Viewordertailor/:id" component={CusOrderViewByTailor}/>
+         
+         
+          <Route exact path="/custom/Femalemodel" component={FemaleModel}/>
+
           
         </Switch>
           <Switch>

@@ -57,11 +57,7 @@ const Getcustcorderbyuser = ({ history }) => {
     LoggedUserdata();
   }, [refresh, history]);
 
-  const deleteorder = (id) => {
-    axios.delete(`/api/oders/deleteorder/${id}`);
-    setRefresh(true);
-  };
-
+  
   const refresher = () => {
     setRefresh(true);
   };
@@ -93,7 +89,7 @@ const Getcustcorderbyuser = ({ history }) => {
               <th scope="col">Order Status</th>
               <th scope="col">Progress</th>
               <th scope="col">Submitted To</th>
-              <th scope="col">Action </th>
+              <th scope="col">Product Name </th>
 
               <th>
                 <Button
@@ -128,34 +124,7 @@ const Getcustcorderbyuser = ({ history }) => {
                 </td>
                 <td>{order.orderprogress}</td>
                 <td>{order.tailortype}</td>
-                <td>
-                  <Link to={`/customized/orderbyuser/${order._id}`}>
-                    <Button id="btn_table" color="primary" size="sm">
-                      View
-                    </Button>
-                  </Link>
-                  <Link to={`/customized/editManModelbyUser/${order._id}`}>
-                    <Button id="btn_table" color="warning" size="sm">
-                      Edit
-                    </Button>
-                  </Link>
-
-                  <Button
-                    color="danger"
-                    size="sm"
-                    style={{ marginLeft: "10px" }}
-                    onClick={() => {
-                      if (
-                        window.confirm(
-                          `Are you sure you wish to delete this Order?`
-                        )
-                      )
-                        deleteorder(order._id);
-                    }}
-                  >
-                    Cancel
-                  </Button>
-                </td>
+                <td>{order.productname}</td>
               </tr>
             ))}
           </tbody>

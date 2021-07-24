@@ -6,7 +6,7 @@ import {Button } from "reactstrap";
 import "../index.css";
 
 const ManModel = ({ history }) => {
-  const productname = "Man Custom Dress";
+  const productname = "Man_Custom_Dress";
   const producttype = "Customdress";
 
   const [selected, setSelected] = useState("");

@@ -7,16 +7,15 @@ import TailorHeader from "../layouts/TailorHeader";
 import TailorSideBar from "../layouts/TailorSidebar";
 
 
-const OrderByTailors = () => {
+const CustOrderbytailor = () => {
    const[tailortype, setTailortype] = useState([]);
    const[orders, setOrder]= useState([]);
    const[error, setError]= useState([]);
    const [refresh, setRefresh] = useState(false);
-   const producttype = "ReadMade";
+   const producttype = "Customdress";
 
    useEffect(()=>{
     if (refresh) return setRefresh(false);
-    
     const token = localStorage.getItem("authToken");
 
     const LoggedUserdata = async()=>{
@@ -31,7 +30,7 @@ const OrderByTailors = () => {
           "/api/tailor/LoggedTailorProfile",
           config
         );
-        // console.log(data.gender)
+       
         setTailortype(data.gender);
       }catch(err){
         setError("user not find")
@@ -89,7 +88,6 @@ const OrderByTailors = () => {
           <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">
-                <th scope="col">Prdduct Image</th>
                 <th scope="col">Product Name</th>
                 <th scope="col">Order Status</th>
                 <th scope="col">Progress</th>
@@ -109,10 +107,7 @@ const OrderByTailors = () => {
             <tbody>
               {orders.map((order) => (
                 <tr key={order._id}>
-                  <td>
-                  <img src={`/images/${order.productimage}`} alt="Loading...!"
-                   width="100px" height="60px"/>
-                  </td>
+                  
                   <td>{order.productname}</td>
                   <td><p style={{padding:"10px",color:"green", fontWeight:"bold"}}>
                   {order.orderstatus}</p> </td>
@@ -120,7 +115,7 @@ const OrderByTailors = () => {
                   {order.orderprogress}</p> </td>
                   <td>
 
-                      <Link to={`/Viewordertailor/${order._id}`}>
+                      <Link to={`/custom/Viewordertailor/${order._id}`}>
                       <Button id="btn_table" color="primary" size="sm">
                         View
                       </Button>
@@ -157,6 +152,4 @@ const OrderByTailors = () => {
      );
 }
  
-export default OrderByTailors;
- 
-// export default OrderByTailors;
+export default CustOrderbytailor;

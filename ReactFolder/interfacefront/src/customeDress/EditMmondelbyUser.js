@@ -11,7 +11,7 @@ import axios from "axios";
 import Addmeasurement from "./Addmeasurement";
 
 const EditManModelbyUser = ({ history }) => {
-  const productname = "Man Custom Dress";
+  const productname = "Man_Custom_Dress";
   const producttype = "Customdress";
   const [orderstatus, setOrderstatus] = useState({});
   const [orderid, setOrderid] = useState({});
@@ -328,7 +328,7 @@ const EditManModelbyUser = ({ history }) => {
                   viewBox="0 0 200 300"
                   style={{
                     enableBackground: "new 0 0 200 300",
-                    width: "350px",
+                    width: "300px",
                     marginTop: "-10px",
                   }}
                   xmlSpace="preserve"
@@ -473,7 +473,7 @@ const EditManModelbyUser = ({ history }) => {
                   viewBox="0 0 200 300"
                   style={{
                     enableBackground: "new 0 0 200 300",
-                    width: "350px",
+                    width: "300px",
                     marginTop: "-10px",
                   }}
                   xmlSpace="preserve"

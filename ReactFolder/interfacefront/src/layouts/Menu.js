@@ -40,7 +40,7 @@ const Menu = () => {
                           <NavLink to="/manmodel">Male Dress</NavLink>
                         </li> 
                         <li>
-                          <NavLink to="/CustomDress">New Dress</NavLink>
+                          <NavLink to="/custom/Femalemodel">Female Dress</NavLink>
                         </li>
                         
                         

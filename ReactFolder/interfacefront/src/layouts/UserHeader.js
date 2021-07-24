@@ -30,15 +30,16 @@ const UserHeader = () => {
                       </NavLink>
                     </li>
 
+                   
                     <li>
-                      <NavLink exact to="/Loogeduser/Profile">
-                        My Profile
+                      <NavLink exact to="/users/GetRMorderbyuser">
+                        Ready Dress Orders
                       </NavLink>
                     </li>
 
                     <li>
-                      <NavLink exact to="">
-                        Orders
+                      <NavLink exact to="/customdress/allorderbyuser">
+                        Custom Dress Orders
                       </NavLink>
                       <input
                         type="checkbox"
@@ -48,13 +49,38 @@ const UserHeader = () => {
                       <ul>
                         <li>
                           <NavLink exact to="/users/GetRMorderbyuser">
-                            ReadyMade Dress
+                            Male Dress
                           </NavLink>
                         </li>
                         <li>
                           <NavLink exact to="/customdress/allorderbyuser">
-                            Customized Dress
+                            Female Dress
                           </NavLink>
+                        </li>
+                        <li>
+                          <NavLink exact to="/users/All/Tailor">
+                          About Tailors
+                          </NavLink>
+                        </li>
+                      </ul>
+                    </li>
+
+
+                    <li>
+                      <NavLink exact to="">
+                       Profiles
+                      </NavLink>
+                      <input
+                        type="checkbox"
+                        id="drop-1"
+                        style={{ opacity: "0" }}
+                      />
+                      <ul>
+                       
+                      <li>
+                      <NavLink exact to="/Loogeduser/Profile">
+                        My Profile
+                      </NavLink>
                         </li>
                         <li>
                           <NavLink exact to="/users/All/Tailor">
