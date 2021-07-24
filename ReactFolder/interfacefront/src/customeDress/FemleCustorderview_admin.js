@@ -35,24 +35,18 @@ const FemleCustorderview_admin = ({ history }) => {
       const orderdetails = await getorderdetail(match.params.id);
       setOrderdetails(orderdetails);
       
-
       setSB(orderdetails.shirtbody);
       setBid(orderdetails.bodyid);
       setBocolr(orderdetails.bodycolor);
-
-    
 
       setCollr(orderdetails.coller);
       setCollrid(orderdetails.collerid);
       setCollrcolr(orderdetails.collercolor);
 
-     
       setArms(orderdetails.arm);
       setArmsid(orderdetails.armid);
       setArmscolr(orderdetails.armcolor);
 
-
-    
 
     };
     fetchdetail();

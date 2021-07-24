@@ -1062,7 +1062,7 @@ const EditManModelbyUser = ({ history }) => {
                   justifyContent: "right",
                   marginTop: "10px",
                 }}
-              >
+                >
                 {/* first phati */}
                 <div>
                   <svg
@@ -1197,11 +1197,51 @@ const EditManModelbyUser = ({ history }) => {
               >
                 <div className="row">
                   <div className="col-lg-6">
+
+
+                  <div
+                className="Body_class"
+                style={{
+                  display: "flex",
+                  justifyContent: "right",
+                  marginTop: "10px",
+                }}
+                >
+                {/* first phati */}
+                <div>
+                  <svg
+                    className="svg_part"
+                    style={{
+                      width: "100px",
+                      height: "100px",
+                      margin: "5px",
+                      color: "red",
+                    }}
+                  >
+                    <path
+                      id="Phati_1"
+                      class="st6"
+                      d= "M181.2,185.1c0,0-9.3,8.1-20.1,4.5l-17.9-82.7l-66.7-0.7l-19.2,5.1l-1.3,9.4l-15.9,68.8c0,0-7,3.8-20-4.6l1.7-10.1c0,0-2.2-3.8-0.5-9.7c0,0,19.5-117.4,28.4-124.1c0,0,77.2,0.5,77.9,0.5c5.7,0,11.4-0.3,17-0.5c1.7,0-3-4.9-1.4-5c1.7,0,9.3,6,10.2,7.6c1.5,2.6,2.3,5.8,3.1,8.6c0.9,2.9,1.8,5.7,2.6,8.6c0,0,0,0.1,0,0.1l7.9,32.6l13.4,75.3l-0.9,6.7L181.2,185.1z"
+                      transform="translate(-50, -30)"
+                      fill="#323829"
+                      onClick={managephati}
+                    />
+                  </svg>
+                </div>
+
+               
+
+                
+              </div>
+
+
+
+
                     <strong>Select Arm Color</strong>
 
                     <div
                       className="Coller_color"
-                      style={{ marginTop: "10px", float: "left" }}
+                      style={{ marginTop: "10px", float: "left" , marginBottom:"40px"}}
                     >
                       <div style={{ marginBottom: "10px" }}>
                         <button

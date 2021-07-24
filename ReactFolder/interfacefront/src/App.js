@@ -94,6 +94,9 @@ import Custom_FemaleDressOrder_User from "./customeDress/Custom_FemaleDressOrder
 import FemaleModel from "./customeDress/FemaleModel"
 import FemleCustorderview_admin from "./customeDress/FemleCustorderview_admin";
 import FemaleCustom_view_User from "./customeDress/FemaleCustom_view_User";
+import EditFMmodel_User from "./customeDress/EditFMmodel_User";
+
+
 function App() {
   return (
     <>
@@ -227,6 +230,7 @@ function App() {
           <Route exact path="/custom/Femalemodel" component={FemaleModel}/>
           <Route exact path="/custom/FemleCustorderviewadmin/:id" component={FemleCustorderview_admin}/>
           <Route exact path="/custom/FemaleCustomviewUser/:id" component={FemaleCustom_view_User}/>
+          <Route exact path="/custom/EditFMmodel_User/:id" component={EditFMmodel_User}/>
           
           
         </Switch>

@@ -134,7 +134,7 @@ const Custom_maleDressOrder_User = ({ history }) => {
                         View
                       </Button>
                     </Link>
-                    <Link to={`/EditOrderAdmin/${order._id}`}>
+                    <Link to={`/customized/editManModelbyUser/${order._id}`}>
                       <Button id="btn_table" color="warning" size="sm" >
                         Edit
                       </Button>

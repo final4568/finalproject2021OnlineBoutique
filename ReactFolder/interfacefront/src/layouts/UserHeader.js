@@ -57,11 +57,7 @@ const UserHeader = () => {
                             Female Dress
                           </NavLink>
                         </li>
-                        <li>
-                          <NavLink exact to="/users/All/Tailor">
-                          About Tailors
-                          </NavLink>
-                        </li>
+                        
                       </ul>
                     </li>
 
