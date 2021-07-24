@@ -1,13 +1,12 @@
 import React from "react";
-import AdminHeader from "../layouts/AdminHeader";
-import AdminSideBar from "../layouts/AdminSlidebar";
+import UserHeader from "../layouts/UserHeader";
 import "../index.css";
 import { useState, useEffect } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
 
-const Custorderview_admin = ({ history }) => {
+const FemaleCustom_view_User = ({ history }) => {
   const match = useRouteMatch();
   const [orderdetails, setOrderdetails] = useState({});
 
@@ -19,31 +18,12 @@ const Custorderview_admin = ({ history }) => {
   const [collrid, setCollrid] =useState({});
   const [collrcolr, setCollrcolr] =useState({});
   
-
-  const [pokt, setPokt] = useState({});
-  const [poktid, setPoktid] = useState({});
-  const [poktcolr, setPoktColr] = useState({});
-
-  const [patis, setPatis] = useState({});
-  const [patisid, setPatisid] = useState({});
-  const [patiscolr, setPatiscolr] = useState({});
-
-  const [btncolr, setBtncolr] = useState({});
-
   const [arms, setArms] = useState({});
   const [armsid, setArmsid] = useState({});
   const [armscolr, setArmscolr] = useState({});
 
 
-  const [ltcof, setLtcof] = useState({});
-  const [ltcofid, setLtcofid] = useState({});
-  const [ltcofcolr, setLtcofcolr] = useState({});
-
-
-
-  const [rtcof, setRtcof] = useState({});
-  const [rtcofid, setRtcofid] = useState({});
-  const [rtcofcolr, setRtcofcolr] = useState({});
+  
 
 
   const getorderdetail = (id) =>
@@ -53,39 +33,25 @@ const Custorderview_admin = ({ history }) => {
     const fetchdetail = async () => {
       const orderdetails = await getorderdetail(match.params.id);
       setOrderdetails(orderdetails);
-      console.log(orderdetails);
+      
 
       setSB(orderdetails.shirtbody);
       setBid(orderdetails.bodyid);
       setBocolr(orderdetails.bodycolor);
 
+    
 
       setCollr(orderdetails.coller);
       setCollrid(orderdetails.collerid);
       setCollrcolr(orderdetails.collercolor);
 
-      setPokt(orderdetails.pocket);
-      setPoktid(orderdetails.pocketid);
-      setPoktColr(orderdetails.pocketcolor);
-
-      setBtncolr(orderdetails.buttoncolor);
      
       setArms(orderdetails.arm);
       setArmsid(orderdetails.armid);
       setArmscolr(orderdetails.armcolor);
 
 
-      setLtcof(orderdetails.leftcoff);
-      setLtcofid(orderdetails.leftcoffid);
-      setLtcofcolr(orderdetails.leftcoffcolor);
-
-      setRtcof(orderdetails.righttcoff);
-      setRtcofid(orderdetails.righttcoffid);
-      setRtcofcolr(orderdetails.righttcoffcolor);
-
-      setPatis(orderdetails.phati);
-      setPatisid(orderdetails.phatiid);
-      setPatiscolr(orderdetails.phaticolor);
+    
 
     };
     fetchdetail();
@@ -93,24 +59,17 @@ const Custorderview_admin = ({ history }) => {
 
   return (
     <>
-      <AdminHeader />
+      <UserHeader />
       <div className="containter">
-        <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
-          <AdminSideBar />
-        </div>
+
 
         <div
-          className="col-10"
+          className="col-12"
           id="right_dasBoard_col"
           style={{ float: "right" }}
         >
           <h1>Order Details</h1>
-          {/* <p>
-            <strong> colloer</strong> : {coller}
-          </p>
-          <p>
-            <strong> body</strong> : {shirtbody}
-          </p> */}
+    
           <p className="order_detail">
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
@@ -123,7 +82,7 @@ const Custorderview_admin = ({ history }) => {
           <div className="container">
             <div className="row">
               <div className="col-lg-8">
-              <Link to="/customdress/orders">
+              <Link to="/custom/CustomFemaleDressOrder">
             <Button color="success">Go Back</Button>
           </Link>
 
@@ -353,12 +312,10 @@ const Custorderview_admin = ({ history }) => {
               <div className="col-lg-4" style={{ marginTop: "30px" }}>
                 {/* right COlumn */}
 
-               
-<svg
+                <svg
                 version="1.1"
                 id="Layer_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
+              
                 x="0px"
                 y="0px"
                 viewBox="0 0 200 300"
@@ -398,72 +355,9 @@ const Custorderview_admin = ({ history }) => {
                   />
 
                   <polygon
-                    id={patisid}
-                    class="st2"
-                    points={patis}
-                    fill={patiscolr}
-                    stroke="black"
-                    stroke-width="0.1"
-                    stroke-miterlimit="10"
-
-                    //phati
-                  />
-
-                  <g id="v" fill={btncolr}>
-                    <path
-                      id="button1"
-                      class="st2"
-                      d="M98.8,51.6c0,0,0.1-1.3,1.5-1.4c0,0,1-0.1,1.5,1c0,0,0.4,0.7-0.2,1.7c0,0-0.7,0.8-1.7,0.5
-                  C99.8,53.4,98.7,53,98.8,51.6z"
-                  fill={btncolr}
-                      
-                    />
-
-                    <path
-                      id="button2"
-                      class="st2"
-                      d="M98.6,61.1c0,0,0.1-1.3,1.5-1.4c0,0,1-0.1,1.5,1c0,0,0.4,0.7-0.2,1.7c0,0-0.7,0.8-1.7,0.5
-                  C99.6,62.8,98.5,62.4,98.6,61.1z"
-                  fill={btncolr}
-                    />
-                    <path
-                      id="button3"
-                      class="st2"
-                      d="M99.1,71.1c0,0,0.1-1.3,1.5-1.4c0,0,1-0.1,1.5,1c0,0,0.4,0.7-0.2,1.7c0,0-0.7,0.8-1.7,0.5
-                  C100.1,72.8,99,72.4,99.1,71.1z"
-                  fill={btncolr}
-                    />
-
-                    {/* //buttons */}
-                  </g>
-
-                  <g id="XMLID_6_">
-                    <path
-                      id={ltcofid}
-                      class="st5"
-                      d={ltcof}
-                      // left Coff
-                      fill={ltcofcolr}
-                      stroke="black"
-                      stroke-width="0.07"
-                      stroke-miterlimit="3"
-                    />
-                    <path
-                      id={rtcofid}
-                      class="st5"
-                      d={rtcof}
-                      // Right Coff
-                      fill={rtcofcolr}
-                      stroke="black"
-                      stroke-width="0.07"
-                      stroke-miterlimit="3"
-                    />
-                  </g>
-
-                  <path
                     id={collrid}
                     class="st2"
-                    d={collr}
+                    points={collr}
                     fill={collrcolr}
                     stroke="black"
                     stroke-width="0.1"
@@ -472,17 +366,8 @@ const Custorderview_admin = ({ history }) => {
                     // ban
                   />
                 </g>
-                <polygon
-                  class="st7"
-                  id={poktid}
-                  class="st5"
-                  fill={poktcolr}
-                  points={pokt}
-                  stroke="black"
-                  stroke-width="0.07"
-                  stroke-miterlimit="3"
-                />
               </svg>
+
 
 
 
@@ -496,4 +381,4 @@ const Custorderview_admin = ({ history }) => {
   );
 };
 
-export default Custorderview_admin;
+export default FemaleCustom_view_User;

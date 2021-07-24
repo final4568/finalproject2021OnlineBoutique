@@ -4,7 +4,7 @@ import axios from "axios";
 import UserHeader from "../layouts/UserHeader";
 import { Link } from "react-router-dom";
 
-const Custom_maleDress_Order = ({ history }) => {
+const Custom_maleDressOrder_User = ({ history }) => {
   const [userid, setUserID] = useState([]);
   const [orders, setOrder] = useState([]);
   const [error, setError] = useState([]);
@@ -159,7 +159,7 @@ const Custom_maleDress_Order = ({ history }) => {
   );
 };
 
-export default Custom_maleDress_Order;
+export default Custom_maleDressOrder_User;
 
 
 

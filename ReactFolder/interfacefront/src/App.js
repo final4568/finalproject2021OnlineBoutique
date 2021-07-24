@@ -80,7 +80,7 @@ import GetRMorderbyuser from "./Order/GetRMorderbyuser";
 import Addmeasurement from "./customeDress/Addmeasurement";
 import MaleOrderGet_admin from "./customeDress/MaleOrderGet_admin";
 import FemaleOrderGet_admin from "./customeDress/FemaleOrderGet_admin";
-import Custorderview_admin from "./customeDress/Custorderview_admin";
+import MaleCustorderview_admin from "./customeDress/MaleCustorderview_admin";
 import Getcustcorderbyuser from "./customeDress/Getcorderbyuser";
 import OrderViewByuser from"./customeDress/OrderViewByuser";
 import EditManModelbyUser from "./customeDress/EditMmondelbyUser";
@@ -88,11 +88,12 @@ import Measment_EditbyUser from "./customeDress/Measment_EditbyUser";
 import CustOrderbytailor from "./customeDress/CustOrderbytailor";
 import CusOrderViewByTailor from "./customeDress/CusOrderViewByTailor";
 
-import Custom_maleDress_Order from "./customeDress/Custom_maleDress_Order"
-import Custom_FemaleDress_Order from "./customeDress/Custom_FemaleDress_Order"
+import Custom_maleDressOrder_User from "./customeDress/Custom_maleDressOrder_User"
+import Custom_FemaleDressOrder_User from "./customeDress/Custom_FemaleDressOrder_User"
 
 import FemaleModel from "./customeDress/FemaleModel"
-
+import FemleCustorderview_admin from "./customeDress/FemleCustorderview_admin";
+import FemaleCustom_view_User from "./customeDress/FemaleCustom_view_User";
 function App() {
   return (
     <>
@@ -211,7 +212,7 @@ function App() {
           <Route exact path="/addmeasurement/:id" component={Addmeasurement}/>
           <Route exact path="/customdress/orders" component={MaleOrderGet_admin}/>
           <Route exact path="/Femalecustomdress/orders" component={FemaleOrderGet_admin}/>
-          <Route exact path="/customdress/view/:id" component={Custorderview_admin}/>
+          <Route exact path="/customdress/view/:id" component={MaleCustorderview_admin}/>
           <Route exact path="/customdress/allorderbyuser" component={Getcustcorderbyuser}/>
           <Route exact path="/customized/orderbyuser/:id" component={OrderViewByuser}/>
           <Route exact path="/customized/editManModelbyUser/:id" component={EditManModelbyUser}/>
@@ -219,12 +220,14 @@ function App() {
           <Route exact path="/custom/tailororderbygender" component={CustOrderbytailor}/>
           <Route exact path="/custom/Viewordertailor/:id" component={CusOrderViewByTailor}/>
          
-          <Route exact path="/custom/CustommaleDressOrder" component={Custom_maleDress_Order}/>
-          <Route exact path="/custom/CustomFemaleDressOrder" component={Custom_FemaleDress_Order}/>
+          <Route exact path="/custom/CustommaleDressOrder" component={Custom_maleDressOrder_User}/>
+          <Route exact path="/custom/CustomFemaleDressOrder" component={Custom_FemaleDressOrder_User}/>
           
 
           <Route exact path="/custom/Femalemodel" component={FemaleModel}/>
-
+          <Route exact path="/custom/FemleCustorderviewadmin/:id" component={FemleCustorderview_admin}/>
+          <Route exact path="/custom/FemaleCustomviewUser/:id" component={FemaleCustom_view_User}/>
+          
           
         </Switch>
           <Switch>

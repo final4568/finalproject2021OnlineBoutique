@@ -2,7 +2,7 @@ import Menu from "../layouts/Menu";
 import Footer from "../layouts/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {Button } from "reactstrap";
+import { Button } from "reactstrap";
 import "../index.css";
 
 const FemaleModel = ({ history }) => {
@@ -24,17 +24,11 @@ const FemaleModel = ({ history }) => {
   const [bodycolor, setBodycolor] = useState("313828");
   const [bodyid, setBodyid] = useState("body1");
 
-  
-
   const [arm, setArm] = useState(
-   "M181.2,185.1c0,0-9.3,8.1-20.1,4.5l-17.9-82.7l-66.7-0.7l-19.2,5.1l-1.3,9.4l-15.9,68.8c0,0-7,3.8-20-4.6l-0.1-8.4c0,0-0.4-5.5,1.3-11.4c0,0,19.5-117.4,28.4-124.1c0,0,77.2,0.5,77.9,0.5c5.7,0,11.4-0.3,17-0.5c1.7,0-3-4.9-1.4-5c1.7,0,9.3,6,10.2,7.6c1.5,2.6,2.3,5.8,3.1,8.6c0.9,2.9,1.8,5.7,2.6,8.6c0,0,0,0.1,0,0.1l7.9,32.6l13.4,75.3l0.2,6.9L181.2,185.1z"
+    "M181.2,185.1c0,0-9.3,8.1-20.1,4.5l-17.9-82.7l-66.7-0.7l-19.2,5.1l-1.3,9.4l-15.9,68.8c0,0-7,3.8-20-4.6l-0.1-8.4c0,0-0.4-5.5,1.3-11.4c0,0,19.5-117.4,28.4-124.1c0,0,77.2,0.5,77.9,0.5c5.7,0,11.4-0.3,17-0.5c1.7,0-3-4.9-1.4-5c1.7,0,9.3,6,10.2,7.6c1.5,2.6,2.3,5.8,3.1,8.6c0.9,2.9,1.8,5.7,2.6,8.6c0,0,0,0.1,0,0.1l7.9,32.6l13.4,75.3l0.2,6.9L181.2,185.1z"
   );
   const [armcolor, setArmcolor] = useState("white");
   const [armid, setArmId] = useState("Arm");
-
-  
-
-  
 
   const manageColler = (e) => {
     setCollerid(e.target.getAttribute("id"));
@@ -61,9 +55,6 @@ const FemaleModel = ({ history }) => {
     setBodycolor(color);
   };
 
-  
-
- 
   const manageArm = (e) => {
     setArmId(e.target.getAttribute("id"));
     setArmcolor(e.target.getAttribute("fill"));
@@ -76,11 +67,6 @@ const FemaleModel = ({ history }) => {
     setArmcolor(color);
   };
 
-  
-
-  
-
-  
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     if (!token) history.push("/user/login");
@@ -110,8 +96,6 @@ const FemaleModel = ({ history }) => {
           arm,
           armcolor,
           armid,
-       
-          
         },
         config
       );
@@ -199,13 +183,6 @@ const FemaleModel = ({ history }) => {
                     //body
                   />
 
-                  
-
-                  
-
-                  
-              
-
                   <polygon
                     id={collerid}
                     class="st2"
@@ -219,7 +196,6 @@ const FemaleModel = ({ history }) => {
                     // ban
                   />
                 </g>
-               
               </svg>
             </div>
           </div>
@@ -236,7 +212,7 @@ const FemaleModel = ({ history }) => {
                 height: "600px",
                 marginBottom: "100px",
               }}
-              >
+            >
               <h3>
                 {" "}
                 <strong> Style Your Dresses</strong>
@@ -643,25 +619,23 @@ const FemaleModel = ({ history }) => {
                   </button>
                 </div>
               </div>
-              
             </div>
-
-              
-
-             
           </div>
         </div>
       </div>
 
-      <div className="container" >
-      <Button variant="outlined" color="success" style={{
-        float:"left"
-      }} onClick= {savemodel}>
+      <div className="container">
+        <Button
+          variant="outlined"
+          color="success"
+          style={{
+            float: "left",
+          }}
+          onClick={savemodel}
+        >
           Order Now
-    </Button>
+        </Button>
       </div>
-
-
 
       <Footer />
     </>

@@ -92,7 +92,7 @@ const FemaleOrderGet_admin = ({history}) => {
                   <td>
                     
                   
-                    <Link to={`/customdress/view/${order._id}`}>
+                    <Link to={`/custom/FemleCustorderviewadmin/${order._id}`}>
                       <Button id="btn_table" color="primary" size="sm">
                         View
                       </Button>

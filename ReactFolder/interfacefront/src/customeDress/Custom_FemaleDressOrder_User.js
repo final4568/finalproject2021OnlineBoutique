@@ -4,7 +4,7 @@ import axios from "axios";
 import UserHeader from "../layouts/UserHeader";
 import { Link } from "react-router-dom";
 
-const Custom_FemaleDress_Order = ({ history }) => {
+const Custom_FemaleDressOrder_User = ({ history }) => {
   const [userid, setUserID] = useState([]);
   const [orders, setOrder] = useState([]);
   const [error, setError] = useState([]);
@@ -129,7 +129,7 @@ const Custom_FemaleDress_Order = ({ history }) => {
                 <td>{order.orderprogress}</td>
                 <td>{order.tailortype}</td>
                 <td>    
-                 <Link to={`/customized/orderbyuser/${order._id}`}>
+                 <Link to={`/custom/FemaleCustomviewUser/${order._id}`}>
                       <Button id="btn_table" color="primary" size="sm">
                         View
                       </Button>
@@ -159,4 +159,4 @@ const Custom_FemaleDress_Order = ({ history }) => {
   );
 };
 
-export default Custom_FemaleDress_Order;
+export default Custom_FemaleDressOrder_User;
