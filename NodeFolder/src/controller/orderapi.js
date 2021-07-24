@@ -146,6 +146,29 @@ exports.customorderbyuser = async(req, res)=>{
 };
 
 
+exports.customorderbyuserPN = async(req, res)=>{
+  try{
+    const userid = req.body.userid;
+    const producttype = req.body.producttype;
+    const productname = req.body.productname;
+    await Order.find({userid:userid, producttype:producttype, productname:productname},(err, detail)=>{
+      if(err){
+          res.status(500).json({
+          success:false,
+        });
+      }else{
+        // console.log(detail)
+        res.status(200).json(detail);
+      }
+    })
+  }catch{
+    res.status(400).json({
+      success: false,
+      message: "Order Data Not Found"
+  });
+  }
+};
+
 
 exports.orderbytailor = async (req, res)=>{
   const tailortype = req.body.tailortype;
@@ -197,3 +220,29 @@ exports.getorderbyproducttype = async (req, res)=>{
   }
 };
 
+
+exports.getorderbyproducttypePN = async (req, res)=>{
+  const producttype = req.body.producttype;
+  const productname = req.body.productname;
+
+  try{
+    await Order.find({producttype:producttype, productname:productname}, (err, details)=>{
+      if(err){
+        res.status(500).json({
+          success:false,
+          message:"The orders Not availables"
+        })
+      }else{
+        // console.log(details)
+        res.status(200).json(details)
+      }
+    });
+
+  }catch{
+    res.status(500).json({
+      success:false,
+      message:"The orders Not availables"
+    })
+
+  }
+};

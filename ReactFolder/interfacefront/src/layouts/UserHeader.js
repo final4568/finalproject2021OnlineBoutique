@@ -48,12 +48,12 @@ const UserHeader = () => {
                       />
                       <ul>
                         <li>
-                          <NavLink exact to="/users/GetRMorderbyuser">
+                          <NavLink exact to="/custom/CustommaleDressOrder">
                             Male Dress
                           </NavLink>
                         </li>
                         <li>
-                          <NavLink exact to="/customdress/allorderbyuser">
+                          <NavLink exact to="/custom/CustomFemaleDressOrder">
                             Female Dress
                           </NavLink>
                         </li>

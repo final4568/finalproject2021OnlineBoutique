@@ -9,10 +9,10 @@ import {Link } from "react-router-dom"
 
 
 
-const Orderget = ({history}) => {
+const MaleOrderGet_admin = ({history}) => {
     const [orders, setOrders] = useState([]);
     const [refresh, setRefresh] =useState(false);
-
+    const productname="Man_Custom_Dress";
 
     useEffect(() => {   
       if (refresh) return setRefresh(false);
@@ -30,7 +30,7 @@ const Orderget = ({history}) => {
           },
       };
       try{
-        const { data } = await axios.post('/api/oders/orderbytype',{producttype}, configg);
+        const { data } = await axios.post('/api/oders/customorderPTPN',{producttype, productname}, configg);
         setOrders(data);
       }catch(error){
         console.log("not Fetch Data")      
@@ -56,7 +56,7 @@ const Orderget = ({history}) => {
         </div>
         <div className="col-10" id="right_dasBoard_col" style={{ float: "right", paddingRight:"20px"}}>
        
-          <h1 style={{marginTop:"-10px"}}>All Customized Dress Orders</h1>
+          <h1 style={{marginTop:"-10px"}}>Male Customized Dress Orders</h1>
           <p>
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
@@ -137,4 +137,4 @@ const Orderget = ({history}) => {
      );
 }
  
-export default Orderget;
+export default MaleOrderGet_admin;

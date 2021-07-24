@@ -4,13 +4,13 @@ import axios from "axios";
 import UserHeader from "../layouts/UserHeader";
 import { Link } from "react-router-dom";
 
-const Custom_maleDress_Order = ({ history }) => {
+const Custom_FemaleDress_Order = ({ history }) => {
   const [userid, setUserID] = useState([]);
   const [orders, setOrder] = useState([]);
   const [error, setError] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const producttype = "Customdress";
-  const productname ="Man_Custom_Dress"
+  const productname ="Female_Custom_Dress"
 
   useEffect(() => {
     if (refresh) return setRefresh(false);
@@ -75,7 +75,7 @@ const Custom_maleDress_Order = ({ history }) => {
           id="right_dasBoard_col"
           style={{ padding: "30px" }}
         >
-          <h1>Your Only Male Customized Dress Orders</h1>
+          <h1>Your Only Female Customized Dress Orders</h1>
           <p>
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
@@ -159,7 +159,4 @@ const Custom_maleDress_Order = ({ history }) => {
   );
 };
 
-export default Custom_maleDress_Order;
-
-
-
+export default Custom_FemaleDress_Order;

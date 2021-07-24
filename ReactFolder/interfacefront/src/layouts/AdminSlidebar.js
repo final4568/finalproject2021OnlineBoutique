@@ -13,7 +13,8 @@ const AdminSideBar = () => {
         <NavLink  to ="/tailorMain">Tailor</NavLink>
         <NavLink  to ="/product/allProducttable"> All Products</NavLink>
         <NavLink  to ="/allorders">Ready Dress Orders</NavLink>
-        <NavLink  to ="/customdress/orders">Custom Dress Orders</NavLink>
+        <NavLink  to ="/customdress/orders">Male Custom Dress</NavLink>
+        <NavLink  to ="/Femalecustomdress/orders">Female Custom Dress</NavLink>
         <NavLink  to ="/Overview"> Overview</NavLink>
         <NavLink  to ="/admin/profile"> AdminProfile</NavLink>
       </div>

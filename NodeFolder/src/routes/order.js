@@ -12,7 +12,9 @@ const {
     orderbyUserid,
     orderbytailor,
     getorderbyproducttype,
-    customorderbyuser
+    customorderbyuser,
+    customorderbyuserPN,
+    getorderbyproducttypePN
 } = require("../controller/orderapi");
 
 router.route("/orderadd").post(orderadd);
@@ -24,6 +26,9 @@ router.route("/orderbyUserid").post(orderbyUserid);
 router.route("/orderbytailor").post(orderbytailor);
 router.route("/orderbytype").post(getorderbyproducttype);
 router.route("/customorderbyuser").post(customorderbyuser);
+router.route("/customorderbyuserPN").post(customorderbyuserPN);
+router.route("/customorderPTPN").post(getorderbyproducttypePN);
+
 
 
 module.exports = router;

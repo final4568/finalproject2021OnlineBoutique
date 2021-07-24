@@ -78,14 +78,18 @@ import Tailordetails_User from "./Tailor_view/Tailordetails_User";
 import GetRMorderbyuser from "./Order/GetRMorderbyuser";
 
 import Addmeasurement from "./customeDress/Addmeasurement";
-import Orderget from "./customeDress/OrderGet";
-import Custorderview from "./customeDress/Custorderview";
+import MaleOrderGet_admin from "./customeDress/MaleOrderGet_admin";
+import FemaleOrderGet_admin from "./customeDress/FemaleOrderGet_admin";
+import Custorderview_admin from "./customeDress/Custorderview_admin";
 import Getcustcorderbyuser from "./customeDress/Getcorderbyuser";
 import OrderViewByuser from"./customeDress/OrderViewByuser";
 import EditManModelbyUser from "./customeDress/EditMmondelbyUser";
 import Measment_EditbyUser from "./customeDress/Measment_EditbyUser";
 import CustOrderbytailor from "./customeDress/CustOrderbytailor";
 import CusOrderViewByTailor from "./customeDress/CusOrderViewByTailor";
+
+import Custom_maleDress_Order from "./customeDress/Custom_maleDress_Order"
+import Custom_FemaleDress_Order from "./customeDress/Custom_FemaleDress_Order"
 
 import FemaleModel from "./customeDress/FemaleModel"
 
@@ -205,8 +209,9 @@ function App() {
 
         <Switch>
           <Route exact path="/addmeasurement/:id" component={Addmeasurement}/>
-          <Route exact path="/customdress/orders" component={Orderget}/>
-          <Route exact path="/customdress/view/:id" component={Custorderview}/>
+          <Route exact path="/customdress/orders" component={MaleOrderGet_admin}/>
+          <Route exact path="/Femalecustomdress/orders" component={FemaleOrderGet_admin}/>
+          <Route exact path="/customdress/view/:id" component={Custorderview_admin}/>
           <Route exact path="/customdress/allorderbyuser" component={Getcustcorderbyuser}/>
           <Route exact path="/customized/orderbyuser/:id" component={OrderViewByuser}/>
           <Route exact path="/customized/editManModelbyUser/:id" component={EditManModelbyUser}/>
@@ -214,7 +219,10 @@ function App() {
           <Route exact path="/custom/tailororderbygender" component={CustOrderbytailor}/>
           <Route exact path="/custom/Viewordertailor/:id" component={CusOrderViewByTailor}/>
          
-         
+          <Route exact path="/custom/CustommaleDressOrder" component={Custom_maleDress_Order}/>
+          <Route exact path="/custom/CustomFemaleDressOrder" component={Custom_FemaleDress_Order}/>
+          
+
           <Route exact path="/custom/Femalemodel" component={FemaleModel}/>
 
           

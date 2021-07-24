@@ -7,7 +7,7 @@ import { useRouteMatch } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
 
-const Custorderview = ({ history }) => {
+const Custorderview_admin = ({ history }) => {
   const match = useRouteMatch();
   const [orderdetails, setOrderdetails] = useState({});
 
@@ -496,4 +496,4 @@ const Custorderview = ({ history }) => {
   );
 };
 
-export default Custorderview;
+export default Custorderview_admin;
