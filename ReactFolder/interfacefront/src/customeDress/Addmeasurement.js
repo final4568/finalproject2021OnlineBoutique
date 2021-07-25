@@ -66,7 +66,7 @@ const Addmeasurement = ({history, match}) => {
     const[useraddress, setUseraddress]=useState("");
     const[tailortype, setTailortype]=useState("");
     const productcategory ="ManCutsomModel";
-    const orderprogress = "Pending";
+    const orderprogress = "New Order";
     const[orderstatus, setOrderstatus] =useState("New Order");
 
 

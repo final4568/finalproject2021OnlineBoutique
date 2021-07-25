@@ -53,7 +53,7 @@ const UserOrders = () => {
     LoggedUserdata();
     getordersbyuser();
     
-   },[refresh]);
+   },[refresh, userid]);
 
     // const deleteorder =(id)=>{
     // axios.delete(`/api/oders/deleteorder/${id}`);

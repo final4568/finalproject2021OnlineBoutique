@@ -57,7 +57,7 @@ const OrderByTailors = () => {
     LoggedUserdata();
     getordersbyuser();
     
-   },[refresh]);
+   },[refresh, tailortype]);
 
     const deleteorder =(id)=>{
     axios.delete(`/api/oders/deleteorder/${id}`);

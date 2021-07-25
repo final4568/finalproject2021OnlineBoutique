@@ -1,9 +1,7 @@
 const nodemailer = require("nodemailer");
 
 const sendEmail = (options) => {
-  // smtpTransport = nodemailer.createTransport("SMTP",{
-  //     service: "Gmail",
-
+ 
   const transporter = nodemailer.createTransport({
     service: "SendGrid",
     auth: {

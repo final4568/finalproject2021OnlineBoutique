@@ -55,7 +55,7 @@ const Getcustcorderbyuser = ({ history }) => {
     getordersbyuser();
 
     LoggedUserdata();
-  }, [refresh, history]);
+  }, [userid, refresh,history]);
 
   
   const refresher = () => {

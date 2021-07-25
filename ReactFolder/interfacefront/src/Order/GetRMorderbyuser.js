@@ -55,7 +55,7 @@ const GetRMorderbyuser = ({ history }) => {
     getordersbyuser();
 
     LoggedUserdata();
-  }, [refresh, history]);
+  }, [userid, refresh, history]);
 
   const deleteorder = (id) => {
     axios.delete(`/api/oders/deleteorder/${id}`);

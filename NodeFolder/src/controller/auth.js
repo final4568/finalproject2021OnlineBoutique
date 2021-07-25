@@ -98,7 +98,6 @@ exports.forgotpassword = async (req, res, next) => {
       admin.getResetPasswordToken = undefined;
       admin.getResetPasswordExpire = undefined;
       await admin.save();
-      //  return next(new ErrorResponse("Oh Email could not be sent", 500));
       res.status(500).json({
         success: false,
         error: "Email could not be sent",

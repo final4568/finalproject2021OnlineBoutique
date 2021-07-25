@@ -35,7 +35,7 @@ const AddOrder = ({history, match}) => {
     const[useraddress, setUseraddress]=useState("");
     const[tailortype, setTailortype]=useState("");
     const producttype ="ReadMade";
-    const orderprogress ="pending"
+    const orderprogress ="New Order"
     const[productcategory, setproductcat] =useState("");
   
 

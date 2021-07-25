@@ -96,6 +96,8 @@ import FemleCustorderview_admin from "./customeDress/FemleCustorderview_admin";
 import FemaleCustom_view_User from "./customeDress/FemaleCustom_view_User";
 import EditFMmodel_User from "./customeDress/EditFMmodel_User";
 
+import Messenger from "./Message/Messenger"
+
 
 function App() {
   return (
@@ -231,13 +233,16 @@ function App() {
           <Route exact path="/custom/FemleCustorderviewadmin/:id" component={FemleCustorderview_admin}/>
           <Route exact path="/custom/FemaleCustomviewUser/:id" component={FemaleCustom_view_User}/>
           <Route exact path="/custom/EditFMmodel_User/:id" component={EditFMmodel_User}/>
-          
-          
         </Switch>
+
+
           <Switch>
             <Route exact path="/Customer">
+
               <Customer />
             </Route>
+            <Route exact path="/message/messager" component={Messenger}/>
+
           </Switch>
 
           

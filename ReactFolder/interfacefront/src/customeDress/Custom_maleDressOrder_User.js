@@ -56,7 +56,7 @@ const Custom_maleDressOrder_User = ({ history }) => {
     getordersbyuser();
 
     LoggedUserdata();
-  }, [refresh, history]);
+  }, [refresh, userid]);
 
   const deleteorder =(id)=>{
     axios.delete(`/api/oders/deleteorder/${id}`);

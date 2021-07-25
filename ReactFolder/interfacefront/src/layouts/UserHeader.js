@@ -23,7 +23,11 @@ const UserHeader = () => {
                         Home
                       </NavLink>
                     </li>
-                  
+                    <li>
+                      <NavLink exact to="/message/messager">
+                        Messanger
+                      </NavLink>
+                    </li>
                     <li>
                       <NavLink exact to="/user/dashboard">
                         Dashboard

@@ -23,9 +23,9 @@ exports.orderadd = async (req, res)=>{
         pocketcolor, arm, armcolor, armid,phati,phatiid, phaticolor,buttoncolor, leftcoff, 
         leftcoffid, leftcoffcolor, 
         righttcoff, righttcoffid, righttcoffcolor
-        //orderstatus, tailodate
       }).then((response)=>{
           res.status(200).send(response)
+          
       })
     } catch (error) {
       res.status(500).json({
@@ -233,7 +233,6 @@ exports.getorderbyproducttypePN = async (req, res)=>{
           message:"The orders Not availables"
         })
       }else{
-        // console.log(details)
         res.status(200).json(details)
       }
     });

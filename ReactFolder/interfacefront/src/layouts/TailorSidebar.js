@@ -14,6 +14,8 @@ const TailorSideBar = () => {
         <NavLink  to ="/tailororderbygender">ReadMade Order</NavLink>
         <NavLink  to ="/custom/tailororderbygender">Custom Order</NavLink>
         <NavLink  to ="/LoggedTailor/Profile">Profile</NavLink>
+        <NavLink  to ="/message/messager">Messenger</NavLink>
+   
       </div>
     </>
   );
