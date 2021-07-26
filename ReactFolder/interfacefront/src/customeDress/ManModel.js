@@ -5,7 +5,7 @@ import axios from "axios";
 import {Button } from "reactstrap";
 import "../index.css";
 
-const ManModel = ({ history }) => {
+const ManModel = ({ history, match }) => {
   const productname = "Man_Custom_Dress";
   const producttype = "Customdress";
 
@@ -147,10 +147,40 @@ const ManModel = ({ history }) => {
     setRightcoffcolor(color);
   };
 
+  const[userid, setUserID] =useState("");
+  const[username, setUsername] = useState("");
+  const[usergmail, setUsermail] =useState("");
+  const [userprofile, setProfile] = useState({});
+
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     if (!token) history.push("/user/login");
-  }, [history]);
+    const fetchPrivateDate = async () => {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      try {
+        const { data } = await axios.get(
+          "/api/users/LoggedUserProfile",
+          config
+        );
+        setProfile(data); // data holding all the users information and data
+        setUserID(data._id);
+        setUsername(data.username);
+        setUsermail(data.email);
+
+      } catch (error) {
+        console.log("You are not authorized, please login first");
+      }
+    };
+
+
+    fetchPrivateDate();
+
+  }, [history, match]);
 
   const savemodel = async (e) => {
     e.preventDefault();
@@ -193,6 +223,7 @@ const ManModel = ({ history }) => {
           righttcoff,
           righttcoffid,
           righttcoffcolor,
+          userid, username,  usergmail,
         },
         config
       );

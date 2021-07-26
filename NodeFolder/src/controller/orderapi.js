@@ -1,5 +1,7 @@
 
 const Order = require("../models/Order");
+const sendEmail = require("../utils/sendemail");
+
 
 exports.orderadd = async (req, res)=>{
     const { productname, productid, userid, username, productimage, name,
@@ -24,8 +26,25 @@ exports.orderadd = async (req, res)=>{
         leftcoffid, leftcoffcolor, 
         righttcoff, righttcoffid, righttcoffcolor
       }).then((response)=>{
-          res.status(200).send(response)
-          
+        res.status(200).send(response)
+    const resetUrl = `http://localhost:3000/tailor/dashboard`;
+    const message = `
+            <h1>Hi, You have recived New Order</h1>
+            <p> Please Check Your Dashboard</p>
+            <a href="${resetUrl}" clicktracking = off> ${resetUrl} </a>
+            `;
+        const email="usama.razzaq.gmc@gmail.com";
+        
+
+      sendEmail({
+        to:email,
+        subject: "Recived New Order",
+        text: message,
+      });
+      res.status(200).json({
+        success: true,
+        data: "Email send successfully...! Check Your Email",
+      });
       })
     } catch (error) {
       res.status(500).json({
@@ -43,7 +62,7 @@ exports.seeorder = async(req, res)=>{
         }else{
             res.json(docs)
         }
-    })
+    }).sort({ _id: -1 })
 };
 
 
@@ -55,11 +74,11 @@ exports.getsingleoder = async (req, res)=>{
       if(err){
           res.status(500).json({
           success:false,
-        });
+        })
       }else{
         res.status(200).json(detail);
       }
-    })
+    }).sort({ _id: -1 });
   }catch{
     res.status(400).json({
       success: false,
@@ -108,12 +127,12 @@ exports.orderbyUserid = async(req, res)=>{
       if(err){
           res.status(500).json({
           success:false,
-        });
+        })
       }else{
         // console.log(detail)
         res.status(200).json(detail);
       }
-    })
+    }).sort({ _id: -1 });
   }catch{
     res.status(400).json({
       success: false,
@@ -136,7 +155,7 @@ exports.customorderbyuser = async(req, res)=>{
         // console.log(detail)
         res.status(200).json(detail);
       }
-    })
+    }).sort({ _id: -1 })
   }catch{
     res.status(400).json({
       success: false,
@@ -160,7 +179,7 @@ exports.customorderbyuserPN = async(req, res)=>{
         // console.log(detail)
         res.status(200).json(detail);
       }
-    })
+    }).sort({ _id: -1 })
   }catch{
     res.status(400).json({
       success: false,
@@ -185,7 +204,7 @@ exports.orderbytailor = async (req, res)=>{
         // console.log(detail)
         res.status(200).json(detail);
       }
-    })
+    }).sort({ _id: -1 })
   }catch{
     res.status(400).json({
       success: false,
@@ -209,7 +228,7 @@ exports.getorderbyproducttype = async (req, res)=>{
         // console.log(details)
         res.status(200).json(details)
       }
-    });
+    }).sort({ _id: -1 });
 
   }catch{
     res.status(500).json({
@@ -235,7 +254,7 @@ exports.getorderbyproducttypePN = async (req, res)=>{
       }else{
         res.status(200).json(details)
       }
-    });
+    }).sort({ _id: -1 });
 
   }catch{
     res.status(500).json({

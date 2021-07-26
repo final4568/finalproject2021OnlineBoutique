@@ -40,10 +40,7 @@ import {Button} from 'reactstrap'
 
 
 const Addmeasurement = ({history, match}) => {
-    const[userid, setUserID] =useState("");
-    const[username, setUsername] = useState("");
-    const[name, setName] = useState("");
-    const[usergmail, setUsermail] =useState("");
+  const[name, setName] = useState("");
     const[gmail, setGmail] =useState("");
     const[phone, setPhone]= useState("");
     const[quantity, setQunty]=useState("");
@@ -66,43 +63,16 @@ const Addmeasurement = ({history, match}) => {
     const[useraddress, setUseraddress]=useState("");
     const[tailortype, setTailortype]=useState("");
     const productcategory ="ManCutsomModel";
-    const orderprogress = "New Order";
-    const[orderstatus, setOrderstatus] =useState("New Order");
+    const[orderstatus, setOrderstatus] =useState({});
+    const[orderprogress, setOrderprogress] =useState("New_Order")
 
 
-    const [userprofile, setProfile] = useState({});
    
 
  
 
     useEffect(() => {      
-     
-        const token = localStorage.getItem("authToken");
-        if (!token) history.push("/user/login");
-        const fetchPrivateDate = async () => {
-            const config = {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-              },
-            };
-            try {
-              const { data } = await axios.get(
-                "/api/users/LoggedUserProfile",
-                config
-              );
-              setProfile(data); // data holding all the users information and data
-              setUserID(data._id);
-              setUsername(data.username);
-              setUsermail(data.email);
-
-            } catch (error) {
-              console.log("You are not authorized, please login first");
-            }
-          };
-
-        fetchPrivateDate();
-
+   
       }, [history, match]);
 
 
@@ -116,11 +86,10 @@ const Addmeasurement = ({history, match}) => {
         };
         
         const body = {
-          userid, username,name,
-          usergmail, gmail, phone, quantity, chest, shirtlength, sleevlength,
+          name,gmail, phone, quantity, chest, shirtlength, sleevlength,
           sholder, overarm, waistcoatlength, wrist, neck, pntlength, pnwaist,
           hip, thigh, knee, legopening, suitsize, clientdate, useraddress, tailortype,
-          productcategory,orderstatus: "SUBMITTED", orderprogress
+          productcategory,orderprogress, orderstatus: "SUBMITTED"
           
       }
       await fetch(`/api/oders/orderUpdate/${match.params.id}`, {

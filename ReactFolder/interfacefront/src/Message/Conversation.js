@@ -1,6 +1,6 @@
 
 import "../index.css";
-const Conversation = () => {
+const Conversation = ({Conversation}) => {
     return ( 
         <>
             <div className="conversation">

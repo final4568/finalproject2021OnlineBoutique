@@ -1,21 +1,42 @@
 import axios from "axios";
 import "../index.css";
 import { useState, useEffect } from "react";
+import { Button } from "reactstrap";
 
 const Order = ({history}) => {
+  
   const [orders, setOrders] = useState([]);
+  const [refresh, setRefresh] = useState(false);
+
   
   useEffect(() => {    
+    if (refresh) return setRefresh(false);
+
       const loadorders = async () => {
         const result = await axios.get("/api/oders/seeorder");
         setOrders(result.data);
       };
   
       loadorders();
-    }, [history]);  
+    }, [history, refresh]);
+    
+    const refresher = () => {
+      setRefresh(true);
+    };
+  
   return ( 
         <>
-        <div className="container" style={{marginTop:"30px", marginBottom:"50px"}}>
+        <Button
+                  color="danger"
+                  onClick={() => {
+                    refresher();
+                  }}
+                  style={{ fontWeight: "bold" }}
+                >
+                  Refresh
+                </Button>
+
+        <div className="container" style={{marginTop:"70px", marginBottom:"50px"}}>
         <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">
