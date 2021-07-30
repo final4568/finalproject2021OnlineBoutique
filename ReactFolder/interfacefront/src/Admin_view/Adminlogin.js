@@ -27,8 +27,9 @@ const Adminlogin = ({history}) => {
         try {
           const { data }  = await axios.post("/api/admin/login",{ email, password }, config);
           console.log(data.admin);
-          localStorage.setItem("authToken", data.token);                   
+          localStorage.setItem("authToken", data.token); 
           history.push('/admin/dashboard'); 
+
 
         } catch (error) {
           setError(error.response.data.error);
@@ -37,8 +38,7 @@ const Adminlogin = ({history}) => {
           }, 5000);
         }
       };
-    
-    
+   
     return ( 
         <>
         <Menu/>
@@ -81,6 +81,7 @@ const Adminlogin = ({history}) => {
         </div>
         </div>
         <Footer/>
+
         </>
      );
 }

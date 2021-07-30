@@ -96,8 +96,10 @@ import FemleCustorderview_admin from "./customeDress/FemleCustorderview_admin";
 import FemaleCustom_view_User from "./customeDress/FemaleCustom_view_User";
 import EditFMmodel_User from "./customeDress/EditFMmodel_User";
 
-import Messenger from "./Message/Messenger"
+import Messenger from "./Message/Messenger";
 
+import Join from "./ChatComponents/join/Join";
+import Chat from "./ChatComponents/chat/Chat";
 
 function App() {
   return (
@@ -242,6 +244,9 @@ function App() {
               <Customer />
             </Route>
             <Route exact path="/message/messager" component={Messenger}/>
+            <Route exact path="/join" component={Join}/>
+            <Route exact path="/chat" component={Chat}/>
+
 
           </Switch>
 
