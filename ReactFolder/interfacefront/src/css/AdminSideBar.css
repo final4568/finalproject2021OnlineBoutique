@@ -1,60 +1,56 @@
-
-    
 .sidebar {
-       margin-top: -86px;
-    padding: 0;
-    width: 200px;
-    background-color: #2e2e2e;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
-    padding-top: 85px;
-    z-index: -1;
+  margin-top: -86px;
+  padding: 0;
+  width: 200px;
+  background-color: #2e2e2e;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  padding-top: 85px;
+  z-index: -1;
+}
 
-  }
-  
-  .sidebar a {
-    display: block;
-    color: #fff;
-    padding: 16px;
-    text-decoration: none;
-  }
-   
-  .sidebar a.active {
-    background-color: #1a1d1f;
-    color: white;
-  }
-  
-  .sidebar a:hover:not(.active) {
-    background-color: #555;
-    color: white;
-  }
-  
-  div.content {
-    margin-left: 200px;
-    padding: 1px 16px;
+.sidebar a {
+  display: block;
+  color: #fff;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #1a1d1f;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: auto;
+  padding-bottom: 30px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
     height: auto;
-    padding-bottom: 30px;
-    
+    position: relative;
   }
-  
-  @media screen and (max-width: 700px) {
-    .sidebar {
-      width: 100%;
-      height: auto;
-      position: relative;
-    }
-    .sidebar a {
-      float: left;
-    }
-    div.content {
-      margin-left: 0;
-    }
+  .sidebar a {
+    float: left;
   }
-  
-  @media screen and (max-width: 400px) {
-    .sidebar a {
-      text-align: center;
-      float: none;
-    }
+  div.content {
+    margin-left: 0;
   }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}

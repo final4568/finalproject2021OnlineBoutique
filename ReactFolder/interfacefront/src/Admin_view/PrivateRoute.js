@@ -6,7 +6,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
-      render = {(props) =>
+      render={(props) =>
         localStorage.getItem("authToken") ? (
           <Component {...props} />
         ) : (
@@ -17,5 +17,4 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   );
 };
 
- 
 export default PrivateRoute;

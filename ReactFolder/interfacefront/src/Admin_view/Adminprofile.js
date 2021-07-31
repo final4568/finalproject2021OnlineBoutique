@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { Button } from "reactstrap";
 
@@ -8,14 +8,12 @@ import AdminSideBar from "../layouts/AdminSlidebar";
 
 import "../index.css";
 
-
 const Adminprofile = ({ history }) => {
-  const [profile, setProfile] = useState({})
- 
+  const [profile, setProfile] = useState({});
+
   useEffect(() => {
-    const token = localStorage.getItem("authToken")
+    const token = localStorage.getItem("authToken");
     if (!token) history.push("/admin/login");
-    
 
     const fetchPrivateDate = async () => {
       const config = {
@@ -24,27 +22,20 @@ const Adminprofile = ({ history }) => {
           Authorization: `Bearer ${token}`,
         },
       };
-     
+
       try {
         const { data } = await axios.get("/api/admin/adminprofile", config);
-        setProfile(data); 
-
+        setProfile(data);
       } catch (error) {
         console.log("You are not authorized, please login first");
-
       }
-      
     };
 
     fetchPrivateDate();
   }, [history]);
 
- 
-
-
   return (
     <>
-     
       <AdminHeader />
       <div className="containter">
         <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
@@ -63,7 +54,7 @@ const Adminprofile = ({ history }) => {
             five centuries,
           </p>
           <Link to="/admin/dashboard">
-          <Button color="success">Go Back</Button>
+            <Button color="success">Go Back</Button>
           </Link>
           <table class="table border" style={{ marginTop: "60px" }}>
             <thead>
@@ -76,19 +67,31 @@ const Adminprofile = ({ history }) => {
             </thead>
             <tbody>
               <tr>
-                <td><strong>Email: </strong> {profile.email}</td>
-                <td><strong>Phone: </strong> {profile.phone} </td>
+                <td>
+                  <strong>Email: </strong> {profile.email}
+                </td>
+                <td>
+                  <strong>Phone: </strong> {profile.phone}{" "}
+                </td>
               </tr>
               <tr>
-                <td> <strong>Gender: </strong>{profile.gender} </td>
-                <td><strong>User-Type: </strong>{profile.usertype}</td>
+                <td>
+                  {" "}
+                  <strong>Gender: </strong>
+                  {profile.gender}{" "}
+                </td>
+                <td>
+                  <strong>User-Type: </strong>
+                  {profile.usertype}
+                </td>
               </tr>
             </tbody>
           </table>
 
           <div className="AP_address">
             <p>
-              <strong>Address:  </strong>{profile.address}
+              <strong>Address: </strong>
+              {profile.address}
             </p>
           </div>
           <div className="AP_address">
@@ -98,12 +101,22 @@ const Adminprofile = ({ history }) => {
           </div>
 
           <Link to={`/admin/update/${profile._id}`}>
-            <Button id="btn_table" color="warning" style={{marginTop:"30px", marginBottom:"60px", float:"right"}}>  Click To Edit Profile </Button>
+            <Button
+              id="btn_table"
+              color="warning"
+              style={{
+                marginTop: "30px",
+                marginBottom: "60px",
+                float: "right",
+              }}
+            >
+              {" "}
+              Click To Edit Profile{" "}
+            </Button>
           </Link>
         </div>
       </div>
     </>
-  
   );
 };
 

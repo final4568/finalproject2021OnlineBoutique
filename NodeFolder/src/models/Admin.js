@@ -18,44 +18,41 @@ const AdminSchema = new mongoose.Schema({
       "Please Enter Valid Email",
     ],
   },
-  
-  phone:{
+
+  phone: {
     type: Number,
     required: true,
-    minlength:10
+    minlength: 10,
   },
-  gender:{
-    type:String,
+  gender: {
+    type: String,
     required: true,
   },
-  date: { 
+  date: {
     type: Date,
-    default: Date.now },
+    default: Date.now,
+  },
   password: {
     type: String,
     require: [true, " Please Enter Your Password"],
     minlength: 2,
     select: false,
   },
-  address:{
-    type:String,
+  address: {
+    type: String,
     minlength: 2,
-
   },
-  usertype:{
-    type:String,
+  usertype: {
+    type: String,
   },
-  bio:{
-    type:String,
-    minlength:10,    
+  bio: {
+    type: String,
+    minlength: 10,
   },
-  
 
   resetPasswordToken: String,
   resetPasswordExpire: Date,
 });
-
-
 
 // Function for Password bcrypt after inserting into Database
 AdminSchema.pre("save", async function (next) {
@@ -71,7 +68,6 @@ AdminSchema.methods.matchPasswords = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
-
 // Password bcrypt and get token
 AdminSchema.methods.getResetPasswordToken = function () {
   const resetToken = crypto.randomBytes(20).toString("hex");
@@ -83,16 +79,12 @@ AdminSchema.methods.getResetPasswordToken = function () {
   return resetToken;
 };
 
-
 // function for getting token
 AdminSchema.methods.getSignedJwtToken = function () {
-    return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXPIRE,
-    });
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRE,
+  });
 };
-
-
-
 
 const Admin = mongoose.model("Admin", AdminSchema);
 module.exports = Admin;

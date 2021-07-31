@@ -1,10 +1,6 @@
-
 import "../index.css";
 import { Link, NavLink } from "react-router-dom";
 const MessengerHeader = () => {
-
-
- 
   return (
     <>
       <div className="header">
@@ -20,11 +16,10 @@ const MessengerHeader = () => {
                         Home
                       </NavLink>
                     </li>
-                    </ul>
+                  </ul>
                 </nav>
               </div>
             </div>
-            
           </div>
         </div>
       </div>

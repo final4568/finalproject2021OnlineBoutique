@@ -1,4 +1,3 @@
-
 const Tailor = require("../models/Tailor");
 const crypto = require("crypto");
 const sendEmail = require("../utils/sendemail");
@@ -6,80 +5,73 @@ const sendEmail = require("../utils/sendemail");
 
 const jwt = require("jsonwebtoken");
 
-
 exports.register = async (req, res, next) => {
-
-   const { username, email, phone, gender, password, address, usertype, bio} = req.body;
-   try {
-     const tailor = await Tailor.create({
-      username, 
-      email, 
-      phone, 
-      gender, 
-      password, 
+  const { username, email, phone, gender, password, address, usertype, bio } =
+    req.body;
+  try {
+    const tailor = await Tailor.create({
+      username,
+      email,
+      phone,
+      gender,
+      password,
       address,
-      usertype, 
-      bio
-     });
-       res.status(200).json({
-       success:true,
-       mssage:  " Registered Successfully....!"
-     })
+      usertype,
+      bio,
+    });
+    res.status(200).json({
+      success: true,
+      mssage: " Registered Successfully....!",
+    });
     //  sendToken(tailor, 201, res);
-   } catch (error) {
-       
-     next(error);
-   }
+  } catch (error) {
+    next(error);
+  }
 };
 
 exports.login = async (req, res, next) => {
-    const { email, password } = req.body;
+  const { email, password } = req.body;
 
-    if (!email || !password) {
-      res.status(400).json({
+  if (!email || !password) {
+    res.status(400).json({
+      success: false,
+      error: "Please Provides email and password",
+    });
+  }
+
+  try {
+    const tailor = await Tailor.findOne({ email }).select("+password");
+
+    if (!tailor) {
+      res.status(404).json({
         success: false,
-        error: "Please Provides email and password",
+        error: "This Email not registered...!",
       });
+
+      //return next(new ErrorResponse("Invalid Codrentails", 401));
     }
-
-    try {
-      const tailor = await Tailor.findOne({ email }).select("+password");
-
-      if (!tailor) {
-        res.status(404).json({
-          success: false,
-          error: "This Email not registered...!",
-        });
-
-        //return next(new ErrorResponse("Invalid Codrentails", 401));
-      }
     const isMatch = await tailor.matchPasswords(password);
 
-      if (!isMatch) {
-        res.status(404).json({
-          success: false,
-          error: "Passswor Not Match ",
-        });
-        //return next(new ErrorResponse("Invalid Codrentails", 401));
-      }
-      sendToken(tailor, 200, res);
-
-    } catch (error) {
-      next(error);
-     
+    if (!isMatch) {
+      res.status(404).json({
+        success: false,
+        error: "Passswor Not Match ",
+      });
+      //return next(new ErrorResponse("Invalid Codrentails", 401));
     }
-
+    sendToken(tailor, 200, res);
+  } catch (error) {
+    next(error);
+  }
 };
 
-
 exports.forgotpassword = async (req, res, next) => {
-    
-    const { email } = req.body;
+  const { email } = req.body;
   try {
     const tailor = await Tailor.findOne({ email });
     if (!tailor) {
       // return next(new ErrorResponse("Email could not be sent yes", 404));
-        res.status(404).json({
+      res.status(404).json({
         success: false,
         error: "Email could not be sent",
       });
@@ -104,8 +96,8 @@ exports.forgotpassword = async (req, res, next) => {
         data: "Email send successfully...! Check Your Email",
       });
     } catch (error) {
-        tailor.getResetPasswordToken = undefined;
-        tailor.getResetPasswordExpire = undefined;
+      tailor.getResetPasswordToken = undefined;
+      tailor.getResetPasswordExpire = undefined;
       await tailor.save();
       //  return next(new ErrorResponse("Oh Email could not be sent", 500));
       res.status(500).json({
@@ -115,16 +107,11 @@ exports.forgotpassword = async (req, res, next) => {
     }
   } catch (error) {
     next(error);
-    
   }
-    
 };
 
-
-
 exports.resetpassword = async (req, res, next) => {
-    
-    const resetPasswordToken = crypto
+  const resetPasswordToken = crypto
     .createHash("sha256")
     .update(req.params.resetToken)
     .digest("hex");
@@ -151,61 +138,55 @@ exports.resetpassword = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-   
 };
 
-
-exports.getalltailors = (req, res, next)=>{
- Tailor.find((err, docs)=>{
-  if (err) {
-    console.log(err);
-  } else {
-    res.json(docs);
-  }
- })
-};
-
-exports.deletetailor = async (req, res)=>{
-  try{
-    await Tailor.findByIdAndDelete(req.params.id);
-  res.status(200).json({
-    success: true,
-    message: "deteleted...!"
+exports.getalltailors = (req, res, next) => {
+  Tailor.find((err, docs) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(docs);
+    }
   });
-  }catch{
-    res.status(400).json({
-    success: false,
-    message: "Not deteleted...!"
-    });
-  }
-  
 };
 
-
-
-exports.tailorprofile = async(req, res) =>{
-  try{
-    const id = req.params.id
-    Tailor.findById(id, (err, tailor)=>{
-      res.json(tailor)
+exports.deletetailor = async (req, res) => {
+  try {
+    await Tailor.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+      success: true,
+      message: "deteleted...!",
     });
-  }catch{
+  } catch {
     res.status(400).json({
-    success: false,
-    message: "Person's Profile Not Available"
+      success: false,
+      message: "Not deteleted...!",
     });
   }
 };
 
-exports.update = async(req, res)=>{
+exports.tailorprofile = async (req, res) => {
+  try {
+    const id = req.params.id;
+    Tailor.findById(id, (err, tailor) => {
+      res.json(tailor);
+    });
+  } catch {
+    res.status(400).json({
+      success: false,
+      message: "Person's Profile Not Available",
+    });
+  }
+};
+
+exports.update = async (req, res) => {
   const id = req.params.id;
   await Tailor.findOneAndUpdate({ _id: id }, req.body, { new: true })
-  .then((tailor) => res.status(200).send(tailor))
-  .catch((err) => res.status(500).send(err.message)); 
-
+    .then((tailor) => res.status(200).send(tailor))
+    .catch((err) => res.status(500).send(err.message));
 };
 
-exports.tailorLoggedprofile = async (req, res)=>{
+exports.tailorLoggedprofile = async (req, res) => {
   try {
     let token;
     if (
@@ -232,19 +213,15 @@ exports.tailorLoggedprofile = async (req, res)=>{
     }
 
     res.status(200).json(tailor);
-    
   } catch {
     res.status(400).json({
       success: false,
       message: "Tailor's Profile Not Available",
     });
   }
-}
-
-
+};
 
 const sendToken = (tailor, statusCode, res) => {
-    const token = tailor.getSignedJwtToken();
-    res.status(statusCode).json({ success: true, token });
-  };
-  
+  const token = tailor.getSignedJwtToken();
+  res.status(statusCode).json({ success: true, token });
+};

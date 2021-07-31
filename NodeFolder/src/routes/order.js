@@ -1,21 +1,19 @@
-
-
 const express = require("express");
 const router = express.Router();
 
 const {
-    orderadd,
-    seeorder,
-    getsingleoder,
-    deleteorder,
-    orderUpdate,
-    orderbyUserid,
-    orderbytailor,
-    getorderbyproducttype,
-    customorderbyuser,
-    customorderbyuserPN,
-    getorderbyproducttypePN,
-    customorderbytailorMF
+  orderadd,
+  seeorder,
+  getsingleoder,
+  deleteorder,
+  orderUpdate,
+  orderbyUserid,
+  orderbytailor,
+  getorderbyproducttype,
+  customorderbyuser,
+  customorderbyuserPN,
+  getorderbyproducttypePN,
+  customorderbytailorMF,
 } = require("../controller/orderapi");
 
 router.route("/orderadd").post(orderadd);
@@ -31,7 +29,5 @@ router.route("/customorderbyuser").post(customorderbyuser);
 router.route("/customorderbyuserPN").post(customorderbyuserPN);
 router.route("/customorderPTPN").post(getorderbyproducttypePN);
 router.route("/customorderbytailorMF").post(customorderbytailorMF);
-
-
 
 module.exports = router;

@@ -1,13 +1,11 @@
-
 const User = require("../models/Users");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 const sendEmail = require("../utils/sendemail");
 
-
-
 exports.register = async (req, res, next) => {
-  const { username, email, phone, gender, password, address, birthday } = req.body;
+  const { username, email, phone, gender, password, address, birthday } =
+    req.body;
   try {
     const user = await User.create({
       username,
@@ -16,21 +14,21 @@ exports.register = async (req, res, next) => {
       gender,
       password,
       address,
-      birthday
+      birthday,
     });
-    sendToken(user, 201, res);  
-
+    sendToken(user, 201, res);
   } catch {
     res.status(500).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
 
-exports.registerbyauth = async(req, res)=>{
-  const{username, email, phone, gender, password, address, birthday}=req.body;
-  try{
+exports.registerbyauth = async (req, res) => {
+  const { username, email, phone, gender, password, address, birthday } =
+    req.body;
+  try {
     const user = await User.create({
       username,
       email,
@@ -38,23 +36,20 @@ exports.registerbyauth = async(req, res)=>{
       gender,
       password,
       address,
-      birthday
+      birthday,
     });
- 
-      res.status(200).json({
-        success:true,
-        message:"Registered User successfully..!"
-      })
-  
 
-  }catch(error){
+    res.status(200).json({
+      success: true,
+      message: "Registered User successfully..!",
+    });
+  } catch (error) {
     res.status(500).json({
-      success:false,
-      error: error.message
-    })
+      success: false,
+      error: error.message,
+    });
   }
 };
-
 
 exports.login = async (req, res, next) => {
   const { email, password } = req.body;
@@ -82,9 +77,7 @@ exports.login = async (req, res, next) => {
       });
     }
     sendToken(user, 201, res);
-
-   
-  } catch{
+  } catch {
     res.status(404).json({
       success: false,
       error: "Not Logged In",
@@ -92,12 +85,11 @@ exports.login = async (req, res, next) => {
   }
 };
 
-
 exports.forgotpassword = async (req, res, next) => {
   const { email } = req.body;
   try {
     const user = await User.findOne({ email });
-    
+
     if (!user) {
       res.status(404).json({
         success: false,
@@ -137,7 +129,6 @@ exports.forgotpassword = async (req, res, next) => {
   }
 };
 
-
 exports.resetpassword = async (req, res, next) => {
   const resetPasswordToken = crypto
     .createHash("sha256")
@@ -171,56 +162,53 @@ exports.resetpassword = async (req, res, next) => {
   next(error);
 };
 
-exports.getallusers = (req, res, next)=>{
-  User.find((err, docs)=>{
-   if (err) {
-     console.log(err);
-   } else {
-     res.json(docs);
-   }
-  })
- };
-
- exports.deleteUser = async (req, res)=>{
-  try{
-    await User.findByIdAndDelete(req.params.id);
-  res.status(200).json({
-    success: true,
-    message: "deteleted...!"
+exports.getallusers = (req, res, next) => {
+  User.find((err, docs) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(docs);
+    }
   });
-  }catch{
-    res.status(400).json({
-    success: false,
-    message: "Not deteleted...!"
-    });
-  }
-  
 };
 
-
-exports.Userprofile = async(req, res) =>{
-  try{
-    const id = req.params.id
-    User.findById(id, (err, user)=>{
-      res.json(user)
-    });   
-  }catch{
+exports.deleteUser = async (req, res) => {
+  try {
+    await User.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+      success: true,
+      message: "deteleted...!",
+    });
+  } catch {
     res.status(400).json({
-    success: false,
-    message: "Person's Profile Not Available"
+      success: false,
+      message: "Not deteleted...!",
     });
   }
 };
 
-exports.Userupdate = async(req, res)=>{
+exports.Userprofile = async (req, res) => {
+  try {
+    const id = req.params.id;
+    User.findById(id, (err, user) => {
+      res.json(user);
+    });
+  } catch {
+    res.status(400).json({
+      success: false,
+      message: "Person's Profile Not Available",
+    });
+  }
+};
+
+exports.Userupdate = async (req, res) => {
   const id = req.params.id;
   User.findOneAndUpdate({ _id: id }, req.body, { new: true })
-  .then((user) => res.status(200).send(user))
-  .catch((err) => res.status(500).send(err.message)); 
-
+    .then((user) => res.status(200).send(user))
+    .catch((err) => res.status(500).send(err.message));
 };
 
-exports.loggeduserprofile = async (req, res)=>{
+exports.loggeduserprofile = async (req, res) => {
   try {
     let token;
     if (

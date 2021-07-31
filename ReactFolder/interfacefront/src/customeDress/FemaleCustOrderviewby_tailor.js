@@ -12,20 +12,16 @@ const FemaleCustOrderviewby_tailor = ({ history }) => {
   const [orderdetails, setOrderdetails] = useState({});
 
   const [sb, setSB] = useState({});
-  const [bid, setBid] =useState({});
-  const [bolcolr, setBocolr] =useState({});
+  const [bid, setBid] = useState({});
+  const [bolcolr, setBocolr] = useState({});
 
   const [collr, setCollr] = useState({});
-  const [collrid, setCollrid] =useState({});
-  const [collrcolr, setCollrcolr] =useState({});
-  
+  const [collrid, setCollrid] = useState({});
+  const [collrcolr, setCollrcolr] = useState({});
+
   const [arms, setArms] = useState({});
   const [armsid, setArmsid] = useState({});
   const [armscolr, setArmscolr] = useState({});
-
-
-  
-
 
   const getorderdetail = (id) =>
     fetch(`/api/oders/orderdetail/${id}`).then((res) => res.json());
@@ -34,7 +30,7 @@ const FemaleCustOrderviewby_tailor = ({ history }) => {
     const fetchdetail = async () => {
       const orderdetails = await getorderdetail(match.params.id);
       setOrderdetails(orderdetails);
-      
+
       setSB(orderdetails.shirtbody);
       setBid(orderdetails.bodyid);
       setBocolr(orderdetails.bodycolor);
@@ -46,8 +42,6 @@ const FemaleCustOrderviewby_tailor = ({ history }) => {
       setArms(orderdetails.arm);
       setArmsid(orderdetails.armid);
       setArmscolr(orderdetails.armcolor);
-
-
     };
     fetchdetail();
   }, [history]);
@@ -66,7 +60,7 @@ const FemaleCustOrderviewby_tailor = ({ history }) => {
           style={{ float: "right" }}
         >
           <h1>Order Details</h1>
-    
+
           <p className="order_detail">
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
@@ -74,14 +68,12 @@ const FemaleCustOrderviewby_tailor = ({ history }) => {
             five centuries,
           </p>
 
-          
-
           <div className="container">
             <div className="row">
               <div className="col-lg-8">
-              <Link to="/custom/FemaleorderByTailor">
-            <Button color="success">Go Back</Button>
-          </Link>
+                <Link to="/custom/FemaleorderByTailor">
+                  <Button color="success">Go Back</Button>
+                </Link>
 
                 <table
                   class="table border"
@@ -264,29 +256,30 @@ const FemaleCustOrderviewby_tailor = ({ history }) => {
                         {orderdetails.collerid}
                       </td>
                       <td>
-                        <strong>Coller Color :  </strong>{orderdetails.collercolor}
+                        <strong>Coller Color : </strong>
+                        {orderdetails.collercolor}
                         <div
-                       
                           style={{
                             background: orderdetails.collercolor,
                             height: "20px",
                             width: "20px",
-                            border:"1px solid black",
-                            borderRadius:"2px"
+                            border: "1px solid black",
+                            borderRadius: "2px",
                           }}
                         ></div>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                      <strong>Body Color : </strong>{orderdetails.bodycolor}
+                        <strong>Body Color : </strong>
+                        {orderdetails.bodycolor}
                         <div
                           style={{
                             backgroundColor: orderdetails.bodycolor,
                             height: "20px",
                             width: "20px",
-                            border:"1px solid black",
-                            borderRadius:"2px"
+                            border: "1px solid black",
+                            borderRadius: "2px",
                           }}
                         ></div>
                       </td>
@@ -310,69 +303,63 @@ const FemaleCustOrderviewby_tailor = ({ history }) => {
                 {/* right COlumn */}
 
                 <svg
-                version="1.1"
-                id="Layer_1"
-              
-                x="0px"
-                y="0px"
-                viewBox="0 0 200 300"
-                style={{
-                  enableBackground: "new 0 0 200 300",
-                  width: "400px",
-                  marginTop: "-10px",
-                }}
-                xmlSpace="preserve"
-               >
-                <g id="XMLID_7_">
-                  <g id="XMLID_9_">
-                    <g id="XMLID_37_">
-                      <path
-                        id={armsid}
-                        class="st0"
-                        d={arms}
-                        opacity="0.99"
-                        fill={armscolr}
-                        stroke="black"
-                        stroke-width="0.09"
-                        stroke-miterlimit="3"
-                        // Both Arms
-                      />
+                  version="1.1"
+                  id="Layer_1"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 200 300"
+                  style={{
+                    enableBackground: "new 0 0 200 300",
+                    width: "400px",
+                    marginTop: "-10px",
+                  }}
+                  xmlSpace="preserve"
+                >
+                  <g id="XMLID_7_">
+                    <g id="XMLID_9_">
+                      <g id="XMLID_37_">
+                        <path
+                          id={armsid}
+                          class="st0"
+                          d={arms}
+                          opacity="0.99"
+                          fill={armscolr}
+                          stroke="black"
+                          stroke-width="0.09"
+                          stroke-miterlimit="3"
+                          // Both Arms
+                        />
+                      </g>
                     </g>
+
+                    <path
+                      id={bid}
+                      class="st1"
+                      d={sb}
+                      fill={bolcolr}
+                      stroke="black"
+                      stroke-width="0.1"
+                      stroke-miterlimit="10"
+                      //body
+                    />
+
+                    <polygon
+                      id={collrid}
+                      class="st2"
+                      points={collr}
+                      fill={collrcolr}
+                      stroke="black"
+                      stroke-width="0.1"
+                      stroke-miterlimit="10"
+
+                      // ban
+                    />
                   </g>
-
-                  <path
-                    id={bid}
-                    class="st1"
-                    d={sb}
-                    fill={bolcolr}
-                    stroke="black"
-                    stroke-width="0.1"
-                    stroke-miterlimit="10"
-                    //body
-                  />
-
-                  <polygon
-                    id={collrid}
-                    class="st2"
-                    points={collr}
-                    fill={collrcolr}
-                    stroke="black"
-                    stroke-width="0.1"
-                    stroke-miterlimit="10"
-
-                    // ban
-                  />
-                </g>
-              </svg>
-
-
-
-
+                </svg>
               </div>
             </div>
           </div>
         </div>
-        
       </div>
     </>
   );

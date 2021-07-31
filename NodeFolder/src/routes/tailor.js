@@ -10,8 +10,7 @@ const {
   deletetailor,
   tailorprofile,
   update,
-  tailorLoggedprofile
-
+  tailorLoggedprofile,
 } = require("../controller/tailor");
 
 router.route("/register").post(register);

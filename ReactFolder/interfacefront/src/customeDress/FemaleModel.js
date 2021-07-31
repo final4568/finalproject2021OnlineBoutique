@@ -152,7 +152,7 @@ const FemaleModel = ({ history }) => {
                   marginTop: "-10px",
                 }}
                 xmlSpace="preserve"
-               >
+              >
                 <g id="XMLID_7_">
                   <g id="XMLID_9_">
                     <g id="XMLID_37_">

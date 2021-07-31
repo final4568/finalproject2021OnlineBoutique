@@ -1,9 +1,6 @@
-
 import "../index.css";
 import { Link, NavLink } from "react-router-dom";
 const UserHeader = () => {
-
-
   const logoutHandler = ({ history }) => {
     localStorage.removeItem("authToken");
   };
@@ -23,14 +20,13 @@ const UserHeader = () => {
                         Home
                       </NavLink>
                     </li>
-                    
+
                     <li>
                       <NavLink exact to="/user/dashboard">
                         Dashboard
                       </NavLink>
                     </li>
 
-                   
                     <li>
                       <NavLink exact to="/users/GetRMorderbyuser">
                         Ready Dress Orders
@@ -57,14 +53,12 @@ const UserHeader = () => {
                             Female Dress
                           </NavLink>
                         </li>
-                        
                       </ul>
                     </li>
 
-
                     <li>
                       <NavLink exact to="">
-                       Profiles
+                        Profiles
                       </NavLink>
                       <input
                         type="checkbox"
@@ -72,35 +66,38 @@ const UserHeader = () => {
                         style={{ opacity: "0" }}
                       />
                       <ul>
-                       
-                      <li>
-                      <NavLink exact to="/Loogeduser/Profile">
-                        My Profile
-                      </NavLink>
+                        <li>
+                          <NavLink exact to="/Loogeduser/Profile">
+                            My Profile
+                          </NavLink>
                         </li>
                         <li>
                           <NavLink exact to="/users/All/Tailor">
-                          About Tailors
+                            About Tailors
                           </NavLink>
                         </li>
                       </ul>
                     </li>
-
-                    
-                   
                   </ul>
                 </nav>
               </div>
             </div>
             <div className="col-right" id="dropdown">
               <div className="dropdown">
-              <div className="dropdown" style={{border:"none", textDecoration:"nonne"}}>
-              <Link to="/">
-                 <button onClick={logoutHandler} className="dropbtn" style={{border:"none", textDecoration:"nonne"}}>
-                   LOG OUT
-                 </button>
-               </Link>
-             </div>
+                <div
+                  className="dropdown"
+                  style={{ border: "none", textDecoration: "nonne" }}
+                >
+                  <Link to="/">
+                    <button
+                      onClick={logoutHandler}
+                      className="dropbtn"
+                      style={{ border: "none", textDecoration: "nonne" }}
+                    >
+                      LOG OUT
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

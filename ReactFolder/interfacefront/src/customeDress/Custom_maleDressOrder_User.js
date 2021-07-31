@@ -10,8 +10,8 @@ const Custom_maleDressOrder_User = ({ history }) => {
   const [error, setError] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const producttype = "Customdress";
-  const productname ="Man_Custom_Dress";
-  const [ dataavaibale, setDataavaibale] = useState("No Order");
+  const productname = "Man_Custom_Dress";
+  const [dataavaibale, setDataavaibale] = useState("No Order");
 
   useEffect(() => {
     if (refresh) return setRefresh(false);
@@ -47,12 +47,11 @@ const Custom_maleDressOrder_User = ({ history }) => {
           { userid, producttype, productname },
           configg
         );
-        if(data == ""){
+        if (data == "") {
           setDataavaibale("You Have Not Placed Any Order right Now");
-        }else if(data == data){
+        } else if (data == data) {
           setOrder(data);
           setDataavaibale("Your All Order Here");
-         
         }
       } catch (error) {
         setError("not Fetch Data");
@@ -63,10 +62,10 @@ const Custom_maleDressOrder_User = ({ history }) => {
     LoggedUserdata();
   }, [refresh, userid]);
 
-  const deleteorder =(id)=>{
+  const deleteorder = (id) => {
     axios.delete(`/api/oders/deleteorder/${id}`);
     setRefresh(true);
-};
+  };
   const refresher = () => {
     setRefresh(true);
   };
@@ -90,7 +89,9 @@ const Custom_maleDressOrder_User = ({ history }) => {
       </div>
 
       <div className="container-fluide" style={{ padding: "30px" }}>
-      <p style={{fontSize:"30px", color:"black", opacity:"0.3"}}>{dataavaibale}</p>
+        <p style={{ fontSize: "30px", color: "black", opacity: "0.3" }}>
+          {dataavaibale}
+        </p>
 
         <table class="table border shadow" style={{ marginTop: "40px" }}>
           <thead>
@@ -135,27 +136,33 @@ const Custom_maleDressOrder_User = ({ history }) => {
                 </td>
                 <td>{order.orderprogress}</td>
                 <td>{order.tailortype}</td>
-                <td>    
-                 <Link to={`/customized/orderbyuser/${order._id}`}>
-                      <Button id="btn_table" color="primary" size="sm">
-                        View
-                      </Button>
-                    </Link>
-                    <Link to={`/customized/editManModelbyUser/${order._id}`}>
-                      <Button id="btn_table" color="warning" size="sm" >
-                        Edit
-                      </Button>
-                    </Link>
+                <td>
+                  <Link to={`/customized/orderbyuser/${order._id}`}>
+                    <Button id="btn_table" color="primary" size="sm">
+                      View
+                    </Button>
+                  </Link>
+                  <Link to={`/customized/editManModelbyUser/${order._id}`}>
+                    <Button id="btn_table" color="warning" size="sm">
+                      Edit
+                    </Button>
+                  </Link>
 
-                    <Button color="danger" size="sm" style={{marginLeft:"10px"}}
-                    
+                  <Button
+                    color="danger"
+                    size="sm"
+                    style={{ marginLeft: "10px" }}
                     onClick={() => {
-                      if (window.confirm (`Are you sure you wish to delete this Order?`))
+                      if (
+                        window.confirm(
+                          `Are you sure you wish to delete this Order?`
+                        )
+                      )
                         deleteorder(order._id);
                     }}
-                    >
-                      Delete
-                    </Button>
+                  >
+                    Delete
+                  </Button>
                 </td>
               </tr>
             ))}
@@ -167,6 +174,3 @@ const Custom_maleDressOrder_User = ({ history }) => {
 };
 
 export default Custom_maleDressOrder_User;
-
-
-

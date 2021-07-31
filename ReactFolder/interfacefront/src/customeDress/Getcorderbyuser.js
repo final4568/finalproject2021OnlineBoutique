@@ -55,9 +55,8 @@ const Getcustcorderbyuser = ({ history }) => {
     getordersbyuser();
 
     LoggedUserdata();
-  }, [userid, refresh,history]);
+  }, [userid, refresh, history]);
 
-  
   const refresher = () => {
     setRefresh(true);
   };
@@ -106,7 +105,6 @@ const Getcustcorderbyuser = ({ history }) => {
             </tr>
           </thead>
           <tbody>
-
             {orders.map((order) => (
               <tr key={order._id}>
                 <td>{order.producttype}</td>
@@ -130,7 +128,6 @@ const Getcustcorderbyuser = ({ history }) => {
           </tbody>
         </table>
       </div>
-
     </>
   );
 };

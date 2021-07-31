@@ -1,4 +1,3 @@
-
 import "../index.css";
 import { NavLink, Link } from "react-router-dom";
 
@@ -13,21 +12,36 @@ const TailorHeader = () => {
           <div className="col-left">
             <div className="menu">
               <nav>
-              <div id="logo" style={{marginTop:"-10px"}}>Tailor Dashboard</div>
-               
-                  
-                  <ul>
-                    <li><NavLink exact to="/tailor/adduser">Add New User</NavLink></li>
-                    <li><NavLink exact to="/UploadProduct_tailor">Add Products</NavLink></li>                    
-                    </ul>
+                <div id="logo" style={{ marginTop: "-10px" }}>
+                  Tailor Dashboard
+                </div>
+
+                <ul>
+                  <li>
+                    <NavLink exact to="/tailor/adduser">
+                      Add New User
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink exact to="/UploadProduct_tailor">
+                      Add Products
+                    </NavLink>
+                  </li>
+                </ul>
               </nav>
             </div>
           </div>
           <div className="col-right" id="dropdown">
-                   
-            <div className="dropdown" style={{border:"none", textDecoration:"nonne"}}>
+            <div
+              className="dropdown"
+              style={{ border: "none", textDecoration: "nonne" }}
+            >
               <Link to="/">
-                <button onClick={logoutHandler} className="dropbtn" style={{border:"none", textDecoration:"nonne"}}>
+                <button
+                  onClick={logoutHandler}
+                  className="dropbtn"
+                  style={{ border: "none", textDecoration: "nonne" }}
+                >
                   LOG OUT
                 </button>
               </Link>

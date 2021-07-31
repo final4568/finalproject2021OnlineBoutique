@@ -77,20 +77,17 @@ const EditFMmodel_User = ({ history }) => {
   const match = useRouteMatch();
   const [orderdetails, setOrderdetails] = useState({});
 
-  
-
   const [sb, setSB] = useState({});
-  const [bid, setBid] =useState({});
-  const [bolcolr, setBocolr] =useState({});
+  const [bid, setBid] = useState({});
+  const [bolcolr, setBocolr] = useState({});
 
   const [collr, setCollr] = useState({});
-  const [collrid, setCollrid] =useState({});
-  const [collrcolr, setCollrcolr] =useState({});
-  
+  const [collrid, setCollrid] = useState({});
+  const [collrcolr, setCollrcolr] = useState({});
+
   const [arms, setArms] = useState({});
   const [armsid, setArmsid] = useState({});
   const [armscolr, setArmscolr] = useState({});
-
 
   const getorderdetail = (id) =>
     fetch(`/api/oders/orderdetail/${id}`).then((res) => res.json());
@@ -184,67 +181,68 @@ const EditFMmodel_User = ({ history }) => {
 
       <div className="container-fluide" style={{ padding: "10px" }}>
         <div className="row">
-          <div className="col-lg-6" id="svgcol_right" style={{paddingRight:"20px"}}>
+          <div
+            className="col-lg-6"
+            id="svgcol_right"
+            style={{ paddingRight: "20px" }}
+          >
             <div className="row">
               <div className="col-lg-6">
                 previous design
                 <svg
-                version="1.1"
-                id="Layer_1"
-                
-              
-                x="0px"
-                y="0px"
-                viewBox="0 0 200 300"
-                style={{
-                  enableBackground: "new 0 0 200 300",
-                  width: "300px",
-                  marginTop: "-10px",
-                }}
-                xmlSpace="preserve"
-               >
-                <g id="XMLID_7_">
-                  <g id="XMLID_9_">
-                    <g id="XMLID_37_">
-                      <path
-                        id={armsid}
-                        class="st0"
-                        d={arms}
-                        opacity="0.99"
-                        fill={armscolr}
-                        stroke="black"
-                        stroke-width="0.09"
-                        stroke-miterlimit="3"
-                        // Both Arms
-                      />
+                  version="1.1"
+                  id="Layer_1"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 200 300"
+                  style={{
+                    enableBackground: "new 0 0 200 300",
+                    width: "300px",
+                    marginTop: "-10px",
+                  }}
+                  xmlSpace="preserve"
+                >
+                  <g id="XMLID_7_">
+                    <g id="XMLID_9_">
+                      <g id="XMLID_37_">
+                        <path
+                          id={armsid}
+                          class="st0"
+                          d={arms}
+                          opacity="0.99"
+                          fill={armscolr}
+                          stroke="black"
+                          stroke-width="0.09"
+                          stroke-miterlimit="3"
+                          // Both Arms
+                        />
+                      </g>
                     </g>
+
+                    <path
+                      id={bid}
+                      class="st1"
+                      d={sb}
+                      fill={bolcolr}
+                      stroke="black"
+                      stroke-width="0.1"
+                      stroke-miterlimit="10"
+                      //body
+                    />
+
+                    <polygon
+                      id={collrid}
+                      class="st2"
+                      points={collr}
+                      fill={collrcolr}
+                      stroke="black"
+                      stroke-width="0.1"
+                      stroke-miterlimit="10"
+
+                      // ban
+                    />
                   </g>
-
-                  <path
-                    id={bid}
-                    class="st1"
-                    d={sb}
-                    fill={bolcolr}
-                    stroke="black"
-                    stroke-width="0.1"
-                    stroke-miterlimit="10"
-                    //body
-                  />
-
-                  <polygon
-                    id={collrid}
-                    class="st2"
-                    points={collr}
-                    fill={collrcolr}
-                    stroke="black"
-                    stroke-width="0.1"
-                    stroke-miterlimit="10"
-
-                    // ban
-                  />
-                </g>
-              </svg>
-            
+                </svg>
               </div>
 
               <div className="col-lg-6">
@@ -262,64 +260,64 @@ const EditFMmodel_User = ({ history }) => {
                   </strong>
                 </div>
                 <svg
-                version="1.1"
-                id="Layer_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                viewBox="0 0 200 300"
-                style={{
-                  enableBackground: "new 0 0 200 300",
-                  width: "300px",
-                  marginTop: "-10px",
-                }}
-                xmlSpace="preserve"
-               >
-                <g id="XMLID_7_">
-                  <g id="XMLID_9_">
-                    <g id="XMLID_37_">
-                      <path
-                        id={armid}
-                        class="st0"
-                        d={arm}
-                        opacity="0.99"
-                        fill="#323829"
-                        stroke="black"
-                        stroke-width="0.09"
-                        stroke-miterlimit="3"
-                        onClick={manageArm}
-                        // Both Arms
-                      />
+                  version="1.1"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 200 300"
+                  style={{
+                    enableBackground: "new 0 0 200 300",
+                    width: "300px",
+                    marginTop: "-10px",
+                  }}
+                  xmlSpace="preserve"
+                >
+                  <g id="XMLID_7_">
+                    <g id="XMLID_9_">
+                      <g id="XMLID_37_">
+                        <path
+                          id={armid}
+                          class="st0"
+                          d={arm}
+                          opacity="0.99"
+                          fill="#323829"
+                          stroke="black"
+                          stroke-width="0.09"
+                          stroke-miterlimit="3"
+                          onClick={manageArm}
+                          // Both Arms
+                        />
+                      </g>
                     </g>
+
+                    <path
+                      id={bodyid}
+                      class="st1"
+                      d={shirtbody}
+                      onClick={managebody}
+                      fill="#323829"
+                      stroke="black"
+                      stroke-width="0.1"
+                      stroke-miterlimit="10"
+                      //body
+                    />
+
+                    <polygon
+                      id={collerid}
+                      class="st2"
+                      points={coller}
+                      fill="#A67E2D"
+                      stroke="black"
+                      stroke-width="0.1"
+                      stroke-miterlimit="10"
+                      onClick={manageColler}
+
+                      // ban
+                    />
                   </g>
-
-                  <path
-                    id={bodyid}
-                    class="st1"
-                    d={shirtbody}
-                    onClick={managebody}
-                    fill="#323829"
-                    stroke="black"
-                    stroke-width="0.1"
-                    stroke-miterlimit="10"
-                    //body
-                  />
-
-                  <polygon
-                    id={collerid}
-                    class="st2"
-                    points={coller}
-                    fill="#A67E2D"
-                    stroke="black"
-                    stroke-width="0.1"
-                    stroke-miterlimit="10"
-                    onClick={manageColler}
-
-                    // ban
-                  />
-                </g>
-              </svg>
+                </svg>
                 <button
                   style={{
                     marginBottom: "0px",
@@ -779,12 +777,9 @@ const EditFMmodel_User = ({ history }) => {
         </div>
       </div>
 
-      <div>
-
-      </div>
+      <div></div>
     </>
   );
 };
 
 export default EditFMmodel_User;
-

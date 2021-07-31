@@ -12,13 +12,12 @@ const Malecustorderviewby_Tailor = ({ history }) => {
   const [orderdetails, setOrderdetails] = useState({});
 
   const [sb, setSB] = useState({});
-  const [bid, setBid] =useState({});
-  const [bolcolr, setBocolr] =useState({});
+  const [bid, setBid] = useState({});
+  const [bolcolr, setBocolr] = useState({});
 
   const [collr, setCollr] = useState({});
-  const [collrid, setCollrid] =useState({});
-  const [collrcolr, setCollrcolr] =useState({});
-  
+  const [collrid, setCollrid] = useState({});
+  const [collrcolr, setCollrcolr] = useState({});
 
   const [pokt, setPokt] = useState({});
   const [poktid, setPoktid] = useState({});
@@ -34,17 +33,13 @@ const Malecustorderviewby_Tailor = ({ history }) => {
   const [armsid, setArmsid] = useState({});
   const [armscolr, setArmscolr] = useState({});
 
-
   const [ltcof, setLtcof] = useState({});
   const [ltcofid, setLtcofid] = useState({});
   const [ltcofcolr, setLtcofcolr] = useState({});
 
-
-
   const [rtcof, setRtcof] = useState({});
   const [rtcofid, setRtcofid] = useState({});
   const [rtcofcolr, setRtcofcolr] = useState({});
-
 
   const getorderdetail = (id) =>
     fetch(`/api/oders/orderdetail/${id}`).then((res) => res.json());
@@ -59,7 +54,6 @@ const Malecustorderviewby_Tailor = ({ history }) => {
       setBid(orderdetails.bodyid);
       setBocolr(orderdetails.bodycolor);
 
-
       setCollr(orderdetails.coller);
       setCollrid(orderdetails.collerid);
       setCollrcolr(orderdetails.collercolor);
@@ -69,11 +63,10 @@ const Malecustorderviewby_Tailor = ({ history }) => {
       setPoktColr(orderdetails.pocketcolor);
 
       setBtncolr(orderdetails.buttoncolor);
-     
+
       setArms(orderdetails.arm);
       setArmsid(orderdetails.armid);
       setArmscolr(orderdetails.armcolor);
-
 
       setLtcof(orderdetails.leftcoff);
       setLtcofid(orderdetails.leftcoffid);
@@ -86,7 +79,6 @@ const Malecustorderviewby_Tailor = ({ history }) => {
       setPatis(orderdetails.phati);
       setPatisid(orderdetails.phatiid);
       setPatiscolr(orderdetails.phaticolor);
-
     };
     fetchdetail();
   }, [history]);
@@ -105,7 +97,7 @@ const Malecustorderviewby_Tailor = ({ history }) => {
           style={{ float: "right" }}
         >
           <h1>Order Details</h1>
-          
+
           <p className="order_detail">
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
@@ -113,14 +105,12 @@ const Malecustorderviewby_Tailor = ({ history }) => {
             five centuries,
           </p>
 
-          
-
           <div className="container">
             <div className="row">
               <div className="col-lg-8">
-              <Link to="/custom/MaleorderByTailor">
-            <Button color="success">Go Back</Button>
-          </Link>
+                <Link to="/custom/MaleorderByTailor">
+                  <Button color="success">Go Back</Button>
+                </Link>
 
                 <table
                   class="table border"
@@ -303,29 +293,30 @@ const Malecustorderviewby_Tailor = ({ history }) => {
                         {orderdetails.collerid}
                       </td>
                       <td>
-                        <strong>Coller Color :  </strong>{orderdetails.collercolor}
+                        <strong>Coller Color : </strong>
+                        {orderdetails.collercolor}
                         <div
-                       
                           style={{
                             background: orderdetails.collercolor,
                             height: "20px",
                             width: "20px",
-                            border:"1px solid black",
-                            borderRadius:"2px"
+                            border: "1px solid black",
+                            borderRadius: "2px",
                           }}
                         ></div>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                      <strong>Body Color : </strong>{orderdetails.bodycolor}
+                        <strong>Body Color : </strong>
+                        {orderdetails.bodycolor}
                         <div
                           style={{
                             backgroundColor: orderdetails.bodycolor,
                             height: "20px",
                             width: "20px",
-                            border:"1px solid black",
-                            borderRadius:"2px"
+                            border: "1px solid black",
+                            borderRadius: "2px",
                           }}
                         ></div>
                       </td>
@@ -348,144 +339,138 @@ const Malecustorderviewby_Tailor = ({ history }) => {
               <div className="col-lg-4" style={{ marginTop: "30px" }}>
                 {/* right COlumn */}
 
-               
-<svg
-                version="1.1"
-                id="Layer_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                viewBox="0 0 200 300"
-                style={{
-                  enableBackground: "new 0 0 200 300",
-                  width: "400px",
-                  marginTop: "-10px",
-                }}
-                xmlSpace="preserve"
-               >
-                <g id="XMLID_7_">
-                  <g id="XMLID_9_">
-                    <g id="XMLID_37_">
+                <svg
+                  version="1.1"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 200 300"
+                  style={{
+                    enableBackground: "new 0 0 200 300",
+                    width: "400px",
+                    marginTop: "-10px",
+                  }}
+                  xmlSpace="preserve"
+                >
+                  <g id="XMLID_7_">
+                    <g id="XMLID_9_">
+                      <g id="XMLID_37_">
+                        <path
+                          id={armsid}
+                          class="st0"
+                          d={arms}
+                          opacity="0.99"
+                          fill={armscolr}
+                          stroke="black"
+                          stroke-width="0.09"
+                          stroke-miterlimit="3"
+                          // Both Arms
+                        />
+                      </g>
+                    </g>
+
+                    <path
+                      id={bid}
+                      class="st1"
+                      d={sb}
+                      fill={bolcolr}
+                      stroke="black"
+                      stroke-width="0.1"
+                      stroke-miterlimit="10"
+                      //body
+                    />
+
+                    <polygon
+                      id={patisid}
+                      class="st2"
+                      points={patis}
+                      fill={patiscolr}
+                      stroke="black"
+                      stroke-width="0.1"
+                      stroke-miterlimit="10"
+
+                      //phati
+                    />
+
+                    <g id="v" fill={btncolr}>
                       <path
-                        id={armsid}
-                        class="st0"
-                        d={arms}
-                        opacity="0.99"
-                        fill={armscolr}
+                        id="button1"
+                        class="st2"
+                        d="M98.8,51.6c0,0,0.1-1.3,1.5-1.4c0,0,1-0.1,1.5,1c0,0,0.4,0.7-0.2,1.7c0,0-0.7,0.8-1.7,0.5
+                  C99.8,53.4,98.7,53,98.8,51.6z"
+                        fill={btncolr}
+                      />
+
+                      <path
+                        id="button2"
+                        class="st2"
+                        d="M98.6,61.1c0,0,0.1-1.3,1.5-1.4c0,0,1-0.1,1.5,1c0,0,0.4,0.7-0.2,1.7c0,0-0.7,0.8-1.7,0.5
+                  C99.6,62.8,98.5,62.4,98.6,61.1z"
+                        fill={btncolr}
+                      />
+                      <path
+                        id="button3"
+                        class="st2"
+                        d="M99.1,71.1c0,0,0.1-1.3,1.5-1.4c0,0,1-0.1,1.5,1c0,0,0.4,0.7-0.2,1.7c0,0-0.7,0.8-1.7,0.5
+                  C100.1,72.8,99,72.4,99.1,71.1z"
+                        fill={btncolr}
+                      />
+
+                      {/* //buttons */}
+                    </g>
+
+                    <g id="XMLID_6_">
+                      <path
+                        id={ltcofid}
+                        class="st5"
+                        d={ltcof}
+                        // left Coff
+                        fill={ltcofcolr}
                         stroke="black"
-                        stroke-width="0.09"
+                        stroke-width="0.07"
                         stroke-miterlimit="3"
-                        // Both Arms
+                      />
+                      <path
+                        id={rtcofid}
+                        class="st5"
+                        d={rtcof}
+                        // Right Coff
+                        fill={rtcofcolr}
+                        stroke="black"
+                        stroke-width="0.07"
+                        stroke-miterlimit="3"
                       />
                     </g>
+
+                    <path
+                      id={collrid}
+                      class="st2"
+                      d={collr}
+                      fill={collrcolr}
+                      stroke="black"
+                      stroke-width="0.1"
+                      stroke-miterlimit="10"
+
+                      // ban
+                    />
                   </g>
-
-                  <path
-                    id={bid}
-                    class="st1"
-                    d={sb}
-                    fill={bolcolr}
-                    stroke="black"
-                    stroke-width="0.1"
-                    stroke-miterlimit="10"
-                    //body
-                  />
-
                   <polygon
-                    id={patisid}
-                    class="st2"
-                    points={patis}
-                    fill={patiscolr}
+                    class="st7"
+                    id={poktid}
+                    class="st5"
+                    fill={poktcolr}
+                    points={pokt}
                     stroke="black"
-                    stroke-width="0.1"
-                    stroke-miterlimit="10"
-
-                    //phati
+                    stroke-width="0.07"
+                    stroke-miterlimit="3"
                   />
-
-                  <g id="v" fill={btncolr}>
-                    <path
-                      id="button1"
-                      class="st2"
-                      d="M98.8,51.6c0,0,0.1-1.3,1.5-1.4c0,0,1-0.1,1.5,1c0,0,0.4,0.7-0.2,1.7c0,0-0.7,0.8-1.7,0.5
-                  C99.8,53.4,98.7,53,98.8,51.6z"
-                  fill={btncolr}
-                      
-                    />
-
-                    <path
-                      id="button2"
-                      class="st2"
-                      d="M98.6,61.1c0,0,0.1-1.3,1.5-1.4c0,0,1-0.1,1.5,1c0,0,0.4,0.7-0.2,1.7c0,0-0.7,0.8-1.7,0.5
-                  C99.6,62.8,98.5,62.4,98.6,61.1z"
-                  fill={btncolr}
-                    />
-                    <path
-                      id="button3"
-                      class="st2"
-                      d="M99.1,71.1c0,0,0.1-1.3,1.5-1.4c0,0,1-0.1,1.5,1c0,0,0.4,0.7-0.2,1.7c0,0-0.7,0.8-1.7,0.5
-                  C100.1,72.8,99,72.4,99.1,71.1z"
-                  fill={btncolr}
-                    />
-
-                    {/* //buttons */}
-                  </g>
-
-                  <g id="XMLID_6_">
-                    <path
-                      id={ltcofid}
-                      class="st5"
-                      d={ltcof}
-                      // left Coff
-                      fill={ltcofcolr}
-                      stroke="black"
-                      stroke-width="0.07"
-                      stroke-miterlimit="3"
-                    />
-                    <path
-                      id={rtcofid}
-                      class="st5"
-                      d={rtcof}
-                      // Right Coff
-                      fill={rtcofcolr}
-                      stroke="black"
-                      stroke-width="0.07"
-                      stroke-miterlimit="3"
-                    />
-                  </g>
-
-                  <path
-                    id={collrid}
-                    class="st2"
-                    d={collr}
-                    fill={collrcolr}
-                    stroke="black"
-                    stroke-width="0.1"
-                    stroke-miterlimit="10"
-
-                    // ban
-                  />
-                </g>
-                <polygon
-                  class="st7"
-                  id={poktid}
-                  class="st5"
-                  fill={poktcolr}
-                  points={pokt}
-                  stroke="black"
-                  stroke-width="0.07"
-                  stroke-miterlimit="3"
-                />
-              </svg>
-
-
-
+                </svg>
               </div>
             </div>
           </div>
         </div>
-        
       </div>
     </>
   );

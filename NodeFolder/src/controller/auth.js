@@ -1,24 +1,31 @@
-
-
-
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 const Admin = require("../models/Admin");
 const sendEmail = require("../utils/sendemail");
 
 exports.register = async (req, res, next) => {
-  const { username, email, phone, gender,date, password, address,usertype, bio } = req.body;
+  const {
+    username,
+    email,
+    phone,
+    gender,
+    date,
+    password,
+    address,
+    usertype,
+    bio,
+  } = req.body;
   try {
     const admin = await Admin.create({
       username,
       email,
-      phone, 
+      phone,
       gender,
       date,
       password,
       address,
       usertype,
-      bio
+      bio,
     });
 
     sendToken(admin, 201, res);
@@ -43,7 +50,7 @@ exports.login = async (req, res, next) => {
   }
   try {
     const admin = await Admin.findOne({ email }).select("+password");
-    
+
     if (!admin) {
       res.status(404).json({
         success: false,
@@ -137,14 +144,10 @@ exports.resetpassword = async (req, res, next) => {
     // res.status(500).json({
     //   success: false,
     //   error: error.message,
-    // }); 
+    // });
     next(error);
-
   }
 };
-
-
-
 
 exports.adminprofile = async (req, res) => {
   try {
@@ -173,7 +176,6 @@ exports.adminprofile = async (req, res) => {
     }
 
     res.status(200).json(admin);
-    
   } catch {
     res.status(400).json({
       success: false,
@@ -182,30 +184,25 @@ exports.adminprofile = async (req, res) => {
   }
 };
 
-
-exports.getadmin = (req, res) =>{
-  try{
-    const id = req.params.id
-    Admin.findById(id, (err, admin)=>{
-      res.json(admin)
-    });   
-
-  }catch{
+exports.getadmin = (req, res) => {
+  try {
+    const id = req.params.id;
+    Admin.findById(id, (err, admin) => {
+      res.json(admin);
+    });
+  } catch {
     res.status(400).json({
-    success: false,
-    message: "Admin Not Available"
+      success: false,
+      message: "Admin Not Available",
     });
   }
 };
 
-
-exports.adminupdate =  (req, res)=>{
- Admin.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
-  .then((admin) => res.status(200).send(admin))
-  .catch((err) => res.status(500).send(err.message)); 
+exports.adminupdate = (req, res) => {
+  Admin.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+    .then((admin) => res.status(200).send(admin))
+    .catch((err) => res.status(500).send(err.message));
 };
-
-
 
 const sendToken = (admin, statusCode, res) => {
   const token = admin.getSignedJwtToken();

@@ -1,56 +1,57 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
 
-
-.add_tailor{
- background-color: transparent;
+.add_tailor {
+  background-color: transparent;
 }
 
-.form_main_class{
-    margin-top: 50px;
-    margin-bottom: 50px;
-
+.form_main_class {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
-.wrapper{
+.wrapper {
   overflow: hidden;
   max-width: 500px;
   background: #fff;
   padding: 30px;
   border-radius: 5px;
-  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
 }
-.wrapper .title-text{
+.wrapper .title-text {
   display: flex;
   width: 200%;
 }
-.wrapper .title{
+.wrapper .title {
   width: 50%;
   font-size: 30px;
   font-weight: 600;
   text-align: left;
-  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.wrapper .form-container{
+.wrapper .form-container {
   width: 100%;
   overflow: hidden;
   align-items: center;
 }
-.form-container .form-inner, textarea{
+.form-container .form-inner,
+textarea {
   display: flex;
   width: 200%;
-
 }
-.form-container .form-inner form, textarea{
+.form-container .form-inner form,
+textarea {
   width: 50%;
-  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-.form-inner form .field, textarea{
+.form-inner form .field,
+textarea {
   height: 50px;
   width: 100%;
   margin-top: 20px;
 }
-.form-inner form .field input, textarea{
+.form-inner form .field input,
+textarea {
   height: 100%;
   width: 100%;
   outline: none;
@@ -62,64 +63,70 @@
   transition: all 0.3s ease;
   margin-top: -10px;
 }
-.form-inner form .field input:focus{
+.form-inner form .field input:focus {
   border-color: #fc83bb;
   /* box-shadow: inset 0 0 3px #fb6aae; */
 }
-.form-inner form .field textarea:focus{
+.form-inner form .field textarea:focus {
   border-color: #fc83bb;
   /* box-shadow: inset 0 0 3px #fb6aae; */
 }
-.form-inner form .field input::placeholder{
+.form-inner form .field input::placeholder {
   color: #999;
   transition: all 0.3s ease;
 }
-.form-inner form .field textarea::placeholder{
+.form-inner form .field textarea::placeholder {
   color: #999;
   transition: all 0.3s ease;
 }
-form .field input:focus::placeholder{
+form .field input:focus::placeholder {
   color: #b3b3b3;
 }
-form .field textarea:focus::placeholder{
+form .field textarea:focus::placeholder {
   color: #b3b3b3;
 }
-.form-inner form .pass-link{
+.form-inner form .pass-link {
   margin-top: 5px;
 }
-.form-inner form .signup-link{
+.form-inner form .signup-link {
   text-align: center;
   margin-top: 30px;
 }
 .form-inner form .pass-link a,
-.form-inner form .signup-link a{
+.form-inner form .signup-link a {
   color: #fa4299;
   text-decoration: none;
 }
 .form-inner form .pass-link a:hover,
-.form-inner form .signup-link a:hover{
+.form-inner form .signup-link a:hover {
   text-decoration: underline;
 }
-form .btn{
+form .btn {
   height: 50px;
   width: 100%;
   border-radius: 5px;
   position: relative;
   overflow: hidden;
 }
-form .btn .btn-layer{
+form .btn .btn-layer {
   height: 100%;
   width: 300%;
   position: absolute;
   left: -100%;
-  background: -webkit-linear-gradient(right, #a445b2, #fa4299, #a445b2, #fa4299);
+  background: -webkit-linear-gradient(
+    right,
+    #a445b2,
+    #fa4299,
+    #a445b2,
+    #fa4299
+  );
   border-radius: 5px;
   transition: all 0.4s ease;
 }
-form .btn:hover .btn-layer{
+form .btn:hover .btn-layer {
   left: 0;
 }
-form .btn input[type="submit"]{
+form .btn input[type="submit"] {
   height: 100%;
   width: 100%;
   z-index: 1;
@@ -135,7 +142,7 @@ form .btn input[type="submit"]{
   margin-top: -1px;
 }
 
-.error-message{
+.error-message {
   width: 100%;
   padding: 10px;
   background: red;
@@ -144,11 +151,9 @@ form .btn input[type="submit"]{
   color: #fff;
   overflow: hidden;
   font-size: 14px;
- 
-  
 }
 
-.success-message{
+.success-message {
   width: 100%;
   padding: 10px;
   background: green;
@@ -157,9 +162,8 @@ form .btn input[type="submit"]{
   color: #fff;
   overflow: hidden;
   font-size: 14px;
- 
 }
 
-.formlable{
+.formlable {
   margin-top: 10px;
 }

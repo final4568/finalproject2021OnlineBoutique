@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 const Tailordeatils_User = ({ history }) => {
   const [tailors, setTailor] = useState([]);
   const [refresh, setRefresh] = useState(false);
-  
+  const [dataavaibale, setDataavaibale] = useState("");  
 
   useEffect(() => {
 
@@ -17,7 +17,13 @@ const Tailordeatils_User = ({ history }) => {
     
     const loadTailor = async () => {
       const result = await axios.get("/api/tailor/getalltailors");
-      setTailor(result.data);
+      if(result == ""){
+        setDataavaibale("There Is No Tailor Avaialble Right Now");
+      }else{
+        setDataavaibale("All Avaiable Tailors Here");
+        setTailor(result.data);
+
+      }
     };
 
     loadTailor();
@@ -42,6 +48,8 @@ const Tailordeatils_User = ({ history }) => {
             five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.
           </p>
+<p style={{fontSize:"30px", color:"black", opacity:"0.3"}}>{dataavaibale}</p>
+
           <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">

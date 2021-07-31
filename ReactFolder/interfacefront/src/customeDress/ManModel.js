@@ -2,7 +2,7 @@ import Menu from "../layouts/Menu";
 import Footer from "../layouts/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {Button } from "reactstrap";
+import { Button } from "reactstrap";
 import "../index.css";
 
 const ManModel = ({ history, match }) => {
@@ -147,9 +147,9 @@ const ManModel = ({ history, match }) => {
     setRightcoffcolor(color);
   };
 
-  const[userid, setUserID] =useState("");
-  const[username, setUsername] = useState("");
-  const[usergmail, setUsermail] =useState("");
+  const [userid, setUserID] = useState("");
+  const [username, setUsername] = useState("");
+  const [usergmail, setUsermail] = useState("");
   const [userprofile, setProfile] = useState({});
 
   useEffect(() => {
@@ -171,15 +171,12 @@ const ManModel = ({ history, match }) => {
         setUserID(data._id);
         setUsername(data.username);
         setUsermail(data.email);
-
       } catch (error) {
         console.log("You are not authorized, please login first");
       }
     };
 
-
     fetchPrivateDate();
-
   }, [history, match]);
 
   const savemodel = async (e) => {
@@ -223,7 +220,9 @@ const ManModel = ({ history, match }) => {
           righttcoff,
           righttcoffid,
           righttcoffcolor,
-          userid, username,  usergmail,
+          userid,
+          username,
+          usergmail,
         },
         config
       );
@@ -280,7 +279,7 @@ const ManModel = ({ history, match }) => {
                   marginTop: "-10px",
                 }}
                 xmlSpace="preserve"
-               >
+              >
                 <g id="XMLID_7_">
                   <g id="XMLID_9_">
                     <g id="XMLID_37_">
@@ -422,7 +421,7 @@ const ManModel = ({ history, match }) => {
                 height: "600px",
                 marginBottom: "100px",
               }}
-              >
+            >
               <h3>
                 {" "}
                 <strong> Style Your Dresses</strong>
@@ -1396,12 +1395,17 @@ const ManModel = ({ history, match }) => {
         </div>
       </div>
 
-      <div className="container" >
-      <Button variant="outlined" color="success" style={{
-        float:"left"
-      }} onClick= {savemodel}>
+      <div className="container">
+        <Button
+          variant="outlined"
+          color="success"
+          style={{
+            float: "left",
+          }}
+          onClick={savemodel}
+        >
           Order Now
-    </Button>
+        </Button>
       </div>
 
       <Footer />

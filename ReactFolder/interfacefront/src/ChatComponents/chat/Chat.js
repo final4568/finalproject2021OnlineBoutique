@@ -8,10 +8,7 @@ import InfoBar from '../InforBar/InfoBar'
 import Input from '../Inputs/Input';
 
 import './Chat.css';
-
 const server = "http://localhost:4000";
-
-
 let socket;
 
 const Chat = ({ location }) => {
@@ -23,10 +20,7 @@ const Chat = ({ location }) => {
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
-  
-
     socket = io(server, {transports:['websocket']});
-
     setRoom(room);
     setName(name);
 

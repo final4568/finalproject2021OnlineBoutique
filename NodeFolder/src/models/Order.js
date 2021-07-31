@@ -59,7 +59,6 @@ const OrderSchema = new mongoose.Schema({
   righttcoff: { type: String },
   righttcoffid: { type: String },
   righttcoffcolor: { type: String },
-  
 });
 const Order = mongoose.model("Order", OrderSchema);
 module.exports = Order;

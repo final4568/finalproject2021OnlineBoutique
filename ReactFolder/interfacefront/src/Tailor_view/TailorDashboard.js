@@ -5,6 +5,7 @@ import TailorHeader from "../layouts/TailorHeader";
 import TailorSideBar from "../layouts/TailorSidebar";
 import Dashboard_component from "../layouts/Dashboard_component";
 import Order from '../Order/Order';
+import ChatComponents from "../ChatComponents/chat/Ccomponenets";
 
 const TailorDashboard = ({ history }) => {
   const [error, setError] = useState("");

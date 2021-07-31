@@ -1,6 +1,3 @@
-
-
-
 const express = require("express");
 const router = express.Router();
 
@@ -11,7 +8,7 @@ const {
   resetpassword,
   adminprofile,
   adminupdate,
-  getadmin
+  getadmin,
 } = require("../controller/auth");
 
 router.route("/register").post(register);
@@ -21,6 +18,5 @@ router.route("/resetpassword/:resetToken").put(resetpassword);
 router.route("/adminprofile").get(adminprofile);
 router.route("/adminupdate/:id").put(adminupdate);
 router.route("/getadmin/:id").get(getadmin);
-
 
 module.exports = router;

@@ -1,43 +1,39 @@
-
-
-#right_dasBoard_col{
+#right_dasBoard_col {
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+@media screen and (max-width: 900px) {
+  #right_dasBoard_col {
+    text-align: center;
+    float: none;
+    width: 100%;
+  }
+  #left_dasBoard_col {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  #right_dasBoard_col {
+    text-align: center;
+    float: none;
+    width: 100%;
     padding-top: 50px;
-    padding-right: 30px;
-    padding-left: 30px;
-   }
-   @media screen and (max-width: 900px) {
-     #right_dasBoard_col {
-       text-align: center;
-       float: none;
-       width: 100%;
- 
-     }
-     #left_dasBoard_col   {
-       width: 100%;
-     }
-   }
-   @media screen and (max-width: 600px) {
-     #right_dasBoard_col {
-       text-align: center;
-       float: none;
-       width: 100%;
-       padding-top: 50px;
-       padding-right: 2px;
-       padding-left: 10px;
-     }
-   }
-
-   #btn_table{
-    margin-left: 10px;
+    padding-right: 2px;
+    padding-left: 10px;
+  }
 }
 
-.tailorprofile{
+#btn_table {
+  margin-left: 10px;
+}
+
+.tailorprofile {
   padding-right: 20px;
 }
 
-@media   screen and (max-width: 800px){
-  
-.tailorprofile{
-  padding: 10px;
-}
+@media screen and (max-width: 800px) {
+  .tailorprofile {
+    padding: 10px;
+  }
 }
