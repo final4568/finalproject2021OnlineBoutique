@@ -458,7 +458,7 @@ const AddOrder = ({ history, match }) => {
                   onChange={(e) => {
                     setTailortype(e.target.value);
                   }}
-                >
+                 >
                   <option value="select">Select Tailor</option>
                   <option value="Male">Male</option>
                   <option value="Female">FeMale</option>

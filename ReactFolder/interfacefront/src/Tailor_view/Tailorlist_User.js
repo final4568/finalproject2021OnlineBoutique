@@ -67,10 +67,12 @@ const Tailordeatils_User = ({ history }) => {
                   <td>{tailor.phone}</td>
                   <td>
                     <Link to={`/users/TailorDetailss/${tailor._id}`}>
-                      <Button style={{width:"80%"}} id="btn_table" color="success" size="sm">
+                      <Button  id="btn_table" color="success" size="sm">
                         View
                       </Button>
                     </Link>
+
+                    
                   </td>
                 </tr>
               ))}

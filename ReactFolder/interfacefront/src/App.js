@@ -102,7 +102,6 @@ import Messenger from "./Message/Messenger";
 
 import Join from "./ChatComponents/join/Join";
 import Chat from "./ChatComponents/chat/Chat";
-import Ccomponents from "./ChatComponents/chat/Ccomponenets";
 
 function App() {
   return (
@@ -123,7 +122,6 @@ function App() {
           <Switch>
 
             
-            <Route exact path="/Ccomponents" component={Ccomponents} />
             <Route exact path="/admin/login" component={Adminlogin} />
             <Route exact path="/admin/register" component={RegisterScreen} />
             <Route exact path="/admin/forgetpassword"component={ForgotPasswordScreen}/>
