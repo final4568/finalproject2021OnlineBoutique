@@ -7,7 +7,7 @@ import { useRouteMatch } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
 
-const CusOrderViewByTailor = ({ history }) => {
+const Malecustorderviewby_Tailor = ({ history }) => {
   const match = useRouteMatch();
   const [orderdetails, setOrderdetails] = useState({});
 
@@ -96,21 +96,16 @@ const CusOrderViewByTailor = ({ history }) => {
       <TailorHeader />
       <div className="containter">
         <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
-          <TailorSideBar/>
+          <TailorSideBar />
         </div>
 
         <div
           className="col-10"
           id="right_dasBoard_col"
-          style={{ float: "right" , padding:"30px"}}
+          style={{ float: "right" }}
         >
           <h1>Order Details</h1>
-          {/* <p>
-            <strong> colloer</strong> : {coller}
-          </p>
-          <p>
-            <strong> body</strong> : {shirtbody}
-          </p> */}
+          
           <p className="order_detail">
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
@@ -123,7 +118,7 @@ const CusOrderViewByTailor = ({ history }) => {
           <div className="container">
             <div className="row">
               <div className="col-lg-8">
-              <Link to="/customdress/orders">
+              <Link to="/custom/MaleorderByTailor">
             <Button color="success">Go Back</Button>
           </Link>
 
@@ -496,4 +491,4 @@ const CusOrderViewByTailor = ({ history }) => {
   );
 };
 
-export default CusOrderViewByTailor;
+export default Malecustorderviewby_Tailor;

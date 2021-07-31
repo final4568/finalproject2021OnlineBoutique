@@ -7,16 +7,16 @@ import TailorHeader from "../layouts/TailorHeader";
 import TailorSideBar from "../layouts/TailorSidebar";
 
 
-const OrderByTailors = () => {
-   const[tailortype, setTailortype] = useState([]);
+const MaleCustOrderby_tailor = () => {
+   const[tailortype, setTailortype] = useState("");
    const[orders, setOrder]= useState([]);
    const[error, setError]= useState([]);
    const [refresh, setRefresh] = useState(false);
-   const producttype = "ReadMade";
+   const producttype = "Customdress";
+   const productname ="Man_Custom_Dress";
 
    useEffect(()=>{
     if (refresh) return setRefresh(false);
-    
     const token = localStorage.getItem("authToken");
 
     const LoggedUserdata = async()=>{
@@ -31,7 +31,7 @@ const OrderByTailors = () => {
           "/api/tailor/LoggedTailorProfile",
           config
         );
-        // console.log(data.gender)
+       
         setTailortype(data.gender);
       }catch(err){
         setError("user not find")
@@ -46,11 +46,11 @@ const OrderByTailors = () => {
         },
     };
     try{
-      const { data } = await axios.post('/api/oders/orderbytailor',{tailortype,producttype }, configg);
+      const { data } = await axios.post('/api/oders/customorderbytailorMF',{tailortype,producttype,productname }, configg);
      
       setOrder(data);
     }catch(error){
-      setError("not Fetch Data")      
+      setError("Not Orders ")      
     }
 
   };
@@ -79,17 +79,18 @@ const OrderByTailors = () => {
           id="right_dasBoard_col"
           style={{ float: "right", marginRight: "0px"}}>
 
-          <h1>All Ready Made Product Orders</h1>
+          <h1>Male Customized Dress Orders</h1>
           <p className="tailorprofile">
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
             scrambled it to make a type specimen book. It has survived not only
-            five centuries,
+            five centuries
           </p>
-          <table class="table border shadow" style={{ marginTop: "40px" }}>
-            <thead>
+
+          <div >
+          <table class="table border shadow" style={{ marginTop: "40px"}}>
+            <thead class="thead-dark">
               <tr class="table-dark">
-                <th scope="col">Prdduct Image</th>
                 <th scope="col">Product Name</th>
                 <th scope="col">Order Status</th>
                 <th scope="col">Progress</th>
@@ -107,12 +108,10 @@ const OrderByTailors = () => {
               </tr>
             </thead>
             <tbody>
+
               {orders.map((order) => (
                 <tr key={order._id}>
-                  <td>
-                  <img src={`/images/${order.productimage}`} alt="Loading...!"
-                   width="100px" height="60px"/>
-                  </td>
+                  
                   <td>{order.productname}</td>
                   <td><p style={{padding:"10px",color:"green", fontWeight:"bold"}}>
                   {order.orderstatus}</p> </td>
@@ -120,7 +119,7 @@ const OrderByTailors = () => {
                   {order.orderprogress}</p> </td>
                   <td>
 
-                      <Link to={`/Viewordertailor/${order._id}`}>
+                      <Link to={`/custom/malecustorderTailor/${order._id}`}>
                       <Button id="btn_table" color="primary" size="sm">
                         View
                       </Button>
@@ -147,16 +146,19 @@ const OrderByTailors = () => {
                   </td>
                 </tr>
               ))}
+              
             </tbody>
+            
           </table>
           </div>
+          
           </div>
+          </div>
+
 
          
         </>
      );
 }
  
-export default OrderByTailors;
- 
-// export default OrderByTailors;
+export default MaleCustOrderby_tailor;

@@ -106,6 +106,7 @@ const UploadProduct_tailor = ({history}) => {
                     style={{width:"100%",
                   height:"40px"}}
                   >
+                    <option value="male">Select Author</option>
                     <option value="male">Admin</option>
                     <option value="Female">Tailor</option>
                   </select>

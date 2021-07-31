@@ -7,12 +7,13 @@ import TailorHeader from "../layouts/TailorHeader";
 import TailorSideBar from "../layouts/TailorSidebar";
 
 
-const CustOrderbytailor = () => {
+const FemaleCustOrderby_tailor = () => {
    const[tailortype, setTailortype] = useState([]);
    const[orders, setOrder]= useState([]);
    const[error, setError]= useState([]);
    const [refresh, setRefresh] = useState(false);
    const producttype = "Customdress";
+   const productname ="Female_Custom_Dress";
 
    useEffect(()=>{
     if (refresh) return setRefresh(false);
@@ -45,7 +46,7 @@ const CustOrderbytailor = () => {
         },
     };
     try{
-      const { data } = await axios.post('/api/oders/orderbytailor',{tailortype,producttype }, configg);
+      const { data } = await axios.post('/api/oders/customorderbytailorMF',{tailortype,producttype,productname }, configg);
      
       setOrder(data);
     }catch(error){
@@ -78,7 +79,7 @@ const CustOrderbytailor = () => {
           id="right_dasBoard_col"
           style={{ float: "right", marginRight: "0px"}}>
 
-          <h1>{tailortype} Tailor Panel</h1>
+          <h1>Female Customized Dress Orders</h1>
           <p className="tailorprofile">
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
@@ -115,7 +116,7 @@ const CustOrderbytailor = () => {
                   {order.orderprogress}</p> </td>
                   <td>
 
-                      <Link to={`/custom/Viewordertailor/${order._id}`}>
+                      <Link to={`/custom/FemalecustorderTailor/${order._id}`}>
                       <Button id="btn_table" color="primary" size="sm">
                         View
                       </Button>
@@ -144,6 +145,7 @@ const CustOrderbytailor = () => {
               ))}
             </tbody>
           </table>
+          <h1> No Order</h1>
           </div>
           </div>
 
@@ -152,4 +154,4 @@ const CustOrderbytailor = () => {
      );
 }
  
-export default CustOrderbytailor;
+export default FemaleCustOrderby_tailor;

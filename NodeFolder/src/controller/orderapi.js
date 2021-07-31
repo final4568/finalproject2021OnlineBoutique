@@ -26,25 +26,44 @@ exports.orderadd = async (req, res)=>{
         leftcoffid, leftcoffcolor, 
         righttcoff, righttcoffid, righttcoffcolor
       }).then((response)=>{
+
         res.status(200).send(response)
-    const resetUrl = `http://localhost:3000/tailor/dashboard`;
-    const message = `
-            <h1>Hi, You have recived New Order</h1>
-            <p> Please Check Your Dashboard</p>
+
+        const resetUrl = `http://localhost:3000/tailor/dashboard`;   
+        var email;
+        
+        if(tailortype == "Male"){
+          email="usama.razzaq.gmc@gmail.com";
+          sendEmail({
+            to:email,
+            subject: `Recived New Male Order For ${username}`,
+            text: `<h1>Hi, You have recived New Male Order</h1>
+            <p> Please Check Your Dashboard And The UserEmail: ${usergmail} </p> 
             <a href="${resetUrl}" clicktracking = off> ${resetUrl} </a>
-            `;
-        const email="usama.razzaq.gmc@gmail.com";
+            `,
+          });
+          res.status(200).json({
+            success: true,
+            data: "Email send successfully...! Check Your Email",
+          });
+        }else if(tailortype == "Female"){
+          email="well.wish.gmc@gmail.com";
+          sendEmail({
+            to:email,
+            subject: `Recived New Male Order For ${username}`,
+            text: `<h1>Hi, You have recived New Order</h1>
+            <p> Please Check Your Dashboard  And The UserEmail: ${usergmail} </p> 
+            <a href="${resetUrl}" clicktracking = off> ${resetUrl} </a>
+            `,
+          });
+          res.status(200).json({
+            success: true,
+            data: "Email send successfully...! Check Your Email",
+          });
+        }
         
 
-      sendEmail({
-        to:email,
-        subject: "Recived New Order",
-        text: message,
-      });
-      res.status(200).json({
-        success: true,
-        data: "Email send successfully...! Check Your Email",
-      });
+      
       })
     } catch (error) {
       res.status(500).json({
@@ -213,6 +232,39 @@ exports.orderbytailor = async (req, res)=>{
   }
 
 };
+
+
+exports.customorderbytailorMF = async (req, res)=>{
+  const tailortype = req.body.tailortype;
+  const producttype = req.body.producttype;
+  const productname = req.body.productname;
+  try{
+   
+
+    await Order.find({tailortype:tailortype, producttype:producttype, productname:productname},(err, detail)=>{
+      if(err){
+          res.status(500).json({
+          success:false,
+        });
+      }else{
+        // console.log(detail)
+        res.status(200).json(detail);
+      }
+    }).sort({ _id: -1 })
+  }catch{
+    res.status(400).json({
+      success: false,
+      message: "Order Data Not Found"
+  });
+  }
+
+};
+
+
+
+
+
+
 
 exports.getorderbyproducttype = async (req, res)=>{
   const producttype = req.body.producttype;

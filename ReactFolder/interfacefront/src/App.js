@@ -85,8 +85,10 @@ import Getcustcorderbyuser from "./customeDress/Getcorderbyuser";
 import OrderViewByuser from"./customeDress/OrderViewByuser";
 import EditManModelbyUser from "./customeDress/EditMmondelbyUser";
 import Measment_EditbyUser from "./customeDress/Measment_EditbyUser";
-import CustOrderbytailor from "./customeDress/CustOrderbytailor";
-import CusOrderViewByTailor from "./customeDress/CusOrderViewByTailor";
+import MaleCustOrderby_tailor from "./customeDress/MaleCustOrderby_tailor";
+import FemaleCustOrderby_tailor from "./customeDress/FemaleCustOrderby_tailor";
+import Malecustorderviewby_Tailor from "./customeDress/Malecustorderviewby_Tailor";
+import FemaleCustOrderviewby_tailor from "./customeDress/FemaleCustOrderviewby_tailor";
 
 import Custom_maleDressOrder_User from "./customeDress/Custom_maleDressOrder_User"
 import Custom_FemaleDressOrder_User from "./customeDress/Custom_FemaleDressOrder_User"
@@ -224,9 +226,14 @@ function App() {
           <Route exact path="/customized/orderbyuser/:id" component={OrderViewByuser}/>
           <Route exact path="/customized/editManModelbyUser/:id" component={EditManModelbyUser}/>
           <Route exact path="/customized/Measment_EditbyUser/:id" component={Measment_EditbyUser}/>
-          <Route exact path="/custom/tailororderbygender" component={CustOrderbytailor}/>
-          <Route exact path="/custom/Viewordertailor/:id" component={CusOrderViewByTailor}/>
+          <Route exact path="/custom/MaleorderByTailor" component={MaleCustOrderby_tailor}/>
+          <Route exact path="/custom/FemaleorderByTailor" component={FemaleCustOrderby_tailor}/>
+          <Route exact path="/custom/malecustorderTailor/:id" component={Malecustorderviewby_Tailor}/>
+          <Route exact path="/custom/FemalecustorderTailor/:id" component={FemaleCustOrderviewby_tailor}/>
          
+          
+
+
           <Route exact path="/custom/CustommaleDressOrder" component={Custom_maleDressOrder_User}/>
           <Route exact path="/custom/CustomFemaleDressOrder" component={Custom_FemaleDressOrder_User}/>
           

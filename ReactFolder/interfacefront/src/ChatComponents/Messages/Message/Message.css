@@ -5,6 +5,7 @@
     color: white;
     display: inline-block;
     max-width: 80%;
+    height: 20px;
   }
   
   .messageText {
@@ -13,6 +14,15 @@
     float: left;
     font-size: 1.1em;
     word-wrap: break-word;
+  }
+  .tailomessage{
+    background:rgba(0, 0, 0, 0.075);
+    padding: 10px;
+    max-width: 80%;
+    border-radius: 20px;
+    height: 50px;
+    margin-top: 20px;
+    margin-right: 10px;
   }
   
   .messageText img {
@@ -23,7 +33,7 @@
     display: flex;
     justify-content: flex-end;
     padding: 0 5%;
-    margin-top: 3px;
+    margin-top: 2px;
   }
   
   .sentText {
@@ -36,6 +46,8 @@
   
   .pl-10 {
     padding-left: 10px;
+    padding-top: 20px;
+
   }
   
   .pr-10 {

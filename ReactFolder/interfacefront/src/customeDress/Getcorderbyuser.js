@@ -90,7 +90,6 @@ const Getcustcorderbyuser = ({ history }) => {
               <th scope="col">Progress</th>
               <th scope="col">Submitted To</th>
               <th scope="col">Product Name </th>
-
               <th>
                 <Button
                   color="danger"
@@ -107,6 +106,7 @@ const Getcustcorderbyuser = ({ history }) => {
             </tr>
           </thead>
           <tbody>
+
             {orders.map((order) => (
               <tr key={order._id}>
                 <td>{order.producttype}</td>
@@ -130,6 +130,7 @@ const Getcustcorderbyuser = ({ history }) => {
           </tbody>
         </table>
       </div>
+
     </>
   );
 };
