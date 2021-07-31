@@ -11,15 +11,21 @@ import { useState, useEffect } from "react";
 const ProductTable_tailor = ({history}) => {
   const [products, setProducts] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const [ dataavaibale, setDataavaibale] = useState("No Products Uploaded");
+
 
   useEffect(() => {
     if (refresh) return setRefresh(false);
 
     const loadproducts = async () => {
       const result = await axios.get("/api/product/getallproducts");
-      setProducts(result.data);
-      console.log(result.data);
-
+      if(result == ""){
+        setDataavaibale("No Products Uploaded");
+      }else if(result == result){
+        setProducts(result.data);
+        setDataavaibale("All Product Here");
+       
+      }
     };
 
     loadproducts();
@@ -51,6 +57,8 @@ const ProductTable_tailor = ({history}) => {
             five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.
           </p>
+          <p style={{fontSize:"30px", color:"black", opacity:"0.3"}}>{dataavaibale}</p>
+
           <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">

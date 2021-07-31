@@ -10,6 +10,8 @@ const UserOrders = () => {
    const[orders, setOrder]= useState([]);
    const[error, setError]= useState([]);
    const [refresh, setRefresh] = useState(false);
+   const [ dataavaibale, setDataavaibale] = useState("No Order");
+
 
    useEffect(()=>{
     if (refresh) return setRefresh(false);
@@ -42,9 +44,13 @@ const UserOrders = () => {
     };
     try{
       const { data } = await axios.post('/api/oders/orderbyUserid',{userid}, configg);
-     console.log(data.data)
-     
+     if(data == ""){
+      setDataavaibale("You Have Placed Not Any Order right Now");
+    }else if(data == data){
       setOrder(data);
+      setDataavaibale("Your All Order Here");
+     
+    }
     }catch(error){
       setError("not Fetch Data")      
     }
@@ -65,7 +71,9 @@ const UserOrders = () => {
     };
   return ( 
         <>
-         <table class="table border shadow" style={{ marginTop: "40px" }}>
+<p style={{fontSize:"30px", color:"black", opacity:"0.3", marginTop:"40px"}}>{dataavaibale}</p>
+
+         <table class="table border shadow" style={{ marginTop: "10px" }}>
             <thead>
               <tr class="table-dark">
                 <th scope="col">Order Type</th>

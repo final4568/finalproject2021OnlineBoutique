@@ -10,7 +10,9 @@ const Custom_FemaleDressOrder_User = ({ history }) => {
   const [error, setError] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const producttype = "Customdress";
-  const productname ="Female_Custom_Dress"
+  const productname ="Female_Custom_Dress";
+  const [ dataavaibale, setDataavaibale] = useState("No Order");
+
 
   useEffect(() => {
     if (refresh) return setRefresh(false);
@@ -46,9 +48,16 @@ const Custom_FemaleDressOrder_User = ({ history }) => {
           { userid, producttype, productname },
           configg
         );
-        console.log(data.data);
 
-        setOrder(data);
+        if(data == ""){
+          setDataavaibale("You Have Not Placed Any Order right Now");
+        }else if(data == data){
+          setOrder(data);
+          setDataavaibale("Your All Order Here");
+         
+        }
+      
+
       } catch (error) {
         setError("not Fetch Data");
       }
@@ -85,6 +94,8 @@ const Custom_FemaleDressOrder_User = ({ history }) => {
       </div>
 
       <div className="container-fluide" style={{ padding: "30px" }}>
+      <p style={{fontSize:"30px", color:"black", opacity:"0.3"}}>{dataavaibale}</p>
+
         <table class="table border shadow" style={{ marginTop: "40px" }}>
           <thead>
             <tr class="table-dark">

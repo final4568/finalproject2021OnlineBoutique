@@ -1,35 +1,48 @@
 
+
 import AdminHeader from "../layouts/AdminHeader";
 import AdminSideBar from "../layouts/AdminSlidebar";
 import { Link } from "react-router-dom";
-
 import { Button } from "reactstrap";
 import axios from "axios";
 import "../index.css";
+import "../index.css";
 import { useState, useEffect } from "react";
 
-const AllProducttable = ({history}) => {
-  const [products, setProducts] = useState([]);
+const AllUsers_admin = ({ history }) => {
+  const [users, setUsers] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const [ dataavaibale, setDataavaibale] = useState("No User Registered");
+  
+  
 
   useEffect(() => {
+
     if (refresh) return setRefresh(false);
+    
+    const loadUser = async () => {
+      const result = await axios.get("/api/users/getallusers");
+      if(result == ""){
+        setDataavaibale("No User Registered");
+      
+      }else if(result == result){
+        setUsers(result.data);
+        setDataavaibale("All Registered User Here");
 
-    const loadproducts = async () => {
-      const result = await axios.get("/api/product/getallproducts");
-      setProducts(result.data);
+       
+      }
     };
-
-    loadproducts();
+      loadUser();    
   }, [history, refresh]);
 
-  const deleteproduct = (id) => {
-    axios.delete(`/api/product/delete/${id}`);
+  const deleteUser = (id) => {
+    axios.delete(`/api/users/deleteUser/${id}`);
     setRefresh(true);
+    // window.location.href = "/tailorMain"
   };
 
-    return ( 
-        <>
+  return (
+    <>
       <AdminHeader />
       <div className="containter">
         <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
@@ -40,7 +53,7 @@ const AllProducttable = ({history}) => {
           id="right_dasBoard_col"
           style={{ float: "right" }}
         >
-          <h1>Products Records</h1>
+          <h1>Users Records</h1>
           <p>
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
@@ -48,57 +61,49 @@ const AllProducttable = ({history}) => {
             five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.
           </p>
-
+<p style={{fontSize:"30px", color:"black", opacity:"0.3"}}>{dataavaibale}</p>
+        
           <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">
-                <th scope="col"> Image</th>
-                <th scope="col">Products Name</th>
-                <th scope="col">Category</th>
-                <th scope="col">Action </th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
-
             <tbody>
-              {products.map((product) => (
-                <tr key={product._id}>
+              {users.map((user) => (
+                <tr key={user._id}>
+                  <td>{user.username}</td>
+                  <td>{user.email}</td>
+                  <td>{user.phone}</td>
                   <td>
-                      <img src={`/images/${product.product_photo}`} alt="..."
-                      width="100px" height="60px"/>
-                  </td>
-                  <td>{product.product_name}</td>
-                  <td>{product.product_category}</td>
-
-                  <td>
-                    <Link to={`/product/detail/${product._id}`}>
-                      <Button id="btn_table" color="primary" size="sm">
+                    <Link to={`/user/Profile/${user._id}`}>
+                      <Button id="btn_table" color="primary" size="sm" > 
                         View
                       </Button>
                     </Link>
-                    <Link to={`/product/Update/${product._id}`}>
+                    <Link to={`/user/update/${user._id}`}>
                       <Button id="btn_table" color="warning" size="sm" >
                         Edit
                       </Button>
                     </Link>
 
-                    
                     <Button
                       id="btn_table"
                       onClick={() => {
                         if (
                           window.confirm(
-                            `Are you sure you wish to delete this Product?`
+                            `Are you sure you wish to delete this User?`
                           )
                         )
-                        deleteproduct(product._id);
+                        deleteUser(user._id);
                       }}
                       color="danger" size="sm"
                     >
                       Delete
                     </Button>
-                    
-
-               
                   </td>
                 </tr>
               ))}
@@ -107,7 +112,9 @@ const AllProducttable = ({history}) => {
         </div>
       </div>
     </>
-     );
-}
+  );
+};
+
+export default AllUsers_admin;
+
  
-export default AllProducttable;

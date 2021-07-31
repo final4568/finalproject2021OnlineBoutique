@@ -28,7 +28,7 @@ import LoggedInTailorUpdate from "./Tailor_view/LoggedInTailorUpdate";
 
 import Overview from './Order/Overview';
 import  Reports from './Tailor_view/Reports';
-import TailorMainpage from './Tailor_view/TailorMain';
+import AllTailorMain_admin from './Tailor_view/AllTailorMain_admin';
 import TailorProfile from './Tailor_view/TailorProfile';
 import TailorUpdate from './Tailor_view/TailorUpdate';
 
@@ -38,19 +38,19 @@ import UserDashboards from "./Users_view/UserDashboard";
 import UserForgotPassword from "./Users_view/UserForgotPassword"
 import Userpasswordreset from "./Users_view/Userpasswordreset";
 import UserRegisterByAdmin from "./Users_view/UserRegisterByAdmin";
-import UserMain from "./Users_view/UsersMain";
+import AllUsers_admin from "./Users_view/AllUsers_admin";
 import UserProfile from "./Users_view/UserProfile";
 import UserUpdate from "./Users_view/UserUpdate";
 import LoggedUserProfile from "./Users_view/LoggedUserProfile";
 
-import UserMain_Tailor from "./Users_view/UserMain_Tailor";
+import AllUser_Tailor from "./Users_view/AllUser_Tailor";
 import Userprofile_Tailor from "./Users_view/Userprofile_Tailor";
 import UserProdileEdit_Tailor from "./Users_view/UserProdileEdit_Tailor";
 import UserRegister_Tailor from "./Users_view/UserRegister_Tailor";
 import LoggedUserProfileEdit from "./Users_view/LoggedUserProfileEdit";
 
 import UploadProducts from './product/UploadProducts';
-import AllProducttable from './product/ProductTable';
+import AllProducttable_admin from './product/AllProducttable_admin';
 import ProductDetail from './product/ProductDetail';
 import Updateproduct from './product/UpdateProduct';
 
@@ -65,7 +65,7 @@ import Maleproducts from "./ShopPage/Maleproducts";
 import FemaleProducts from "./ShopPage/FemaleProducts";
 
 import AddOrder from "./Order/AddOrder";
-import Allorders from "./Order/Allreadymadorders";
+import Allorders from "./Order/Allorders_admin";
 import Orderdetail from "./Order/Orderdetail";
 import EditOrder_Admin from "./Order/EditOrder_Admin";
 import OrderByTailors from "./Order/OrdersByTailor";
@@ -133,7 +133,7 @@ function App() {
           <Switch>
                <Route exact path="/report" component={Reports} />
                <Route exact path="/overview" component={Overview} />              
-               <Route exact path="/tailorMain" component={TailorMainpage} />
+               <Route exact path="/tailorMain" component={AllTailorMain_admin} />
                <Route exact path="/tailor/registerbyadmin" component={TailorRegister} />
                <Route exact path="/Tailor/Profile/:id" component={TailorProfile} />
                <Route exact path="/Tailor/Update/:id" component={TailorUpdate} />
@@ -163,13 +163,13 @@ function App() {
             <Route exact path="/user/dashboard" component={ UserDashboards }/>
             <Route exact path="/Userpasswordreset/:resetToken" component={Userpasswordreset}/>
             <Route exact path="/User/RegisterByAdmin" component={UserRegisterByAdmin}/>
-            <Route exact path="/User/UserMain" component={UserMain}/>
+            <Route exact path="/User/UserMain" component={AllUsers_admin}/>
             <Route exact path="/user/Profile/:id" component={UserProfile}/>
             <Route exact path="/user/update/:id" component={UserUpdate}/>
             <Route exact path="/Loogeduser/Profile" component={LoggedUserProfile}/>
             <Route exact path="/LoogeduserProfile/Edit/:id" component={LoggedUserProfileEdit}/>
            
-            <Route exact path="/tailor/User/UserMain" component={UserMain_Tailor}/>
+            <Route exact path="/tailor/User/UserMain" component={AllUser_Tailor}/>
             <Route exact path="/tailor/User/profile/:id" component={Userprofile_Tailor}/>
             <Route exact path="/user/updateprofile/:id" component={ UserProdileEdit_Tailor}/>
             <Route exact path="/tailor/adduser" component={UserRegister_Tailor}/>
@@ -177,7 +177,7 @@ function App() {
 
           <Switch>
             <Route exact path="/uploadproduct" component={UploadProducts}/>
-            <Route exact path="/product/allProducttable" component={AllProducttable}/>
+            <Route exact path="/product/allProducttable" component={AllProducttable_admin}/>
             <Route exact path="/product/detail/:id" component={ProductDetail}/>
             <Route exact path="/product/Update/:id" component={Updateproduct}/>
           </Switch>

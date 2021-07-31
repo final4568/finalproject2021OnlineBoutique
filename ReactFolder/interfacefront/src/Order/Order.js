@@ -7,6 +7,7 @@ const Order = ({history}) => {
   
   const [orders, setOrders] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const [ dataavaibale, setDataavaibale] = useState("No Order");
 
   
   useEffect(() => {    
@@ -14,7 +15,13 @@ const Order = ({history}) => {
 
       const loadorders = async () => {
         const result = await axios.get("/api/oders/seeorder");
-        setOrders(result.data);
+        if(result == ""){
+          setDataavaibale("You Have No Order right Now");
+        }else if(result == result){
+          setOrders(result.data);
+          setDataavaibale("All Order Here");
+         
+        }
       };
   
       loadorders();
@@ -35,6 +42,8 @@ const Order = ({history}) => {
                 >
                   Refresh
                 </Button>
+
+       <h1>{dataavaibale}</h1>
 
         <div className="container" style={{marginTop:"70px", marginBottom:"50px"}}>
         <table class="table border shadow" style={{ marginTop: "40px" }}>

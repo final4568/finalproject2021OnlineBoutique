@@ -10,6 +10,7 @@ const GetRMorderbyuser = ({ history }) => {
   const [error, setError] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const producttype = "ReadMade";
+  const [ dataavaibale, setDataavaibale] = useState("No Order");
 
   useEffect(() => {
     if (refresh) return setRefresh(false);
@@ -45,9 +46,14 @@ const GetRMorderbyuser = ({ history }) => {
           { userid, producttype },
           configg
         );
-        console.log(data.data);
+        if(data == ""){
+          setDataavaibale("You Have No Order right Now");
+        }else if(data == data){
+          setOrder(data);
+          setDataavaibale("All Order Here");
+         
+        }
 
-        setOrder(data);
       } catch (error) {
         setError("not Fetch Data");
       }
@@ -81,10 +87,13 @@ const GetRMorderbyuser = ({ history }) => {
             the 1500s, when an unknown printer took a galley of type and
             scrambled it to make a type specimen book.
           </p>
+
         </div>
       </div>
 
       <div className="container-fluide" style={{ padding: "30px" }}>
+      <p style={{fontSize:"30px", color:"black", opacity:"0.3"}}>{dataavaibale}</p>
+
         <table class="table border shadow" style={{ marginTop: "40px" }}>
           <thead>
             <tr class="table-dark">

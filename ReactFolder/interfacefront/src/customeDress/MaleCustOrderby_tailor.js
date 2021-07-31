@@ -14,6 +14,7 @@ const MaleCustOrderby_tailor = () => {
    const [refresh, setRefresh] = useState(false);
    const producttype = "Customdress";
    const productname ="Man_Custom_Dress";
+   const [ dataavaibale, setDataavaibale] = useState("No Order");
 
    useEffect(()=>{
     if (refresh) return setRefresh(false);
@@ -47,8 +48,13 @@ const MaleCustOrderby_tailor = () => {
     };
     try{
       const { data } = await axios.post('/api/oders/customorderbytailorMF',{tailortype,producttype,productname }, configg);
-     
-      setOrder(data);
+      if(data == ""){
+        setDataavaibale("You Have No Order right Now");
+      }else if(data == data){
+        setOrder(data);
+        setDataavaibale("All Order Here");
+       
+      }
     }catch(error){
       setError("Not Orders ")      
     }
@@ -86,7 +92,8 @@ const MaleCustOrderby_tailor = () => {
             scrambled it to make a type specimen book. It has survived not only
             five centuries
           </p>
-
+          <p style={{fontSize:"30px", color:"black", opacity:"0.3"}}>{dataavaibale}</p>
+         
           <div >
           <table class="table border shadow" style={{ marginTop: "40px"}}>
             <thead class="thead-dark">

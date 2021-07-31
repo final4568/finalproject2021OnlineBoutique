@@ -13,10 +13,11 @@ const OrderByTailors = () => {
    const[error, setError]= useState([]);
    const [refresh, setRefresh] = useState(false);
    const producttype = "ReadMade";
+   const [ dataavaibale, setDataavaibale] = useState("No Order");
+
 
    useEffect(()=>{
-    if (refresh) return setRefresh(false);
-    
+    if (refresh) return setRefresh(false);    
     const token = localStorage.getItem("authToken");
 
     const LoggedUserdata = async()=>{
@@ -47,8 +48,13 @@ const OrderByTailors = () => {
     };
     try{
       const { data } = await axios.post('/api/oders/orderbytailor',{tailortype,producttype }, configg);
-     
-      setOrder(data);
+      if(data == ""){
+        setDataavaibale("You Have No Order right Now");
+      }else if(data == data){
+        setOrder(data);
+        setDataavaibale("All Order Here");
+       
+      }
     }catch(error){
       setError("not Fetch Data")      
     }
@@ -86,6 +92,8 @@ const OrderByTailors = () => {
             scrambled it to make a type specimen book. It has survived not only
             five centuries,
           </p>
+          <p style={{fontSize:"30px", color:"black", opacity:"0.3"}}>{dataavaibale}</p>
+          
           <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">

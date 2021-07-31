@@ -5,10 +5,12 @@ import { useState, useEffect } from "react";
 import AdminHeader from '../layouts/AdminHeader';
 import AdminSideBar from '../layouts/AdminSlidebar';
 import { Button } from "reactstrap";
-import {Link } from "react-router-dom"
+import {Link } from "react-router-dom";
+
 const Allorders = ({history}) => {
     const [orders, setOrders] = useState([]);
     const [refresh, setRefresh] =useState(false);
+    const [ dataavaibale, setDataavaibale] = useState("No Order");
 
 
     useEffect(() => {   
@@ -28,8 +30,16 @@ const Allorders = ({history}) => {
       };
       try{
         const { data } = await axios.post('/api/oders/orderbytype',{producttype}, configg);
-        console.log(data)
-        setOrders(data);
+        if(data == ""){
+          setDataavaibale("You Have No Order right Now");
+        }else if(data == data){
+          setOrders(data);
+          setDataavaibale("All Order Here");
+         
+        }
+
+
+
       }catch(error){
         console.log("not Fetch Data")      
       }
@@ -63,6 +73,7 @@ const Allorders = ({history}) => {
             scrambled it to make a type specimen book.
           </p>
       
+          <p style={{fontSize:"30px", color:"black", opacity:"0.3"}}>{dataavaibale}</p>
 
           <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>

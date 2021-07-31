@@ -10,18 +10,14 @@ import {Link } from "react-router-dom"
 
 
 const MaleOrderGet_admin = ({history}) => {
-    const [orders, setOrders] = useState([]);
+    const [orders, setOrder] = useState([]);
     const [refresh, setRefresh] =useState(false);
     const productname="Man_Custom_Dress";
+    const [ dataavaibale, setDataavaibale] = useState("No Order");
 
     useEffect(() => {   
       if (refresh) return setRefresh(false);
-       
-      // const loadorders = async () => {
-      //     const result = await axios.get("/api/oders/seeorder");
-      //     setOrders(result.data);
-      //   };
-      
+     
       const producttype = "Customdress"
       const loadorders = async()=>{
         const configg = {
@@ -31,7 +27,16 @@ const MaleOrderGet_admin = ({history}) => {
       };
       try{
         const { data } = await axios.post('/api/oders/customorderPTPN',{producttype, productname}, configg);
-        setOrders(data);
+        if(data == ""){
+          setDataavaibale(" Order right Now");
+        }else if(data == data){
+          setOrder(data);
+          setDataavaibale("All Order Here");
+         
+        }
+        
+
+
       }catch(error){
         console.log("not Fetch Data")      
       }
@@ -62,6 +67,7 @@ const MaleOrderGet_admin = ({history}) => {
             the 1500s, when an unknown printer took a galley of type and
             scrambled it to make a type specimen book.
           </p>
+<p style={{fontSize:"30px", color:"black", opacity:"0.3"}}>{dataavaibale}</p>
       
 
           <table class="table border shadow" style={{ marginTop: "40px" }}>

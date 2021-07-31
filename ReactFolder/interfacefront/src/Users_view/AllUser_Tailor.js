@@ -1,7 +1,7 @@
 
 
-import AdminHeader from "../layouts/AdminHeader";
-import AdminSideBar from "../layouts/AdminSlidebar";
+import TailorHeader from "../layouts/TailorHeader";
+import TailorSideBar from "../layouts/TailorSidebar";
 import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
 import axios from "axios";
@@ -9,9 +9,10 @@ import "../index.css";
 import "../index.css";
 import { useState, useEffect } from "react";
 
-const UserMain = ({ history }) => {
+const AllUser_Tailor = ({ history }) => {
   const [users, setUsers] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const [ dataavaibale, setDataavaibale] = useState("No User Registered");
   
 
   useEffect(() => {
@@ -20,9 +21,19 @@ const UserMain = ({ history }) => {
     
     const loadUser = async () => {
       const result = await axios.get("/api/users/getallusers");
-      setUsers(result.data);
+     
+      if(result == ""){
+        setDataavaibale("No User Registered");
+      }else if(result == result){
+        setUsers(result.data);
+        setDataavaibale("All Registered User Here");
+       
+      }
+
+
     };
-      loadUser();    
+
+    loadUser();
   }, [history, refresh]);
 
   const deleteUser = (id) => {
@@ -33,17 +44,17 @@ const UserMain = ({ history }) => {
 
   return (
     <>
-      <AdminHeader />
+      <TailorHeader />
       <div className="containter">
         <div className="col-2" id="left_dasBoard_col" style={{ float: "left" }}>
-          <AdminSideBar />
+          <TailorSideBar />
         </div>
         <div
           className="col-10"
           id="right_dasBoard_col"
           style={{ float: "right" }}
         >
-          <h1>Users Records</h1>
+          <h1>Tailors Records</h1>
           <p>
             Lorem Ipsum has been the industry's standard dummy text ever since
             the 1500s, when an unknown printer took a galley of type and
@@ -51,7 +62,8 @@ const UserMain = ({ history }) => {
             five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.
           </p>
-        
+          <p style={{fontSize:"30px", color:"black", opacity:"0.3"}}>{dataavaibale}</p>
+
           <table class="table border shadow" style={{ marginTop: "40px" }}>
             <thead>
               <tr class="table-dark">
@@ -68,13 +80,14 @@ const UserMain = ({ history }) => {
                   <td>{user.email}</td>
                   <td>{user.phone}</td>
                   <td>
-                    <Link to={`/user/Profile/${user._id}`}>
-                      <Button id="btn_table" color="primary" size="sm" > 
+                    <Link to={`/tailor/User/profile/${user._id}`}>
+                      <Button id="btn_table" color="primary" size="sm">
                         View
                       </Button>
                     </Link>
-                    <Link to={`/user/update/${user._id}`}>
-                      <Button id="btn_table" color="warning" size="sm" >
+
+                    <Link to={`/user/updateprofile/${user._id}`}>
+                      <Button id="btn_table" color="warning" size="sm">
                         Edit
                       </Button>
                     </Link>
@@ -104,6 +117,4 @@ const UserMain = ({ history }) => {
   );
 };
 
-export default UserMain;
-
- 
+export default AllUser_Tailor;
