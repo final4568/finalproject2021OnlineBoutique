@@ -3,33 +3,37 @@ import axios from "axios";
 import "../index.css";
 import UserHeader from "../layouts/UserHeader";
 import UserOrders from "../Order/UserOrder";
+import Chat from "../ChatComponents/chat/Chat";
 
 const UserDashboards = ({ history }) => {
   const [error, setError] = useState("");
-  const [privateDate, setPrivateData] = useState("");
+  const [user, setUser] = useState("");
 
   useEffect(() => {
-    if (!localStorage.getItem("authToken")) {
-      history.push("/user/login");
-    }
+    const token = localStorage.getItem("authToken");
+    if (!token) history.push("/user/login");
 
-    const fetchdata = async () => {
+    const fetchloggedUserdate = async () => {
       const config = {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          Authorization: `Bearer ${token}`,
         },
       };
 
       try {
-        const { data } = await axios.get("/api/userprivate", config);
-        setPrivateData(data.data);
-      } catch {
-        setError("You are not authorized, please login first");
-      }
+        const { data } = await axios.get(
+          "/api/users/LoggedUserProfile",
+          config
+        );
 
-      fetchdata();
+        setUser(data);
+      } catch (error) {
+        console.log("You are not authorized, please login first");
+      }
     };
+
+    fetchloggedUserdate();
   }, [history]);
 
   return error ? (
@@ -80,6 +84,17 @@ const UserDashboards = ({ history }) => {
           <UserOrders />
         </div>
       </div>
+    
+  
+    {user &&
+
+    
+
+    <div>
+      <Chat name={user.username} room={user.gender}/>
+    </div>
+
+    }
     </>
   );
 };

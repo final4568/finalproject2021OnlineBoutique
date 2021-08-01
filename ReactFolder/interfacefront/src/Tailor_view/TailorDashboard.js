@@ -5,11 +5,12 @@ import TailorHeader from "../layouts/TailorHeader";
 import TailorSideBar from "../layouts/TailorSidebar";
 import Dashboard_component from "../layouts/Dashboard_component";
 import Order from '../Order/Order';
-import ChatComponents from "../ChatComponents/chat/Ccomponenets";
+import Chat from "../ChatComponents/chat/Chat";
 
-const TailorDashboard = ({ history }) => {
+
+const TailorDashboard = ({ history, location }) => {
   const [error, setError] = useState("");
-  const [privateDate, setPrivateData] = useState("");
+  const [tailor, setTailor] = useState("");
 
   useEffect(() => {
     if (!localStorage.getItem("authToken")) {
@@ -25,10 +26,16 @@ const TailorDashboard = ({ history }) => {
       };
 
       try {
-        const { data } = await axios.get("/api/tailorprivate", config);
-        setPrivateData(data.data);
+        const { data } = await axios.get(
+          "/api/tailor/LoggedTailorProfile",
+          config
+        );
+  
+        setTailor(data);
+
+
       } catch (error) {
-        setError("You are not authorized, please login first");
+        console.log("You are not authorized, please login first");
       }
     };
 
@@ -62,6 +69,13 @@ const TailorDashboard = ({ history }) => {
           <Order/>
         </div>
       </div>
+      
+    {tailor &&
+    <div>
+    <Chat  name= {tailor.username} room= {tailor.gender}/>
+  </div>
+    }
+      
     </>
   );
 };
