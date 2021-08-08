@@ -150,7 +150,7 @@ const UserRegister = ({history}) => {
 
                 <div className="field btn">
                 <div className="btn-layer"></div>
-                <input type="submit" value="Add New Tailor"/>
+                <input type="submit" value="Registered"/>
                 </div>
                
             </form>

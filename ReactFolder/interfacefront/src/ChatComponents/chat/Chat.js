@@ -8,6 +8,7 @@ import InfoBar from '../InforBar/InfoBar'
 import Input from '../Inputs/Input';
 import axios from "axios";
 
+
 import './Chat.css';
 const server = "http://localhost:4000";
 let socket;
@@ -63,15 +64,15 @@ const Chat = ({ name, room }) => {
 
 <div className="outerContainer">
 
-  <button style={{
-      margin:"20px",
-      background:"red"
-    }} 
-
+  <button 
+    className="chat_btn"
     onClick={()=>{
-      setOpen(!open)}}>
+      setOpen(!open)}}
       
-      Open chat box</button>
+    
+      >
+      
+      Chat </button>
 
     {open && 
     

@@ -56,11 +56,14 @@ const ManModel = ({ history, match }) => {
   const [righttcoffid, setRightcoffid] = useState("RightCoff");
   const [righttcoffcolor, setRightcoffcolor] = useState("#a67e2d");
 
+  
   const manageColler = (e) => {
+
     setCollerid(e.target.getAttribute("id"));
     setCollercolor(e.target.getAttribute("fill"));
     setColler(e.target.getAttribute("d"));
     setSelected(collerid);
+    
   };
 
   const setColor = (color) => {

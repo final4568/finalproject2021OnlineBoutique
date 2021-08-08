@@ -26,7 +26,7 @@ const UserDashboards = ({ history }) => {
           "/api/users/LoggedUserProfile",
           config
         );
-
+          console.log(data)
         setUser(data);
       } catch (error) {
         console.log("You are not authorized, please login first");
@@ -46,7 +46,7 @@ const UserDashboards = ({ history }) => {
       <div className="container">
         <div className="row">
           <div
-            className="col-lg-10"
+            className="col-lg-12"
             id="right_dasBoard_col"
             style={{ padding: "10px" }}
           >
@@ -58,19 +58,7 @@ const UserDashboards = ({ history }) => {
             </p>
           </div>
           
-          <div className="col-lg-2">            
-            <div
-              class="btn-chat"
-              id="livechat-compact-container"
-              style={{visibility: "visible", opacity: 1}}
-            >
-              <div class="btn-holder">
-                <a onclick="" target="_blank" href="/join" class="link">
-                  Live Chat
-                </a>
-              </div>
-            </div>
-          </div>
+          
 
         </div>
       </div>
@@ -81,7 +69,7 @@ const UserDashboards = ({ history }) => {
           id="right_dasBoard_col"
           style={{ padding: "0px 30px 0px 30px" }}
         >
-          <UserOrders />
+        <UserOrders />
         </div>
       </div>
     
