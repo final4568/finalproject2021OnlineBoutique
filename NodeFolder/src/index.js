@@ -26,8 +26,7 @@ app.use('/api/oders', require("./routes/order"));
 
 app.use('/api/customOrder', require("./routes/customeDress"));
 
-app.use('/api/conversation', require("./routes/conversationRoute"));
-app.use('/api/message', require("./routes/messageRoute"));
+
 
 
 app.use(errorHandler);

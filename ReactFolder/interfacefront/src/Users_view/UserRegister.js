@@ -6,7 +6,7 @@ import '../index.css';
 
 import Menu from '../layouts/Menu';
 
-const UserRegister = ({history}) => {
+const UserRegister = ({history, match}) => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
@@ -27,6 +27,7 @@ const UserRegister = ({history}) => {
                 "Content-Type": "application/json",
             },
         };
+
         if(password !== confirmpassword){
         setPassword("");
         setConfirmPassword("");
@@ -34,9 +35,24 @@ const UserRegister = ({history}) => {
         setTimeout(() => {
           setError("");
         }, 5000);
+
         return setError("Passwords do not match");
         }
-        
+
+        var pass = /^(?=.\d)(?=.[a-z])(?=.*[A-Z]).{6,20}$/;
+        if(password.value.match(pass)) 
+        { 
+        alert('Correct, try another...')    
+        return true
+
+        }
+        else
+        { 
+        alert('Wrong...!')
+        return 
+
+        }
+       
         try{
             const { data } = await axios.post(
                 "/api/users/register",
@@ -69,6 +85,11 @@ const UserRegister = ({history}) => {
 
 
     };
+
+   
+    
+    
+
     
     return ( 
         <>
@@ -88,7 +109,7 @@ const UserRegister = ({history}) => {
             <div className="form-inner">
             <form onSubmit={user_register} className="login">
                 <div className="field">
-                <input type="text" placeholder="Name" name ="username" id="username" required
+                <input   placeholder="Name" name ="username" id="username" required
                     value = {username}
                     onChange={(e)=>{setUsername(e.target.value)}}
                 />
@@ -147,6 +168,11 @@ const UserRegister = ({history}) => {
                     onChange = {(e)=>{setConfirmPassword(e.target.value)}}
                 />
                 </div>
+                <div>    
+    <input type="password" id="password" name="password" />    
+    <input type="checkbox" id="toggle-password" />
+    <label for="toggle-password">Show Password</label>
+  </div>
 
                 <div className="field btn">
                 <div className="btn-layer"></div>

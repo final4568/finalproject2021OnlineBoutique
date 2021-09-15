@@ -1,14 +1,14 @@
+
+
 const multer = require("multer");
 const { findById } = require("../models/Product");
 const Product = require("../models/Product");
 
 const multerConfig = multer.diskStorage({
-  destination: (req, file, callback) => {
+    destination: (req, file, callback) => {
     callback(null, "public/images");
   },
-  filename: (req, file, callback) => {
-    // const ext = file.mimetype.split('/')[1];
-    // `image=${Date.now()}.${ext}`
+    filename: (req, file, callback) => {
     callback(null, file.originalname);
   },
 });
@@ -20,13 +20,15 @@ const isImage = (req, file, callback) => {
     callback(new Error("Only Image Is Allowd...!"));
   }
 };
+
 const upload = multer({
   storage: multerConfig,
   fileFilter: isImage,
 });
+
 exports.uploadImage = upload.single("product_photo");
+
 exports.upload = (req, res) => {
-  console.log(req.file);
   const uploadproduct = new Product({
     product_name: req.body.product_name,
     product_description: req.body.product_description,
@@ -35,8 +37,7 @@ exports.upload = (req, res) => {
     product_photo: req.file.originalname,
   });
 
-  uploadproduct
-    .save()
+  uploadproduct.save()
     .then(() => {
       res.status(200).json({
         success: true,
@@ -83,6 +84,7 @@ exports.getallproducts = (req, res) => {
     }
   });
 };
+
 
 exports.deleteproduct = async (req, res) => {
   try {

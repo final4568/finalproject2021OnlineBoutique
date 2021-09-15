@@ -22,6 +22,7 @@ const FemaleProducts = () => {
                 const { data } = await axios.post('/api/product/maleproducts',{product_category}, configg);
                console.log(data)
                setProduct(data);
+               
               }catch(error){
                 setError("not Fetch Data")      
               }

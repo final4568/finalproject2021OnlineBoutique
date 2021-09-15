@@ -30,7 +30,11 @@ const UserSchema = new mongoose.Schema({
     type: String,
     require: [true, " Please Enter Your Password"],
     minlength: 2,
-    select: false,
+   match: [
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+      "Please Enter Valid Email",
+    ],
+
   },
   address: {
     type: String,

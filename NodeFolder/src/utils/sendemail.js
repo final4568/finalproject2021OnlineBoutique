@@ -5,12 +5,12 @@ const sendEmail = (options) => {
     service: "SendGrid",
     auth: {
       user: "apikey",
-      pass: "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",
+      pass: "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",
     },
   });
 
   const mailOptions = {
-    from: "abcnewstime@abcnewstime.com",
+    from: "info@jobsgum.com",
     to: options.to,
     subject: options.subject,
     html: options.text,

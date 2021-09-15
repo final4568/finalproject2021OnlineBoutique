@@ -10,7 +10,6 @@ const {
   update,
   maleproducts,
 } = require("../controller/products");
-
 router.post("/upload", uploadImage, upload);
 router.put("/update/:id", uploadImage, update);
 router.route("/getallproducts").get(getallproducts);
