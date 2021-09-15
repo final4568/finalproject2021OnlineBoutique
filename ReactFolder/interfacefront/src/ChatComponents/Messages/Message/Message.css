@@ -6,6 +6,7 @@
     display: inline-block;
     max-width: 80%;
     height: 20px;
+    background-color: white;
   }
   
   .messageText {
@@ -16,7 +17,8 @@
     word-wrap: break-word;
   }
   .tailomessage{
-    background:rgba(0, 0, 0, 0.075);
+    /* background:rgba(0, 0, 0, 0.075); */
+    background-color: #ff318e;
     padding: 10px;
     max-width: 80%;
     border-radius: 20px;
@@ -42,6 +44,7 @@
     font-family: Helvetica;
     color: #828282;
     letter-spacing: 0.3px;
+    
   }
   
   .pl-10 {
@@ -71,7 +74,7 @@
   }
   
   .backgroundBlue {
-    background: #2979FF;
+    background: #ff318e;
   }
   
   .backgroundLight {
