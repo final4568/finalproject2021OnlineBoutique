@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import Menu from '../layouts/Menu';
 import Footer from '../layouts/Footer';
 
-
 const FemaleProducts = () => {
     const product_category = "Female";
    const[error, setError]= useState([]);
@@ -57,7 +56,7 @@ const FemaleProducts = () => {
                     <div key={product._id}>
                     
                         <div className="imageclass">
-                            <img src={`/images/${product.product_photo}`} className="img-fluid" alt="...Loading " width="100%"/>
+                            <img src={`/images/${product.product_photo}`}  className="img-fluid" alt="...Loading " width="100%"/>
                             <div class="overlay">
                                 <Link to = {`/product/Details/${product._id}`}>
                                 <div class="text">Quick View {product.product_name}</div>

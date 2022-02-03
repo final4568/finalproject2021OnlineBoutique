@@ -27,7 +27,6 @@ exports.register = async (req, res, next) => {
       usertype,
       bio,
     });
-
     sendToken(admin, 201, res);
   } catch (error) {
     res.status(500).json({
@@ -126,7 +125,6 @@ exports.resetpassword = async (req, res, next) => {
       resetPasswordExpire: { $gt: Date.now() },
     });
     if (!admin) {
-      // return next(new ErrorResponse("Invalid Reset Token xyz", 400))
       res.status(400).json({
         success: false,
         error: "Invalid Reset Token xyz",
@@ -141,10 +139,6 @@ exports.resetpassword = async (req, res, next) => {
       data: "Password Reset Successfully",
     });
   } catch (error) {
-    // res.status(500).json({
-    //   success: false,
-    //   error: error.message,
-    // });
     next(error);
   }
 };
@@ -165,7 +159,7 @@ exports.adminprofile = async (req, res) => {
         .json({ success: false, error: "Not authorized to access this" });
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.ADMINSECRET_KEY);
     const admin = await Admin.findById(decoded.id);
 
     if (!admin) {

@@ -1,3 +1,5 @@
+require("dotenv").config({ path: "../confiigs.env" });
+
 const jwt = require("jsonwebtoken");
 const Admin = require("../models/Admin");
 
@@ -13,12 +15,13 @@ exports.protect = async (req, res, next) => {
   if (!token) {
     res.status(401).json({
       success: false,
-      error: "Not authorized to access this route",
+      error: "Not authorized to access this route Don't have Token",
     });
   }
+  
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.ADMINSECRET_KEY);
     const admin = await Admin.findById(decoded.id);
 
     if (!admin) {

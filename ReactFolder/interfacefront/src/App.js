@@ -17,6 +17,7 @@ import AdminDashboard from "./Admin_view/AdminDashboard";
 import Adminprofile from './Admin_view/Adminprofile';
 import AdminUpdate from './Admin_view/AdminUpdate';
 
+import TPrivateRoute from "./Tailor_view/TPrivateRoute";
 import TailorLogin from "./Tailor_view/TailorLogin";
 import TailorRegister from "./Tailor_view/TailorRegister";
 import TailorForgotPassword from "./Tailor_view/TPassForgot";
@@ -32,9 +33,10 @@ import AllTailorMain_admin from './Tailor_view/AllTailorMain_admin';
 import TailorProfile from './Tailor_view/TailorProfile';
 import TailorUpdate from './Tailor_view/TailorUpdate';
 
+import UprivateRoute from "./Users_view/UprivateRoute";
 import UserRegister from "./Users_view/UserRegister";
 import UserLogin from "./Users_view/UserLogin";
-import UserDashboards from "./Users_view/UserDashboard";
+import UserDashboard from "./Users_view/UserDashboard";
 import UserForgotPassword from "./Users_view/UserForgotPassword"
 import Userpasswordreset from "./Users_view/Userpasswordreset";
 import UserRegisterByAdmin from "./Users_view/UserRegisterByAdmin";
@@ -108,7 +110,6 @@ function App() {
     <>
       <Router>
         <div className="app_main">
-        
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/Contact" component={Contact} />
@@ -119,9 +120,7 @@ function App() {
           </Switch>
 
             {/* Admin login pages routes */}
-          <Switch>
-
-            
+          <Switch>            
             <Route exact path="/admin/login" component={Adminlogin} />
             <Route exact path="/admin/register" component={RegisterScreen} />
             <Route exact path="/admin/forgetpassword"component={ForgotPasswordScreen}/>
@@ -147,7 +146,7 @@ function App() {
           <Route exact path="/tailor/login" component={TailorLogin} />
             <Route exact path="/tailor/forgetpassword" component={TailorForgotPassword}/>
             <Route exact path="/tailorpasswordreset/:resetToken" component={TailorPasswordReset}/>
-            <Route exact path="/tailor/dashboard" component={TailorDashboard}/>
+            <TPrivateRoute exact path="/tailor/dashboard" component={TailorDashboard}/>
           </Switch>
 
       {/* Tailor SideBar Routes */}
@@ -162,7 +161,7 @@ function App() {
             <Route exact path ="/user/register" component={UserRegister}/>
             <Route exact path ="/user/login" component={UserLogin}/>
             <Route exact path ="/user/UserForgotPassword" component={UserForgotPassword}/>
-            <Route exact path="/user/dashboard" component={ UserDashboards }/>
+            <UprivateRoute exact path="/user/dashboard" component={UserDashboard}/>
             <Route exact path="/Userpasswordreset/:resetToken" component={Userpasswordreset}/>
             <Route exact path="/User/RegisterByAdmin" component={UserRegisterByAdmin}/>
             <Route exact path="/User/UserMain" component={AllUsers_admin}/>

@@ -30,11 +30,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     require: [true, " Please Enter Your Password"],
     minlength: 2,
-   match: [
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-      "Please Enter Valid Email",
-    ],
-
   },
   address: {
     type: String,
@@ -48,7 +43,6 @@ const UserSchema = new mongoose.Schema({
   resetPasswordToken: String,
   resetPasswordExpire: Date,
 });
-
 UserSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     next();
@@ -74,8 +68,9 @@ UserSchema.methods.getResetPasswordToken = function () {
 
 // function for getting token
 UserSchema.methods.getSignedJwtToken = function () {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRETKEYUSER, {
-    expiresIn: process.env.JWT_EXPIREUSER,
+  return jwt.sign({ id: this._id }, 
+    process.env.JWT_SECRETKEYUSER, {
+    expiresIn:60*100
   });
 };
 

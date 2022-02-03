@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="col-sm"></div>
             <div className="col-sm">
               <img
-                src="https://jobsgum.com/wp-content/uploads/2021/05/logo.png"
+                src="http://moversoman.com/wp-content/uploads/2022/02/logo.jpg"
                 alt="loading..."
                 width="60%"
               />

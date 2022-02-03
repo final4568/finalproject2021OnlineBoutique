@@ -1,19 +1,17 @@
-
 import { Redirect, Route } from "react-router-dom";
-
-const UserprivateRoute = ({ component: Component, ...rest }) => {
+const UprivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
-      {...rest}
-      render={(props) => {
+      {...rest} render = {(props) =>
         localStorage.getItem("authToken") ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/user/login" />
-        );
-      }}
+          <Redirect to="/user/login"/>
+        )
+      }
     />
   );
 };
 
-export default UserprivateRoute;
+ 
+export default UprivateRoute;

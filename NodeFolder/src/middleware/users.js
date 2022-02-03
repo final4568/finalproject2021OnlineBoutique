@@ -1,4 +1,5 @@
 // this file is used for checking the token in the header
+require("dotenv").config({ path: "../confiigs.env" });
 
 const jwt = require("jsonwebtoken");
 const Users = require("../models/Users");
@@ -15,7 +16,7 @@ exports.protect = async (req, res, next) => {
   if (!token) {
     res.status(401).json({
       success: false,
-      error: "Not authorized to access this route",
+      error: "Not authorized to access this route, Don't Have Token",
     });
   }
   try {

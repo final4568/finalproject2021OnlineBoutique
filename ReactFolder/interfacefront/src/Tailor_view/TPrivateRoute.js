@@ -2,8 +2,6 @@
 
 
 import { Redirect, Route } from "react-router-dom";
-
-
 const TPrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route

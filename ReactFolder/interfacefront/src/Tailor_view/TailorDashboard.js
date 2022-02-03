@@ -36,6 +36,7 @@ const TailorDashboard = ({ history, location }) => {
 
       } catch (error) {
         console.log("You are not authorized, please login first");
+        setError("You are not authorized, please login first")
       }
     };
 

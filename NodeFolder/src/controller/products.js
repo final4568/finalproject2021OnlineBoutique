@@ -6,7 +6,7 @@ const Product = require("../models/Product");
 
 const multerConfig = multer.diskStorage({
     destination: (req, file, callback) => {
-    callback(null, "public/images");
+    callback(null, "../../ReactFolder/interfacefront/public/images");
   },
     filename: (req, file, callback) => {
     callback(null, file.originalname);

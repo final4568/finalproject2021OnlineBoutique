@@ -1,3 +1,5 @@
+require("dotenv").config({ path: "../confiigs.env" });
+
 const crypto = require("crypto");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
@@ -71,18 +73,16 @@ AdminSchema.methods.matchPasswords = async function (password) {
 // Password bcrypt and get token
 AdminSchema.methods.getResetPasswordToken = function () {
   const resetToken = crypto.randomBytes(20).toString("hex");
-  this.resetPasswordToken = crypto
-    .createHash("sha256")
-    .update(resetToken)
-    .digest("hex");
+  this.resetPasswordToken = crypto.createHash("sha256").update(resetToken).digest("hex");
   this.resetPasswordExpire = Date.now() + 10 * (60 * 1000);
   return resetToken;
 };
 
 // function for getting token
 AdminSchema.methods.getSignedJwtToken = function () {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRE,
+  return jwt.sign({ id: this._id },
+    process.env.ADMINSECRET_KEY, {
+    expiresIn: 60*100
   });
 };
 

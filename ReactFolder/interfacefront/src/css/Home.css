@@ -17,6 +17,7 @@
   background-color: #1a1d1f;
   padding-top: 20px;
   padding-bottom: 40px;
+  z-index: 99;
 }
 .content_section2 h1 {
   color: #ff318e;
@@ -68,6 +69,7 @@
   align-items: center;
   margin-top: 40px;
   margin-bottom: 40px;
+
 }
 #ser_img_row a:hover img {
   background-color: #1a1d1f;
@@ -106,9 +108,11 @@
   margin-top: -30px;
   margin-bottom: -82px;
   padding-bottom: 100px;
-  background-image: url("https://jobsgum.com/wp-content/uploads/2021/05/aaa.jpg");
+  background-image: url("http://moversoman.com/wp-content/uploads/2022/02/back_final.jpg");
   background-attachment: scroll;
   overflow: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .text {
@@ -130,31 +134,33 @@
 
 #changegame {
   margin-top: 80px;
-  background-image: url("https://jobsgum.com/wp-content/uploads/2021/05/Untitled-6.jpg");
+  background-image: url("http://moversoman.com/wp-content/uploads/2022/02/back_final.jpg");
   background-attachment: fixed;
   overflow: auto;
   padding-top: 50px;
   text-align: left;
   padding-bottom: 60px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #howWord1 {
   padding-top: 70px;
-  text-align: left;
+  text-align: center;
 }
 #howWord1 h1 {
-  text-align: left;
+  text-align: center;
   font-weight: 750;
   font-size: 40px;
   text-transform: uppercase;
   text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
     0px -4px 10px rgba(255, 255, 255, 0.3);
-  color: #fff;
+  color: #161616;
 }
 #howWord1 p {
-  text-align: left;
+  text-align: center;
   font-size: 16px;
-  color: #fff;
+  color: #444444;
 }
 #howWord1 img {
   margin-top: -30px;
@@ -162,11 +168,14 @@
 .btn_contact {
   padding: 10px 60px 10px 60px;
   background: transparent;
-  border: 1px solid #fff;
+  border: 1px solid rgb(29, 29, 29);
   border-radius: 5px;
-  color: #fff;
+  color: rgb(29, 29, 29);
   text-transform: uppercase;
   margin-top: 20px;
+  text-align: center;
+  align-items: center;
+  
 }
 .btn_contact:hover {
   background: #ff318e;

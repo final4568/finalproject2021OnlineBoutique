@@ -1,6 +1,7 @@
 
 import Menu from './layouts/Menu';
 import Footer from './layouts/Footer';
+import "./index.css";
 
 
 
@@ -8,6 +9,12 @@ const Contact = () => {
     return (
       <>
       <Menu/>
+      <div className="container-fluid" id="contact_banner">
+            <h1>Contact us Now</h1>
+            <p>We are trying Provides all kinds of good ReadyMade & Custom Dress</p>
+
+        {/* top banner */}
+        </div>
       <h1>CONTACT US</h1>
       <p>
       Lorem Ipsum has been the industry's standard dummy 

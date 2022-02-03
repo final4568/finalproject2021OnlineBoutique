@@ -19,11 +19,8 @@ exports.register = async (req, res, next) => {
       usertype,
       bio,
     });
-    res.status(200).json({
-      success: true,
-      mssage: " Registered Successfully....!",
-    });
-    //  sendToken(tailor, 201, res);
+    sendToken(tailor, 200, res);
+        //  sendToken(tailor, 201, res);
   } catch (error) {
     next(error);
   }
@@ -202,7 +199,7 @@ exports.tailorLoggedprofile = async (req, res) => {
         .json({ success: false, error: "Not authorized to access this route" });
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRETKEY);
+    const decoded = jwt.verify(token, process.env.JWT_SECRETKEYTAILOR);
     const tailor = await Tailor.findById(decoded.id);
 
     if (!tailor) {

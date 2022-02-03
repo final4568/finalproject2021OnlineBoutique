@@ -5,7 +5,7 @@ import UserHeader from "../layouts/UserHeader";
 import UserOrders from "../Order/UserOrder";
 import Chat from "../ChatComponents/chat/Chat";
 
-const UserDashboards = ({ history }) => {
+const UserDashboard = ({ history }) => {
   const [error, setError] = useState("");
   const [user, setUser] = useState("");
 
@@ -26,10 +26,12 @@ const UserDashboards = ({ history }) => {
           "/api/users/LoggedUserProfile",
           config
         );
-          console.log(data)
+
         setUser(data);
       } catch (error) {
         console.log("You are not authorized, please login first");
+        setError("You are not authorized, please login first")
+
       }
     };
 
@@ -75,16 +77,12 @@ const UserDashboards = ({ history }) => {
     
   
     {user &&
-
-    
-
     <div>
       <Chat name={user.username} room={user.gender}/>
     </div>
-
     }
     </>
   );
 };
 
-export default UserDashboards;
+export default UserDashboard;

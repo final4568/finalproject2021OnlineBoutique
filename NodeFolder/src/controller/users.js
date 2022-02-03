@@ -3,26 +3,24 @@ const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 const sendEmail = require("../utils/sendemail");
 
-exports.register = async (req, res, next) => {
+exports.register = async (req, res,next) => {
   const { username, email, phone, gender, password, address, birthday } =
     req.body;
-  try {
-    const user = await User.create({
-      username,
-      email,
-      phone,
-      gender,
-      password,
-      address,
-      birthday,
-    });
-    sendToken(user, 201, res);
-  } catch {
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    });
-  }
+    try {
+      const user = await User.create({
+        username,
+        email,
+        phone,
+        gender,
+        password,
+        address,
+        birthday
+      });
+      sendToken(user, 200, res);
+          //  sendToken(tailor, 201, res);
+    } catch (error) {
+      next(error);
+    }
 };
 
 exports.registerbyauth = async (req, res) => {
@@ -77,11 +75,8 @@ exports.login = async (req, res, next) => {
       });
     }
     sendToken(user, 201, res);
-  } catch {
-    res.status(404).json({
-      success: false,
-      error: "Not Logged In",
-    });
+  } catch(error) {
+   next(error)
   }
 };
 

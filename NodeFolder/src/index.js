@@ -1,5 +1,5 @@
-require("dotenv").config({ path: "./configg.env" });
 
+require("dotenv").config({ path: "./confiigs.env" });
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
@@ -9,7 +9,7 @@ const errorHandler = require('./middleware/Erro');
 
 //Database collection....
 connectionDB();
-app.use(express.static('./public'));
+app.use(express.static('./public/images'));
 
 app.use(express.json());
 
@@ -26,11 +26,7 @@ app.use('/api/oders', require("./routes/order"));
 
 app.use('/api/customOrder', require("./routes/customeDress"));
 
-
-
-
 app.use(errorHandler);
-
 app.get('/', (req, res)=>{
     res.send(`<h1>Hi this is the home page of backend (API's) of Final project</h1>`);
 })

@@ -1,18 +1,16 @@
 import "./index.css";
 import Slider from "./Slider";
-import Menu from './layouts/Menu';
-import Footer from './layouts/Footer'
+import Menu from "./layouts/Menu";
+import Footer from "./layouts/Footer";
 import { Link } from "react-router-dom";
 import ProductsComponet from "./ShopPage/ProductsComponet";
-
-
 
 const Home = () => {
   return (
     <>
       <Menu />
-      <Slider />
-      <div className="container-container_fluide" id="section2">
+      <Slider/>
+      <div className="container_fluide" id="section2" style={{border:"none"}}>
         <div className="container" id="Inersection2">
           <div className="row">
             <div className="col-sm">
@@ -43,7 +41,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="container_fluider" id="bacgimg">
+      <div className="container_fluider"  id="bacgimg">
         <div className="container" id="howWord">
           <h1>Our categories</h1>
           <p>
@@ -52,34 +50,40 @@ const Home = () => {
             ladies and gents
           </p>
           <img
-            src="https://jobsgum.com/wp-content/uploads/2021/05/xyz.png"
+            src="http://moversoman.com/wp-content/uploads/2022/02/BOX.png"
             alt="Loading..."
           />
         </div>
 
         <div className="container" id="serv_img">
           <div className="row" id="ser_img_row">
-            <div className="col-lg-6 col-md col-sm">
+            <div className="col-lg-6 col-md col-sm" style={{boxShadow: "0 0 10px #9d9d9d", 
+              padding:"0%", width:"48%", margin:"10px"}}>
               <Link to="/product">
                 <div id="container">
                   <img
-                    src="https://jobsgum.com/wp-content/uploads/2021/05/Untitled-2.jpg"
+                    src="http://moversoman.com/wp-content/uploads/2022/02/6-1.jpg"
                     alt="Avatar"
                     className="image"
+                    
                   />
                   <div className="overlay">
-                    <div className="text" to="/shop">Shop Now</div>
+                    <div className="text" to="/shop">
+                      Shop Now
+                    </div>
                   </div>
                 </div>
               </Link>
             </div>
-            <div className="col-lg-6 col-md col-sm">
+            <div className="col-lg-6 col-md col-sm" style={{boxShadow: "0 0 10px #9d9d9d", 
+          padding:"0%" , width:"48%", margin:"10px"}}>
               <Link to="/product">
                 <div id="container">
                   <img
-                    src="https://jobsgum.com/wp-content/uploads/2021/05/Untitled-4.jpg"
+                    src="http://moversoman.com/wp-content/uploads/2022/02/6-2.jpg"
                     alt="Avatar"
                     className="image"
+                    width="100%"
                   />
                   <div className="overlay">
                     <div className="text">Shop Now</div>
@@ -89,26 +93,25 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="container_fluider" id="bacgimg">
+      </div> 
+
+      <div className="container_fluider" >
         <div className="container" id="howWord">
-          <h1 style={{color:"#1a1d1f"}}>Our Products</h1>
+          <h1 style={{ color: "#1a1d1f" }}>Our Products</h1>
           <p>
             Stitching Master is the online tailoring service in Pakistan. We are
             offering online tailor service for <br />
             ladies and gents
           </p>
           <img
-            src="https://jobsgum.com/wp-content/uploads/2021/05/xyz.png"
+            src="http://moversoman.com/wp-content/uploads/2022/02/BOX.png"
             alt="Loading..."
           />
         </div>
       </div>
 
-      <ProductsComponet/>
+      <ProductsComponet />
 
-
-      
       <div className="container_fluide" id="changegame">
         <div className="container" id="howWord1">
           <h1>Changing the game. Embracing individuals.</h1>
@@ -120,7 +123,7 @@ const Home = () => {
             mass- produced items - just really great, personalized dress shirts
             made to embrace individuality.
           </p>
-          <button className="btn_contact">Contact us</button>
+          {/* <button className="btn_contact">Contact us</button> */}
         </div>
       </div>
 
@@ -132,7 +135,7 @@ const Home = () => {
           ladies and gents
         </p>
         <img
-          src="https://jobsgum.com/wp-content/uploads/2021/05/xyz.png"
+          src="http://moversoman.com/wp-content/uploads/2022/02/BOX.png"
           alt="Loading..."
         />
       </div>
@@ -141,7 +144,8 @@ const Home = () => {
           <div className=" col-sm">
             <div className="innerContent">
               <i className="fa fa-mouse" aria-hidden="true" />
-              <h1>PLACE <br/> ORDER ONLINE
+              <h1>
+                PLACE <br /> ORDER ONLINE
               </h1>
               <p>
                 Choose your product and personalise it with custom necklines,
@@ -190,7 +194,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
